@@ -12,8 +12,8 @@ var browserSync = require('browser-sync').create(),
 /* Variables
    ---------------------------------------------- */
 
-var dev = 'dev/wp-content/**/assets';
-var dist = 'wp-content/**/assets';
+var dev = 'dev/**/**/assets';
+var dist = 'wp-content/**/**/assets';
 var proxyURL = 'http://localhost/personal/wordpress';
 
 /* JavaScript
@@ -70,28 +70,29 @@ var proxyURL = 'http://localhost/personal/wordpress';
 /* Static Files
    ---------------------------------------------- */
 
-// var staticSources = ['dev/wp-content/**/*.html'];
+var staticSources = ['dev/**/*.php'];
 
-// gulp.task('static', function() {
-// 	gulp.src(staticSources)
-// 		.pipe(gulp.dest('wp-content'));
-// });
+gulp.task('static', function() {
+	gulp.src(staticSources)
+		.pipe(gulp.dest('wp-content'));
+});
 
 /* Watch All The Things
    ---------------------------------------------- */
 
-// gulp.task('watch', function() {
-//     browserSync.init({
-//         proxy: proxyURL,
-//         open: false
-//     })
-// 	gulp.watch(jsSources, ['js']);
-// 	gulp.watch(dev + '/scss/*.scss', ['sass']);
-// 	gulp.watch(cssSources, ['css']);
-// 	gulp.watch(staticSources, ['static']).on('change', browserSync.reload);
-// });
+gulp.task('watch', function() {
+    browserSync.init({
+        proxy: proxyURL,
+        open: false
+    })
+	// gulp.watch(jsSources, ['js']);
+	// gulp.watch(dev + '/scss/*.scss', ['sass']);
+	// gulp.watch(cssSources, ['css']);
+	gulp.watch(staticSources, ['static']);
+});
 
 /* Default Gulp Task
    ---------------------------------------------- */
 
+gulp.task('default', ['static', 'watch']);
 // gulp.task('default', ['js', 'sass', 'css', 'static', 'watch']);
