@@ -1,7 +1,7 @@
 Base Workflow
 ===========================
 
-**Version:** 1.0
+**Version:** 0.0
 
 A simple gulp workflow with development and distribution folders.
 
