@@ -10,10 +10,13 @@ sitemap.xml.gz
 # Folders
 wp-admin/
 wp-includes/
-wp-content/
+wp-content/*
+!wp-content/plugins
+!wp-content/themes
 
-# Plugin exceptions
-# !plugins/test
+# Plugins
+wp-content/plugins/*
+!wp-content/plugins/custom-stuff/
 
-# Theme exceptions
-# !themes/test
+# Themes
+wp-content/themes/*
