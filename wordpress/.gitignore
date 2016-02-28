@@ -1,0 +1,19 @@
+# Files
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+/*.php
+/readme.html
+/license.txt
+
+# Folders
+wp-admin/
+wp-includes/
+wp-content/
+
+# Plugin exceptions
+# !plugins/test
+
+# Theme exceptions
+# !themes/test
