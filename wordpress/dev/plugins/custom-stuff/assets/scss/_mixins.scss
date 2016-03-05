@@ -2,8 +2,6 @@
 
 @mixin inline-block($vertical-align) {
 	display: inline-block;
-	zoom: 1;
-	*display: inline;
 	vertical-align: $vertical-align;
 }
 
@@ -11,10 +9,4 @@
 	@media only screen and (max-width: $breakpoint + px) {
 		@content;
 	}
-}
-
-@mixin box-sizing() {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;	
 }
