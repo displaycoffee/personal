@@ -6,7 +6,6 @@
 		Description: Used for setting up custom content types, taxonomies, and meta boxes.
 		Author: Adria Murphy
 		Author URI: http://neverend.org/adria
-		License: GPL2
 		Version: 4.0
 		Text Domain: xyz-textdomain
 	*/
