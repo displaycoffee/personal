@@ -61,7 +61,7 @@ gulp.task('sass', function() {
 /* CSS
    ---------------------------------------------- */
 
-var cssSources = [distCSS + '/styles.css'];	
+var cssSources = [distCSS + '/**.css'];	
 
 gulp.task('css', function() {
 	gulp.src(cssSources)
