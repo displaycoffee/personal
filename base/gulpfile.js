@@ -5,76 +5,78 @@ var browserSync = require('browser-sync').create(),
 	gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
-	cssnano = require('gulp-cssnano'),
 	sass = require('gulp-sass'),
 	uglify = require('gulp-uglify');
 
-/* Variables
+/* Global Variables
    ---------------------------------------------- */
 
-var dev = 'dev/assets';
-var dist = 'dist/assets';
 var proxyURL = 'http://localhost/personal/base';
+
+/* Development Variables
+   ---------------------------------------------- */
+
+var dev = 'dev';
+var devJS = dev + '/assets/js';
+var devSass = dev + '/assets/scss';
+
+/* Distribution Variables
+   ---------------------------------------------- */
+
+var dist = 'dist';
+var distJS = dist + '/assets/js';
+var distCSS = dist + '/assets/css';
 
 /* JavaScript
    ---------------------------------------------- */
 
 var jsSources = [
-	dev + '/js/script1.js',
-	dev + '/js/script2.js'
+	devJS + '/script1.js',
+	devJS + '/script2.js'
 ];	
 
-var vendorSources = [dev + '/js/vendor/*.js'];
+var vendorSources = [devJS + '/vendor/*.js'];
 
 gulp.task('js', function() {
 	gulp.src(jsSources)
 		.pipe(concat('main.js'))
-		.pipe(gulp.dest(dev + '/js'))
+		.pipe(gulp.dest(devJS))
 		.pipe(uglify())
-		.pipe(gulp.dest(dist + '/js'));
+		.pipe(gulp.dest(distJS));
 	gulp.src(vendorSources)
-		.pipe(gulp.dest(dist + '/js/vendor'));
+		.pipe(gulp.dest(distJS + '/vendor'));
 });
 
 /* SASS
    ---------------------------------------------- */
 
-var sassSources = [dev + '/scss/styles.scss'];
+var sassSources = [devSass + '/styles.scss'];
 
 gulp.task('sass', function() {
 	gulp.src(sassSources)
-		.pipe(sass({
-			outputStyle: 'expanded',
-			indentType: 'tab',
-			indentWidth : 1
-		}).on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest(dev + '/css'));
+		.pipe(gulp.dest(distCSS));
 });
 
 /* CSS
    ---------------------------------------------- */
 
-var cssSources = [
-	dev + '/css/normalize.css',
-	dev + '/css/styles.css'
-];	
+var cssSources = [distCSS + '/*.css'];	
 
 gulp.task('css', function() {
 	gulp.src(cssSources)
-		.pipe(cssnano())
-		.pipe(gulp.dest(dist + '/css'))
 		.pipe(browserSync.stream());
 });
 
 /* Static Files
    ---------------------------------------------- */
 
-var staticSources = ['dev/*.html'];
+var staticSources = [dev + '/**/*.html'];
 
 gulp.task('static', function() {
 	gulp.src(staticSources)
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest(dist));
 });
 
 /* Watch All The Things
@@ -86,7 +88,8 @@ gulp.task('watch', function() {
         open: false
     })
 	gulp.watch(jsSources, ['js']);
-	gulp.watch(dev + '/scss/*.scss', ['sass']);
+	gulp.watch(vendorSources, ['js']);
+	gulp.watch(devSass + '/*.scss', ['sass']);
 	gulp.watch(cssSources, ['css']);
 	gulp.watch(staticSources, ['static']).on('change', browserSync.reload);
 });
