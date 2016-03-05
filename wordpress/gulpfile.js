@@ -21,22 +21,19 @@ var proxyURL = 'http://localhost/personal/wordpress';
 /* JavaScript
    ---------------------------------------------- */
 
-// var jsSources = [
-// 	dev + '/js/script1.js',
-// 	dev + '/js/script2.js'
-// ];	
+var jsSources = [
+	dev + '/assets/js/media-library.js',
+	dev + '/assets/js/image-reset.js',
+	dev + '/assets/js/run-functions.js'
+];
 
-// var vendorSources = [dev + '/js/vendor/*.js'];
-
-// gulp.task('js', function() {
-// 	gulp.src(jsSources)
-// 		.pipe(concat('main.js'))
-// 		.pipe(gulp.dest(dev + '/js'))
-// 		.pipe(uglify())
-// 		.pipe(gulp.dest(dist + '/js'));
-// 	gulp.src(vendorSources)
-// 		.pipe(gulp.dest(dist + '/js/vendor'));
-// });
+gulp.task('js', function() {
+	gulp.src(jsSources)
+		.pipe(concat('functions.js'))
+		.pipe(gulp.dest(dev + '/assets/js'))
+		.pipe(uglify())
+		.pipe(gulp.dest(dist + '/assets/js'));
+});
 
 /* SASS
    ---------------------------------------------- */
@@ -87,7 +84,7 @@ gulp.task('watch', function() {
         proxy: proxyURL,
         open: false
     })
-	//gulp.watch(jsSources, ['js']);
+	gulp.watch(jsSources, ['js']);
 	//gulp.watch(dev + '/scss/*.scss', ['sass']);
 	//gulp.watch(cssSources, ['css']);
 	gulp.watch(staticSources, ['static']);
@@ -96,5 +93,5 @@ gulp.task('watch', function() {
 /* Default Gulp Task
    ---------------------------------------------- */
 
-gulp.task('default', ['static', 'watch']);
+gulp.task('default', ['js', 'static', 'watch']);
 // gulp.task('default', ['js', 'sass', 'css', 'static', 'watch']);
