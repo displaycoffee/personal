@@ -50,7 +50,7 @@ gulp.task('js', function() {
 /* SASS
    ---------------------------------------------- */
 
-var sassSources = [devSass + '/styles.scss'];
+var sassSources = [devSass + '/style.scss'];
 
 gulp.task('sass', function() {
 	gulp.src(sassSources)
