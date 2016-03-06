@@ -20,3 +20,4 @@ wp-content/plugins/*
 
 # Themes
 wp-content/themes/*
+!wp-content/plugins/ambase/

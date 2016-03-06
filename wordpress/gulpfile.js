@@ -11,8 +11,8 @@ var browserSync = require('browser-sync').create(),
 /* Global Variables
    ---------------------------------------------- */
 
-var wpFolder = 'plugins';
-var dirName = 'custom-stuff';
+var wpFolder = 'themes';
+var dirName = 'ambase';
 var proxyURL = 'http://localhost/personal/wordpress';
 
 /* Development Variables
@@ -49,19 +49,19 @@ gulp.task('js', function() {
 /* SASS
    ---------------------------------------------- */
 
-var sassSources = [devSass + '/styles.scss'];
+var sassSources = [devSass + '/style.scss'];
 
 gulp.task('sass', function() {
 	gulp.src(sassSources)
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest(distCSS));
+		.pipe(gulp.dest(dist));
 });
 
 /* CSS
    ---------------------------------------------- */
 
-var cssSources = [distCSS + '/**.css'];	
+var cssSources = [dist + '/**.css'];	
 
 gulp.task('css', function() {
 	gulp.src(cssSources)
