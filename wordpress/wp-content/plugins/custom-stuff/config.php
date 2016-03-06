@@ -6,7 +6,7 @@
 		Description: Used for setting up custom content types, taxonomies, and meta boxes.
 		Author: Adria Murphy
 		Author URI: http://neverend.org/adria
-		Version: 4.0
+		Version: 4.1
 		Text Domain: xyz-textdomain
 	*/
 
@@ -41,7 +41,7 @@
 	        wp_enqueue_script( 'xyz_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
 
 	        // Enqueue the required CSS
-	        wp_enqueue_style( 'xyz_asset', plugin_dir_url( __FILE__ ) . 'assets/css/styles.css' );
+	        wp_enqueue_style( 'xyz_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
 
 	    }
 	}
