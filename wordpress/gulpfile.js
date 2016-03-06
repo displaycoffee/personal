@@ -13,7 +13,7 @@ var browserSync = require('browser-sync').create(),
 
 var wpFolder = 'plugins';
 var dirName = 'custom-stuff';
-var proxyURL = 'http://localhost/personal/wpbase';
+var proxyURL = 'http://localhost/personal/wordpress';
 
 /* Development Variables
    ---------------------------------------------- */
