@@ -11,8 +11,8 @@ var browserSync = require('browser-sync').create(),
 /* Global Variables
    ---------------------------------------------- */
 
-var wpFolder = 'plugins';
-var dirName = 'custom-stuff';
+var wpFolder = 'themes';
+var dirName = 'ambase';
 var proxyURL = 'http://localhost/personal/wordpress';
 
 /* Development Variables
@@ -27,7 +27,13 @@ var devSass = dev + '/assets/scss';
 
 var dist = 'wp-content/' + wpFolder + '/' + dirName;
 var distJS = dist + '/assets/js';
-var distCSS = dist + '/assets/css';
+
+// CSS location is different for themes, so let's add a conditonal
+if (wpFolder == 'themes') {
+	var distCSS = dist;
+} else {
+	var distCSS = dist + '/assets/css';
+}
 
 /* JavaScript
    ---------------------------------------------- */
