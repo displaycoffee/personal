@@ -1,10 +1,18 @@
+<?php
+	/**
+	* Template for displaying the footer
+	*/
+?>
 			</div>
-			<div id="footer" role="contentinfo">
-				<div id="copyright">
-					<?php echo sprintf( __( '%1$s %2$s %3$s. All Rights Reserved.', 'ambase' ), '&copy;', date( 'Y' ), esc_html( get_bloginfo( 'name' ) ) ); echo sprintf( __( ' Theme By: %1$s.', 'ambase' ), '<a href="http://tidythemes.com/">TidyThemes</a>' ); ?>
-				</div>
-			</div>
-		</div>
+		</section>
+		<footer id="footer">
+			<p id="copyright">
+				<?php echo sprintf( __( '%1$s %2$s %3$s. All Rights Reserved.', 'ambase' ), '&copy;', date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+			</p>
+			<p id="credits">
+				<?php echo sprintf( __( 'Theme by %1$s', 'ambase' ), '<a href="//neverend.org/adria" target="_blank">Adria Murphy</a>' ); ?>
+			</p>
+		</footer>
 		<?php wp_footer(); ?>
 	</body>
 </html>

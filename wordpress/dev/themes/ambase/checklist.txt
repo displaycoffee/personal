@@ -1,0 +1,10 @@
+Done
+-----------------------
+404.php
+archive.php
+footer.php
+header.php
+loop.php
+search.php
+searchform.php
+sidebar.php

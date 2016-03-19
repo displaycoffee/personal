@@ -8,6 +8,12 @@
 		Author URI: http://neverend.org/adria
 		Version: 4.1
 		Text Domain: xyz-textdomain
+
+		To do:
+		add spaces back for formatting standard
+		change sprintf to printf
+		change camel case to understore separated
+		class files should start with class and should relate to the class name
 	*/
 
 	// Load plugin text domain

@@ -45,13 +45,13 @@
 	}
 	add_filter('wp_title', 'ambase_filter_wp_title');
 
-	
+	// Register sidebars
 	function ambase_widgets_init() {
 		register_sidebar(array (
-			'name' => __('Sidebar Widget Area', 'ambase'),
-			'id' => 'primary-widget-area',
-			'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-			'after_widget' => "</li>",
+			'name' => __('Default Sidebar', 'ambase'),
+			'id' => 'default-widget-area',
+			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+			'after_widget' => "</div>",
 			'before_title' => '<h3 class="widget-title">',
 			'after_title' => '</h3>',
 		));
@@ -78,3 +78,39 @@
 		}
 	}
 	add_filter('get_comments_number', 'ambase_comments_number');
+
+	// Remove certain classes from post entries
+	function ambase_post_classes( $classes ) {
+	    $class_key = array_search( 'hentry', $classes );	 
+	    if ( false !== $class_key ) {
+	        unset( $classes[ $class_key ] );
+	    }	 
+	    return $classes;
+	}
+	add_filter( 'post_class', 'ambase_post_classes' );
+
+	// Trim default excerpt length
+	function ambase_excerpt_length( $length ) {
+	    return 50;
+	}
+	add_filter( 'excerpt_length', 'ambase_excerpt_length' );
+
+	// Change text if excerpt length is reached
+	function ambase_excerpt_more( $more ) {
+	    return '...';
+	}
+	add_filter( 'excerpt_more', 'ambase_excerpt_more' );
+
+	// Custom read more link for excerpts
+	function ambase_read_more() {
+	    return '<div class="read-more"><a href="' . esc_url( get_permalink( get_the_ID() ) ) . '">Read More</a></div>';
+	}
+
+	// Check if there is a custom excerpt and if so, make sure it's not too long
+	function ambase_excerpt() {
+		if ( has_excerpt() ) {	    
+		    return '<p>' . wp_trim_words( get_the_excerpt(), 50 ) . '</p>' . ambase_read_more();
+		} else {
+			return '<p>' . get_the_excerpt() . '</p>' . ambase_read_more();
+		}
+	}
