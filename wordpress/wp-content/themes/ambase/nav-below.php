@@ -4,3 +4,12 @@
 <div class="nav-next"><?php previous_posts_link(sprintf( __( 'newer %s', 'ambase' ), '<span class="meta-nav">&rarr;</span>' ) ) ?></div>
 </nav>
 <?php } ?>
+
+		<?php
+
+			the_posts_pagination( array(
+				'prev_text'          => __( 'Previous page', 'twentysixteen' ),
+				'next_text'          => __( 'Next page', 'twentysixteen' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+			) );
+		?>
