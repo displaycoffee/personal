@@ -5,6 +5,7 @@ archive.php
 footer.php
 header.php
 loop.php
+nav-below.php
 search.php
 searchform.php
 sidebar.php

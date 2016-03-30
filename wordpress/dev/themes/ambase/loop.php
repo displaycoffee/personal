@@ -46,6 +46,7 @@
 			</footer>
 		</div>
 	<?php endwhile; ?>
+	<?php get_template_part( 'nav', 'below' ); ?>
 <?php else : ?>
 	<div id="no-post" class="not-found">
 		<p>
@@ -60,4 +61,3 @@
 		<p><?php echo sprintf( __( 'Return to %1$s%2$s%3$s?', 'ambase' ), '<a href="', esc_url( home_url( '/' ) ), '">home</a>' ); ?></p>		
 	</div>
 <?php endif; ?>
-<?php get_template_part( 'nav', 'below' ); ?>
