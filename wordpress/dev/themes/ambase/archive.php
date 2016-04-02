@@ -8,7 +8,7 @@
 	get_header(); 
 ?>
 <article>
-	<div class="title">
+	<header class="main-title">
 		<h1>
 			<?php 
 				if ( is_day() ) { 
@@ -22,8 +22,8 @@
 				}
 			?>			
 		</h1>
-	</div>
-	<?php get_template_part( 'loop' ); ?>
+	</header>
+	<?php get_template_part( 'loop', 'index' ); ?>
 </article>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

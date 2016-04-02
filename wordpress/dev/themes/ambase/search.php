@@ -6,9 +6,9 @@
 	get_header(); 
 ?>
 <article>
-	<div class="title">
+	<header class="main-title">
 		<h1><?php printf( __( 'Search results for "%s"', 'ambase' ), get_search_query() ); ?></h1>
-	</div>
+	</header>
 	<?php get_template_part( 'loop' ); ?>
 </article>
 <?php get_sidebar(); ?>

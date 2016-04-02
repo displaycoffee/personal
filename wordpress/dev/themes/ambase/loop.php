@@ -11,10 +11,7 @@
 					<a href="<?php esc_url( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>"><?php the_title(); ?></a>
 				</h2>
 			</header>
-			<div class="entry-meta">
-				<p class="author"><?php the_author_posts_link(); ?></p>
-				<p class="date"><?php the_time( get_option( 'date_format' ) ); ?></p>
-			</div>
+			<?php get_template_part( 'partials/entry', 'meta' ); ?>
 			<?php 
 				if ( has_post_thumbnail() ) { 
 					echo '<div class="entry-thumbnail">' . get_the_post_thumbnail() . '</div>'; 

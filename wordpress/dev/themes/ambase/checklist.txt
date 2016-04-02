@@ -2,6 +2,7 @@ Done
 -----------------------
 404.php
 archive.php
+attachment.php
 footer.php
 header.php
 loop.php

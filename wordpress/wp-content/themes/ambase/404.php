@@ -6,9 +6,9 @@
 	get_header(); 
 ?>
 <article>
-	<div class="title">
+	<header class="main-title">
 		<h1><?php _e( 'Not Found', 'ambase' ); ?></h1>
-	</div>
+	</header>
 	<div id="error-404" class="not-found">
 		<p><?php _e( 'Nothing found for the requested page.', 'ambase' ); ?></p>
 		<p><?php echo sprintf( __( 'Return to %1$s%2$s%3$s?', 'ambase' ), '<a href="',  esc_url( home_url( '/' ) ), '">home</a>' ); ?></p>

@@ -30,16 +30,6 @@
 	}
 	add_action('comment_form_before', 'ambase_enqueue_comment_reply_script');
 	
-	function ambase_title($title) {
-		if ($title == '') {
-			return '&rarr;';
-		} else {
-			return $title;
-		}
-	}
-	add_filter('the_title', 'ambase_title');
-
-	
 	function ambase_filter_wp_title($title)	{
 		return $title . esc_attr(get_bloginfo('name'));
 	}
