@@ -59,14 +59,12 @@
 						} 
 					?>
 				</div>
-				<footer class="entry-footer">
-					<nav class="simple-navigation">
-						<div class="previous"><?php previous_image_link( false, 'Previous' ); ?></div>
-						<div class="next"><?php next_image_link( false, 'Next' ); ?></div>					
-					</nav>
-				</footer>
 			</div>
 		</div>
+		<nav class="simple-navigation">
+			<div class="previous"><?php previous_image_link( false, 'Previous' ); ?></div>
+			<div class="next"><?php next_image_link( false, 'Next' ); ?></div>					
+		</nav>		
 		<?php comments_template(); ?>
 	</article>
 <?php endwhile; endif; ?>

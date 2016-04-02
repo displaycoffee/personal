@@ -48,15 +48,38 @@
 	}
 	add_action('widgets_init', 'ambase_widgets_init');
 
-	function ambase_custom_pings($comment) {
-		$GLOBALS['comment'] = $comment;
-		?>
-			<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-				<?php echo comment_author_link(); ?>
-			</li>
-		<?php 
+	// Custom comments template
+	function ambase_custom_comments($comment, $args, $depth) {
+	    if ( 'div' === $args['style'] ) {
+	        $add_below = 'comment';
+	    } else {
+	        $add_below = 'div-comment';
+	    }
+    ?>
+    	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+	    	<div class="comment-meta">
+		    	<p class="author"><?php printf( __( 'Comment by %s', 'ambase' ), get_comment_author_link() ); ?></p>
+			    <p class="date"><?php printf( __( 'on %1$s at %2$s', 'ambase' ), get_comment_date(), get_comment_time() ); ?></p>
+			</div>
+	        <?php 
+	        	if ( $args['avatar_size'] != 0 ) {
+	        		echo '<div class="comment-thumbnail">' . get_avatar( $comment, $args['avatar_size'] ) . '</div>';
+	        	} 
+	        ?>
+			<div class="comment-content">
+				<?php if ( $comment->comment_approved == '0' ) : ?>
+					<p class="moderation"><em><?php _e( 'Your comment is awaiting moderation.' ); ?></em></p>
+				<?php endif; ?>
+				<?php comment_text(); ?>
+			</div>
+    		<footer class="comment-footer">
+    			<?php edit_comment_link( __( 'Edit', 'ambase' ), '  ', '' ); ?>
+    			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+    		</footer>
+		</li>
+    <?php
 	}
-	
+
 	function ambase_comments_number($count)	{
 		if (!is_admin()) {
 			global $id;

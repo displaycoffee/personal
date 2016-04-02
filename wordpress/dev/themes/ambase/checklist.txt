@@ -5,12 +5,19 @@ archive
 attachment
 author
 category
+comments
 footer
 header
 loop
 nav-below
+nav-below-single
 search
 searchform
 sidebar
+single
 
+content/entry-footer
 content/entry-meta
+content/entry-thumbnail
+
+<?php wp_list_comments( 'type=comment' ); ?>
