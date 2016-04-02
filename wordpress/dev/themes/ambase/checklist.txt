@@ -4,6 +4,7 @@ Done
 archive
 attachment
 author
+category
 footer
 header
 loop

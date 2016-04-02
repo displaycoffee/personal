@@ -4,13 +4,13 @@
 	*/
 ?>
 <?php if ( have_posts() ) : ?>
-	<div class="post-loop">
+	<div class="post-multiple">
 		<?php while ( have_posts() ) : the_post(); ?>	
 			<div id="post-<?php esc_attr( the_ID() ); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
-					<h3>
+					<h2>
 						<a href="<?php esc_url( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>"><?php the_title(); ?></a>
-					</h3>
+					</h2>
 				</header>
 				<?php get_template_part( 'partials/entry', 'meta' ); ?>
 				<?php 

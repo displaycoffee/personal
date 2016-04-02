@@ -1,6 +1,6 @@
 <?php
 	/**
-	* Template part for displaying an author page
+	* Template part for displaying an Author biography
 	*/
 
 	get_header(); 

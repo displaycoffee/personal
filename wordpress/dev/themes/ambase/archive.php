@@ -23,6 +23,7 @@
 			?>			
 		</h1>
 	</header>
+	<h2><?php _e( 'Posts', 'ambase' ); ?></h2>
 	<?php get_template_part( 'loop', 'index' ); ?>
 </article>
 <?php get_sidebar(); ?>
