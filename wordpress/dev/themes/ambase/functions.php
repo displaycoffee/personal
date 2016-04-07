@@ -1,62 +1,58 @@
 <?php
 
+	// Set up theme options
 	function ambase_setup() {
-		load_theme_textdomain('ambase', get_template_directory() . '/languages');
+		// Load theme text domain
+		load_theme_textdomain( 'ambase', get_template_directory() . '/languages' );
 
-		add_theme_support('title-tag');
-		add_theme_support('automatic-feed-links');
-		add_theme_support('post-thumbnails');
+		// Add them support options
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'post-thumbnails' );
 
-		global $content_width;
-		if (!isset($content_width)) {
-			$content_width = 640;
-		}
-
-		register_nav_menus(
-			array('main-menu' => __('Main Menu', 'ambase'))
-		);
+		// Register navigation menus
+		register_nav_menus( array(
+			'main-menu' => __( 'Main Menu', 'ambase' )
+		) );
 	}
-	add_action('after_setup_theme', 'ambase_setup');	
+	add_action( 'after_setup_theme', 'ambase_setup' );	
 
+	// Add theme related scripts
 	function ambase_load_scripts() {
-		wp_enqueue_script('jquery');
+		wp_enqueue_script( 'jquery' );
 	}
-	add_action('wp_enqueue_scripts', 'ambase_load_scripts');
+	add_action( 'wp_enqueue_scripts', 'ambase_load_scripts' );
 	
+	// Add comment reply script
 	function ambase_enqueue_comment_reply_script() {
-		if (get_option('thread_comments')) { 
-			wp_enqueue_script('comment-reply'); 
+		if ( get_option( 'thread_comments' ) ) { 
+			wp_enqueue_script( 'comment-reply' ); 
 		}
 	}
-	add_action('comment_form_before', 'ambase_enqueue_comment_reply_script');
+	add_action( 'comment_form_before', 'ambase_enqueue_comment_reply_script' );
 	
-	function ambase_filter_wp_title($title)	{
-		return $title . esc_attr(get_bloginfo('name'));
-	}
-	add_filter('wp_title', 'ambase_filter_wp_title');
-
 	// Register sidebars
 	function ambase_widgets_init() {
-		register_sidebar(array (
-			'name' => __('Default Sidebar', 'ambase'),
-			'id' => 'default-widget-area',
+		register_sidebar( array(
+			'name'          => __( 'Default Sidebar', 'ambase' ),
+			'id'            => 'default-widget-area',
 			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-			'after_widget' => "</div>",
-			'before_title' => '<h3 class="widget-title">',
-			'after_title' => '</h3>',
-		));
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
 	}
-	add_action('widgets_init', 'ambase_widgets_init');
+	add_action( 'widgets_init', 'ambase_widgets_init' );
 
 	// Custom comments template
-	function ambase_custom_comments($comment, $args, $depth) {
+	function ambase_custom_comments( $comment, $args, $depth ) {
 	    if ( 'div' === $args['style'] ) {
 	        $add_below = 'comment';
 	    } else {
 	        $add_below = 'div-comment';
 	    }
     ?>
-    	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+    	<li <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php esc_attr( comment_ID() ) ?>">
 	    	<div class="comment-meta">
 		    	<p class="author"><?php printf( __( 'Comment by %s', 'ambase' ), get_comment_author_link() ); ?></p>
 			    <p class="date"><?php printf( __( 'on %1$s at %2$s', 'ambase' ), get_comment_date(), get_comment_time() ); ?></p>
@@ -68,7 +64,7 @@
 	        ?>
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<p class="moderation"><em><?php _e( 'Your comment is awaiting moderation.' ); ?></em></p>
+					<p class="moderation"><em><?php _e( 'Your comment is awaiting moderation.', 'ambase' ); ?></em></p>
 				<?php endif; ?>
 				<?php comment_text(); ?>
 			</div>
@@ -80,17 +76,18 @@
     <?php
 	}
 
-	function ambase_comments_number($count)	{
-		if (!is_admin()) {
+	// Get number of comments
+	function ambase_comments_number( $count ) {
+		if ( !is_admin() ) {
 			global $id;
-			$get_comments = get_comments('status=approve&post_id=' . $id); 
+			$get_comments = get_comments( 'status=approve&post_id=' . $id ); 
 			$comments_by_type = separate_comments( $get_comments );
 			return count( $comments_by_type['comment'] );
 		} else {
 			return $count;
 		}
 	}
-	add_filter('get_comments_number', 'ambase_comments_number');
+	add_filter( 'get_comments_number', 'ambase_comments_number' );
 
 	// Remove certain classes from post entries
 	function ambase_post_classes( $classes ) {

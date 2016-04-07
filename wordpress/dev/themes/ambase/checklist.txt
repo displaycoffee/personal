@@ -7,17 +7,24 @@ author
 category
 comments
 footer
+functions
 header
+index
 loop
 nav-below
 nav-below-single
+page
 search
 searchform
 sidebar
 single
+tag
 
 content/entry-footer
 content/entry-meta
 content/entry-thumbnail
 
-<?php wp_list_comments( 'type=comment' ); ?>
+To do:
+-----------------------
+
+style
