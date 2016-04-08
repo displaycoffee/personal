@@ -1,6 +1,6 @@
 <?php
 	/**
-	* Template for displaying archive pages
+	* Template for displaying archive pages (dates, categories and tags)
 	*
 	* @link https://codex.wordpress.org/Template_Hierarchy
 	*/
@@ -9,20 +9,9 @@
 ?>
 <article>
 	<header class="main-title">
-		<h1>
-			<?php 
-				if ( is_day() ) { 
-					printf( __( 'Day: %s', 'ambase' ), get_the_time( get_option( 'date_format' ) ) ); 
-				} elseif ( is_month() ) { 
-					printf( __( 'Month: %s', 'ambase' ), get_the_time( 'F Y' ) ); 
-				} elseif ( is_year() ) { 
-					printf( __( 'Year: %s', 'ambase' ), get_the_time( 'Y' ) ); 
-				} else { 
-					_e( 'Archives', 'ambase' ); 
-				}
-			?>			
-		</h1>
+		<?php the_archive_title( '<h1>', '</h1>' ); ?>
 	</header>
+	<?php the_archive_description( '<div class="category-description">', '</div>' ); ?>	
 	<h2><?php _e( 'Posts', 'ambase' ); ?></h2>
 	<?php get_template_part( 'loop', 'index' ); ?>
 </article>

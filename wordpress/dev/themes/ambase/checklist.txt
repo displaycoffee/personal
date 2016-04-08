@@ -1,10 +1,18 @@
 Done
 -----------------------
+
+
+To do:
+-----------------------
+
+style
+
+
+
 404
 archive
 attachment
 author
-category
 comments
 footer
 functions
@@ -18,13 +26,7 @@ search
 searchform
 sidebar
 single
-tag
 
 content/entry-footer
 content/entry-meta
 content/entry-thumbnail
-
-To do:
------------------------
-
-style
