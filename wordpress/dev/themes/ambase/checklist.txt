@@ -1,6 +1,7 @@
 Done
 -----------------------
-
+404
+archive
 
 To do:
 -----------------------
@@ -9,8 +10,8 @@ style
 
 
 
-404
-archive
+
+
 attachment
 author
 comments
