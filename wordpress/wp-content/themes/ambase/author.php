@@ -1,37 +1,51 @@
 <?php
 	/**
-	* Template part for displaying an Author biography
+	* Template part for displaying an author archive
 	*/
 
 	get_header(); 
+
+	/**
+	* Grab all the variables we need for this page
+	*/	
+	$author_name = get_the_author();
+	$author_website = get_the_author_meta( 'user_url' );
+	$author_id = get_the_author_meta( 'ID' );
+	$author_avatar = get_avatar( $author_id, 200, '', esc_attr( get_the_author() ) );
+	$author_desc = get_the_author_meta( 'user_description' );
 ?>
 <article>
-	<header class="main-title">
-		<h1><?php the_author(); ?></h1>
-	</header>	
-	<div id="author" class="author-bio">
-		<header class="author-header">
-			<h3><?php _e( 'About', 'ambase' ); ?></h3>
-		</header>	
-		<div class="author-meta">
-			<p class="website">
-				<a href="<?php echo esc_url( get_the_author_meta( 'user_url' ) ) ?>" title="<?php printf( __( '%s\'s Website', 'ambase' ), esc_attr ( get_the_author() ) ) ?>">Website</a>
-			</p>
-		</div>
-		<?php 
-			$author_id = get_the_author_meta( 'ID' );
-			$author_avatar = get_avatar( $author_id, 200, '', esc_attr( get_the_author() ) );
+	<?php 
+		// Check if the author name is there. Not sure why it wouldn't be...
+		if ( $author_name ) {
+			$author_header = '<header class="main-title"><h1>' . __( 'Author: ', 'ambase' ) . $author_name . '</h1></header>';
+			echo $author_header;
+		}
+	?>
+	<div id="author" class="author-info">
+		<?php
+			// Check if the author has a website
+			if ( $author_website ) {
+				$author_meta = '<div class="author-meta">';
+				$author_meta .= '<p class="website"><a href="' . esc_url( $author_website ) . '">' . __( 'Website', 'ambase' ) . '</a></p>';
+				$author_meta .= '</div>';
+				echo $author_meta;
+			}				
+ 
+			// Check if the author has an avatar
 			if ( $author_avatar ) { 
-				echo '<div class="author-thumbnail">' . $author_avatar . '</div>'; 
+				$author_thumbnail = '<div class="author-thumbnail">' . $author_avatar . '</div>'; 
+				echo $author_thumbnail;
 			} 
-		?>
-		<?php 
-			if ( '' != get_the_author_meta( 'user_description' ) ) {
-				echo '<div class="author-biography"><p>' .  get_the_author_meta( 'user_description' ) . '</p></div>';
+
+			// Check if the aithor has a description
+			if ( '' != $author_desc ) {
+				$author_biography = '<div class="author-biography"><p>' .  $author_desc . '</p></div>';
+				echo $author_biography;
 			}
 		?>
 	</div>
-	<h2><?php printf( __( 'Posts by %s', 'ambase' ), get_the_author() ) ?></h2>
+	<h2><?php printf( __( 'Posts by %s', 'ambase' ), $author_name ) ?></h2>
 	<?php get_template_part( 'loop', 'index' ); ?>
 </article>
 <?php get_sidebar(); ?>

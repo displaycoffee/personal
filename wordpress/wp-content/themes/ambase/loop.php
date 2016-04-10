@@ -7,11 +7,14 @@
 	<div class="post-multiple">
 		<?php while ( have_posts() ) : the_post(); ?>	
 			<div id="post-<?php esc_attr( the_ID() ); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-					<h2>
-						<a href="<?php esc_url( the_permalink() ); ?>" title="<?php esc_attr( the_title_attribute() ); ?>"><?php the_title(); ?></a>
-					</h2>
-				</header>
+				<?php 
+					// Since the string is long, create variables for title before/after
+					$title_before = '<header class="entry-header"><h2><a href="' . esc_url( get_the_permalink() ) . '">';
+					$title_after = '</a></h2></header>';
+
+					// Display the title
+					the_title($title_before, $title_after);
+				?>
 				<?php get_template_part( 'partials/entry', 'meta' ); ?>
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
 				<div class="entry-content"><?php echo ambase_excerpt(); ?></div>
@@ -19,11 +22,12 @@
 			</div>
 		<?php endwhile; ?>
 	</div>
-	<?php get_template_part( 'nav', 'below' ); ?>
+	<?php get_template_part( 'partials/nav', 'pagination' ); ?>
 <?php else : ?>
 	<div id="no-post" class="not-found">
 		<p>
-			<?php 
+			<?php
+				// Display different text for search versus other pages if no posts are found 
 				if ( is_search() ) { 
 					_e( 'No posts match your search.', 'ambase' );
 				} else {
@@ -31,6 +35,6 @@
 				}
 			?>
 		</p>
-		<p><?php echo sprintf( __( 'Return to %1$s%2$s%3$s?', 'ambase' ), '<a href="', esc_url( home_url( '/' ) ), '">home</a>' ); ?></p>		
+		<p><?php echo sprintf( __( 'Return to %1$s%2$s%3$s?', 'ambase' ), '<a href="', esc_url( home_url( '/' ) ), '">home</a>' ); ?></p>
 	</div>
 <?php endif; ?>

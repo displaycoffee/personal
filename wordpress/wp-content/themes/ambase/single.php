@@ -20,7 +20,7 @@
 				</div>
 			<?php endwhile; ?>
 		</div>
-		<?php get_template_part( 'nav', 'below-single' ); ?>
+		<?php get_template_part( 'partials/nav', 'simple' ); ?>
 		<?php comments_template(); ?>
 	<?php endif; ?>
 </article>

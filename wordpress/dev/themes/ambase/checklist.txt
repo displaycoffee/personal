@@ -2,6 +2,8 @@ Done
 -----------------------
 404
 archive
+author
+loop
 
 To do:
 -----------------------
@@ -13,15 +15,11 @@ style
 
 
 attachment
-author
 comments
 footer
 functions
 header
 index
-loop
-nav-below
-nav-below-single
 page
 search
 searchform
@@ -31,3 +29,6 @@ single
 content/entry-footer
 content/entry-meta
 content/entry-thumbnail
+content/nav-pagination
+content/nav-simple
+
