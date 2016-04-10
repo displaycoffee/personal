@@ -39,8 +39,7 @@ if (wpFolder == 'themes') {
    ---------------------------------------------- */
 
 var jsSources = [
-	devJS + '/media-library.js',
-	devJS + '/image-reset.js',
+	devJS + '/simple-nav.js',
 	devJS + '/run-functions.js'
 ];
 

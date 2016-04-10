@@ -43,14 +43,17 @@
 							$att_content .= '<p class="caption">' . $att_caption . '</p>';
 						}
 
+						// Display entry content
 						echo $att_content; 
 					?>
 				</div>
 			</div>
 		</div>
 		<nav class="simple-navigation">
-			<div class="previous"><?php previous_image_link( false, 'Previous' ); ?></div>
-			<div class="next"><?php next_image_link( false, 'Next' ); ?></div>					
+			<ul>
+				<li class="previous"><?php previous_image_link( false, 'Previous' ); ?></li>
+				<li class="next"><?php next_image_link( false, 'Next' ); ?></li>					
+			</ul>
 		</nav>
 	<?php endwhile; endif; ?>
 </article>

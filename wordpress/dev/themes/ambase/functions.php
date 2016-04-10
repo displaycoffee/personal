@@ -20,16 +20,9 @@
 	// Add theme related scripts
 	function ambase_load_scripts() {
 		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'functions', get_template_directory_uri () . '/assets/js/functions.js', 'jquery', '', true );
 	}
 	add_action( 'wp_enqueue_scripts', 'ambase_load_scripts' );
-	
-	// Add comment reply script
-	function ambase_enqueue_comment_reply_script() {
-		if ( get_option( 'thread_comments' ) ) { 
-			wp_enqueue_script( 'comment-reply' ); 
-		}
-	}
-	add_action( 'comment_form_before', 'ambase_enqueue_comment_reply_script' );
 	
 	// Register sidebars
 	function ambase_widgets_init() {
@@ -75,6 +68,14 @@
 		</li>
     <?php
 	}
+
+	// Add comment reply script
+	function ambase_enqueue_comment_reply_script() {
+		if ( get_option( 'thread_comments' ) ) { 
+			wp_enqueue_script( 'comment-reply' ); 
+		}
+	}
+	add_action( 'comment_form_before', 'ambase_enqueue_comment_reply_script' );
 
 	// Get number of comments
 	function ambase_comments_number( $count ) {

@@ -1,0 +1,1 @@
+function checkSimpleNav(){if(jQuery("body").hasClass("attachment")){var e=jQuery(".simple-navigation .previous").children().length,i=jQuery(".simple-navigation .next").children().length;e||i?e?i||jQuery(".simple-navigation .next").remove():jQuery(".simple-navigation .previous").remove():jQuery(".simple-navigation").remove()}}jQuery(document).ready(function(e){checkSimpleNav()});

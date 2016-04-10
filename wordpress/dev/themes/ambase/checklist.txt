@@ -2,6 +2,7 @@ Done
 -----------------------
 404
 archive
+attachment
 author
 loop
 
@@ -10,11 +11,6 @@ To do:
 
 style
 
-
-
-
-
-attachment
 comments
 footer
 functions
@@ -31,4 +27,3 @@ content/entry-meta
 content/entry-thumbnail
 content/nav-pagination
 content/nav-simple
-
