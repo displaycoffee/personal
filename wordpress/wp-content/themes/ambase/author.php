@@ -34,7 +34,7 @@
  
 			// Check if the author has an avatar
 			if ( $author_avatar ) { 
-				$author_thumbnail = '<div class="author-thumbnail">' . $author_avatar . '</div>'; 
+				$author_thumbnail = '<div class="author-thumbnail"><div class="image-wrap">' . $author_avatar . '</div></div>'; 
 				echo $author_thumbnail;
 			} 
 

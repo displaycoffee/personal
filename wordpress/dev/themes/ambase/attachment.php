@@ -49,10 +49,10 @@
 				</div>
 			</div>
 		</div>
-		<nav class="simple-navigation">
+		<nav class="navigation-links">
 			<ul>
-				<li class="previous"><?php previous_image_link( false, 'Previous' ); ?></li>
-				<li class="next"><?php next_image_link( false, 'Next' ); ?></li>					
+				<li class="prev"><?php previous_image_link( false, __( 'Previous', 'ambase' ) ); ?></li>
+				<li class="next"><?php next_image_link( false, __( 'Next', 'ambase' ) ); ?></li>					
 			</ul>
 		</nav>
 	<?php endwhile; endif; ?>

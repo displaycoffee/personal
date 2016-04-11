@@ -4,26 +4,22 @@ Done
 archive
 attachment
 author
-loop
-
-To do:
------------------------
-
-style
-
 comments
 footer
 functions
 header
 index
+loop
 page
 search
 searchform
 sidebar
 single
-
 content/entry-footer
 content/entry-meta
 content/entry-thumbnail
-content/nav-pagination
-content/nav-simple
+
+To do:
+-----------------------
+
+stylesheet stuff

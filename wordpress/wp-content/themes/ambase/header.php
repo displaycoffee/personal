@@ -16,9 +16,7 @@
 <body <?php body_class(); ?>>
 	<header id="header">
 		<p class="site-name">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-				<?php echo get_bloginfo( 'name' ); ?>
-			</a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
 		</p>
 		<p class="site-description"><?php echo get_bloginfo( 'description' ); ?></p>
 	</header>

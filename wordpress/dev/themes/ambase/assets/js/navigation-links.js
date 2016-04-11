@@ -17,6 +17,3 @@ function checkSimpleNav() {
 		}
 	}
 }
-jQuery( document ).ready( function( $ ) {
-    checkSimpleNav();
-});

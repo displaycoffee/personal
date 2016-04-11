@@ -1,5 +1,4 @@
 <?php
-
 	// Set up theme options
 	function ambase_setup() {
 		// Load theme text domain
@@ -27,12 +26,13 @@
 	// Register sidebars
 	function ambase_widgets_init() {
 		register_sidebar( array(
-			'name'          => __( 'Default Sidebar', 'ambase' ),
-			'id'            => 'default-widget-area',
+			'name' => __( 'Default Sidebar', 'ambase' ),
+			'id' => 'default-widget-area',
+			'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'ambase' ),
 			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
 		) );
 	}
 	add_action( 'widgets_init', 'ambase_widgets_init' );
@@ -52,7 +52,7 @@
 			</div>
 	        <?php 
 	        	if ( $args['avatar_size'] != 0 ) {
-	        		echo '<div class="comment-thumbnail">' . get_avatar( $comment, $args['avatar_size'] ) . '</div>';
+	        		echo '<div class="comment-thumbnail"><div class="image-wrap">' . get_avatar( $comment, $args['avatar_size'] ) . '</div></div>';
 	        	} 
 	        ?>
 			<div class="comment-content">
@@ -62,10 +62,19 @@
 				<?php comment_text(); ?>
 			</div>
     		<footer class="comment-footer">
-    			<?php edit_comment_link( __( 'Edit', 'ambase' ), '  ', '' ); ?>
-    			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+    			<?php edit_comment_link( __( 'Edit', 'ambase' ), '<div class="edit">', '</div>' ); ?>
+    			<?php 
+    				comment_reply_link( 
+    					array_merge( $args, array( 
+    						'add_below' => $add_below, 
+    						'depth' => $depth, 
+    						'max_depth' => $args['max_depth'],
+    						'before' => '<div class="reply">',
+    						'after' => '</div>' 
+    					) ) 
+    				); 
+    			?>
     		</footer>
-		</li>
     <?php
 	}
 
