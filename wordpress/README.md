@@ -1,6 +1,6 @@
 WordPress Base Workflow
 ===========================
 
-**Version:** 1.0.0
-
 A personal and simple WordPress workflow for developing plugins and themes.
+
+*(I'm not going to put a version # here. Kind of too lazy...)*
