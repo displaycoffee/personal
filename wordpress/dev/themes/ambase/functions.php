@@ -1,4 +1,5 @@
 <?php
+
 	// Set up theme options
 	function ambase_setup() {
 		// Load theme text domain
@@ -141,3 +142,6 @@
 			return '<p>' . get_the_excerpt() . '</p>' . ambase_read_more();
 		}
 	}
+
+	// Include customizer file
+	include 'theme-customizer.php';

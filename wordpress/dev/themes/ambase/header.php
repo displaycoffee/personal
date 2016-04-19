@@ -29,5 +29,22 @@
 		<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 	</nav>
 	<?php get_search_form(); ?>
+	<div class="customizer-options">
+		<p>This is only here to show how customizer options work.</p>
+		<p><?php echo get_theme_mod( 'ambase_text' ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_url' ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_textarea' ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_select->label' ); ?></p>
+		<p>
+			<?php 
+				// Checkbox
+				// if( get_theme_mod( 'ambase_checkbox' ) == '') {
+				// 	echo 'It\'s not checked!';
+				// } else {
+				// 	echo 'It\'s checked! :o';
+				// }
+			?>
+		</p>
+	</div>
 	<section class="content">
 		<div class="wrapper">		
