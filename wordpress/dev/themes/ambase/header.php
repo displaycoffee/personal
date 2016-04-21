@@ -31,20 +31,14 @@
 	<?php get_search_form(); ?>
 	<div class="customizer-options">
 		<p>This is only here to show how customizer options work.</p>
-		<p><?php echo get_theme_mod( 'ambase_text' ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_url' ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_textarea' ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_select->label' ); ?></p>
-		<p>
-			<?php 
-				// Checkbox
-				// if( get_theme_mod( 'ambase_checkbox' ) == '') {
-				// 	echo 'It\'s not checked!';
-				// } else {
-				// 	echo 'It\'s checked! :o';
-				// }
-			?>
-		</p>
+		<h2>Section 01</h2>
+		<p><?php echo get_theme_mod( 'ambase_text', __( 'Default text field', 'ambase' ) ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_url', __( 'http://www.wordpress.com', 'ambase' ) ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_textarea', __( 'Default textarea field', 'ambase' ) ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_select', __( 'Option 01', 'ambase' ) ); ?></p>
+		<h2>Section 02</h2>
+		<p><?php echo get_theme_mod( 'ambase_radio', __( 'Yes', 'ambase' ) ); ?></p>
+		<p><?php echo get_theme_mod( 'ambase_checkbox', __( '1', 'ambase' ) ); ?></p>
 	</div>
 	<section class="content">
 		<div class="wrapper">		

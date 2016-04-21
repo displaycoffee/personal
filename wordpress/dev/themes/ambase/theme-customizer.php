@@ -12,9 +12,8 @@
 	    $wp_customize->add_section(
 	        'ambase_section01',
 	        array(
-	            'title' => __( 'Theme Settings', 'ambase' ),
-	            'description' => __( 'This is a section for settings.', 'ambase' ),
-	            'priority' => 10
+	            'title' => __( 'Section 01', 'ambase' ),
+	            'description' => __( 'These are settings for section 01.', 'ambase' )
 	        )
 	    );
 
@@ -22,6 +21,7 @@
 		$wp_customize->add_setting(
 		    'ambase_text',
 		    array(
+		    	'default' => __( 'Default text field', 'ambase' ),
 		        'sanitize_callback' => 'sanitize_text_field',
 		        'sanitize_js_callback' => 'sanitize_text_field'
 		    )
@@ -39,6 +39,7 @@
 		$wp_customize->add_setting(
 		    'ambase_url',
 		    array(
+		    	'default' => __( 'http://www.wordpress.com', 'ambase' ),
 		        'sanitize_callback' => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
@@ -56,6 +57,7 @@
 		$wp_customize->add_setting(
 		    'ambase_textarea',
 		    array(
+		    	'default' => __( 'Default textarea field', 'ambase' ),
 		        'sanitize_callback' => 'sanitize_text_field',
 		        'sanitize_js_callback' => 'sanitize_text_field'
 		    )
@@ -73,7 +75,7 @@
 		$wp_customize->add_setting(
 		    'ambase_select',
 		    array(
-		    	'default'  => 'option-01',
+		    	'default' => __( 'Option 01', 'ambase' ),
 		        'sanitize_callback' => 'sanitize_text_field',
 		        'sanitize_js_callback' => 'sanitize_text_field'
 		    )
@@ -85,31 +87,61 @@
 		        'section' => 'ambase_section01',
 		        'type' => 'select',
 		        'choices' => array(
-		            'option-01' => 'Option 01',
-		            'option-02' => 'Option 02',
-		            'option-03' => 'Option 03'
+		            'Option 01' => __( 'Option 01', 'ambase' ),
+		            'Option 02' => __( 'Option 02', 'ambase' ),
+		            'Option 03' => __( 'Option 03', 'ambase' )
 		        ),
 		    )
 		);	
 
-		// Need checkbox value to display that label somehow...
+		// Section 02
+	    $wp_customize->add_section(
+	        'ambase_section02',
+	        array(
+	            'title' => __( 'Section 02', 'ambase' ),
+	            'description' => __( 'These are settings for section 02.', 'ambase' )
+	        )
+	    );
 
-	 //    // Section 01 - Checkbox
-		// $wp_customize->add_setting(
-		//     'ambase_checkbox',
-		//     array(
-		//         'sanitize_callback' => 'sanitize_text_field',
-		//         'sanitize_js_callback' => 'sanitize_text_field'
-		//     )
-		// );
-		// $wp_customize->add_control(
-		//     'ambase_checkbox',
-		//     array(
-		//         'label' => __( 'Checkbox', 'ambase' ),
-		//         'section' => 'ambase_section01',
-		//         'type' => 'checkbox'
-		//     )
-		// );
+	    // Section 02 - Radio
+		$wp_customize->add_setting(
+		    'ambase_radio',
+		    array(
+		    	'default' => __( 'Yes', 'ambase' ),
+		        'sanitize_callback' => 'sanitize_text_field',
+		        'sanitize_js_callback' => 'sanitize_text_field'
+		    )
+		);
+		$wp_customize->add_control(
+		    'ambase_radio',
+		    array(
+		        'label' => __( 'Radio', 'ambase' ),
+		        'section' => 'ambase_section02',
+		        'type' => 'radio',
+		        'choices' => array(
+		            'Yes' => __( 'Yes', 'ambase' ),
+		            'No' => __( 'No', 'ambase' )
+		        ),
+		    )
+		);
+
+	    // Section 02 - Checkbox
+		$wp_customize->add_setting(
+		    'ambase_checkbox',
+		    array(
+		    	'default' => __( '1', 'ambase' ),
+		        'sanitize_callback' => 'sanitize_text_field',
+		        'sanitize_js_callback' => 'sanitize_text_field'
+		    )
+		);
+		$wp_customize->add_control(
+		    'ambase_checkbox',
+		    array(
+		        'label' => __( 'Checkbox', 'ambase' ),
+		        'section' => 'ambase_section02',
+		        'type' => 'checkbox'
+		    )
+		);
 	}
 	add_action( 'customize_register', 'ambase_customizer_section' );	
 
