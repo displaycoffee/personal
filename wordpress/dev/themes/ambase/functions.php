@@ -143,5 +143,8 @@
 		}
 	}
 
+	// Include custom sanitize funtions for customizer
+	require_once( 'includes/validation.php' );
+
 	// Include customizer file
-	include 'theme-customizer.php';
+	require_once( 'includes/customizer.php' );

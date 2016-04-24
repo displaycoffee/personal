@@ -94,16 +94,8 @@
 		    )
 		);	
 
-		// Section 02
-	    $wp_customize->add_section(
-	        'ambase_section02',
-	        array(
-	            'title' => __( 'Section 02', 'ambase' ),
-	            'description' => __( 'These are settings for section 02.', 'ambase' )
-	        )
-	    );
 
-	    // Section 02 - Radio
+	    // Section 01 - Radio
 		$wp_customize->add_setting(
 		    'ambase_radio',
 		    array(
@@ -116,7 +108,7 @@
 		    'ambase_radio',
 		    array(
 		        'label' => __( 'Radio', 'ambase' ),
-		        'section' => 'ambase_section02',
+		        'section' => 'ambase_section01',
 		        'type' => 'radio',
 		        'choices' => array(
 		            'Yes' => __( 'Yes', 'ambase' ),
@@ -125,13 +117,22 @@
 		    )
 		);
 
+		// Section 02
+	    $wp_customize->add_section(
+	        'ambase_section02',
+	        array(
+	            'title' => __( 'Section 02', 'ambase' ),
+	            'description' => __( 'These are settings for section 02.', 'ambase' )
+	        )
+	    );
+
 	    // Section 02 - Checkbox
 		$wp_customize->add_setting(
 		    'ambase_checkbox',
 		    array(
 		    	'default' => __( '1', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_text_field',
-		        'sanitize_js_callback' => 'sanitize_text_field'
+		        'sanitize_callback' => 'ambase_sanatize_checkbox',
+		        'sanitize_js_callback' => 'ambase_sanatize_checkbox'
 		    )
 		);
 		$wp_customize->add_control(
@@ -142,7 +143,76 @@
 		        'type' => 'checkbox'
 		    )
 		);
-	}
-	add_action( 'customize_register', 'ambase_customizer_section' );	
 
-	
+		// Section 02 - Page list
+		$wp_customize->add_setting(
+		    'ambase_page',		    
+		    array(
+		    	'default' => __( '0', 'ambase' ),
+		        'sanitize_callback' => 'sanitize_text_field',
+		        'sanitize_js_callback' => 'sanitize_text_field'
+		    )
+		);		 
+		$wp_customize->add_control(
+		    'ambase_page',
+		    array(		        
+		        'label' => __( 'Choose a page', 'ambase' ),
+		        'section' => 'ambase_section02',
+		        'type' => 'dropdown-pages'
+		    )
+		);
+
+		// Section 02 - Color
+		$wp_customize->add_setting(
+		    'ambase_color',		    
+		    array(
+		    	'default' => __( '#000000', 'ambase' ),
+		        'sanitize_callback' => 'sanitize_hex_color',
+		        'sanitize_js_callback' => 'sanitize_hex_color'
+		    )
+		);		 
+		$wp_customize->add_control(
+		    new WP_Customize_Color_Control(
+		        $wp_customize,
+			    'ambase_color',
+			    array(		        
+			        'label' => __( 'Color', 'ambase' ),
+			        'section' => 'ambase_section02',
+			        'settings' => 'ambase_color'
+			    )
+		    )
+		);
+
+		// Section 02 - File upload
+		$wp_customize->add_setting(
+		    'ambase_file'
+		);		
+		$wp_customize->add_control(
+		    new WP_Customize_Upload_Control(
+		        $wp_customize,
+		        'ambase_file',
+		        array(
+		            'label' => 'File Upload',
+		            'section' => 'ambase_section02',
+		            'settings' => 'ambase_file'
+		        )
+		    )
+		);
+
+		// Section 02 - Image upload
+		$wp_customize->add_setting(
+		    'ambase_image'
+		);		
+		$wp_customize->add_control(
+		    new WP_Customize_Image_Control(
+		        $wp_customize,
+		        'ambase_image',
+		        array(
+		            'label' => 'Image Upload',
+		            'section' => 'ambase_section02',
+		            'settings' => 'ambase_image'
+		        )
+		    )
+		);
+	}
+	add_action( 'customize_register', 'ambase_customizer_section' );

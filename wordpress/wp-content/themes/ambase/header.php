@@ -32,13 +32,17 @@
 	<div class="customizer-options">
 		<p>This is only here to show how customizer options work.</p>
 		<h2>Section 01</h2>
-		<p><?php echo get_theme_mod( 'ambase_text', __( 'Default text field', 'ambase' ) ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_url', __( 'http://www.wordpress.com', 'ambase' ) ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_textarea', __( 'Default textarea field', 'ambase' ) ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_select', __( 'Option 01', 'ambase' ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_text', __( 'Default text field', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_url', __( 'http://www.wordpress.com', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_textarea', __( 'Default textarea field', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_select', __( 'Option 01', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_radio', __( 'Yes', 'ambase' ) ) ); ?></p>
 		<h2>Section 02</h2>
-		<p><?php echo get_theme_mod( 'ambase_radio', __( 'Yes', 'ambase' ) ); ?></p>
-		<p><?php echo get_theme_mod( 'ambase_checkbox', __( '1', 'ambase' ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_checkbox', __( '1', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_page', __( '0', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_color', __( '#000000', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_file', __( 'No file selected.', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_image', __( 'No image selected.', 'ambase' ) ) ); ?></p>
 	</div>
 	<section class="content">
 		<div class="wrapper">		
