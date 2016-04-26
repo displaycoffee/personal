@@ -143,8 +143,8 @@
 		}
 	}
 
-	// Include custom sanitize funtions for customizer
-	require_once( 'includes/validation.php' );
+	// Include customizer validation
+	require_once( 'includes/customizer-validation.php' );
 
 	// Include customizer file
 	require_once( 'includes/customizer.php' );

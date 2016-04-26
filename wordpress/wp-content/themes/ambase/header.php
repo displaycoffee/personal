@@ -34,7 +34,7 @@
 		<h2>Section 01</h2>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_text', __( 'Default text field', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_url( get_theme_mod( 'ambase_url', __( 'http://www.wordpress.com', 'ambase' ) ) ); ?></p>
-		<p><?php echo esc_html( get_theme_mod( 'ambase_textarea', __( 'Default textarea field', 'ambase' ) ) ); ?></p>
+		<?php echo wpautop( esc_html( get_theme_mod( 'ambase_textarea', __( 'Default textarea field', 'ambase' ) ) ) ); ?>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_select', __( 'Option 01', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_radio', __( 'Yes', 'ambase' ) ) ); ?></p>
 		<h2>Section 02</h2>
@@ -43,6 +43,11 @@
 		<p><?php echo esc_html( get_theme_mod( 'ambase_color', __( '#000000', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_url( get_theme_mod( 'ambase_file', __( 'No file selected.', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_url( get_theme_mod( 'ambase_image', __( 'No image selected.', 'ambase' ) ) ); ?></p>
+		<h2>Social Media Fields</h2>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_facebook', __( 'http://www.facebook.com', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_gplus', __( 'http://www.google.com', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_linkedin', __( 'http://www.linkedin.com', 'ambase' ) ) ); ?></p>
+		<p><?php echo esc_url( get_theme_mod( 'ambase_twitter', __( 'http://www.twitter.com', 'ambase' ) ) ); ?></p>
 	</div>
 	<section class="content">
 		<div class="wrapper">		

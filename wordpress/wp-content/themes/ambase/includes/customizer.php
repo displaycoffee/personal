@@ -1,5 +1,14 @@
 <?php 
-	
+	/**
+	* Load and create theme customizer options
+	*
+	* TO DO:
+	* - Figure out what actually needs to be translated here
+	* - Try a select/radio function for arrays. Might be able to pass a param into the function to choose an array.
+	*   Check out 2016 theme for this.
+	* - Maybe try adding a date picker?
+	*/	
+
 	// Load customizer for theme
 	function ambase_customizer_menu() {
 		add_theme_page( __( 'Customize', 'ambase' ), __( 'Customize', 'ambase' ), 'edit_theme_options', 'customize.php' );
@@ -8,6 +17,7 @@
 
 	// Adds individual sections, settings, and controls
 	function ambase_customizer_section( $wp_customize ) {
+
 		// Section 01
 	    $wp_customize->add_section(
 	        'ambase_section01',
@@ -51,15 +61,15 @@
 		        'section' => 'ambase_section01',
 		        'type' => 'url'
 		    )
-		);				
+		);
 
 	    // Section 01 - Textarea
 		$wp_customize->add_setting(
 		    'ambase_textarea',
 		    array(
 		    	'default' => __( 'Default textarea field', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_text_field',
-		        'sanitize_js_callback' => 'sanitize_text_field'
+		        'sanitize_callback' => 'ambase_sanitize_textarea',
+		        'sanitize_js_callback' => 'ambase_sanitize_textarea'
 		    )
 		);
 		$wp_customize->add_control(
@@ -76,8 +86,8 @@
 		    'ambase_select',
 		    array(
 		    	'default' => __( 'Option 01', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_text_field',
-		        'sanitize_js_callback' => 'sanitize_text_field'
+		        'sanitize_callback' => 'ambase_sanitize_select',
+		        'sanitize_js_callback' => 'ambase_sanitize_select'
 		    )
 		);
 		$wp_customize->add_control(
@@ -87,21 +97,20 @@
 		        'section' => 'ambase_section01',
 		        'type' => 'select',
 		        'choices' => array(
-		            'Option 01' => __( 'Option 01', 'ambase' ),
-		            'Option 02' => __( 'Option 02', 'ambase' ),
-		            'Option 03' => __( 'Option 03', 'ambase' )
-		        ),
+			        'Option 01' => __( 'Option 01', 'ambase' ),
+			        'Option 02' => __( 'Option 02', 'ambase' ),
+			        'Option 03' => __( 'Option 03', 'ambase' )
+			    )
 		    )
-		);	
-
+		);
 
 	    // Section 01 - Radio
 		$wp_customize->add_setting(
 		    'ambase_radio',
 		    array(
 		    	'default' => __( 'Yes', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_text_field',
-		        'sanitize_js_callback' => 'sanitize_text_field'
+		        'sanitize_callback' => 'ambase_sanitize_radio',
+		        'sanitize_js_callback' => 'ambase_sanitize_radio'
 		    )
 		);
 		$wp_customize->add_control(
@@ -149,8 +158,8 @@
 		    'ambase_page',		    
 		    array(
 		    	'default' => __( '0', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_text_field',
-		        'sanitize_js_callback' => 'sanitize_text_field'
+		        'sanitize_callback' => 'ambase_sanitize_number',
+		        'sanitize_js_callback' => 'ambase_sanitize_number'
 		    )
 		);		 
 		$wp_customize->add_control(
@@ -214,5 +223,86 @@
 		        )
 		    )
 		);
+
+		// Social Media
+	    $wp_customize->add_section(
+	        'ambase_social',
+	        array(
+	            'title' => __( 'Social Media', 'ambase' ),
+	            'description' => __( 'Add links for social media.', 'ambase' )
+	        )
+	    );
+
+	    // Social Media - Facebook
+		$wp_customize->add_setting(
+		    'ambase_facebook',
+		    array(
+		    	'default' => __( 'http://www.facebook.com', 'ambase' ),
+		        'sanitize_callback' => 'esc_url',
+		        'sanitize_js_callback' => 'esc_url'
+		    )
+		);
+		$wp_customize->add_control(
+		    'ambase_facebook',
+		    array(
+		        'label' => __( 'Facebook', 'ambase' ),
+		        'section' => 'ambase_social',
+		        'type' => 'url'
+		    )
+		);		
+
+	    // Social Media - Google+
+		$wp_customize->add_setting(
+		    'ambase_gplus',
+		    array(
+		    	'default' => __( 'http://www.google.com', 'ambase' ),
+		        'sanitize_callback' => 'esc_url',
+		        'sanitize_js_callback' => 'esc_url'
+		    )
+		);
+		$wp_customize->add_control(
+		    'ambase_gplus',
+		    array(
+		        'label' => __( 'Google+', 'ambase' ),
+		        'section' => 'ambase_social',
+		        'type' => 'url'
+		    )
+		);	
+
+	    // Social Media - LinkedIn
+		$wp_customize->add_setting(
+		    'ambase_linkedin',
+		    array(
+		    	'default' => __( 'http://www.linkedin.com', 'ambase' ),
+		        'sanitize_callback' => 'esc_url',
+		        'sanitize_js_callback' => 'esc_url'
+		    )
+		);
+		$wp_customize->add_control(
+		    'ambase_linkedin',
+		    array(
+		        'label' => __( 'LinkedIn', 'ambase' ),
+		        'section' => 'ambase_social',
+		        'type' => 'url'
+		    )
+		);	
+
+	    // Social Media - Twitter
+		$wp_customize->add_setting(
+		    'ambase_twitter',
+		    array(
+		    	'default' => __( 'http://www.twitter.com', 'ambase' ),
+		        'sanitize_callback' => 'esc_url',
+		        'sanitize_js_callback' => 'esc_url'
+		    )
+		);
+		$wp_customize->add_control(
+		    'ambase_twitter',
+		    array(
+		        'label' => __( 'Twitter', 'ambase' ),
+		        'section' => 'ambase_social',
+		        'type' => 'url'
+		    )
+		);							
 	}
 	add_action( 'customize_register', 'ambase_customizer_section' );
