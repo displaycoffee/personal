@@ -7,6 +7,7 @@
 	* - Try a select/radio function for arrays. Might be able to pass a param into the function to choose an array.
 	*   Check out 2016 theme for this.
 	* - Maybe try adding a date picker?
+	* - Try to remove Site Identity > Site Icon
 	*/	
 
 	// Load customizer for theme
