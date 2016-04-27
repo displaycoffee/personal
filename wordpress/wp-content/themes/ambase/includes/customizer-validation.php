@@ -19,11 +19,7 @@
 
 	// Select
 	function ambase_sanitize_select( $input ) {
-	    $valid = array(
-	        'Option 01' => 'Option 01',
-	        'Option 02' => 'Option 02',
-	        'Option 03' => 'Option 03'
-	    );
+	    $valid = ambase_select_choices();
 	 
 	    if ( array_key_exists( $input, $valid ) ) {
 	        return $input;
@@ -34,10 +30,7 @@
 
 	// Radio
 	function ambase_sanitize_radio( $input ) {
-	    $valid = array(
-	        'Yes' => 'Yes',
-	        'No' => 'No'
-	    );
+	    $valid = ambase_radio_choices();
 	 
 	    if ( array_key_exists( $input, $valid ) ) {
 	        return $input;

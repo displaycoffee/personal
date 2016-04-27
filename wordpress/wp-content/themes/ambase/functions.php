@@ -1,4 +1,7 @@
 <?php
+	/**
+	* Functions specific to ambase theme
+	*/
 
 	// Set up theme options
 	function ambase_setup() {
@@ -142,6 +145,9 @@
 			return '<p>' . get_the_excerpt() . '</p>' . ambase_read_more();
 		}
 	}
+
+	// Include customizer choices
+	require_once( 'includes/customizer-choices.php' );
 
 	// Include customizer validation
 	require_once( 'includes/customizer-validation.php' );

@@ -3,22 +3,11 @@
 	* Load and create theme customizer options
 	*
 	* TO DO:
-	* - Figure out what actually needs to be translated here
-	* - Try a select/radio function for arrays. Might be able to pass a param into the function to choose an array.
-	*   Check out 2016 theme for this.
 	* - Maybe try adding a date picker?
-	* - Try to remove Site Identity > Site Icon
 	*/	
-
-	// Load customizer for theme
-	function ambase_customizer_menu() {
-		add_theme_page( __( 'Customize', 'ambase' ), __( 'Customize', 'ambase' ), 'edit_theme_options', 'customize.php' );
-	}
-	add_action( 'admin_menu', 'ambase_customizer_menu' );
 
 	// Adds individual sections, settings, and controls
 	function ambase_customizer_section( $wp_customize ) {
-
 		// Section 01
 	    $wp_customize->add_section(
 	        'ambase_section01',
@@ -97,11 +86,7 @@
 		        'label' => __( 'Select', 'ambase' ),
 		        'section' => 'ambase_section01',
 		        'type' => 'select',
-		        'choices' => array(
-			        'Option 01' => __( 'Option 01', 'ambase' ),
-			        'Option 02' => __( 'Option 02', 'ambase' ),
-			        'Option 03' => __( 'Option 03', 'ambase' )
-			    )
+		        'choices' => ambase_select_choices()
 		    )
 		);
 
@@ -120,10 +105,7 @@
 		        'label' => __( 'Radio', 'ambase' ),
 		        'section' => 'ambase_section01',
 		        'type' => 'radio',
-		        'choices' => array(
-		            'Yes' => __( 'Yes', 'ambase' ),
-		            'No' => __( 'No', 'ambase' )
-		        ),
+		        'choices' => ambase_radio_choices()
 		    )
 		);
 
@@ -202,7 +184,7 @@
 		        $wp_customize,
 		        'ambase_file',
 		        array(
-		            'label' => 'File Upload',
+		            'label' => __( 'File Upload', 'ambase' ),
 		            'section' => 'ambase_section02',
 		            'settings' => 'ambase_file'
 		        )
@@ -218,7 +200,7 @@
 		        $wp_customize,
 		        'ambase_image',
 		        array(
-		            'label' => 'Image Upload',
+		            'label' => __( 'Image Upload', 'ambase' ),
 		            'section' => 'ambase_section02',
 		            'settings' => 'ambase_image'
 		        )
