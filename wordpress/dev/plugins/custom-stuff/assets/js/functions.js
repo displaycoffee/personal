@@ -1,70 +1,63 @@
-// WordPress Media Library
-function xyz_select_image(selectButton, selector) {
-    jQuery(document).ready(function($){   
-
-        // Instantiates the variable that holds the media library frame    
-        var xyz_select_image_frame;
-     
-        // Runs when the image button is clicked
-        $(selectButton).click(function(e){
-     
-            // Prevents the default action from occuring
-            e.preventDefault();
-     
-            // If the frame already exists, re-open it
-            if ( xyz_select_image_frame ) {
-                xyz_select_image_frame.open();
-                return;
-            }
-     
-            // Sets up the media library frame
-            xyz_select_image_frame = wp.media.frames.xyz_select_image_frame = wp.media({
-                title: xyz_select_image.title,
-                button: { text:  xyz_select_image.selectButton },
-                library: { type: 'image' }
-            });
-     
-            // Runs when an image is selected
-            xyz_select_image_frame.on('select', function(){
-     
-                // Grabs the attachment selection and creates a JSON representation of the model
-                var media_attachment = xyz_select_image_frame.state().get('selection').first().toJSON();
-     
-                // Sends the attachment URL to our custom image input field
-                $(selector).val(media_attachment.url);
-
-            });
-     
-            // Opens the media library frame
-            xyz_select_image_frame.open();
-        });
+// Reset image that's been selected
+function xyzResetImage( resetButton, selector ) {
+    jQuery( resetButton ).click( function() {
+        jQuery( selector ).val( '' );
+        jQuery( selector ).prev( '.image-preview' ).remove();
     });
 }
-// Reset image that's been selected
-function xyz_reset_image(resetButton, selector) {
-    jQuery(document).ready(function($){
-        $(resetButton).click(function() {
-            $(selector).val('');
-            $(selector).prev('.image-preview').remove();
+// WordPress Media Library
+function xyzSelectImage( selectButton, selector ) {
+    // Instantiates the variable that holds the media library frame    
+    var xyzSelectImageFrame;
+ 
+    // Runs when the image button is clicked
+    jQuery( selectButton ).click( function( e ) {
+ 
+        // Prevents the default action from occuring
+        e.preventDefault();
+ 
+        // If the frame already exists, re-open it
+        if ( xyzSelectImageFrame ) {
+            xyzSelectImageFrame.open();
+            return;
+        }
+ 
+        // Sets up the media library frame
+        xyzSelectImageFrame = wp.media.frames.xyzSelectImageFrame = wp.media({
+            title: xyzSelectImage.title,
+            button: { text: xyzSelectImage.selectButton },
+            library: { type: 'image' }
         });
-    }); 
+ 
+        // Runs when an image is selected
+        xyzSelectImageFrame.on( 'select', function() {
+ 
+            // Grabs the attachment selection and creates a JSON representation of the model
+            var mediaAttachment = xyzSelectImageFrame.state().get( 'selection' ).first().toJSON();
+ 
+            // Sends the attachment URL to our custom image input field
+            jQuery( selector ).val( mediaAttachment.url );
+
+        });
+ 
+        // Opens the media library frame
+        xyzSelectImageFrame.open();
+    });
 }
-jQuery(document).ready(function($){
-    $('.media-field').each(function() {
-        var selectButton = $(this).find('.image-select');
-        var resetButton = $(this).find('.image-reset');
-        var selector = $(this).find('input[type="url"]');
-        xyz_select_image(selectButton, selector);
-        xyz_reset_image(resetButton, selector);
+jQuery( document ).ready( function( $ ) {
+    $( '.media-field' ).each( function() {
+        var selectButton = $( this ).find( '.image-select' );
+        var resetButton = $( this ).find( '.image-reset' );
+        var selector = $( this ).find( 'input[type="url"]' );
+        xyzSelectImage( selectButton, selector );
+        xyzResetImage( resetButton, selector );
     });    
 
-    $('.color-select').wpColorPicker();
+    $( '.color-select' ).wpColorPicker();
 
-    $('.xyz-term-field').parents('.wrap').addClass('xyz-term-meta');
-
-    $('.xyz-options .form-table').each(function() {
-        $(this).find('tr').addClass('form-field');
+    $( '.xyz-options .form-table' ).each( function() {
+        $( this ).find( 'tr' ).addClass( 'form-field' );
     });
 
-    $('.date-picker').datepicker();
+    $( '.date-picker' ).datepicker();
 });

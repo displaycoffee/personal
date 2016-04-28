@@ -1,9 +1,7 @@
 // Reset image that's been selected
-function xyz_reset_image(resetButton, selector) {
-    jQuery(document).ready(function($){
-        $(resetButton).click(function() {
-            $(selector).val('');
-            $(selector).prev('.image-preview').remove();
-        });
-    }); 
+function xyzResetImage( resetButton, selector ) {
+    jQuery( resetButton ).click( function() {
+        jQuery( selector ).val( '' );
+        jQuery( selector ).prev( '.image-preview' ).remove();
+    });
 }
