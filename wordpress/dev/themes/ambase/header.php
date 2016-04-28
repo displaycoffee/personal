@@ -37,8 +37,9 @@
 		<?php echo wpautop( esc_html( get_theme_mod( 'ambase_textarea', __( 'Default textarea field', 'ambase' ) ) ) ); ?>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_select', __( 'Option 01', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_radio', __( 'Yes', 'ambase' ) ) ); ?></p>
-		<h2>Section 02</h2>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_checkbox', __( '1', 'ambase' ) ) ); ?></p>
+		<h2>Section 02</h2>
+		<p><?php echo esc_html( get_theme_mod( 'ambase_date', __( '2017-01-01', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_page', __( '0', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_html( get_theme_mod( 'ambase_color', __( '#000000', 'ambase' ) ) ); ?></p>
 		<p><?php echo esc_url( get_theme_mod( 'ambase_file', __( 'No file selected.', 'ambase' ) ) ); ?></p>

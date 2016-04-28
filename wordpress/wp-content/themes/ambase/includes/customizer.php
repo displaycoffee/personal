@@ -1,9 +1,6 @@
 <?php 
 	/**
 	* Load and create theme customizer options
-	*
-	* TO DO:
-	* - Maybe try adding a date picker?
 	*/	
 
 	// Adds individual sections, settings, and controls
@@ -109,15 +106,6 @@
 		    )
 		);
 
-		// Section 02
-	    $wp_customize->add_section(
-	        'ambase_section02',
-	        array(
-	            'title' => __( 'Section 02', 'ambase' ),
-	            'description' => __( 'These are settings for section 02.', 'ambase' )
-	        )
-	    );
-
 	    // Section 02 - Checkbox
 		$wp_customize->add_setting(
 		    'ambase_checkbox',
@@ -131,9 +119,37 @@
 		    'ambase_checkbox',
 		    array(
 		        'label' => __( 'Checkbox', 'ambase' ),
-		        'section' => 'ambase_section02',
+		        'section' => 'ambase_section01',
 		        'type' => 'checkbox'
 		    )
+		);
+
+        // Section 02
+	    $wp_customize->add_section(
+	        'ambase_section02',
+	        array(
+	            'title' => __( 'Section 02', 'ambase' ),
+	            'description' => __( 'These are settings for section 02.', 'ambase' )
+	        )
+	    );
+
+		// Section 01 - Date picker
+		$wp_customize->add_setting(
+		    'ambase_date',
+		    array(
+		    	'default' => __( '', 'ambase' ),
+		        'sanitize_callback' => 'ambase_sanitize_date',
+		        'sanitize_js_callback' => 'ambase_sanitize_date'
+		    )
+		);
+		$wp_customize->add_control(
+		    new AMBASE_Date_Picker( $wp_customize, 'ambase_date', 
+			    array(		        
+			        'label' => __( 'Date Picker', 'ambase' ),
+			        'section' => 'ambase_section02',
+			        'settings' => 'ambase_date'
+			    )
+			)
 		);
 
 		// Section 02 - Page list

@@ -149,6 +149,9 @@
 	// Include customizer choices
 	require_once( 'includes/customizer-choices.php' );
 
+	// Include custom controls
+	require_once( 'includes/customizer-date-picker.php' );
+
 	// Include customizer validation
 	require_once( 'includes/customizer-validation.php' );
 

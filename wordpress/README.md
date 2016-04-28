@@ -8,3 +8,4 @@ A personal and simple WordPress workflow for developing plugins and themes.
 **Contains:**
 * normalize.css (modified)
 * schema.org markup for blogs
+* customizer
