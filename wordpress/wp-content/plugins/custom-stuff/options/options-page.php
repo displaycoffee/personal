@@ -1,26 +1,25 @@
 <?php
-
 	// Class for putting together option pages
-	class XYZOptionPage {
+	class XYZ_Option_Page {
 
         protected $_optionPage;        
 
         // Add actions for option pages
-        function __construct($optionPage) {
+        function __construct( $optionPage ) {
             $this->_optionPage = $optionPage;
-            add_action('admin_init', array(&$this, 'register'));
-            add_action('admin_menu', array(&$this, 'add'));
+            add_action( 'admin_init', array( &$this, 'register' ) );
+            add_action( 'admin_menu', array( &$this, 'add' ) );
         }
 
 		// Add options page
-		function add(){
+		function add() {
 		    add_submenu_page(
 		    	$this->_optionPage['slug'], 
 		    	sprintf( __( '%s', 'xyz-textdomain' ), $this->_optionPage['title'] ), 
 		    	sprintf( __( '%s', 'xyz-textdomain' ), $this->_optionPage['title'] ), 
 		    	$this->_optionPage['capability'], 
 		    	$this->_optionPage['menu-slug'], 
-		    	array(&$this, 'show_page')
+		    	array( &$this, 'show_page' )
 		    ); 
 		}
 
@@ -34,13 +33,13 @@
 			echo $opening;
 
 			// Use nonce for verification
-            echo '<input type="hidden" name="optionPage_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
+            echo '<input type="hidden" name="optionPage_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
 			// Add settings
-			do_settings_sections($this->_optionPage['menu-slug']);
+			do_settings_sections( $this->_optionPage['menu-slug'] );
 
 			// Add fields
-			settings_fields($this->_optionPage['options-group']);
+			settings_fields( $this->_optionPage['options-group'] );
 
 			// Start closing HTML
 			$closing = '<p class="submit"> ';
@@ -56,22 +55,22 @@
 		function register() {
 
 			// Register settings
-			register_setting($this->_optionPage['options-group'],$this->_optionPage['options-group'], array(&$this, 'save'));
+			register_setting( $this->_optionPage['options-group'], $this->_optionPage['options-group'], array( &$this, 'save' ) );
 
 			// Add sections and fields base on type
-			foreach ($this->_optionPage['fields'] as $field) {
-				if($field['type'] == 'section') {
+			foreach ( $this->_optionPage['fields'] as $field ) {
+				if( $field['type'] == 'section' ) {
 					add_settings_section(
 						$field['id'],
 						sprintf( __( '%s', 'xyz-textdomain' ), $field['title'] ),
-						array(&$this, 'show_section'), 
+						array( &$this, 'show_section' ), 
 						$this->_optionPage['menu-slug']
 					);
 				} else {
 					add_settings_field(
 						$field['id'], 
 						sprintf( __( '%s', 'xyz-textdomain' ), $field['label'] ),
-						array(&$this, 'show_fields'), 
+						array( &$this, 'show_fields' ), 
 						$this->_optionPage['menu-slug'], 
 						$field['section'], 
 						$field
@@ -82,51 +81,51 @@
 		}
 
 		// Show extra section content
-		function show_section($section) {
-			foreach ($this->_optionPage['fields'] as $field) {
-				if (($field['type'] == 'section') && ($field['id'] == $section['id'])) {
+		function show_section( $section ) {
+			foreach ( $this->_optionPage['fields'] as $field ) {
+				if ( ( $field['type'] == 'section' ) && ( $field['id'] == $section['id'] ) ) {
 					echo sprintf( __( '%s', 'xyz-textdomain' ), $field['desc'] );
 				}
 			}
 		}
 
-		function show_fields($field) {
+		function show_fields( $field ) {
 
 			// Get values for named option
-			$getOption = get_option($this->_optionPage['options-group']);
+			$getOption = get_option( $this->_optionPage['options-group'] );
 
 			// Option ID to get specific value
 			$optionID = $field['id'];
 
 			// Common display value
-			if (isset($getOption[$optionID])) {
+			if ( isset( $getOption[$optionID] ) ) {
 				$value = $getOption[$optionID];
 			} else {
 				$value = '';
 			}
 
 			// Loop through basic field types
-			xyz_display_fields($field, $value);
+			xyz_display_fields( $field, $value );
 
 		    // Display description if one is there
-            xyz_display_description($field);
+            xyz_display_description( $field );
 
 		}
 
 		// Save data from fields
-		function save($input) {
+		function save( $input ) {
 
 			// Verify nonce
-            if (!isset($_POST['optionPage_nonce']) || !wp_verify_nonce($_POST['optionPage_nonce'], basename(__FILE__))) {
+            if ( !isset( $_POST['optionPage_nonce'] ) || !wp_verify_nonce( $_POST['optionPage_nonce'], basename( __FILE__ ) ) ) {
                 return;
             }
 
             // Validate fields before updating
-			if (isset($input)) {
-				foreach($input as $k => $v) {
-					foreach ($this->_optionPage['fields'] as $field) {
-						if ($field['id'] == $k) {
-							$new[$k] = $field['validate']($v);
+			if ( isset( $input ) ) {
+				foreach( $input as $k => $v ) {
+					foreach ( $this->_optionPage['fields'] as $field ) {
+						if ( $field['id'] == $k ) {
+							$new[$k] = $field['validate']( $v );
 						}
 					}
 				}
@@ -137,6 +136,6 @@
 	}
 
     // Go through each option page array and build them
-    foreach ($optionPages as $optionPage) {
-        new XYZOptionPage($optionPage);
+    foreach ( $optionPages as $optionPage ) {
+        new XYZ_Option_Page( $optionPage );
     }

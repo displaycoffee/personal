@@ -1,5 +1,4 @@
 <?php
-
 	// Creates a category (public)
 	function xyz_create_cat_public() {
 

@@ -1,5 +1,4 @@
 <?php
-
 	// Creates a tag
 	function xyz_create_tag() {
 

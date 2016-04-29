@@ -1,5 +1,4 @@
 <?php
-
 	// Creates a category (private)
 	function xyz_create_cat_private() {
 

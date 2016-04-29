@@ -1,5 +1,4 @@
 <?php
-
 	// Creates custom content type
 	function xyz_create_post_type() {
 
