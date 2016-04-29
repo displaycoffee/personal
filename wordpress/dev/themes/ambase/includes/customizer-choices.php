@@ -14,6 +14,6 @@
 	function ambase_radio_choices() {
 		return array(
             'Yes' => __( 'Yes', 'ambase' ),
-            'No' => __( 'No', 'ambase' )
+            'No'  => __( 'No', 'ambase' )
 	    );
 	}	

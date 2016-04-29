@@ -9,7 +9,7 @@
 	    $wp_customize->add_section(
 	        'ambase_section01',
 	        array(
-	            'title' => __( 'Section 01', 'ambase' ),
+	            'title'		  => __( 'Section 01', 'ambase' ),
 	            'description' => __( 'These are settings for section 01.', 'ambase' )
 	        )
 	    );
@@ -18,17 +18,17 @@
 		$wp_customize->add_setting(
 		    'ambase_text',
 		    array(
-		    	'default' => __( 'Default text field', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_text_field',
+		    	'default'			   => __( 'Default text field', 'ambase' ),
+		        'sanitize_callback'	   => 'sanitize_text_field',
 		        'sanitize_js_callback' => 'sanitize_text_field'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_text',
 		    array(
-		        'label' => __( 'Text', 'ambase' ),
+		        'label'	  => __( 'Text', 'ambase' ),
 		        'section' => 'ambase_section01',
-		        'type' => 'text'
+		        'type'	  => 'text'
 		    )
 		);
 
@@ -36,17 +36,17 @@
 		$wp_customize->add_setting(
 		    'ambase_url',
 		    array(
-		    	'default' => __( 'http://www.wordpress.com', 'ambase' ),
-		        'sanitize_callback' => 'esc_url',
+		    	'default'			   => __( 'http://www.wordpress.com', 'ambase' ),
+		        'sanitize_callback'	   => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_url',
 		    array(
-		        'label' => __( 'URL', 'ambase' ),
+		        'label'	  => __( 'URL', 'ambase' ),
 		        'section' => 'ambase_section01',
-		        'type' => 'url'
+		        'type'	  => 'url'
 		    )
 		);
 
@@ -54,17 +54,17 @@
 		$wp_customize->add_setting(
 		    'ambase_textarea',
 		    array(
-		    	'default' => __( 'Default textarea field', 'ambase' ),
-		        'sanitize_callback' => 'ambase_sanitize_textarea',
+		    	'default'			   => __( 'Default textarea field', 'ambase' ),
+		        'sanitize_callback'	   => 'ambase_sanitize_textarea',
 		        'sanitize_js_callback' => 'ambase_sanitize_textarea'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_textarea',
 		    array(
-		        'label' => __( 'Textarea', 'ambase' ),
+		        'label'	  => __( 'Textarea', 'ambase' ),
 		        'section' => 'ambase_section01',
-		        'type' => 'textarea'
+		        'type'	  => 'textarea'
 		    )
 		);	
 
@@ -72,17 +72,17 @@
 		$wp_customize->add_setting(
 		    'ambase_select',
 		    array(
-		    	'default' => __( 'Option 01', 'ambase' ),
-		        'sanitize_callback' => 'ambase_sanitize_select',
+		    	'default'			   => __( 'Option 01', 'ambase' ),
+		        'sanitize_callback'	   => 'ambase_sanitize_select',
 		        'sanitize_js_callback' => 'ambase_sanitize_select'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_select',
 		    array(
-		        'label' => __( 'Select', 'ambase' ),
+		        'label'	  => __( 'Select', 'ambase' ),
 		        'section' => 'ambase_section01',
-		        'type' => 'select',
+		        'type'	  => 'select',
 		        'choices' => ambase_select_choices()
 		    )
 		);
@@ -91,17 +91,17 @@
 		$wp_customize->add_setting(
 		    'ambase_radio',
 		    array(
-		    	'default' => __( 'Yes', 'ambase' ),
-		        'sanitize_callback' => 'ambase_sanitize_radio',
+		    	'default'			   => __( 'Yes', 'ambase' ),
+		        'sanitize_callback'	   => 'ambase_sanitize_radio',
 		        'sanitize_js_callback' => 'ambase_sanitize_radio'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_radio',
 		    array(
-		        'label' => __( 'Radio', 'ambase' ),
+		        'label'	  => __( 'Radio', 'ambase' ),
 		        'section' => 'ambase_section01',
-		        'type' => 'radio',
+		        'type'	  => 'radio',
 		        'choices' => ambase_radio_choices()
 		    )
 		);
@@ -110,17 +110,17 @@
 		$wp_customize->add_setting(
 		    'ambase_checkbox',
 		    array(
-		    	'default' => __( '1', 'ambase' ),
-		        'sanitize_callback' => 'ambase_sanatize_checkbox',
+		    	'default'			   => __( '1', 'ambase' ),
+		        'sanitize_callback'	   => 'ambase_sanatize_checkbox',
 		        'sanitize_js_callback' => 'ambase_sanatize_checkbox'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_checkbox',
 		    array(
-		        'label' => __( 'Checkbox', 'ambase' ),
+		        'label'	  => __( 'Checkbox', 'ambase' ),
 		        'section' => 'ambase_section01',
-		        'type' => 'checkbox'
+		        'type'	  => 'checkbox'
 		    )
 		);
 
@@ -128,7 +128,7 @@
 	    $wp_customize->add_section(
 	        'ambase_section02',
 	        array(
-	            'title' => __( 'Section 02', 'ambase' ),
+	            'title'		  => __( 'Section 02', 'ambase' ),
 	            'description' => __( 'These are settings for section 02.', 'ambase' )
 	        )
 	    );
@@ -137,16 +137,16 @@
 		$wp_customize->add_setting(
 		    'ambase_date',
 		    array(
-		    	'default' => __( '', 'ambase' ),
-		        'sanitize_callback' => 'ambase_sanitize_date',
+		    	'default'			   => __( '', 'ambase' ),
+		        'sanitize_callback'	   => 'ambase_sanitize_date',
 		        'sanitize_js_callback' => 'ambase_sanitize_date'
 		    )
 		);
 		$wp_customize->add_control(
 		    new AMBASE_Date_Picker( $wp_customize, 'ambase_date', 
 			    array(		        
-			        'label' => __( 'Date Picker', 'ambase' ),
-			        'section' => 'ambase_section02',
+			        'label'	   => __( 'Date Picker', 'ambase' ),
+			        'section'  => 'ambase_section02',
 			        'settings' => 'ambase_date'
 			    )
 			)
@@ -156,17 +156,17 @@
 		$wp_customize->add_setting(
 		    'ambase_page',		    
 		    array(
-		    	'default' => __( '0', 'ambase' ),
-		        'sanitize_callback' => 'ambase_sanitize_number',
+		    	'default'			   => __( '0', 'ambase' ),
+		        'sanitize_callback'	   => 'ambase_sanitize_number',
 		        'sanitize_js_callback' => 'ambase_sanitize_number'
 		    )
 		);		 
 		$wp_customize->add_control(
 		    'ambase_page',
 		    array(		        
-		        'label' => __( 'Choose a page', 'ambase' ),
+		        'label'	  => __( 'Choose a page', 'ambase' ),
 		        'section' => 'ambase_section02',
-		        'type' => 'dropdown-pages'
+		        'type'	  => 'dropdown-pages'
 		    )
 		);
 
@@ -174,8 +174,8 @@
 		$wp_customize->add_setting(
 		    'ambase_color',		    
 		    array(
-		    	'default' => __( '#000000', 'ambase' ),
-		        'sanitize_callback' => 'sanitize_hex_color',
+		    	'default'			   => __( '#000000', 'ambase' ),
+		        'sanitize_callback'	   => 'sanitize_hex_color',
 		        'sanitize_js_callback' => 'sanitize_hex_color'
 		    )
 		);		 
@@ -184,8 +184,8 @@
 		        $wp_customize,
 			    'ambase_color',
 			    array(		        
-			        'label' => __( 'Color', 'ambase' ),
-			        'section' => 'ambase_section02',
+			        'label'	   => __( 'Color', 'ambase' ),
+			        'section'  => 'ambase_section02',
 			        'settings' => 'ambase_color'
 			    )
 		    )
@@ -200,8 +200,8 @@
 		        $wp_customize,
 		        'ambase_file',
 		        array(
-		            'label' => __( 'File Upload', 'ambase' ),
-		            'section' => 'ambase_section02',
+		            'label'	   => __( 'File Upload', 'ambase' ),
+		            'section'  => 'ambase_section02',
 		            'settings' => 'ambase_file'
 		        )
 		    )
@@ -216,8 +216,8 @@
 		        $wp_customize,
 		        'ambase_image',
 		        array(
-		            'label' => __( 'Image Upload', 'ambase' ),
-		            'section' => 'ambase_section02',
+		            'label'	   => __( 'Image Upload', 'ambase' ),
+		            'section'  => 'ambase_section02',
 		            'settings' => 'ambase_image'
 		        )
 		    )
@@ -227,7 +227,7 @@
 	    $wp_customize->add_section(
 	        'ambase_social',
 	        array(
-	            'title' => __( 'Social Media', 'ambase' ),
+	            'title'		  => __( 'Social Media', 'ambase' ),
 	            'description' => __( 'Add links for social media.', 'ambase' )
 	        )
 	    );
@@ -236,17 +236,17 @@
 		$wp_customize->add_setting(
 		    'ambase_facebook',
 		    array(
-		    	'default' => __( 'http://www.facebook.com', 'ambase' ),
-		        'sanitize_callback' => 'esc_url',
+		    	'default'			   => __( 'http://www.facebook.com', 'ambase' ),
+		        'sanitize_callback'	   => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_facebook',
 		    array(
-		        'label' => __( 'Facebook', 'ambase' ),
+		        'label'	  => __( 'Facebook', 'ambase' ),
 		        'section' => 'ambase_social',
-		        'type' => 'url'
+		        'type'	  => 'url'
 		    )
 		);		
 
@@ -254,17 +254,17 @@
 		$wp_customize->add_setting(
 		    'ambase_gplus',
 		    array(
-		    	'default' => __( 'http://www.google.com', 'ambase' ),
-		        'sanitize_callback' => 'esc_url',
+		    	'default'			   => __( 'http://www.google.com', 'ambase' ),
+		        'sanitize_callback'	   => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_gplus',
 		    array(
-		        'label' => __( 'Google+', 'ambase' ),
+		        'label'	  => __( 'Google+', 'ambase' ),
 		        'section' => 'ambase_social',
-		        'type' => 'url'
+		        'type'	  => 'url'
 		    )
 		);	
 
@@ -272,17 +272,17 @@
 		$wp_customize->add_setting(
 		    'ambase_linkedin',
 		    array(
-		    	'default' => __( 'http://www.linkedin.com', 'ambase' ),
-		        'sanitize_callback' => 'esc_url',
+		    	'default'			   => __( 'http://www.linkedin.com', 'ambase' ),
+		        'sanitize_callback'	   => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_linkedin',
 		    array(
-		        'label' => __( 'LinkedIn', 'ambase' ),
+		        'label'	  => __( 'LinkedIn', 'ambase' ),
 		        'section' => 'ambase_social',
-		        'type' => 'url'
+		        'type'	  => 'url'
 		    )
 		);	
 
@@ -290,17 +290,17 @@
 		$wp_customize->add_setting(
 		    'ambase_twitter',
 		    array(
-		    	'default' => __( 'http://www.twitter.com', 'ambase' ),
-		        'sanitize_callback' => 'esc_url',
+		    	'default'			   => __( 'http://www.twitter.com', 'ambase' ),
+		        'sanitize_callback'	   => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
 		);
 		$wp_customize->add_control(
 		    'ambase_twitter',
 		    array(
-		        'label' => __( 'Twitter', 'ambase' ),
+		        'label'	  => __( 'Twitter', 'ambase' ),
 		        'section' => 'ambase_social',
-		        'type' => 'url'
+		        'type'	  => 'url'
 		    )
 		);							
 	}

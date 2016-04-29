@@ -37,13 +37,13 @@
 	// Register sidebars
 	function ambase_widgets_init() {
 		register_sidebar( array(
-			'name' => __( 'Default Sidebar', 'ambase' ),
-			'id' => 'default-widget-area',
-			'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'ambase' ),
+			'name'			=> __( 'Default Sidebar', 'ambase' ),
+			'id'			=> 'default-widget-area',
+			'description'	=> __( 'Widgets in this area will be shown on all posts and pages.', 'ambase' ),
 			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-			'after_widget' => '</div>',
-			'before_title' => '<h3 class="widget-title">',
-			'after_title' => '</h3>',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h3 class="widget-title">',
+			'after_title'	=> '</h3>',
 		) );
 	}
 	add_action( 'widgets_init', 'ambase_widgets_init' );
@@ -78,10 +78,10 @@
     				comment_reply_link( 
     					array_merge( $args, array( 
     						'add_below' => $add_below, 
-    						'depth' => $depth, 
+    						'depth'		=> $depth, 
     						'max_depth' => $args['max_depth'],
-    						'before' => '<div class="reply">',
-    						'after' => '</div>' 
+    						'before'	=> '<div class="reply">',
+    						'after'		=> '</div>' 
     					) ) 
     				); 
     			?>

@@ -37,11 +37,11 @@
 
 				// Pagination arguments
 				$args = array(
-					'end_size' => 2,
-					'mid_size' => 3,
+					'end_size'	=> 2,
+					'mid_size'	=> 3,
 					'prev_text' => __( 'Previous', 'ambase' ),
 					'next_text' => __( 'Next', 'ambase' ),
-					'type' => 'list'			
+					'type'		=> 'list'			
 				);
 
 				// Display comment pagination
