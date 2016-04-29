@@ -1,4 +1,5 @@
-// Post, Add Term, Edit Term, and Option styles for meta fields
+/* Post, Add Term, Edit Term, and Option styles for meta fields
+========================================================================== */
 
 .xyz-post-meta, .xyz-term-meta, .xyz-options {
 	textarea {
@@ -112,7 +113,8 @@
 	}
 }
 
-// Date Picker
+/* Date Picker
+========================================================================== */
 
 #ui-datepicker-div {
 	background: #fff;
@@ -177,7 +179,8 @@
 	}
 }
 
-// Post styles for meta fields
+/* Post styles for meta fields
+========================================================================== */
 
 .xyz-post-meta {
 	.row {
@@ -232,7 +235,8 @@
 	}
 }
 
-// Add Term, Edit Term, and Option styles for meta fields
+/* Add Term, Edit Term, and Option styles for meta fields
+========================================================================== */
 
 .xyz-term-meta, .xyz-options {
 	#wp-xyz-editor-wrap {
@@ -240,7 +244,8 @@
 	}
 }
 
-// Edit Term and Option styles for meta fields
+/* Edit Term and Option styles for meta fields
+========================================================================== */
 
 .xyz-term-meta td, .xyz-options {
 	@include respond(782) {
@@ -250,13 +255,15 @@
 	}
 }
 
-// Add Term and Edit Term for meta fields
+/* Add Term and Edit Term for meta fields
+========================================================================== */
 
 .xyz-term-meta .options .text input {
 	width: 100%;
 }
 
-// Add Term styles for meta fields
+/* Add Term styles for meta fields
+========================================================================== */
 
 div.xyz-term-meta {
 	.options {
@@ -282,7 +289,8 @@ div.xyz-term-meta {
 	}	
 }
 
-// Edit Term for meta fields
+/* Edit Term for meta fields
+========================================================================== */
 
 .xyz-term-meta td .options .text {
 	width: 23.75%;
