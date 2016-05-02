@@ -27,10 +27,10 @@
     function xyz_sanitize_html( $input ) {
 	    $args = array(
 		    'strong' => array(),
-		    'em' => array(),
-		    'b' => array(),
-		    'i' => array(),
-		    'br' => array(),
+		    'em'	 => array(),
+		    'b'		 => array(),
+		    'i'		 => array(),
+		    'br'	 => array(),
 		);
 		return wp_kses( $input, $args );
 	}

@@ -18,13 +18,13 @@
 		);
 
 		$args = array(
-			'labels'                     => $labels,
-			'hierarchical'               => false,
-			'public'                     => true,
-			'rewrite'                    => true,
-			'show_ui'                    => true,
-			'show_admin_column'          => true,
-			'show_in_nav_menus'          => false
+			'labels'            => $labels,
+			'hierarchical'      => false,
+			'public'            => true,
+			'rewrite'           => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => false
 		);
 
 		register_taxonomy( 'xyz-tag', 'xyz-post-type', $args );

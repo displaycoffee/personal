@@ -23,7 +23,7 @@
 	        wp_enqueue_media();
 	        wp_localize_script( 'xyz_asset', 'image_select',
 	            array(
-	                'title' => __( 'Choose or Upload an Image', 'xyz-textdomain' ),
+	                'title'  => __( 'Choose or Upload an Image', 'xyz-textdomain' ),
 	                'button' => __( 'Use this image', 'xyz-textdomain' ),
 	            )
 	        );

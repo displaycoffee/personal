@@ -78,7 +78,7 @@
             case 'editor':
 		        $settings = array( 
 		            'textarea_name' => $field['name'],
-		            'editor_class' => 'xyz-editor'
+		            'editor_class'  => 'xyz-editor'
 		        );
 		        wp_editor( $value, $field['id'], $settings );
                 break;

@@ -18,13 +18,13 @@
 		);
 
 		$args = array(
-			'labels'                     => $labels,
-			'hierarchical'               => true,
-			'public'                     => false,
-			'rewrite'                    => true,
-			'show_ui'                    => true,
-			'show_admin_column'          => true,
-			'show_in_nav_menus'          => false
+			'labels'            => $labels,
+			'hierarchical'      => true,
+			'public'            => false,
+			'rewrite'           => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => false
 		);
 
 		register_taxonomy( 'xyz-cat-private', 'xyz-post-type', $args );
