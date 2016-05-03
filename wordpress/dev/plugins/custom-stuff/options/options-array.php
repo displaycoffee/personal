@@ -3,20 +3,20 @@
     $optionPages = array();
  
     $optionPages[] = array(
-        'slug'          => 'edit.php?post_type=xyz-post-type',
+        'slug'          => 'edit.php?post_type=cstmstff-post-type',
         'title'         => 'Options Page',
         'capability'    => 'manage_options',
-        'menu-slug'     => 'xyz-options.php',
-        'options-group' => 'xyz-options',
+        'menu-slug'     => 'cstmstff-options.php',
+        'options-group' => 'cstmstff-options',
         'fields'        => array(
             array(
-                'id'    => 'xyz-option-section-01',
+                'id'    => 'cstmstff-option-section-01',
                 'title' => 'Section 01',
                 'desc'  => '<p>Text for Section 01.</p>',
                 'type'  => 'section'
             ),
             array(
-                'id'    => 'xyz-option-section-02',
+                'id'    => 'cstmstff-option-section-02',
                 'title' => 'Section 02',
                 'desc'  => '<p>Text for Section 02.</p>',
                 'type'  => 'section'
@@ -24,38 +24,38 @@
             array(
                 'label'    => 'Text box',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-text',
-                'name'     => 'xyz-options[xyz-text]',
+                'id'       => 'cstmstff-text',
+                'name'     => 'cstmstff-options[cstmstff-text]',
                 'type'     => 'text',
-                'validate' => 'xyz_sanitize_html',
-                'section'  => 'xyz-option-section-01'
+                'validate' => 'cstmstff_sanitize_html',
+                'section'  => 'cstmstff-option-section-01'
             ),
             array(
                 'label'    => 'URL',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-url',
-                'name'     => 'xyz-options[xyz-url]',
+                'id'       => 'cstmstff-url',
+                'name'     => 'cstmstff-options[cstmstff-url]',
                 'type'     => 'url',
                 'validate' => 'esc_url',
-                'section'  => 'xyz-option-section-01'
+                'section'  => 'cstmstff-option-section-01'
             ),                                    
             array(
                 'label'    => 'Textarea',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-textarea',
-                'name'     => 'xyz-options[xyz-textarea]',
+                'id'       => 'cstmstff-textarea',
+                'name'     => 'cstmstff-options[cstmstff-textarea]',
                 'type'     => 'textarea',
-                'validate' => 'xyz_sanitize_html',
-                'section'  => 'xyz-option-section-01'
+                'validate' => 'cstmstff_sanitize_html',
+                'section'  => 'cstmstff-option-section-01'
             ),
             array(
                 'label'    => 'Select Box',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-select',
-                'name'     => 'xyz-options[xyz-select]',
+                'id'       => 'cstmstff-select',
+                'name'     => 'cstmstff-options[cstmstff-select]',
                 'type'     => 'select',
                 'validate' => 'sanitize_text_field',
-                'section'  => 'xyz-option-section-01',
+                'section'  => 'cstmstff-option-section-01',
                 'options'  => array(
                     'Option 1', 
                     'Option 2', 
@@ -65,70 +65,70 @@
             array(
                 'label'    => 'Radio',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-radio',
-                'name'     => 'xyz-options[xyz-radio]',
+                'id'       => 'cstmstff-radio',
+                'name'     => 'cstmstff-options[cstmstff-radio]',
                 'type'     => 'radio',
                 'validate' => 'sanitize_text_field',
-                'section'  => 'xyz-option-section-02',                
+                'section'  => 'cstmstff-option-section-02',                
                 'options'  => array(
                     array(
                         'label'   => 'Name 1', 
-                        'id'      => 'xyz-value01', 
-                        'name'    => 'xyz-value01',
+                        'id'      => 'cstmstff-value01', 
+                        'name'    => 'cstmstff-value01',
                         'default' => 'yes'
                     ),
                     array(
                         'label' => 'Name 2', 
-                        'id'    => 'xyz-value02',
-                        'name'  => 'xyz-value02',
+                        'id'    => 'cstmstff-value02',
+                        'name'  => 'cstmstff-value02',
                     )
                 )
             ),
             array(
                 'label'    => 'Checkbox',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-checkbox',
-                'name'     => 'xyz-options[xyz-checkbox]',
+                'id'       => 'cstmstff-checkbox',
+                'name'     => 'cstmstff-options[cstmstff-checkbox]',
                 'type'     => 'checkbox',
                 'value'    => 'true',
                 'validate' => 'sanitize_text_field',
-                'section'  => 'xyz-option-section-02'
+                'section'  => 'cstmstff-option-section-02'
             ), 
             array(
                 'label'    => 'Date',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-date',
-                'name'     => 'xyz-options[xyz-date]',
+                'id'       => 'cstmstff-date',
+                'name'     => 'cstmstff-options[cstmstff-date]',
                 'type'     => 'date',
-                'validate' => 'xyz_sanitize_date',
-                'section'  => 'xyz-option-section-02'
+                'validate' => 'cstmstff_sanitize_date',
+                'section'  => 'cstmstff-option-section-02'
             ),                     
             array(
                 'label'    => 'Color Picker',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-color',
-                'name'     => 'xyz-options[xyz-color]',
+                'id'       => 'cstmstff-color',
+                'name'     => 'cstmstff-options[cstmstff-color]',
                 'type'     => 'color',
-                'validate' => 'xyz_sanitize_hex',
-                'section'  => 'xyz-option-section-02'
+                'validate' => 'cstmstff_sanitize_hex',
+                'section'  => 'cstmstff-option-section-02'
             ),
             array(
                 'label'    => 'Media Library',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-image',
-                'name'     => 'xyz-options[xyz-image]',
+                'id'       => 'cstmstff-image',
+                'name'     => 'cstmstff-options[cstmstff-image]',
                 'type'     => 'media',
                 'validate' => 'esc_url',
-                'section'  => 'xyz-option-section-02'
+                'section'  => 'cstmstff-option-section-02'
             ),
             array(
                 'label'    => 'WordPress Editor',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-editor',
-                'name'     => 'xyz-options[xyz-editor]',
+                'id'       => 'cstmstff-editor',
+                'name'     => 'cstmstff-options[cstmstff-editor]',
                 'type'     => 'editor',
                 'validate' => 'wp_kses_post',
-                'section'  => 'xyz-option-section-02'
+                'section'  => 'cstmstff-option-section-02'
             )             
         )
     );

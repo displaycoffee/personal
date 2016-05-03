@@ -1,7 +1,7 @@
 // WordPress Media Library
-function xyzSelectImage( selectButton, selector ) {
+function cstmstffSelectImage( selectButton, selector ) {
     // Instantiates the variable that holds the media library frame    
-    var xyzSelectImageFrame;
+    var cstmstffSelectImageFrame;
  
     // Runs when the image button is clicked
     jQuery( selectButton ).click( function( e ) {
@@ -10,23 +10,23 @@ function xyzSelectImage( selectButton, selector ) {
         e.preventDefault();
  
         // If the frame already exists, re-open it
-        if ( xyzSelectImageFrame ) {
-            xyzSelectImageFrame.open();
+        if ( cstmstffSelectImageFrame ) {
+            cstmstffSelectImageFrame.open();
             return;
         }
  
         // Sets up the media library frame
-        xyzSelectImageFrame = wp.media.frames.xyzSelectImageFrame = wp.media({
-            title: xyzSelectImage.title,
-            button: { text: xyzSelectImage.selectButton },
+        cstmstffSelectImageFrame = wp.media.frames.cstmstffSelectImageFrame = wp.media({
+            title: cstmstffSelectImage.title,
+            button: { text: cstmstffSelectImage.selectButton },
             library: { type: 'image' }
         });
  
         // Runs when an image is selected
-        xyzSelectImageFrame.on( 'select', function() {
+        cstmstffSelectImageFrame.on( 'select', function() {
  
             // Grabs the attachment selection and creates a JSON representation of the model
-            var mediaAttachment = xyzSelectImageFrame.state().get( 'selection' ).first().toJSON();
+            var mediaAttachment = cstmstffSelectImageFrame.state().get( 'selection' ).first().toJSON();
  
             // Sends the attachment URL to our custom image input field
             jQuery( selector ).val( mediaAttachment.url );
@@ -34,6 +34,6 @@ function xyzSelectImage( selectButton, selector ) {
         });
  
         // Opens the media library frame
-        xyzSelectImageFrame.open();
+        cstmstffSelectImageFrame.open();
     });
 }

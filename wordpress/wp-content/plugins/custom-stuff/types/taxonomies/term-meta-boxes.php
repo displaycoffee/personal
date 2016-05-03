@@ -1,6 +1,6 @@
 <?php
     // Class for putting together all the meta box goodness
-    class XYZ_Term_Meta_Box {	
+    class CSTMSTFF_Term_Meta_Box {	
 
     	protected $_termMetaBox; 
 
@@ -26,9 +26,9 @@
             foreach ( $this->_termMetaBox['fields'] as $field ) {
 
                 // Start opening HTML
-                $opening = '<div class="form-field ' . $field['id'] . '-wrap xyz-term-meta">';
+                $opening = '<div class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
                 $opening .= '<label for="' . $field['id'] . '">';
-                $opening .= sprintf( __( '%s', 'xyz-textdomain' ), $field['label'] );
+                $opening .= sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
                 $opening .= '</label>';
                 echo $opening;
 
@@ -36,7 +36,7 @@
                 $value = '';
 
 				// Loop through basic field types
-                xyz_display_fields( $field, $value );
+                cstmstff_display_fields( $field, $value );
 
                 // Display multiple text fields
                 if ( $field['type'] == 'multitext' ) {
@@ -44,7 +44,7 @@
                     foreach ( $field['options'] as $option ) {
                         $meta = '';
                         $value = isset( $meta ) ? $meta : '';
-                        xyz_display_multitext( $field, $option, $value );
+                        cstmstff_display_multitext( $field, $option, $value );
                     }
                     echo '</div>';                    
                 }
@@ -55,13 +55,13 @@
                     foreach ( $field['options'] as $option ) {
                         $meta = '';
                         $checked = $meta ? ' checked="checked"' : '';
-                        xyz_display_multicheck( $field, $option, $checked );
+                        cstmstff_display_multicheck( $field, $option, $checked );
                     }
                     echo '</div>';
                 }
 
                 // Display description if one is there
-                xyz_display_description( $field );
+                cstmstff_display_description( $field );
 
                 // Start closing HTML
                 $closing = '</div>';
@@ -80,10 +80,10 @@
 		    foreach ( $this->_termMetaBox['fields'] as $field ) {
 		    
 	            // Start opening HTML
-	            $opening = '<tr class="form-field ' . $field['id'] . '-wrap xyz-term-meta">';
+	            $opening = '<tr class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
 	            $opening .= '<th scope="row">';
 	            $opening .= '<label for="' . $field['id'] . '">';
-	            $opening .= sprintf( __( '%s', 'xyz-textdomain' ), $field['label'] );
+	            $opening .= sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
 	            $opening .= '</label>';
 	            $opening .= '</th>';
 	            $opening .= '<td>';
@@ -96,7 +96,7 @@
                 $value = isset( $meta ) ? $meta : '';
 
 				// Loop through basic field types
-                xyz_display_fields( $field, $value );
+                cstmstff_display_fields( $field, $value );
 
                 // Display multiple text fields
                 if ( $field['type'] == 'multitext' ) {
@@ -104,7 +104,7 @@
                     foreach ( $field['options'] as $option ) {
                         $meta = get_term_meta( $term->term_id, $option['id'], true );
                         $value = isset( $meta ) ? $meta : '';
-                        xyz_display_multitext( $field, $option, $value );
+                        cstmstff_display_multitext( $field, $option, $value );
                     }
                     echo '</div>';                    
                 }
@@ -115,13 +115,13 @@
                     foreach ( $field['options'] as $option ) {
                         $meta = get_term_meta( $term->term_id, $option['id'], true );
                         $checked = $meta ? ' checked="checked"' : '';
-                        xyz_display_multicheck( $field, $option, $checked );
+                        cstmstff_display_multicheck( $field, $option, $checked );
                     }
                     echo '</div>';
                 }
 
                 // Display description if one is there
-                xyz_display_description( $field );
+                cstmstff_display_description( $field );
 
 	            // Start closing HTML
 	            $closing = '</td>';
@@ -179,10 +179,10 @@
 				if ( $field['column'] == 'yes' ) {
 					if ( in_array( $field['type'], ['multitext','multicheck'] ) ) {
 						foreach ( $field['options'] as $option ) {
-							$columns[$option['id']] = sprintf( __( '%s', 'xyz-textdomain' ), $option['label'] );
+							$columns[$option['id']] = sprintf( __( '%s', 'custom-stuff' ), $option['label'] );
 						}
 					} else {
-						$columns[$field['id']] = sprintf( __( '%s', 'xyz-textdomain' ), $field['label'] );
+						$columns[$field['id']] = sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
 					}
 				}
 			}
@@ -203,7 +203,7 @@
 				                $value = isset( $meta ) ? $meta : '';
 
 				                // Display value in column
-						        $content = sprintf( __( '%s', 'xyz-textdomain' ), $value );
+						        $content = sprintf( __( '%s', 'custom-stuff' ), $value );
 							}
 						}
 			    	} else {
@@ -215,7 +215,7 @@
 			                $value = isset( $meta ) ? $meta : '';
 
 			                // Display value in column
-					        $content = sprintf( __( '%s', 'xyz-textdomain' ), $value );
+					        $content = sprintf( __( '%s', 'custom-stuff' ), $value );
 						}
 					}
 				}
@@ -243,5 +243,5 @@
 
     // Go through each meta box array and build them
     foreach ( $termMetaBoxes as $termMetaBox ) {
-        new XYZ_Term_Meta_Box( $termMetaBox );
+        new CSTMSTFF_Term_Meta_Box( $termMetaBox );
     }

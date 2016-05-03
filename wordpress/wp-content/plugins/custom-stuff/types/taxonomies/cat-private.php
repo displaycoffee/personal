@@ -1,20 +1,20 @@
 <?php
 	// Creates a category (private)
-	function xyz_create_cat_private() {
+	function cstmstff_create_cat_private() {
 
 		$labels = array(
-			'name'              => _x( 'Private Categories', 'xyz-textdomain' ),
-			'singular_name'     => _x( 'Private Category', 'xyz-textdomain' ),
-			'search_items'      => __( 'Search Private Categories', 'xyz-textdomain' ),
-			'all_items'         => __( 'All Private Categories', 'xyz-textdomain' ),
-			'parent_item'       => __( 'Parent Private Category', 'xyz-textdomain' ),
-			'parent_item_colon' => __( 'Parent Private Category:', 'xyz-textdomain' ),
-			'edit_item'         => __( 'Edit Private Category', 'xyz-textdomain' ), 
-			'update_item'       => __( 'Update Private Category', 'xyz-textdomain' ),
-			'add_new_item'      => __( 'Add New Private Category', 'xyz-textdomain' ),
-			'new_item_name'     => __( 'New Private Category', 'xyz-textdomain' ),
-			'menu_name'         => __( 'Private Categories', 'xyz-textdomain' ),
-			'not_found'         => __( 'No private categories found.', 'xyz-textdomain' )
+			'name'              => _x( 'Private Categories', 'custom-stuff' ),
+			'singular_name'     => _x( 'Private Category', 'custom-stuff' ),
+			'search_items'      => __( 'Search Private Categories', 'custom-stuff' ),
+			'all_items'         => __( 'All Private Categories', 'custom-stuff' ),
+			'parent_item'       => __( 'Parent Private Category', 'custom-stuff' ),
+			'parent_item_colon' => __( 'Parent Private Category:', 'custom-stuff' ),
+			'edit_item'         => __( 'Edit Private Category', 'custom-stuff' ), 
+			'update_item'       => __( 'Update Private Category', 'custom-stuff' ),
+			'add_new_item'      => __( 'Add New Private Category', 'custom-stuff' ),
+			'new_item_name'     => __( 'New Private Category', 'custom-stuff' ),
+			'menu_name'         => __( 'Private Categories', 'custom-stuff' ),
+			'not_found'         => __( 'No private categories found.', 'custom-stuff' )
 		);
 
 		$args = array(
@@ -27,6 +27,6 @@
 			'show_in_nav_menus' => false
 		);
 
-		register_taxonomy( 'xyz-cat-private', 'xyz-post-type', $args );
+		register_taxonomy( 'cstmstff-cat-private', 'cstmstff-post-type', $args );
 	}
-	add_action( 'init', 'xyz_create_cat_private', 0 );
+	add_action( 'init', 'cstmstff_create_cat_private', 0 );

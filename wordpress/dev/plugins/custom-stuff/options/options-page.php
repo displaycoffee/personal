@@ -1,6 +1,6 @@
 <?php
 	// Class for putting together option pages
-	class XYZ_Option_Page {
+	class CSTMSTFF_Option_Page {
 
         protected $_optionPage;        
 
@@ -15,8 +15,8 @@
 		function add() {
 		    add_submenu_page(
 		    	$this->_optionPage['slug'], 
-		    	sprintf( __( '%s', 'xyz-textdomain' ), $this->_optionPage['title'] ), 
-		    	sprintf( __( '%s', 'xyz-textdomain' ), $this->_optionPage['title'] ), 
+		    	sprintf( __( '%s', 'custom-stuff' ), $this->_optionPage['title'] ), 
+		    	sprintf( __( '%s', 'custom-stuff' ), $this->_optionPage['title'] ), 
 		    	$this->_optionPage['capability'], 
 		    	$this->_optionPage['menu-slug'], 
 		    	array( &$this, 'show_page' )
@@ -27,8 +27,8 @@
 		function show_page() {
 
 			// Start opening HTML
-			$opening = '<div class="xyz-options">';
-			$opening .= '<h1>' . sprintf( __( '%s', 'xyz-textdomain' ), $this->_optionPage['title'] ) . '</h1>';
+			$opening = '<div class="cstmstff-options">';
+			$opening .= '<h1>' . sprintf( __( '%s', 'custom-stuff' ), $this->_optionPage['title'] ) . '</h1>';
 			$opening .= '<form method="post" enctype="multipart/form-data" action="options.php">';
 			echo $opening;
 
@@ -43,7 +43,7 @@
 
 			// Start closing HTML
 			$closing = '<p class="submit"> ';
-			$closing .= '<input type="submit" class="button-primary" value="' . __( 'Save Changes', 'xyz-textdomain' ) . '" />';
+			$closing .= '<input type="submit" class="button-primary" value="' . __( 'Save Changes', 'custom-stuff' ) . '" />';
 			$closing .= '</p>';
 			$closing .= '</form>';
 			$closing .= '</div>';
@@ -62,14 +62,14 @@
 				if( $field['type'] == 'section' ) {
 					add_settings_section(
 						$field['id'],
-						sprintf( __( '%s', 'xyz-textdomain' ), $field['title'] ),
+						sprintf( __( '%s', 'custom-stuff' ), $field['title'] ),
 						array( &$this, 'show_section' ), 
 						$this->_optionPage['menu-slug']
 					);
 				} else {
 					add_settings_field(
 						$field['id'], 
-						sprintf( __( '%s', 'xyz-textdomain' ), $field['label'] ),
+						sprintf( __( '%s', 'custom-stuff' ), $field['label'] ),
 						array( &$this, 'show_fields' ), 
 						$this->_optionPage['menu-slug'], 
 						$field['section'], 
@@ -84,7 +84,7 @@
 		function show_section( $section ) {
 			foreach ( $this->_optionPage['fields'] as $field ) {
 				if ( ( $field['type'] == 'section' ) && ( $field['id'] == $section['id'] ) ) {
-					echo sprintf( __( '%s', 'xyz-textdomain' ), $field['desc'] );
+					echo sprintf( __( '%s', 'custom-stuff' ), $field['desc'] );
 				}
 			}
 		}
@@ -105,10 +105,10 @@
 			}
 
 			// Loop through basic field types
-			xyz_display_fields( $field, $value );
+			cstmstff_display_fields( $field, $value );
 
 		    // Display description if one is there
-            xyz_display_description( $field );
+            cstmstff_display_description( $field );
 
 		}
 
@@ -137,5 +137,5 @@
 
     // Go through each option page array and build them
     foreach ( $optionPages as $optionPage ) {
-        new XYZ_Option_Page( $optionPage );
+        new CSTMSTFF_Option_Page( $optionPage );
     }

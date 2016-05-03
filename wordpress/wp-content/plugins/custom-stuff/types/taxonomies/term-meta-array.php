@@ -3,22 +3,22 @@
     $termMetaBoxes = array();
  
     $termMetaBoxes[] = array(
-        'category' => 'xyz-cat-public',
+        'category' => 'cstmstff-cat-public',
         'fields'   => array(           
             array(
                 'label'    => 'Text box',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-text',
-                'name'     => 'xyz-text',
+                'id'       => 'cstmstff-text',
+                'name'     => 'cstmstff-text',
                 'type'     => 'text',
-                'validate' => 'xyz_sanitize_html',
+                'validate' => 'cstmstff_sanitize_html',
                 'column'   => 'yes'
             ),
             array(
                 'label'    => 'URL',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-url',
-                'name'     => 'xyz-url',
+                'id'       => 'cstmstff-url',
+                'name'     => 'cstmstff-url',
                 'type'     => 'url',
                 'validate' => 'esc_url',
                 'column'   => 'no'
@@ -26,47 +26,47 @@
             array(
                 'label'    => 'Multiple Text Boxes',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-multitext',
+                'id'       => 'cstmstff-multitext',
                 'type'     => 'multitext',
-                'validate' => 'xyz_sanitize_html',
+                'validate' => 'cstmstff_sanitize_html',
                 'column'   => 'no',
                 'options'  => array(
                     array(
                         'label' => 'Multi Text 01', 
-                        'id'    => 'xyz-multitext01', 
-                        'name'  => 'xyz-multitext01'
+                        'id'    => 'cstmstff-multitext01', 
+                        'name'  => 'cstmstff-multitext01'
                     ),
                     array(
                         'label' => 'Multi Text 02', 
-                        'id'    => 'xyz-multitext02', 
-                        'name'  => 'xyz-multitext02'
+                        'id'    => 'cstmstff-multitext02', 
+                        'name'  => 'cstmstff-multitext02'
                     ),
                     array(
                         'label' => 'Multi Text 03', 
-                        'id'    => 'xyz-multitext03', 
-                        'name'  => 'xyz-multitext03'
+                        'id'    => 'cstmstff-multitext03', 
+                        'name'  => 'cstmstff-multitext03'
                     ),
                     array(
                         'label' => 'Multi Text 04', 
-                        'id'    => 'xyz-multitext04', 
-                        'name'  => 'xyz-multitext04'
+                        'id'    => 'cstmstff-multitext04', 
+                        'name'  => 'cstmstff-multitext04'
                     )
                 )
             ),                                                 
             array(
                 'desc'     => 'Textarea',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-textarea',
-                'name'     => 'xyz-textarea',
+                'id'       => 'cstmstff-textarea',
+                'name'     => 'cstmstff-textarea',
                 'type'     => 'textarea',
-                'validate' => 'xyz_sanitize_html',
+                'validate' => 'cstmstff_sanitize_html',
                 'column'   => 'no'
             ),
             array(
                 'desc'     => 'Select Box',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-select',
-                'name'     => 'xyz-select',
+                'id'       => 'cstmstff-select',
+                'name'     => 'cstmstff-select',
                 'type'     => 'select',
                 'validate' => 'sanitize_text_field',
                 'column'   => 'yes',                
@@ -79,30 +79,30 @@
             array(
                 'desc'     => 'Radio',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-radio',
-                'name'     => 'xyz-radio',
+                'id'       => 'cstmstff-radio',
+                'name'     => 'cstmstff-radio',
                 'type'     => 'radio',
                 'validate' => 'sanitize_text_field',
                 'column'   => 'yes',                
                 'options'  => array(
                     array(
                         'label'   => 'Name 1', 
-                        'id'      => 'xyz-value01', 
-                        'name'    => 'xyz-value01',
+                        'id'      => 'cstmstff-value01', 
+                        'name'    => 'cstmstff-value01',
                         'default' => 'yes'
                     ),
                     array(
                         'label' => 'Name 2', 
-                        'id'    => 'xyz-value02',
-                        'name'  => 'xyz-value02',
+                        'id'    => 'cstmstff-value02',
+                        'name'  => 'cstmstff-value02',
                     )
                 )
             ),
             array(
                 'desc'     => 'Checkbox',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-checkbox',
-                'name'     => 'xyz-checkbox',
+                'id'       => 'cstmstff-checkbox',
+                'name'     => 'cstmstff-checkbox',
                 'type'     => 'checkbox',
                 'value'    => 'true',
                 'validate' => 'sanitize_text_field',
@@ -111,7 +111,7 @@
             array(
                 'desc'     => 'Multiple Checkboxes',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-multicheck',
+                'id'       => 'cstmstff-multicheck',
                 'type'     => 'multicheck',
                 'validate' => 'sanitize_text_field',
                 'column'   => 'no',                
@@ -119,52 +119,52 @@
                     array(
                         'label' => 'Multi Check 01', 
                         'value' => 'true', 
-                        'id'    => 'xyz-multicheck01', 
-                        'name'  => 'xyz-multicheck01'
+                        'id'    => 'cstmstff-multicheck01', 
+                        'name'  => 'cstmstff-multicheck01'
                     ),
                     array(
                         'label' => 'Multi Check 02', 
                         'value' => 'true', 
-                        'id'    => 'xyz-multicheck02', 
-                        'name'  => 'xyz-multicheck02'
+                        'id'    => 'cstmstff-multicheck02', 
+                        'name'  => 'cstmstff-multicheck02'
                     ),
                     array(
                         'label' => 'Multi Check 03', 
                         'value' => 'true', 
-                        'id'    => 'xyz-multicheck03', 
-                        'name'  => 'xyz-multicheck03'
+                        'id'    => 'cstmstff-multicheck03', 
+                        'name'  => 'cstmstff-multicheck03'
                     ),
                     array(
                         'label' => 'Multi Check 04', 
                         'value' => 'true', 
-                        'id'    => 'xyz-multicheck04', 
-                        'name'  => 'xyz-multicheck04'
+                        'id'    => 'cstmstff-multicheck04', 
+                        'name'  => 'cstmstff-multicheck04'
                     )                                        
                 )
             ), 
             array(
                 'desc'     => 'Date',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-date',
-                'name'     => 'xyz-date',
+                'id'       => 'cstmstff-date',
+                'name'     => 'cstmstff-date',
                 'type'     => 'date',
-                'validate' => 'xyz_sanitize_date',
+                'validate' => 'cstmstff_sanitize_date',
                 'column'   => 'no'
             ),                                 
             array(
                 'label'    => 'Color Picker',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-color',
-                'name'     => 'xyz-color',
+                'id'       => 'cstmstff-color',
+                'name'     => 'cstmstff-color',
                 'type'     => 'color',
-                'validate' => 'xyz_sanitize_hex',
+                'validate' => 'cstmstff_sanitize_hex',
                 'column'   => 'no'
             ),
             array(
                 'label'    => 'Media Library',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-image',
-                'name'     => 'xyz-image',
+                'id'       => 'cstmstff-image',
+                'name'     => 'cstmstff-image',
                 'type'     => 'media',
                 'validate' => 'esc_url',
                 'column'   => 'no'
@@ -172,8 +172,8 @@
             array(
                 'label'    => 'WordPress Editor',
                 'desc'     => 'Enter something here if you want. If not, just remove it.',
-                'id'       => 'xyz-editor',
-                'name'     => 'xyz-editor',
+                'id'       => 'cstmstff-editor',
+                'name'     => 'cstmstff-editor',
                 'type'     => 'editor',
                 'validate' => 'wp_kses_post',
                 'column'   => 'no'

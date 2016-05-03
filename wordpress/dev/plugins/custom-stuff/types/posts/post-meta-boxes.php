@@ -1,6 +1,6 @@
 <?php     
     // Class for putting together all the meta box goodness
-    class XYZ_Post_Meta_Box {
+    class CSTMSTFF_Post_Meta_Box {
  
         protected $_postMetaBox;        
 
@@ -15,7 +15,7 @@
         function add() {
             add_meta_box(
                 $this->_postMetaBox['id'], 
-                sprintf( __( '%s', 'xyz-textdomain' ), $this->_postMetaBox['title'] ), 
+                sprintf( __( '%s', 'custom-stuff' ), $this->_postMetaBox['title'] ), 
                 array( &$this, 'show' ), 
                 $this->_postMetaBox['page'], 
                 $this->_postMetaBox['context'], 
@@ -31,7 +31,7 @@
             echo '<input type="hidden" name="postMetaBox_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
             // Opening div to style meta     
-            echo '<div class="xyz-post-meta">';
+            echo '<div class="cstmstff-post-meta">';
      
             // Loop through each meta box array
             foreach ( $this->_postMetaBox['fields'] as $field ) {
@@ -46,14 +46,14 @@
                 $opening = '<div class="row ' . $field['id'] . '-wrap">';
                 $opening .= '<div class="block01">';
                 $opening .= '<label for="' . $field['id'] . '">';
-                $opening .= sprintf( __( '%s', 'xyz-textdomain' ), $field['label'] );
+                $opening .= sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
                 $opening .= '</label>';
                 $opening .= '</div>';
                 $opening .= '<div class="block02">';
                 echo $opening;
 
                 // Loop through basic field types
-                xyz_display_fields( $field, $value );
+                cstmstff_display_fields( $field, $value );
 
                 // Display multiple text fields
                 if ( $field['type'] == 'multitext' ) {
@@ -61,7 +61,7 @@
                     foreach ( $field['options'] as $option ) {
                         $meta = get_post_meta( $post->ID, $option['id'], true );
                         $value = isset( $meta ) ? $meta : '';
-                        xyz_display_multitext( $field, $option, $value );
+                        cstmstff_display_multitext( $field, $option, $value );
                     }
                     echo '</div>';                    
                 }
@@ -72,13 +72,13 @@
                     foreach ( $field['options'] as $option ) {
                         $meta = get_post_meta( $post->ID, $option['id'], true );
                         $checked = $meta ? ' checked="checked"' : '';
-                        xyz_display_multicheck( $field, $option, $checked );
+                        cstmstff_display_multicheck( $field, $option, $checked );
                     }
                     echo '</div>';
                 }
               
                 // Display description if one is there
-                xyz_display_description( $field );
+                cstmstff_display_description( $field );
 
                 // Start closing HTML
                 $closing = '</div>';
@@ -147,5 +147,5 @@
 
     // Go through each meta box array and build them
     foreach ( $postMetaBoxes as $postMetaBox ) {
-        new XYZ_Post_Meta_Box( $postMetaBox );
+        new CSTMSTFF_Post_Meta_Box( $postMetaBox );
     }

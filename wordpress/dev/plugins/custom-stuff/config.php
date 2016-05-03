@@ -6,25 +6,25 @@
 	* Author: Adria Murphy
 	* Author URI: http://neverend.org/adria
 	* Version: 4.1
-	* Text Domain: xyz-textdomain
+	* Text Domain: custom-stuff
 	**/
 
 	// Load plugin text domain
-	function xyz_load_textdomain() {
-		load_plugin_textdomain( 'xyz-textdomain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+	function cstmstff_load_textdomain() {
+		load_plugin_textdomain( 'custom-stuff', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
 	}
 
 	// Loads necessary javascript and CSS
-	function xyz_enqueue_assets() {
+	function cstmstff_enqueue_assets() {
 	    global $typenow;
-	    if ( $typenow == 'xyz-post-type' ) {
+	    if ( $typenow == 'cstmstff-post-type' ) {
 
 	    	// Enqueue and localize media library
 	        wp_enqueue_media();
-	        wp_localize_script( 'xyz_asset', 'image_select',
+	        wp_localize_script( 'cstmstff_asset', 'image_select',
 	            array(
-	                'title'  => __( 'Choose or Upload an Image', 'xyz-textdomain' ),
-	                'button' => __( 'Use this image', 'xyz-textdomain' ),
+	                'title'  => __( 'Choose or Upload an Image', 'custom-stuff' ),
+	                'button' => __( 'Use this image', 'custom-stuff' ),
 	            )
 	        );
 
@@ -37,14 +37,14 @@
 			wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker' ), time(), true );	
 				 	 
 	        // Enqueue the required javascript
-	        wp_enqueue_script( 'xyz_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
+	        wp_enqueue_script( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
 
 	        // Enqueue the required CSS
-	        wp_enqueue_style( 'xyz_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
+	        wp_enqueue_style( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
 
 	    }
 	}
-	add_action( 'admin_enqueue_scripts', 'xyz_enqueue_assets' );
+	add_action( 'admin_enqueue_scripts', 'cstmstff_enqueue_assets' );
 
 	// Include common files
 	require_once( 'common/fields.php' );

@@ -1,20 +1,20 @@
 <?php
 	// Creates a tag
-	function xyz_create_tag() {
+	function cstmstff_create_tag() {
 
 		$labels = array(
-			'name'              => _x( 'Tags', 'xyz-textdomain' ),
-			'singular_name'     => _x( 'Tag', 'xyz-textdomain' ),
-			'search_items'      => __( 'Search Tags', 'xyz-textdomain' ),
-			'all_items'         => __( 'All Tags', 'xyz-textdomain' ),
-			'parent_item'       => __( 'Parent Tag', 'xyz-textdomain' ),
-			'parent_item_colon' => __( 'Parent Tag:', 'xyz-textdomain' ),
-			'edit_item'         => __( 'Edit Tag', 'xyz-textdomain' ), 
-			'update_item'       => __( 'Update Tag', 'xyz-textdomain' ),
-			'add_new_item'      => __( 'Add New Tag', 'xyz-textdomain' ),
-			'new_item_name'     => __( 'New Tag', 'xyz-textdomain' ),
-			'menu_name'         => __( 'Tags', 'xyz-textdomain' ),
-			'not_found'         => __( 'No tags found.', 'xyz-textdomain' )
+			'name'              => _x( 'Tags', 'custom-stuff' ),
+			'singular_name'     => _x( 'Tag', 'custom-stuff' ),
+			'search_items'      => __( 'Search Tags', 'custom-stuff' ),
+			'all_items'         => __( 'All Tags', 'custom-stuff' ),
+			'parent_item'       => __( 'Parent Tag', 'custom-stuff' ),
+			'parent_item_colon' => __( 'Parent Tag:', 'custom-stuff' ),
+			'edit_item'         => __( 'Edit Tag', 'custom-stuff' ), 
+			'update_item'       => __( 'Update Tag', 'custom-stuff' ),
+			'add_new_item'      => __( 'Add New Tag', 'custom-stuff' ),
+			'new_item_name'     => __( 'New Tag', 'custom-stuff' ),
+			'menu_name'         => __( 'Tags', 'custom-stuff' ),
+			'not_found'         => __( 'No tags found.', 'custom-stuff' )
 		);
 
 		$args = array(
@@ -27,6 +27,6 @@
 			'show_in_nav_menus' => false
 		);
 
-		register_taxonomy( 'xyz-tag', 'xyz-post-type', $args );
+		register_taxonomy( 'cstmstff-tag', 'cstmstff-post-type', $args );
 	}
-	add_action( 'init', 'xyz_create_tag', 0 );
+	add_action( 'init', 'cstmstff_create_tag', 0 );

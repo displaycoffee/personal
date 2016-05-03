@@ -1,6 +1,6 @@
 <?php
 	// Hex color validation
-    function xyz_sanitize_hex( $input ) {
+    function cstmstff_sanitize_hex( $input ) {
         if ( '' ===  $input ) {
             return '';
         }     
@@ -12,7 +12,7 @@
     }
 
 	// Date validation
-    function xyz_sanitize_date( $input ) {
+    function cstmstff_sanitize_date( $input ) {
     	// Get each value in the date - month, day, year
         $date = preg_match( '/(\d{2})\/(\d{2})\/(\d{4})/', $input, $match );
 
@@ -24,7 +24,7 @@
     }
 
 	// Use wp_kses to allow only certain html values in text and text area fields
-    function xyz_sanitize_html( $input ) {
+    function cstmstff_sanitize_html( $input ) {
 	    $args = array(
 		    'strong' => array(),
 		    'em'	 => array(),
@@ -36,7 +36,7 @@
 	}
 
 	// For santizing numbers
-    function xyz_sanitize_number( $input ) {
+    function cstmstff_sanitize_number( $input ) {
 	    if ( $input === '0' ) {
 	    	return '0';
 	    } elseif ( is_numeric( $input ) ) {
@@ -47,7 +47,7 @@
 	}
 
 	// If a number is over a certain amount, don't update (for ratings)
-    function xyz_sanitize_rating( $input ) {
+    function cstmstff_sanitize_rating( $input ) {
 	    if ( $input === '0' ) {
 	    	return '0';
 	    } elseif ( is_numeric( $input ) && $input <= 5 ) {
@@ -60,7 +60,7 @@
 	}
 	
 	// If the value is a number, left, right, or center (for positioning background)
-	function xyz_sanitize_image_x_pos( $input ) {
+	function cstmstff_sanitize_image_x_pos( $input ) {
 	    if ( $input === '0' ) {
 	    	return '0';
 	    } elseif ( is_numeric( $input ) ) {
@@ -77,7 +77,7 @@
 	}
 
 	// If the value is a number, top, bottom, or center (for positioning background)
-	function xyz_sanitize_image_y_pos( $input ) {
+	function cstmstff_sanitize_image_y_pos( $input ) {
 	    if ( $input === '0' ) {
 	    	return '0';
 	    } elseif ( is_numeric( $input ) ) {
@@ -94,7 +94,7 @@
 	}
 
 	// If the value is a number or auto (for positioning content)
-	function xyz_sanitize_pos( $input ) {
+	function cstmstff_sanitize_pos( $input ) {
 	    if ( $input  === '0' ) {
 	    	return '0';
 	    } elseif ( is_numeric( $input ) ) {

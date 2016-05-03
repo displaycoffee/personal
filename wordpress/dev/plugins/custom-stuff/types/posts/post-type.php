@@ -1,28 +1,28 @@
 <?php
 	// Creates custom content type
-	function xyz_create_post_type() {
+	function cstmstff_create_post_type() {
 
 		$labels = array(
-			'name'               => _x( 'XYZ Entries', 'xyz-textdomain' ),
-			'singular_name'      => _x( 'XYZ Entry', 'xyz-textdomain' ),
-			'add_new'            => __( 'Add New', 'xyz-textdomain' ),
-			'add_new_item'       => __( 'Add New Entry', 'xyz-textdomain' ),
-			'edit_item'          => __( 'Edit Entry', 'xyz-textdomain' ),
-			'new_item'           => __( 'New Entry', 'xyz-textdomain' ),
-			'all_items'          => __( 'All Entries', 'xyz-textdomain' ),
-			'view_item'          => __( 'View Entry', 'xyz-textdomain' ),			
-			'search_items'       => __( 'Search Entries', 'xyz-textdomain' ),
-			'not_found'          => __( 'No entries found.', 'xyz-textdomain' ),
-			'not_found_in_trash' => __( 'No entries found in trash.', 'xyz-textdomain' ),
-			'parent_item_colon'  => __( 'Parent Entry:', 'xyz-textdomain' ),
-			'menu_name'          => __( 'XYZ Entries', 'xyz-textdomain' ),
-			'update_item'        => __( 'Update Entries', 'xyz-textdomain' )
+			'name'               => _x( 'Entries', 'custom-stuff' ),
+			'singular_name'      => _x( 'Entry', 'custom-stuff' ),
+			'add_new'            => __( 'Add New', 'custom-stuff' ),
+			'add_new_item'       => __( 'Add New Entry', 'custom-stuff' ),
+			'edit_item'          => __( 'Edit Entry', 'custom-stuff' ),
+			'new_item'           => __( 'New Entry', 'custom-stuff' ),
+			'all_items'          => __( 'All Entries', 'custom-stuff' ),
+			'view_item'          => __( 'View Entry', 'custom-stuff' ),			
+			'search_items'       => __( 'Search Entries', 'custom-stuff' ),
+			'not_found'          => __( 'No entries found.', 'custom-stuff' ),
+			'not_found_in_trash' => __( 'No entries found in trash.', 'custom-stuff' ),
+			'parent_item_colon'  => __( 'Parent Entry:', 'custom-stuff' ),
+			'menu_name'          => __( 'Entries', 'custom-stuff' ),
+			'update_item'        => __( 'Update Entries', 'custom-stuff' )
 		);
 
 		$args = array(
-			'label'               => __( 'XYZ Entry', 'xyz-textdomain' ),
+			'label'               => __( 'Entry', 'custom-stuff' ),
 			'labels'              => $labels,
-			'description'         => __( 'Add XYZ entries.', 'xyz-textdomain' ),	
+			'description'         => __( 'Add entries.', 'custom-stuff' ),	
 			'public'              => true,
 			'menu_position'       => 6,
 			'menu_icon'           => 'dashicons-book-alt',
@@ -39,8 +39,8 @@
 			'capability_type'     => 'post',
 		);
 		
-		register_post_type( 'xyz-post-type', $args );
+		register_post_type( 'cstmstff-post-type', $args );
 
 	}
 
-	add_action( 'init', 'xyz_create_post_type', 0 );
+	add_action( 'init', 'cstmstff_create_post_type', 0 );
