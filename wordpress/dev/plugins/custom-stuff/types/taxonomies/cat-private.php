@@ -3,8 +3,8 @@
 	function cstmstff_create_cat_private() {
 
 		$labels = array(
-			'name'              => _x( 'Private Categories', 'custom-stuff' ),
-			'singular_name'     => _x( 'Private Category', 'custom-stuff' ),
+			'name'              => __( 'Private Categories', 'custom-stuff' ),
+			'singular_name'     => __( 'Private Category', 'custom-stuff' ),
 			'search_items'      => __( 'Search Private Categories', 'custom-stuff' ),
 			'all_items'         => __( 'All Private Categories', 'custom-stuff' ),
 			'parent_item'       => __( 'Parent Private Category', 'custom-stuff' ),

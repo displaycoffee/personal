@@ -15,7 +15,7 @@
         function add() {
             add_meta_box(
                 $this->_postMetaBox['id'], 
-                sprintf( __( '%s', 'custom-stuff' ), $this->_postMetaBox['title'] ), 
+                $this->_postMetaBox['title'], 
                 array( &$this, 'show' ), 
                 $this->_postMetaBox['page'], 
                 $this->_postMetaBox['context'], 
@@ -46,7 +46,7 @@
                 $opening = '<div class="row ' . $field['id'] . '-wrap">';
                 $opening .= '<div class="block01">';
                 $opening .= '<label for="' . $field['id'] . '">';
-                $opening .= sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
+                $opening .= $field['label'];
                 $opening .= '</label>';
                 $opening .= '</div>';
                 $opening .= '<div class="block02">';

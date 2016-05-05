@@ -3,8 +3,8 @@
 	function cstmstff_create_cat_public() {
 
 		$labels = array(
-			'name'              => _x( 'Public Categories', 'custom-stuff' ),
-			'singular_name'     => _x( 'Public Category', 'custom-stuff' ),
+			'name'              => __( 'Public Categories', 'custom-stuff' ),
+			'singular_name'     => __( 'Public Category', 'custom-stuff' ),
 			'search_items'      => __( 'Search Public Categories', 'custom-stuff' ),
 			'all_items'         => __( 'All Public Categories', 'custom-stuff' ),
 			'parent_item'       => __( 'Parent Public Category', 'custom-stuff' ),

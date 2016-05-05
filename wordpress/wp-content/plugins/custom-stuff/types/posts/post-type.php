@@ -3,8 +3,8 @@
 	function cstmstff_create_post_type() {
 
 		$labels = array(
-			'name'               => _x( 'Entries', 'custom-stuff' ),
-			'singular_name'      => _x( 'Entry', 'custom-stuff' ),
+			'name'               => __( 'Entries', 'custom-stuff' ),
+			'singular_name'      => __( 'Entry', 'custom-stuff' ),
 			'add_new'            => __( 'Add New', 'custom-stuff' ),
 			'add_new_item'       => __( 'Add New Entry', 'custom-stuff' ),
 			'edit_item'          => __( 'Edit Entry', 'custom-stuff' ),

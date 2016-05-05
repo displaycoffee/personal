@@ -15,8 +15,8 @@
 		function add() {
 		    add_submenu_page(
 		    	$this->_optionPage['slug'], 
-		    	sprintf( __( '%s', 'custom-stuff' ), $this->_optionPage['title'] ), 
-		    	sprintf( __( '%s', 'custom-stuff' ), $this->_optionPage['title'] ), 
+		    	$this->_optionPage['title'], 
+		    	$this->_optionPage['title'], 
 		    	$this->_optionPage['capability'], 
 		    	$this->_optionPage['menu-slug'], 
 		    	array( &$this, 'show_page' )
@@ -28,7 +28,7 @@
 
 			// Start opening HTML
 			$opening = '<div class="cstmstff-options">';
-			$opening .= '<h1>' . sprintf( __( '%s', 'custom-stuff' ), $this->_optionPage['title'] ) . '</h1>';
+			$opening .= '<h1>' . $this->_optionPage['title'] . '</h1>';
 			$opening .= '<form method="post" enctype="multipart/form-data" action="options.php">';
 			echo $opening;
 
@@ -62,14 +62,14 @@
 				if( $field['type'] == 'section' ) {
 					add_settings_section(
 						$field['id'],
-						sprintf( __( '%s', 'custom-stuff' ), $field['title'] ),
+						$field['title'],
 						array( &$this, 'show_section' ), 
 						$this->_optionPage['menu-slug']
 					);
 				} else {
 					add_settings_field(
 						$field['id'], 
-						sprintf( __( '%s', 'custom-stuff' ), $field['label'] ),
+						$field['label'],
 						array( &$this, 'show_fields' ), 
 						$this->_optionPage['menu-slug'], 
 						$field['section'], 
@@ -84,7 +84,7 @@
 		function show_section( $section ) {
 			foreach ( $this->_optionPage['fields'] as $field ) {
 				if ( ( $field['type'] == 'section' ) && ( $field['id'] == $section['id'] ) ) {
-					echo sprintf( __( '%s', 'custom-stuff' ), $field['desc'] );
+					echo '<p>' . $field['desc'] . '</p>';
 				}
 			}
 		}

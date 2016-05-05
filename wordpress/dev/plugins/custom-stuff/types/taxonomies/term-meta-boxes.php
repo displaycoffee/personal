@@ -28,7 +28,7 @@
                 // Start opening HTML
                 $opening = '<div class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
                 $opening .= '<label for="' . $field['id'] . '">';
-                $opening .= sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
+                $opening .= $field['label'];
                 $opening .= '</label>';
                 echo $opening;
 
@@ -83,7 +83,7 @@
 	            $opening = '<tr class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
 	            $opening .= '<th scope="row">';
 	            $opening .= '<label for="' . $field['id'] . '">';
-	            $opening .= sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
+	            $opening .= $field['label'];
 	            $opening .= '</label>';
 	            $opening .= '</th>';
 	            $opening .= '<td>';
@@ -179,10 +179,10 @@
 				if ( $field['column'] == 'yes' ) {
 					if ( in_array( $field['type'], ['multitext','multicheck'] ) ) {
 						foreach ( $field['options'] as $option ) {
-							$columns[$option['id']] = sprintf( __( '%s', 'custom-stuff' ), $option['label'] );
+							$columns[$option['id']] = $option['label'];
 						}
 					} else {
-						$columns[$field['id']] = sprintf( __( '%s', 'custom-stuff' ), $field['label'] );
+						$columns[$field['id']] = $field['label'];
 					}
 				}
 			}
@@ -203,7 +203,7 @@
 				                $value = isset( $meta ) ? $meta : '';
 
 				                // Display value in column
-						        $content = sprintf( __( '%s', 'custom-stuff' ), $value );
+						        $content = $field['validate']( $value );
 							}
 						}
 			    	} else {
@@ -215,7 +215,7 @@
 			                $value = isset( $meta ) ? $meta : '';
 
 			                // Display value in column
-					        $content = sprintf( __( '%s', 'custom-stuff' ), $value );
+					        $content = $field['validate']( $value );
 						}
 					}
 				}

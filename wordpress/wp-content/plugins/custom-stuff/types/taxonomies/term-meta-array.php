@@ -6,8 +6,8 @@
         'category' => 'cstmstff-cat-public',
         'fields'   => array(           
             array(
-                'label'    => 'Text box',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Text box', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-text',
                 'name'     => 'cstmstff-text',
                 'type'     => 'text',
@@ -15,8 +15,8 @@
                 'column'   => 'yes'
             ),
             array(
-                'label'    => 'URL',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'URL', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-url',
                 'name'     => 'cstmstff-url',
                 'type'     => 'url',
@@ -24,38 +24,38 @@
                 'column'   => 'no'
             ),
             array(
-                'label'    => 'Multiple Text Boxes',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Multiple Text Boxes', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-multitext',
                 'type'     => 'multitext',
                 'validate' => 'cstmstff_sanitize_html',
                 'column'   => 'no',
                 'options'  => array(
                     array(
-                        'label' => 'Multi Text 01', 
+                        'label' => __( 'Multi Text 01', 'custom-stuff' ), 
                         'id'    => 'cstmstff-multitext01', 
                         'name'  => 'cstmstff-multitext01'
                     ),
                     array(
-                        'label' => 'Multi Text 02', 
+                        'label' => __( 'Multi Text 02', 'custom-stuff' ), 
                         'id'    => 'cstmstff-multitext02', 
                         'name'  => 'cstmstff-multitext02'
                     ),
                     array(
-                        'label' => 'Multi Text 03', 
+                        'label' => __( 'Multi Text 03', 'custom-stuff' ), 
                         'id'    => 'cstmstff-multitext03', 
                         'name'  => 'cstmstff-multitext03'
                     ),
                     array(
-                        'label' => 'Multi Text 04', 
+                        'label' => __( 'Multi Text 04', 'custom-stuff' ), 
                         'id'    => 'cstmstff-multitext04', 
                         'name'  => 'cstmstff-multitext04'
                     )
                 )
             ),                                                 
             array(
-                'desc'     => 'Textarea',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Textarea', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-textarea',
                 'name'     => 'cstmstff-textarea',
                 'type'     => 'textarea',
@@ -63,22 +63,22 @@
                 'column'   => 'no'
             ),
             array(
-                'desc'     => 'Select Box',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Select Box', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-select',
                 'name'     => 'cstmstff-select',
                 'type'     => 'select',
                 'validate' => 'sanitize_text_field',
                 'column'   => 'yes',                
                 'options'  => array(
-                    'Option 1', 
-                    'Option 2', 
-                    'Option 3'
+                    __( 'Option 1', 'custom-stuff' ), 
+                    __( 'Option 2', 'custom-stuff' ), 
+                    __( 'Option 3', 'custom-stuff' )
                 )
             ),
             array(
-                'desc'     => 'Radio',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Radio', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-radio',
                 'name'     => 'cstmstff-radio',
                 'type'     => 'radio',
@@ -86,21 +86,21 @@
                 'column'   => 'yes',                
                 'options'  => array(
                     array(
-                        'label'   => 'Name 1', 
+                        'label'   => __( 'Name 1', 'custom-stuff' ), 
                         'id'      => 'cstmstff-value01', 
                         'name'    => 'cstmstff-value01',
                         'default' => 'yes'
                     ),
                     array(
-                        'label' => 'Name 2', 
+                        'label' => __( 'Name 2', 'custom-stuff' ), 
                         'id'    => 'cstmstff-value02',
                         'name'  => 'cstmstff-value02',
                     )
                 )
             ),
             array(
-                'desc'     => 'Checkbox',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Checkbox', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-checkbox',
                 'name'     => 'cstmstff-checkbox',
                 'type'     => 'checkbox',
@@ -109,33 +109,33 @@
                 'column'   => 'yes'
             ), 
             array(
-                'desc'     => 'Multiple Checkboxes',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Multiple Checkboxes', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-multicheck',
                 'type'     => 'multicheck',
                 'validate' => 'sanitize_text_field',
                 'column'   => 'no',                
                 'options'  => array(
                     array(
-                        'label' => 'Multi Check 01', 
+                        'label' => __( 'Multi Check 01', 'custom-stuff' ), 
                         'value' => 'true', 
                         'id'    => 'cstmstff-multicheck01', 
                         'name'  => 'cstmstff-multicheck01'
                     ),
                     array(
-                        'label' => 'Multi Check 02', 
+                        'label' => __( 'Multi Check 02', 'custom-stuff' ), 
                         'value' => 'true', 
                         'id'    => 'cstmstff-multicheck02', 
                         'name'  => 'cstmstff-multicheck02'
                     ),
                     array(
-                        'label' => 'Multi Check 03', 
+                        'label' => __( 'Multi Check 03', 'custom-stuff' ), 
                         'value' => 'true', 
                         'id'    => 'cstmstff-multicheck03', 
                         'name'  => 'cstmstff-multicheck03'
                     ),
                     array(
-                        'label' => 'Multi Check 04', 
+                        'label' => __( 'Multi Check 04', 'custom-stuff' ), 
                         'value' => 'true', 
                         'id'    => 'cstmstff-multicheck04', 
                         'name'  => 'cstmstff-multicheck04'
@@ -143,8 +143,8 @@
                 )
             ), 
             array(
-                'desc'     => 'Date',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Date', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-date',
                 'name'     => 'cstmstff-date',
                 'type'     => 'date',
@@ -152,8 +152,8 @@
                 'column'   => 'no'
             ),                                 
             array(
-                'label'    => 'Color Picker',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Color Picker', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-color',
                 'name'     => 'cstmstff-color',
                 'type'     => 'color',
@@ -161,8 +161,8 @@
                 'column'   => 'no'
             ),
             array(
-                'label'    => 'Media Library',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Media Library', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-image',
                 'name'     => 'cstmstff-image',
                 'type'     => 'media',
@@ -170,8 +170,8 @@
                 'column'   => 'no'
             ),
             array(
-                'label'    => 'WordPress Editor',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'WordPress Editor', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-editor',
                 'name'     => 'cstmstff-editor',
                 'type'     => 'editor',

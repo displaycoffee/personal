@@ -3,8 +3,8 @@
 	function cstmstff_create_tag() {
 
 		$labels = array(
-			'name'              => _x( 'Tags', 'custom-stuff' ),
-			'singular_name'     => _x( 'Tag', 'custom-stuff' ),
+			'name'              => __( 'Tags', 'custom-stuff' ),
+			'singular_name'     => __( 'Tag', 'custom-stuff' ),
 			'search_items'      => __( 'Search Tags', 'custom-stuff' ),
 			'all_items'         => __( 'All Tags', 'custom-stuff' ),
 			'parent_item'       => __( 'Parent Tag', 'custom-stuff' ),

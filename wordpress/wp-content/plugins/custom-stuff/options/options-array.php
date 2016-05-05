@@ -4,26 +4,26 @@
  
     $optionPages[] = array(
         'slug'          => 'edit.php?post_type=cstmstff-post-type',
-        'title'         => 'Options Page',
+        'title'         => __( 'Options Page', 'custom-stuff' ),
         'capability'    => 'manage_options',
         'menu-slug'     => 'cstmstff-options.php',
         'options-group' => 'cstmstff-options',
         'fields'        => array(
             array(
                 'id'    => 'cstmstff-option-section-01',
-                'title' => 'Section 01',
-                'desc'  => '<p>Text for Section 01.</p>',
+                'title' => __( 'Section 01', 'custom-stuff' ),
+                'desc'  => __( 'Text for Section 01.', 'custom-stuff' ),
                 'type'  => 'section'
             ),
             array(
                 'id'    => 'cstmstff-option-section-02',
-                'title' => 'Section 02',
-                'desc'  => '<p>Text for Section 02.</p>',
+                'title' => __( 'Section 02', 'custom-stuff' ),
+                'desc'  => __( 'Text for Section 02.', 'custom-stuff' ),
                 'type'  => 'section'
             ),            
             array(
-                'label'    => 'Text box',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Text box', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-text',
                 'name'     => 'cstmstff-options[cstmstff-text]',
                 'type'     => 'text',
@@ -31,8 +31,8 @@
                 'section'  => 'cstmstff-option-section-01'
             ),
             array(
-                'label'    => 'URL',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'URL', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-url',
                 'name'     => 'cstmstff-options[cstmstff-url]',
                 'type'     => 'url',
@@ -40,8 +40,8 @@
                 'section'  => 'cstmstff-option-section-01'
             ),                                    
             array(
-                'label'    => 'Textarea',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Textarea', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-textarea',
                 'name'     => 'cstmstff-options[cstmstff-textarea]',
                 'type'     => 'textarea',
@@ -49,22 +49,22 @@
                 'section'  => 'cstmstff-option-section-01'
             ),
             array(
-                'label'    => 'Select Box',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Select Box', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-select',
                 'name'     => 'cstmstff-options[cstmstff-select]',
                 'type'     => 'select',
                 'validate' => 'sanitize_text_field',
                 'section'  => 'cstmstff-option-section-01',
                 'options'  => array(
-                    'Option 1', 
-                    'Option 2', 
-                    'Option 3'
+                    __( 'Option 1', 'custom-stuff' ), 
+                    __( 'Option 2', 'custom-stuff' ), 
+                    __( 'Option 3', 'custom-stuff' )
                 )
             ),
             array(
-                'label'    => 'Radio',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Radio', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-radio',
                 'name'     => 'cstmstff-options[cstmstff-radio]',
                 'type'     => 'radio',
@@ -72,21 +72,21 @@
                 'section'  => 'cstmstff-option-section-02',                
                 'options'  => array(
                     array(
-                        'label'   => 'Name 1', 
+                        'label'   => __( 'Name 1', 'custom-stuff' ), 
                         'id'      => 'cstmstff-value01', 
                         'name'    => 'cstmstff-value01',
                         'default' => 'yes'
                     ),
                     array(
-                        'label' => 'Name 2', 
+                        'label' => __( 'Name 2', 'custom-stuff' ), 
                         'id'    => 'cstmstff-value02',
                         'name'  => 'cstmstff-value02',
                     )
                 )
             ),
             array(
-                'label'    => 'Checkbox',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Checkbox', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-checkbox',
                 'name'     => 'cstmstff-options[cstmstff-checkbox]',
                 'type'     => 'checkbox',
@@ -95,8 +95,8 @@
                 'section'  => 'cstmstff-option-section-02'
             ), 
             array(
-                'label'    => 'Date',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Date', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-date',
                 'name'     => 'cstmstff-options[cstmstff-date]',
                 'type'     => 'date',
@@ -104,8 +104,8 @@
                 'section'  => 'cstmstff-option-section-02'
             ),                     
             array(
-                'label'    => 'Color Picker',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Color Picker', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-color',
                 'name'     => 'cstmstff-options[cstmstff-color]',
                 'type'     => 'color',
@@ -113,8 +113,8 @@
                 'section'  => 'cstmstff-option-section-02'
             ),
             array(
-                'label'    => 'Media Library',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'Media Library', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-image',
                 'name'     => 'cstmstff-options[cstmstff-image]',
                 'type'     => 'media',
@@ -122,8 +122,8 @@
                 'section'  => 'cstmstff-option-section-02'
             ),
             array(
-                'label'    => 'WordPress Editor',
-                'desc'     => 'Enter something here if you want. If not, just remove it.',
+                'label'    => __( 'WordPress Editor', 'custom-stuff' ),
+                'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-editor',
                 'name'     => 'cstmstff-options[cstmstff-editor]',
                 'type'     => 'editor',
