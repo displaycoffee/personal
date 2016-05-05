@@ -20,7 +20,7 @@
             	foreach ( $field['options'] as $option ) {
             		$selected = ( $value == $option ) ? ' selected="selected"' : '';
 					echo '<option' . $selected . '>';
-					echo sprintf( __( '%s', 'custom-stuff' ), $field['validate']( $option ) );
+					echo $field['validate']( $option );
 					echo '</option>'; 
             	}
             	echo '</select>';
@@ -38,7 +38,7 @@
 			        echo '<div class="radio">';
 			        echo '<input type="radio" name="' . $field['name'] . '" id="' . $option['id'] . '" value="' . $field['validate']( $option['label'] ) . '"' . $checked . ' />';
 			        echo '<label for=' . $option['id'] . '>';
-			        echo sprintf( __( '%s', 'custom-stuff' ), $option['label'] );
+			        echo $option['label'];
 			        echo '</label>';        
 			        echo '</div>';                   
                 }
@@ -58,7 +58,7 @@
 
             // Hex color color selection
             case 'color':
-                $color = $value ? $field['validate']( $value ) : 'No color selected.';
+                $color = $value ? $field['validate']( $value ) : __( 'No color selected.', 'custom-stuff' );
 		        echo '<input type="text" name="' . $field['name'] . '" id="' . $field['id'] . '" value="' . $field['validate']( $value ) . '" class="color-select" />';
 		        echo '<div class="current-color"><strong>' . __( 'Current Color:', 'custom-stuff' ) . '</strong> ' . $color . '</div>';
                 break;
@@ -86,27 +86,27 @@
 	}
 
 	// Display multiple text fields
-	function cstmstff_display_multitext($field, $option, $value) {
+	function cstmstff_display_multitext( $field, $option, $value ) {
         echo '<div class="text">';
         echo '<label for=' . $option['id'] . '>';
-        echo sprintf( __( '%s', 'custom-stuff' ), $option['label'] );
+        echo $option['label'];
         echo '</label>';
         echo '<input type="text" name="' . $option['name'] . '" id="' . $option['id'] . '" value="' . $field['validate']( $value ) . '" />';
         echo '</div>';
 	}
 
 	// Display multiple checkboxes
-	function cstmstff_display_multicheck($field, $option, $checked) {
+	function cstmstff_display_multicheck( $field, $option, $checked ) {
         echo '<div class="check">';
-        echo '<input type="checkbox" name="' . $option['name'] . '" value="' . $field['validate']($option['value']) . '" id="' . $option['id'] . '"' . $checked . ' />';
+        echo '<input type="checkbox" name="' . $option['name'] . '" value="' . $field['validate']( $option['value'] ) . '" id="' . $option['id'] . '"' . $checked . ' />';
         echo '<label for=' . $option['id'] . '>';
-        echo sprintf( __( '%s', 'custom-stuff' ), $option['label'] );
+        echo $option['label'];
         echo '</label>';
         echo '</div>';
 	}
 
 	// Display description if one is there
-	function cstmstff_display_description($field) {
-        $description = sprintf( __( '%s', 'custom-stuff' ), $field['desc'] ) ? '<p class="description">' . sprintf( __( '%s', 'custom-stuff' ), $field['desc'] ) . '</p>' : '';
+	function cstmstff_display_description( $field ) {
+        $description = $field['desc'] ? '<p class="description">' . $field['desc'] . '</p>' : '';
         echo $description;		
 	}

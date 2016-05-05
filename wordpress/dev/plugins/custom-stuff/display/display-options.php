@@ -3,7 +3,7 @@
 	function cstmstff_options_page() {
 
 		$option = get_option( 'cstmstff-options' );
-		echo '<h3>Display Options</h3>';
+		echo '<h3>' . __( 'Display Options', 'custom-stuff' ) . '</h3>';
 		echo '<ul>';		
 		echo '<li>' . esc_html( $option['cstmstff-text'] ) . '</li>';
 		echo '<li>' . esc_url( $option['cstmstff-url'] ) . '</li>';

@@ -1,5 +1,5 @@
 <?php 
-
+    // Term array for all sections and fields
     $termMetaBoxes = array();
  
     $termMetaBoxes[] = array(

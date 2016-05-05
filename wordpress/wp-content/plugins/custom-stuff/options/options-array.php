@@ -1,5 +1,5 @@
 <?php 
-   
+    // Option array for all sections and fields
     $optionPages = array();
  
     $optionPages[] = array(

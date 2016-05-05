@@ -12,7 +12,7 @@
 
 		$terms = get_terms( $taxonomies, $args );
 
-		echo '<h3>Display Category Public</h3>';
+		echo '<h3>' . __( 'Display Category Public', 'custom-stuff' ) . '</h3>';
 		echo '<ul>';
 		foreach ( $terms as $term ) {
 			echo '<li>' . esc_html( $term->name ) . '</li>';

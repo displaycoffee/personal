@@ -1,5 +1,5 @@
 <?php 
-
+    // Post array for all sections and fields
     $postMetaBoxes = array();
  
     $postMetaBoxes[] = array(

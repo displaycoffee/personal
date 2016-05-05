@@ -9,7 +9,7 @@
 		$query = new WP_Query( $args );
 
 		if ( $query->have_posts() ) {
-			echo '<h3>Display Post Type</h3>';
+			echo '<h3>' . __( 'Display Post Type', 'custom-stuff' ) . '</h3>';
 			echo '<ul>';
 			while ( $query->have_posts() ) {
 				$query->the_post();
