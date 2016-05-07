@@ -133,7 +133,7 @@
 	        )
 	    );
 
-		// Section 01 - Date picker
+		// Section 02 - Date picker
 		$wp_customize->add_setting(
 		    'ambase_date',
 		    array(
