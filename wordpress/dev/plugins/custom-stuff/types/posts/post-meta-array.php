@@ -112,37 +112,37 @@
                 'id'       => '_cstmstff-checkbox',
                 'name'     => '_cstmstff-checkbox',
                 'type'     => 'checkbox',
-                'value'    => 'true',
-                'validate' => 'sanitize_text_field',
+                'value'    => 1,
+                'validate' => 'cstmstff_sanatize_checkbox',
             ),
             array(
                 'label'    => __( 'Multiple Checkboxes', 'custom-stuff' ),
                 'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => '_cstmstff-multicheck',
                 'type'     => 'multicheck',
-                'validate' => 'sanitize_text_field',
+                'validate' => 'cstmstff_sanatize_checkbox',
                 'options'  => array(
                     array(
                         'label' => __( 'Multi Check 01', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => '_cstmstff-multicheck01', 
                         'name'  => '_cstmstff-multicheck01'
                     ),
                     array(
                         'label' => __( 'Multi Check 02', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => '_cstmstff-multicheck02', 
                         'name'  => '_cstmstff-multicheck02'
                     ),
                     array(
                         'label' => __( 'Multi Check 03', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => '_cstmstff-multicheck03', 
                         'name'  => '_cstmstff-multicheck03'
                     ),
                     array(
                         'label' => __( 'Multi Check 04', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => '_cstmstff-multicheck04', 
                         'name'  => '_cstmstff-multicheck04'
                     )                                        

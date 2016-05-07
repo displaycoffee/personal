@@ -1,4 +1,13 @@
 <?php
+	// Checkbox validation
+	function cstmstff_sanatize_checkbox( $input ) {
+	    if ( $input == 1 || $input == '1' ) {
+	        return 1;
+	    } else {
+	        return null;
+	    }
+	}
+
 	// Hex color validation
     function cstmstff_sanitize_hex( $input ) {
         if ( '' ===  $input ) {

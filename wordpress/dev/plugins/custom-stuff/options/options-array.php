@@ -90,8 +90,8 @@
                 'id'       => 'cstmstff-checkbox',
                 'name'     => 'cstmstff-options[cstmstff-checkbox]',
                 'type'     => 'checkbox',
-                'value'    => 'true',
-                'validate' => 'sanitize_text_field',
+                'value'    => 1,
+                'validate' => 'cstmstff_sanatize_checkbox',
                 'section'  => 'cstmstff-option-section-02'
             ), 
             array(

@@ -104,8 +104,8 @@
                 'id'       => 'cstmstff-checkbox',
                 'name'     => 'cstmstff-checkbox',
                 'type'     => 'checkbox',
-                'value'    => 'true',
-                'validate' => 'sanitize_text_field',
+                'value'    => 1,
+                'validate' => 'cstmstff_sanatize_checkbox',
                 'column'   => 'yes'
             ), 
             array(
@@ -113,30 +113,30 @@
                 'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-multicheck',
                 'type'     => 'multicheck',
-                'validate' => 'sanitize_text_field',
+                'validate' => 'cstmstff_sanatize_checkbox',
                 'column'   => 'no',                
                 'options'  => array(
                     array(
                         'label' => __( 'Multi Check 01', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => 'cstmstff-multicheck01', 
                         'name'  => 'cstmstff-multicheck01'
                     ),
                     array(
                         'label' => __( 'Multi Check 02', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => 'cstmstff-multicheck02', 
                         'name'  => 'cstmstff-multicheck02'
                     ),
                     array(
                         'label' => __( 'Multi Check 03', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => 'cstmstff-multicheck03', 
                         'name'  => 'cstmstff-multicheck03'
                     ),
                     array(
                         'label' => __( 'Multi Check 04', 'custom-stuff' ), 
-                        'value' => 'true', 
+                        'value' => 1, 
                         'id'    => 'cstmstff-multicheck04', 
                         'name'  => 'cstmstff-multicheck04'
                     )                                        
