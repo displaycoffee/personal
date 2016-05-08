@@ -68,12 +68,8 @@
                 'id'       => '_cstmstff-select',
                 'name'     => '_cstmstff-select',
                 'type'     => 'select',
-                'validate' => 'sanitize_text_field',
-                'options'  => array(
-                    __( 'Option 1', 'custom-stuff' ), 
-                    __( 'Option 2', 'custom-stuff' ), 
-                    __( 'Option 3', 'custom-stuff' )
-                )                
+                'validate' => 'cstmstff_sanitize_post_select',
+                'options'  => cstmstff_post_select_choices()                
             )
         )
     );
