@@ -34,6 +34,19 @@
 	    }
 	}
 
+	// Option select
+	function cstmstff_sanitize_option_select( $input ) {
+		// Get select choices
+	    $valid = cstmstff_option_select_choices();	
+
+	    // Check if choices are in array 
+	    if ( in_array( $input, $valid ) ) {
+	        return $input;
+	    } else {
+	        return '';
+	    }
+	}	
+
 	// Hex color
     function cstmstff_sanitize_hex( $input ) {
         if ( '' ===  $input ) {
