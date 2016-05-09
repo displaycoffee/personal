@@ -8,10 +8,23 @@
 	    }
 	}
 
-	// Post Select
+	// Post select
 	function cstmstff_sanitize_post_select( $input ) {
 		// Get select choices
 	    $valid = cstmstff_post_select_choices();	
+
+	    // Check if choices are in array 
+	    if ( in_array( $input, $valid ) ) {
+	        return $input;
+	    } else {
+	        return '';
+	    }
+	}
+
+	// Term select
+	function cstmstff_sanitize_term_select( $input ) {
+		// Get select choices
+	    $valid = cstmstff_term_select_choices();	
 
 	    // Check if choices are in array 
 	    if ( in_array( $input, $valid ) ) {
