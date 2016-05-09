@@ -46,15 +46,10 @@
 	}
 	add_action( 'admin_enqueue_scripts', 'cstmstff_enqueue_assets' );
 
-	// Choices (for select menus and radios)
-	// Must be include before validation and field arrays
-	require_once( 'options/options-choices.php' );
-	require_once( 'types/posts/post-meta-choices.php' );
-	require_once( 'types/taxonomies/term-meta-choices.php' );
-
-	// Include common files
-	require_once( 'common/fields.php' );
-	require_once( 'common/validation.php' );
+	// Include multi-use files
+	require_once( 'includes/choices.php' );
+	require_once( 'includes/fields.php' );
+	require_once( 'includes/validation.php' );
 
 	// Options
 	require_once( 'options/options-array.php' );

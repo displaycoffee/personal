@@ -54,9 +54,9 @@
                 'id'       => 'cstmstff-select',
                 'name'     => 'cstmstff-options[cstmstff-select]',
                 'type'     => 'select',
-                'validate' => 'cstmstff_sanitize_option_select',
+                'validate' => 'cstmstff_sanitize_select',
                 'section'  => 'cstmstff-option-section-01',
-                'options'  => cstmstff_option_select_choices()
+                'options'  => cstmstff_select_choices()
             ),
             array(
                 'label'    => __( 'Radio', 'custom-stuff' ),

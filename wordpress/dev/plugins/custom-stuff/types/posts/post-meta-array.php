@@ -68,8 +68,8 @@
                 'id'       => '_cstmstff-select',
                 'name'     => '_cstmstff-select',
                 'type'     => 'select',
-                'validate' => 'cstmstff_sanitize_post_select',
-                'options'  => cstmstff_post_select_choices()                
+                'validate' => 'cstmstff_sanitize_select',
+                'options'  => cstmstff_select_choices()                
             )
         )
     );

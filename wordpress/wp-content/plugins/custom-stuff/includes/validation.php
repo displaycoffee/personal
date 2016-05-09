@@ -8,10 +8,10 @@
 	    }
 	}
 
-	// Post select
-	function cstmstff_sanitize_post_select( $input ) {
+	// Select
+	function cstmstff_sanitize_select( $input ) {
 		// Get select choices
-	    $valid = cstmstff_post_select_choices();	
+	    $valid = cstmstff_select_choices();	
 
 	    // Check if choices are in array 
 	    if ( in_array( $input, $valid ) ) {
@@ -20,32 +20,6 @@
 	        return '';
 	    }
 	}
-
-	// Term select
-	function cstmstff_sanitize_term_select( $input ) {
-		// Get select choices
-	    $valid = cstmstff_term_select_choices();	
-
-	    // Check if choices are in array 
-	    if ( in_array( $input, $valid ) ) {
-	        return $input;
-	    } else {
-	        return '';
-	    }
-	}
-
-	// Option select
-	function cstmstff_sanitize_option_select( $input ) {
-		// Get select choices
-	    $valid = cstmstff_option_select_choices();	
-
-	    // Check if choices are in array 
-	    if ( in_array( $input, $valid ) ) {
-	        return $input;
-	    } else {
-	        return '';
-	    }
-	}	
 
 	// Hex color
     function cstmstff_sanitize_hex( $input ) {
