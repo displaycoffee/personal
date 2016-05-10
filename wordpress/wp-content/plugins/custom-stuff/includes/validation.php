@@ -11,21 +11,48 @@
 	// Select
 	function cstmstff_sanitize_select( $input ) {
 		// Get select choices
-	    $valid = cstmstff_select_choices();	
+	    $choices = cstmstff_select_choices();	
 
 	    // Check if choices are in array 
-	    if ( in_array( $input, $valid ) ) {
+	    if ( in_array( $input, $choices ) ) {
 	        return $input;
 	    } else {
-	        return '';
+	        return null;
 	    }
 	}
+
+	// Post radio
+	function cstmstff_sanitize_post_radio( $input ) {
+		// Get radio choices
+	    $choices = cstmstff_post_radio_choices();
+
+	    // Check if choices are in array 
+	    foreach ( $choices as $choice ) {
+		   	if ( $choice['label'] == $input ) {
+		   		return $input;
+		    }
+	    }
+	}
+
+	// Term radio
+	function cstmstff_sanitize_other_radio( $input ) {
+		// Get radio choices
+	    $choices = cstmstff_other_radio_choices();
+
+	    // Check if choices are in array 
+	    foreach ( $choices as $choice ) {
+		   	if ( $choice['label'] == $input ) {
+		   		return $input;
+		    }
+	    }
+	}	
 
 	// Hex color
     function cstmstff_sanitize_hex( $input ) {
         if ( '' ===  $input ) {
             return '';
         }     
+        
         // 3 or 6 hex digits, or the empty string.
         if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $input ) ) {
             return $input;

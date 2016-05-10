@@ -87,20 +87,8 @@
                 'id'       => '_cstmstff-radio',
                 'name'     => '_cstmstff-radio',
                 'type'     => 'radio',
-                'validate' => 'sanitize_text_field',
-                'options'  => array(
-                    array(
-                        'label'   => __( 'Name 1', 'custom-stuff' ), 
-                        'id'      => '_cstmstff-value01', 
-                        'name'    => '_cstmstff-value01',
-                        'default' => 'yes'
-                    ),
-                    array(
-                        'label' => __( 'Name 2', 'custom-stuff' ), 
-                        'id'    => '_cstmstff-value02',
-                        'name'  => '_cstmstff-value02',
-                    )
-                )
+                'validate' => 'cstmstff_sanitize_post_radio',
+                'options'  => cstmstff_post_radio_choices()
             ),
             array(
                 'label'    => __( 'Checkbox', 'custom-stuff' ),
