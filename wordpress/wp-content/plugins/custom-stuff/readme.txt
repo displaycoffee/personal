@@ -15,7 +15,11 @@ Used for setting up custom content types, taxonomies, and meta boxes.
 
 == Installation ==
 
-Upload and install the plugin.
+In WordPress, do the following:
+
+1. Plugins > Add New.
+2. Click on "Upload Plugin" button.
+3. Activate the plugin.
 
 == Changelog ==
 
