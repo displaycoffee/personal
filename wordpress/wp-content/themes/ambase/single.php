@@ -3,6 +3,9 @@
 	* Template for displaying all single posts
 	*/
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+	
 	get_header(); 
 ?>
 <article itemscope itemtype="http://schema.org/Blog">

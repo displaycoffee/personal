@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying entry thumbnail
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <?php 
 	if ( has_post_thumbnail() ) {

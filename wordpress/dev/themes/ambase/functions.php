@@ -3,6 +3,9 @@
 	* Functions specific to ambase theme
 	*/
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+
 	// Set up theme options
 	function ambase_setup() {
 		// Load theme text domain

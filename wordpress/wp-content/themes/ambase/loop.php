@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying a basic post loop
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <?php if ( have_posts() ) : ?>
 	<div class="post-multiple">

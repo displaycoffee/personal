@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying the header
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>

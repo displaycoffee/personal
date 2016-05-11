@@ -3,6 +3,9 @@
 	* Funtions for customizer fields that have choices
 	*/	
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+
 	function ambase_select_choices() {
 		return array(
 	        'Option 01' => __( 'Option 01', 'ambase' ),

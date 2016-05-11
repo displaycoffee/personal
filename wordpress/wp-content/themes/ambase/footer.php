@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying the footer
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 		</div>
 	</section>

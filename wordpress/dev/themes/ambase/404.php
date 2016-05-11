@@ -3,6 +3,9 @@
 	* Template for displaying 404 pages (not found)
 	*/
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+	
 	get_header(); 
 ?>
 <article>

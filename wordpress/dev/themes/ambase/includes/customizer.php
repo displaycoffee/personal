@@ -2,6 +2,9 @@
 	/**
 	* Load and create theme customizer options
 	*/	
+	
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
 
 	// Adds individual sections, settings, and controls
 	function ambase_customizer_section( $wp_customize ) {

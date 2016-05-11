@@ -4,18 +4,18 @@
 	*/
 
 	/** 
-	* Check if post password is required
-	*/
-	if ( post_password_required() ) {
-		return;
-	}
-
-	/** 
 	* Check if a person is trying to directly access the template
 	*/
 	if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		die( 'You can not access this page directly!' );
 	}	
+
+	/** 
+	* Check if post password is required
+	*/
+	if ( post_password_required() ) {
+		return;
+	}
 ?>
 <?php 
 	if ( have_comments() ) : 

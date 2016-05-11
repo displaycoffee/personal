@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying a custom search bar
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <div class="search-bar">
 	<form class="search-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">

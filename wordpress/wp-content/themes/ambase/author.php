@@ -3,6 +3,9 @@
 	* Template part for displaying an author archive
 	*/
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+
 	get_header(); 
 
 	/**

@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying entry footer
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <footer class="entry-footer">
 	<div class="categories" itemprop="keywords">

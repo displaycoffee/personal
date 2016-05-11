@@ -2,6 +2,9 @@
 	/**
 	* Template for displaying entry meta
 	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <div class="entry-meta">
 	<?php 

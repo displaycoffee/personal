@@ -3,6 +3,9 @@
 	* Template for displaying the main page
 	*/
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+	
 	get_header(); 
 ?>
 <article>

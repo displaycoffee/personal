@@ -5,6 +5,9 @@
     * By paulund: https://github.com/paulund/wordpress-theme-customizer-custom-controls
     */  
 
+    // Exit if accessed directly
+    if ( !defined( 'ABSPATH' ) ) { exit; }
+
     if ( !class_exists( 'WP_Customize_Control' ) ) {
         return null;
     }

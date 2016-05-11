@@ -3,6 +3,9 @@
 	* Custom validation functions for customizer
 	*/	
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+	
 	// Sanitize textarea 
 	function ambase_sanitize_textarea( $input ) {
 	    return esc_textarea( $input );
