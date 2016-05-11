@@ -5,7 +5,7 @@
 	* Description: Used for setting up custom content types, taxonomies, and meta boxes.
 	* Author: Adria Murphy
 	* Author URI: http://neverend.org/adria
-	* Version: 4.1
+	* Version: 5.0
 	* Text Domain: custom-stuff
 	**/
 
