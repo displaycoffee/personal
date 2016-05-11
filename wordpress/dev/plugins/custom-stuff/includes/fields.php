@@ -5,7 +5,6 @@
 	// Loop through basic field types
 	function cstmstff_display_fields( $field, $value ) {
 		switch ( $field['type'] ) {
-
             // Text and url
             case 'text':
             case 'url':

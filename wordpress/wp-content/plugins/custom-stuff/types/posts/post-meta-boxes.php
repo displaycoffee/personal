@@ -3,8 +3,7 @@
     if ( ! defined( 'ABSPATH' ) ) exit;
          
     // Class for putting together all the meta box goodness
-    class CSTMSTFF_Post_Meta_Box {
- 
+    class CSTMSTFF_Post_Meta_Box { 
         protected $_postMetaBox;        
 
         // Add actions for meta boxes
@@ -38,7 +37,6 @@
      
             // Loop through each meta box array
             foreach ( $this->_postMetaBox['fields'] as $field ) {
-
                 // Get the post meta
                 $meta = get_post_meta( $post->ID, $field['id'], true );
 
@@ -87,17 +85,14 @@
                 $closing = '</div>';
                 $closing .= '</div>';
                 echo $closing;
-
             }
 
             // Closing div to style meta     
             echo '</div>';
-            
         }
 
         // Save data from meta box
         function save( $post_id ) {
-
             // Verify nonce
             if ( !isset($_POST['postMetaBox_nonce'] ) || !wp_verify_nonce( $_POST['postMetaBox_nonce'], basename( __FILE__ ) ) ) {
                 return $post_id;
@@ -144,7 +139,6 @@
                     }
                 }
             }
-
         }
     }
 

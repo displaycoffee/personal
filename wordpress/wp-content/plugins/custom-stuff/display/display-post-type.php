@@ -4,7 +4,6 @@
 	
 	// Loop through post type and custom meta
 	function cstmstff_display_post() {
-
 		$args = array(
 			'post_type' => 'cstmstff-post-type'
 		);
@@ -39,8 +38,7 @@
 			echo '</ul>';
 			echo '<hr />';
 		}
-
+		
 		wp_reset_postdata();
-
 	}
 	add_shortcode( 'display-posts', 'cstmstff_display_post' );

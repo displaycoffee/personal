@@ -4,7 +4,6 @@
 	
     // Class for putting together all the meta box goodness
     class CSTMSTFF_Term_Meta_Box {	
-
     	protected $_termMetaBox; 
 
         // Add actions for meta boxes
@@ -21,7 +20,6 @@
 
         // Add fields onto the 'Add New' page
 		function add_meta() {
-
             // Use nonce for verification
             echo '<input type="hidden" name="termMetaBox_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
@@ -69,19 +67,16 @@
                 // Start closing HTML
                 $closing = '</div>';
                 echo $closing;
-
             }
 		}	
 
 		// Edit fields on the category page
 		function edit_meta( $term ) {
-
             // Use nonce for verification
             echo '<input type="hidden" name="termMetaBox_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
 		    // Loop through each meta box array            
-		    foreach ( $this->_termMetaBox['fields'] as $field ) {
-		    
+		    foreach ( $this->_termMetaBox['fields'] as $field ) {		    
 	            // Start opening HTML
 	            $opening = '<tr class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
 	            $opening .= '<th scope="row">';
@@ -130,13 +125,11 @@
 	            $closing = '</td>';
 	            $closing .= '</tr>';
 	            echo $closing;
-
 	        }
 		}
 
 		// Updates meta
 		function save( $term_id ) {
-
             // Verify nonce
             if ( !isset( $_POST['termMetaBox_nonce'] ) || !wp_verify_nonce( $_POST['termMetaBox_nonce'], basename( __FILE__ ) ) ) {
                 return;
@@ -241,7 +234,6 @@
 			}
 		    return $sortable;
 		}
-
     }
 
     // Go through each meta box array and build them

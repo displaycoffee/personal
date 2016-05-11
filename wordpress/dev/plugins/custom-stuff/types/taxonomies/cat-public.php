@@ -4,7 +4,6 @@
 	
 	// Creates a category (public)
 	function cstmstff_create_cat_public() {
-
 		$labels = array(
 			'name'              => __( 'Public Categories', 'custom-stuff' ),
 			'singular_name'     => __( 'Public Category', 'custom-stuff' ),

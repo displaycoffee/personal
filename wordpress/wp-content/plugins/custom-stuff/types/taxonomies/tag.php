@@ -4,7 +4,6 @@
 	
 	// Creates a tag
 	function cstmstff_create_tag() {
-
 		$labels = array(
 			'name'              => __( 'Tags', 'custom-stuff' ),
 			'singular_name'     => __( 'Tag', 'custom-stuff' ),

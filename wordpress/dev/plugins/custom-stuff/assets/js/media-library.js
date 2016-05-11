@@ -4,8 +4,7 @@ function cstmstffSelectImage( selectButton, selector ) {
     var cstmstffSelectImageFrame;
  
     // Runs when the image button is clicked
-    jQuery( selectButton ).click( function( e ) {
- 
+    jQuery( selectButton ).click( function( e ) { 
         // Prevents the default action from occuring
         e.preventDefault();
  
@@ -23,14 +22,12 @@ function cstmstffSelectImage( selectButton, selector ) {
         });
  
         // Runs when an image is selected
-        cstmstffSelectImageFrame.on( 'select', function() {
- 
+        cstmstffSelectImageFrame.on( 'select', function() { 
             // Grabs the attachment selection and creates a JSON representation of the model
             var mediaAttachment = cstmstffSelectImageFrame.state().get( 'selection' ).first().toJSON();
  
             // Sends the attachment URL to our custom image input field
             jQuery( selector ).val( mediaAttachment.url );
-
         });
  
         // Opens the media library frame

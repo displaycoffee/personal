@@ -4,7 +4,6 @@
 	
 	// Creates a category (private)
 	function cstmstff_create_cat_private() {
-
 		$labels = array(
 			'name'              => __( 'Private Categories', 'custom-stuff' ),
 			'singular_name'     => __( 'Private Category', 'custom-stuff' ),

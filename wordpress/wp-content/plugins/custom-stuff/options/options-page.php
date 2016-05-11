@@ -4,7 +4,6 @@
 	
 	// Class for putting together option pages
 	class CSTMSTFF_Option_Page {
-
         protected $_optionPage;        
 
         // Add actions for option pages
@@ -28,7 +27,6 @@
 
 		// Show options content
 		function show_page() {
-
 			// Start opening HTML
 			$opening = '<div class="cstmstff-options">';
 			$opening .= '<h1>' . $this->_optionPage['title'] . '</h1>';
@@ -51,12 +49,10 @@
 			$closing .= '</form>';
 			$closing .= '</div>';
 			echo $closing;
-
 		}		
 
 		// Register sections and fields to place on options page
 		function register() {
-
 			// Register settings
 			register_setting( $this->_optionPage['options-group'], $this->_optionPage['options-group'], array( &$this, 'save' ) );
 
@@ -80,7 +76,6 @@
 					);
 				}
 			}
-
 		}
 
 		// Show extra section content
@@ -93,7 +88,6 @@
 		}
 
 		function show_fields( $field ) {
-
 			// Get values for named option
 			$getOption = get_option( $this->_optionPage['options-group'] );
 
@@ -112,12 +106,10 @@
 
 		    // Display description if one is there
             cstmstff_display_description( $field );
-
 		}
 
 		// Save data from fields
 		function save( $input ) {
-
 			// Verify nonce
             if ( !isset( $_POST['optionPage_nonce'] ) || !wp_verify_nonce( $_POST['optionPage_nonce'], basename( __FILE__ ) ) ) {
                 return;
@@ -134,8 +126,7 @@
 				}
 				return $new;
 			}
-		}		
-
+		}
 	}
 
     // Go through each option page array and build them

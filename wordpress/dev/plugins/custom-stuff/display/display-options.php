@@ -4,7 +4,6 @@
 	
 	// Loop through post type and custom meta
 	function cstmstff_options_page() {
-
 		$option = get_option( 'cstmstff-options' );
 		echo '<h3>' . __( 'Display Options', 'custom-stuff' ) . '</h3>';
 		echo '<ul>';		

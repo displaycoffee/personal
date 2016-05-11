@@ -21,7 +21,6 @@
 	function cstmstff_enqueue_assets() {
 	    global $typenow;
 	    if ( $typenow == 'cstmstff-post-type' ) {
-
 	    	// Enqueue and localize media library
 	        wp_enqueue_media();
 	        wp_localize_script( 'cstmstff_asset', 'image_select',
@@ -44,7 +43,6 @@
 
 	        // Enqueue the required CSS
 	        wp_enqueue_style( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
-
 	    }
 	}
 	add_action( 'admin_enqueue_scripts', 'cstmstff_enqueue_assets' );

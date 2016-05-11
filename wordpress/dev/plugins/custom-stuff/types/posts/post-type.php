@@ -4,7 +4,6 @@
 	
 	// Creates custom content type
 	function cstmstff_create_post_type() {
-
 		$labels = array(
 			'name'               => __( 'Entries', 'custom-stuff' ),
 			'singular_name'      => __( 'Entry', 'custom-stuff' ),
@@ -40,10 +39,9 @@
 			'hierarchical'        => false,
 			'can_export'          => true,
 			'capability_type'     => 'post',
-		);
+		);		
 		
 		register_post_type( 'cstmstff-post-type', $args );
-
 	}
 
 	add_action( 'init', 'cstmstff_create_post_type', 0 );

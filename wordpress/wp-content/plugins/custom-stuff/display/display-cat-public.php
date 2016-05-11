@@ -4,7 +4,6 @@
 	
 	// Loop through post type and custom meta
 	function cstmstff_cat_public() {
-
 		$taxonomies = array( 
 		    'cstmstff-cat-public'
 		);
@@ -42,6 +41,5 @@
 		}
 		echo '</ul>';
 		echo '<hr />';
-
 	}
 	add_shortcode( 'display-cat-public', 'cstmstff_cat_public' );
