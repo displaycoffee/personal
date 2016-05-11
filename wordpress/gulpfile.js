@@ -11,10 +11,10 @@ var browserSync = require('browser-sync').create(),
 /* Global Variables
    ---------------------------------------------- */
 
-// var wpFolder = 'themes';
-// var dirName = 'ambase';
-var wpFolder = 'plugins';
-var dirName = 'custom-stuff';
+var wpFolder = 'themes';
+var dirName = 'ambase';
+// var wpFolder = 'plugins';
+// var dirName = 'custom-stuff';
 var proxyURL = 'http://localhost/personal/wordpress';
 
 /* Development Variables

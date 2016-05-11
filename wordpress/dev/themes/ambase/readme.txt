@@ -13,7 +13,7 @@ A base theme setup for WordPress. This is not meant to be used. It's meant to bu
 
 == Installation ==
 
-In WordPress admin panel, do the following:
+In WordPress, do the following:
 
 1. Appearance > Themes > Add New Theme.
 2. Click on "Upload Theme" button.
