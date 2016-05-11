@@ -10,10 +10,7 @@
 	**/
 
 	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) {
-		echo 'Beep boop!';
-		exit; 
-	}
+	if ( !defined( 'ABSPATH' ) ) { exit; }
 
 	// Load plugin text domain
 	function cstmstff_load_textdomain() {

@@ -1,9 +1,6 @@
 <?php
 	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) {
-		echo 'Beep boop!';
-		exit; 
-	}
+	if ( !defined( 'ABSPATH' ) ) { exit; }
 	
 	// Loop through post type and custom meta
 	function cstmstff_display_post() {

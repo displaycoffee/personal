@@ -1,9 +1,6 @@
 <?php
 	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) {
-		echo 'Beep boop!';
-		exit; 
-	}
+	if ( !defined( 'ABSPATH' ) ) { exit; }
 	
 	// Class for putting together option pages
 	class CSTMSTFF_Option_Page {

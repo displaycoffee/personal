@@ -1,9 +1,6 @@
 <?php
 	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) {
-		echo 'Beep boop!';
-		exit; 
-	}
+	if ( !defined( 'ABSPATH' ) ) { exit; }
 	
 	// Creates custom content type
 	function cstmstff_create_post_type() {

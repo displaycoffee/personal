@@ -1,9 +1,6 @@
 <?php 
     // Exit if accessed directly
-    if ( !defined( 'ABSPATH' ) ) {
-        echo 'Beep boop!';
-        exit; 
-    }
+    if ( ! defined( 'ABSPATH' ) ) exit;
     
     // Term array for all sections and fields
     $termMetaBoxes = array();

@@ -1,9 +1,6 @@
 <?php
 	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) {
-		echo 'Beep boop!';
-		exit; 
-	}
+	if ( !defined( 'ABSPATH' ) ) { exit; }
 	
 	// Creates a category (public)
 	function cstmstff_create_cat_public() {
