@@ -6,11 +6,10 @@
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
+	// Include header
 	get_header(); 
 
-	/**
-	* Grab all the variables we need for this page
-	*/
+	// Grab all the variables we need for this page
 	$att_parent_link = get_permalink( $post->post_parent );
 	$att_parent_title = get_the_title( $post->post_parent );
 	$att_url = wp_get_attachment_url();

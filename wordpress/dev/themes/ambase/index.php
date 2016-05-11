@@ -6,6 +6,7 @@
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 	
+	// Include header	
 	get_header(); 
 ?>
 <article>

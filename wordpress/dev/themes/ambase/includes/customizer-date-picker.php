@@ -8,10 +8,12 @@
     // Exit if accessed directly
     if ( !defined( 'ABSPATH' ) ) { exit; }
 
+    // Check if customize class exists
     if ( !class_exists( 'WP_Customize_Control' ) ) {
         return null;
     }
 
+    // Create data picker class
     class AMBASE_Date_Picker extends WP_Customize_Control {
         // Enqueue date picker style
         public function enqueue() {

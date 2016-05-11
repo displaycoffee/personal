@@ -3,16 +3,10 @@
 	* Template for displaying comments
 	*/
 
-	/** 
-	* Check if a person is trying to directly access the template
-	*/
-	if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
-		die( 'You can not access this page directly!' );
-	}	
+	// Exit if accessed directly
+	if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) { exit; }	
 
-	/** 
-	* Check if post password is required
-	*/
+	// Check if post password is required
 	if ( post_password_required() ) {
 		return;
 	}

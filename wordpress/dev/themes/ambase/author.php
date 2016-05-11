@@ -6,11 +6,10 @@
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
+	// Include header
 	get_header(); 
 
-	/**
-	* Grab all the variables we need for this page
-	*/	
+	// Grab all the variables we need for this page
 	$author_name = get_the_author();
 	$author_website = get_the_author_meta( 'user_url' );
 	$author_id = get_the_author_meta( 'ID' );

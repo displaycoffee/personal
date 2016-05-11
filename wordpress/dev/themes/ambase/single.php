@@ -5,7 +5,8 @@
 
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
-	
+
+	// Include header	
 	get_header(); 
 ?>
 <article itemscope itemtype="http://schema.org/Blog">
