@@ -1,4 +1,10 @@
 <?php
+    // Exit if accessed directly
+    if ( !defined( 'ABSPATH' ) ) {
+        echo 'Beep boop!';
+        exit; 
+    }
+    
 	// Select choices
 	function cstmstff_select_choices() {
 		return array(

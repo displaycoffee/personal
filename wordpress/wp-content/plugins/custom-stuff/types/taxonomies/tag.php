@@ -1,4 +1,10 @@
 <?php
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) {
+		echo 'Beep boop!';
+		exit; 
+	}
+	
 	// Creates a tag
 	function cstmstff_create_tag() {
 

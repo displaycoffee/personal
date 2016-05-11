@@ -1,4 +1,10 @@
 <?php	
+    // Exit if accessed directly
+    if ( !defined( 'ABSPATH' ) ) {
+        echo 'Beep boop!';
+        exit; 
+    }
+    
 	// Loop through basic field types
 	function cstmstff_display_fields( $field, $value ) {
 		switch ( $field['type'] ) {

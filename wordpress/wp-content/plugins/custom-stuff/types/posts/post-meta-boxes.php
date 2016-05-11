@@ -1,4 +1,10 @@
-<?php     
+<?php
+    // Exit if accessed directly
+    if ( !defined( 'ABSPATH' ) ) {
+        echo 'Beep boop!';
+        exit; 
+    }
+         
     // Class for putting together all the meta box goodness
     class CSTMSTFF_Post_Meta_Box {
  

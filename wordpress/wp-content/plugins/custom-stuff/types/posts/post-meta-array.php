@@ -1,4 +1,10 @@
 <?php 
+    // Exit if accessed directly
+    if ( !defined( 'ABSPATH' ) ) {
+        echo 'Beep boop!';
+        exit; 
+    }
+
     // Post array for all sections and fields
     $postMetaBoxes = array();
  

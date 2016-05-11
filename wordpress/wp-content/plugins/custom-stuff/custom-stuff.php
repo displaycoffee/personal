@@ -9,6 +9,12 @@
 	* Text Domain: custom-stuff
 	**/
 
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) {
+		echo 'Beep boop!';
+		exit; 
+	}
+
 	// Load plugin text domain
 	function cstmstff_load_textdomain() {
 		load_plugin_textdomain( 'custom-stuff', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 

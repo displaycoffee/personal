@@ -1,4 +1,10 @@
 <?php
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) {
+		echo 'Beep boop!';
+		exit; 
+	}
+	
 	// Checkbox
 	function cstmstff_sanatize_checkbox( $input ) {
 	    if ( $input == 1 || $input == '1' ) {
