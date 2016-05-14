@@ -43,7 +43,6 @@ if (wpFolder == 'themes') {
 // JS files are different for folders, so let's add a conditonal
 if (dirName == 'ambase') {
 	var jsSources = [
-		devJS + '/navigation-links.js',
 		devJS + '/run-functions.js'
 	];
 } else if (dirName == 'custom-stuff') {
