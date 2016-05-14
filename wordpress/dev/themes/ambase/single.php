@@ -32,12 +32,12 @@
 
 				// Check if previous is there
 				if ( $previous ) {
-					$single_navigation .= '<li class="prev">' . get_previous_post_link( '%link', __( 'Previous: %title', 'themusescircle' ) ) . '</li>';
+					$single_navigation .= '<li class="prev">' . get_previous_post_link( '%link', __( 'Previous: %title', 'ambase' ) ) . '</li>';
 				}
 
 				// Check if next is there
 				if ( $next ) {
-					$single_navigation .= '<li class="next">' . get_next_post_link( '%link', __( 'Next: %title', 'themusescircle' ) ) . '</li>';
+					$single_navigation .= '<li class="next">' . get_next_post_link( '%link', __( 'Next: %title', 'ambase' ) ) . '</li>';
 				}
 
 				// End navigation html
