@@ -20,7 +20,8 @@
 				comments_number( __( 'No comments', 'ambase' ), __( 'One comment', 'ambase' ), __( '% comments', 'ambase') );
 				echo '</a></div>';
 			}
+		} else {
+			edit_post_link( __('Edit', 'ambase'), '<div class="edit">', '</div>' );
 		}
 	?>
-	<?php edit_post_link( __('Edit', 'ambase'), '<div class="edit">', '</div>' ); ?>
 </footer>

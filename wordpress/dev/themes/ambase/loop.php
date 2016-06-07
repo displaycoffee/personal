@@ -7,9 +7,9 @@
 	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <?php if ( have_posts() ) : ?>
-	<div class="post-multiple">
+	<div class="entry-multiple">
 		<?php while ( have_posts() ) : the_post(); ?>	
-			<div id="post-<?php esc_attr( the_ID() ); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Blog">
+			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry post" itemscope itemtype="http://schema.org/Blog">
 				<?php 
 					// Since the string is long, create variables for title before/after
 					$title_before = '<header class="entry-header"><h2 itemprop="name"><a href="' . esc_url( get_the_permalink() ) . '">';
@@ -19,9 +19,11 @@
 					the_title($title_before, $title_after);
 				?>
 				<meta itemprop="url" content="<?php echo esc_url( get_the_permalink() ) ?>">
-				<?php get_template_part( 'partials/entry', 'meta' ); ?>
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
-				<div class="entry-content" itemprop="text"><?php echo ambase_excerpt(); ?></div>
+				<div class="entry-details">
+					<?php get_template_part( 'partials/entry', 'meta' ); ?>					
+					<div class="entry-content" itemprop="text"><?php echo ambase_excerpt(); ?></div>
+				</div>
 				<?php get_template_part( 'partials/entry', 'footer' ); ?>
 			</div>
 		<?php endwhile; ?>
