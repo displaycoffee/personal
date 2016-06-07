@@ -12,13 +12,12 @@
 			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry post" itemscope itemtype="http://schema.org/Blog">
 				<?php 
 					// Since the string is long, create variables for title before/after
-					$title_before = '<header class="entry-header"><h2 itemprop="name"><a href="' . esc_url( get_the_permalink() ) . '">';
-					$title_after = '</a></h2></header>';
+					$title_before = '<header class="entry-header"><h3 itemprop="name"><a href="' . esc_url( get_the_permalink() ) . '" itemprop="url" content="' . esc_url( get_the_permalink() ) . '">';
+					$title_after = '</a></h3></header>';
 
 					// Display the title
 					the_title($title_before, $title_after);
 				?>
-				<meta itemprop="url" content="<?php echo esc_url( get_the_permalink() ) ?>">
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
 				<div class="entry-details">
 					<?php get_template_part( 'partials/entry', 'meta' ); ?>					
