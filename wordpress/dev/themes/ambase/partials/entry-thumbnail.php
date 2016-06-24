@@ -12,7 +12,6 @@
 		$thumbnail_main = 'entry-thumbnail';
 		$thumbnail_wrap = 'image-wrap';
 		$thumbnail_image = get_the_post_thumbnail();
-		// 
 
 		// Check if we're on a page or not
 		if ( !is_page() ) { 

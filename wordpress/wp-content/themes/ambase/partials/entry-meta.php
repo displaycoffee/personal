@@ -10,7 +10,19 @@
 	<?php 
 		// Dont display publisher schema on attachment pages
 		if ( !is_attachment() ) {
-			echo '<meta itemprop="publisher" content="' . get_bloginfo( 'name' ) . '">';
+			// Variables from theme customizer options
+			$publisher_logo = get_theme_mod( 'ambase_publisher_logo', get_template_directory_uri() . '/assets/images/default-publisher-logo.png' );
+			$publisher_logo_height = get_theme_mod( 'ambase_publisher_logo_height', __( '60', 'ambase' ) );
+
+			// Display publisher schema
+			$publisher_schema = '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';
+			$publisher_schema .= '<meta itemprop="name" content="' . get_bloginfo( 'name' ) . '">';
+			$publisher_schema .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+			$publisher_schema .= '<meta itemprop="url" content="' . esc_url( $publisher_logo ) . '">';
+			$publisher_schema .= '<meta itemprop="width" content="600">';
+			$publisher_schema .= '<meta itemprop="height" content="' . esc_html( $publisher_logo_height ) . '">';
+			$publisher_schema .= '</div></div>';
+			echo $publisher_schema;
 		}
 	?>
 	<?php 

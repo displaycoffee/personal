@@ -19,8 +19,8 @@
 					// Display the title
 					the_title($title_before, $title_after);
 				?>
-				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
-				<?php get_template_part( 'partials/entry', 'meta' ); ?>					
+				<?php get_template_part( 'partials/entry', 'meta' ); ?>
+				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>									
 				<div class="entry-content"><?php echo ambase_excerpt(); ?></div>
 				<?php get_template_part( 'partials/entry', 'footer' ); ?>
 			</div>
