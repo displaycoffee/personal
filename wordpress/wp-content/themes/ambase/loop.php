@@ -21,7 +21,7 @@
 				?>
 				<?php get_template_part( 'partials/entry', 'meta' ); ?>
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>									
-				<div class="entry-content"><?php echo ambase_excerpt(); ?></div>
+				<div class="entry-content" itemprop="text"><?php echo ambase_excerpt(); ?></div>
 				<?php get_template_part( 'partials/entry', 'footer' ); ?>
 			</div>
 		<?php endwhile; ?>
