@@ -28,8 +28,8 @@
 			$thumbnail_html .= '<div class="image-wrap">' . get_the_post_thumbnail() . '</div>';		
 		} else {
 			$thumbnail_html .= '<meta itemprop="url" content="' . esc_url( get_template_directory_uri() . '/assets/images/default-thumbnail.png' ) . '">';
-			$thumbnail_html .= '<meta itemprop="width" content="500">';
-			$thumbnail_html .= '<meta itemprop="height" content="500">';
+			$thumbnail_html .= '<meta itemprop="width" content="300">';
+			$thumbnail_html .= '<meta itemprop="height" content="300">';
 		}
 
 		// Start closing HTML
