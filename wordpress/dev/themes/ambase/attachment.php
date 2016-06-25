@@ -29,27 +29,25 @@
 						$att_header .= '</h3></header>';
 						echo $att_header;
 					}
-				?>	
-				<div class="entry-details">			
-					<?php get_template_part( 'partials/entry', 'meta' ); ?>
-					<div class="entry-content">
-						<?php 
-							// Check if the attachment is an image or file
-							if ( wp_attachment_is_image( $post->ID ) ) { 
-								$att_content = '<div class="attachment-image">' . wp_get_attachment_image( get_the_ID(), 'large' ) . '</div>';
-							} else {
-								$att_content = '<p class="attachment-file"><a href="' . esc_url( $att_url ) . '">' . $att_filename . '</a></p>';
-							}
+				?>
+				<?php get_template_part( 'partials/entry', 'meta' ); ?>	
+				<div class="entry-content">
+					<?php 
+						// Check if the attachment is an image or file
+						if ( wp_attachment_is_image( $post->ID ) ) { 
+							$att_content = '<div class="attachment-image">' . wp_get_attachment_image( get_the_ID(), 'large' ) . '</div>';
+						} else {
+							$att_content = '<p class="attachment-file"><a href="' . esc_url( $att_url ) . '">' . $att_filename . '</a></p>';
+						}
 
-							// Check if the attachment has a caption
-							if ( $att_caption ) {
-								$att_content .= '<p class="caption">' . $att_caption . '</p>';
-							}
+						// Check if the attachment has a caption
+						if ( $att_caption ) {
+							$att_content .= '<p class="caption">' . $att_caption . '</p>';
+						}
 
-							// Display entry content
-							echo $att_content; 
-						?>
-					</div>
+						// Display entry content
+						echo $att_content; 
+					?>
 				</div>
 			</div>
 		</div>

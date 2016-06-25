@@ -15,11 +15,9 @@
 		<meta itemprop="url" content="<?php echo esc_url( get_the_permalink() ) ?>">
 		<div class="entry-single">
 			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry post">
+				<?php get_template_part( 'partials/entry', 'meta' ); ?>	
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
-				<div class="entry-details">
-					<?php get_template_part( 'partials/entry', 'meta' ); ?>			
-					<div class="entry-content" itemprop="text"><?php the_content(); ?></div>
-				</div>
+				<div class="entry-content" itemprop="text"><?php the_content(); ?></div>
 				<?php get_template_part( 'partials/entry', 'footer' ); ?>
 			</div>
 		</div>

@@ -15,9 +15,7 @@
 		<div class="entry-single">	
 			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry page">
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
-				<div class="entry-details">
-					<div class="entry-content"><?php the_content(); ?></div>
-				</div>
+				<div class="entry-content"><?php the_content(); ?></div>
 				<footer class="entry-footer">
 					<?php edit_post_link( __('Edit', 'ambase'), '<div class="edit">', '</div>' ); ?>
 				</footer>
