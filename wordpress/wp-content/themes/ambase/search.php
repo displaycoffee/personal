@@ -16,7 +16,7 @@
 
 		// Check if a search query is present
 		if ( get_search_query() ) {
-			$search_header .= sprintf( __( 'Search results for "%s"', 'ambase' ), get_search_query() );
+			$search_header .= sprintf( __( 'Search results for "%s"', 'ambase' ), esc_html( get_search_query() ) );
 		} else {
 			$search_header .= __( 'Search results', 'ambase' );
 		}

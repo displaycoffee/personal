@@ -35,7 +35,7 @@
 					<?php 
 						// Check if the attachment is an image or file
 						if ( wp_attachment_is_image( $post->ID ) ) { 
-							$att_content = '<div class="attachment-image">' . wp_get_attachment_image( get_the_ID(), 'large' ) . '</div>';
+							$att_content = '<div class="attachment-image"><div class="image-wrap">' . wp_get_attachment_image( get_the_ID(), 'large' ) . '</div></div>';
 						} else {
 							$att_content = '<p class="attachment-file"><a href="' . esc_url( $att_url ) . '">' . $att_filename . '</a></p>';
 						}

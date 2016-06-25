@@ -9,12 +9,13 @@
 	// Include header	
 	get_header(); 
 ?>
-<article itemscope itemtype="http://schema.org/Blog">
+<article>
 	<?php the_title( '<header class="main-title"><h1 itemprop="name">', '</h1></header>' ); ?>	
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-		<meta itemprop="url" content="<?php echo esc_url( get_the_permalink() ) ?>">
-		<div class="entry-single">
-			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry post">
+		<div class="entry-single" itemtype="http://schema.org/Blog">
+			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry post" itemscope itemtype="http://schema.org/BlogPosting">
+				<meta itemprop="headline" content="<?php echo get_the_title(); ?>"/>
+				<meta itemprop="mainEntityOfPage" content="<?php echo esc_url( get_the_permalink() ); ?>"/>
 				<?php get_template_part( 'partials/entry', 'meta' ); ?>	
 				<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
 				<div class="entry-content" itemprop="text"><?php the_content(); ?></div>

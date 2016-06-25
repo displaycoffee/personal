@@ -14,8 +14,11 @@
 		$thumbnail_width = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' )[1];
 		$thumbnail_height = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' )[2];
 
+		// If there's not a thumbnail, don't add thumbnail class
+		$thumbnail_class = has_post_thumbnail() ? ' class="entry-thumbnail"' : '';
+
 		// Start opening HTML
-		$thumbnail_html = '<div class="entry-thumbnail" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';		
+		$thumbnail_html = '<div' . $thumbnail_class . ' itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';		
 
 		// Check if there is a thumbnail
 		if ( has_post_thumbnail() ) {

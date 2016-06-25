@@ -20,8 +20,7 @@
 	<?php 
 		// Check if the author name is there. Not sure why it wouldn't be...
 		if ( $author_name ) {
-			$author_header = '<header class="main-title"><h1>' . __( 'Author: ', 'ambase' ) . $author_name . '</h1></header>';
-			echo $author_header;
+			echo '<header class="main-title"><h1>' . __( 'Author: ', 'ambase' ) . $author_name . '</h1></header>';
 		}
 	?>
 	<div id="author" class="author-info">
@@ -36,14 +35,12 @@
  
 			// Check if the author has an avatar
 			if ( $author_avatar ) { 
-				$author_thumbnail = '<div class="author-thumbnail"><div class="image-wrap">' . $author_avatar . '</div></div>'; 
-				echo $author_thumbnail;
+				echo '<div class="author-thumbnail"><div class="image-wrap">' . $author_avatar . '</div></div>';
 			} 
 
 			// Check if the aithor has a description
 			if ( '' != $author_desc ) {
-				$author_biography = '<div class="author-biography"><p>' .  $author_desc . '</p></div>';
-				echo $author_biography;
+				echo '<div class="author-biography"><p>' .  $author_desc . '</p></div>';
 			}
 		?>
 	</div>
