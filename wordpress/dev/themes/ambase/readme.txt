@@ -1,8 +1,8 @@
 === ambase ===
-Contributors: kailala
+Contributors: displaycoffee
 Requires at least: 4.0
 Tested up to: WordPress 4.5
-Version: 3.0
+Version: 4.0
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl.html
 Tags: custom base wordpress theme
@@ -20,7 +20,7 @@ In WordPress, do the following:
 3. Activate the theme.
 
 == Credits/Copyright ==
-Theme created by kailala.
+Theme created by displaycoffee.
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
 
@@ -30,6 +30,9 @@ This theme uses:
 * normalize
 
 == Changelog ==
+
+= 4.0 =
+Fixed schema.org markup for blog posts and added default images for markup to be validates. Moved main-title header above content section.
 
 = 3.0 =
 Created a readme.txt file.
