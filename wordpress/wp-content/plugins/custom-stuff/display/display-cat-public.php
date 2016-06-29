@@ -27,7 +27,7 @@
 			echo '<li>' . esc_html( get_term_meta( $term->term_id, 'cstmstff-multitext02', true ) ) . '</li>';
 			echo '<li>' . esc_html( get_term_meta( $term->term_id, 'cstmstff-multitext03', true ) ) . '</li>';
 			echo '<li>' . esc_html( get_term_meta( $term->term_id, 'cstmstff-multitext04', true ) ) . '</li>';
-			echo '<li>' . wpautop( esc_html( get_term_meta( $term->term_id, 'cstmstff-textarea', true ) ) ) . '</li>'; 
+			echo '<li>' . wpautop( esc_textarea( get_term_meta( $term->term_id, 'cstmstff-textarea', true ) ) ) . '</li>'; 
 			echo '<li>' . esc_html( get_term_meta( $term->term_id, 'cstmstff-select', true ) ) . '</li>'; 
 			echo '<li>' . esc_html( get_term_meta( $term->term_id, 'cstmstff-radio', true ) ) . '</li>'; 
 			echo '<li>' . esc_html( get_term_meta( $term->term_id, 'cstmstff-checkbox', true ) ) . '</li>'; 

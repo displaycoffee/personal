@@ -24,7 +24,7 @@
 				echo '<li>' . esc_html( get_post_meta( $postID, '_cstmstff-multitext02', true ) ) . '</li>';
 				echo '<li>' . esc_html( get_post_meta( $postID, '_cstmstff-multitext03', true ) ) . '</li>';
 				echo '<li>' . esc_html( get_post_meta( $postID, '_cstmstff-multitext04', true ) ) . '</li>';
-				echo '<li>' . wpautop( esc_html( get_post_meta( $postID, '_cstmstff-textarea', true ) ) ) . '</li>';
+				echo '<li>' . wpautop( esc_textarea( get_post_meta( $postID, '_cstmstff-textarea', true ) ) ) . '</li>';
 				echo '<li>' . esc_html( get_post_meta( $postID, '_cstmstff-select', true ) ) . '</li>';
 				echo '<li>' . esc_html( get_post_meta( $postID, '_cstmstff-radio', true ) ) . '</li>';
 				echo '<li>' . esc_html( get_post_meta( $postID, '_cstmstff-checkbox', true ) ) . '</li>';

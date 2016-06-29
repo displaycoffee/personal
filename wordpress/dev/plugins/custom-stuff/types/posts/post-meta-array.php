@@ -63,7 +63,7 @@
                 'id'       => '_cstmstff-textarea',
                 'name'     => '_cstmstff-textarea',
                 'type'     => 'textarea',
-                'validate' => 'cstmstff_sanitize_html'
+                'validate' => 'cstmstff_sanitize_textarea'
             ),
             array(
                 'label'    => __( 'Select Box', 'custom-stuff' ),

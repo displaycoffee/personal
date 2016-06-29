@@ -9,7 +9,7 @@
 		echo '<ul>';		
 		echo '<li>' . esc_html( $option['cstmstff-text'] ) . '</li>';
 		echo '<li>' . esc_url( $option['cstmstff-url'] ) . '</li>';
-		echo '<li>' . wpautop( esc_html( $option['cstmstff-textarea'] ) ) . '</li>';
+		echo '<li>' . wpautop( esc_textarea( $option['cstmstff-textarea'] ) ) . '</li>';
 		echo '<li>' . esc_html( $option['cstmstff-select'] ) . '</li>';
 		echo '<li>' . esc_html( $option['cstmstff-radio'] ) . '</li>';
 		echo '<li>' . esc_html( $option['cstmstff-checkbox'] ) . '</li>';

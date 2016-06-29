@@ -48,7 +48,7 @@
                 'id'       => 'cstmstff-textarea',
                 'name'     => 'cstmstff-options[cstmstff-textarea]',
                 'type'     => 'textarea',
-                'validate' => 'cstmstff_sanitize_html',
+                'validate' => 'cstmstff_sanitize_textarea',
                 'section'  => 'cstmstff-option-section-01'
             ),
             array(

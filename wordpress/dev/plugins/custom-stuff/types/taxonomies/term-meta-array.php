@@ -62,7 +62,7 @@
                 'id'       => 'cstmstff-textarea',
                 'name'     => 'cstmstff-textarea',
                 'type'     => 'textarea',
-                'validate' => 'cstmstff_sanitize_html',
+                'validate' => 'cstmstff_sanitize_textarea',
                 'column'   => 'no'
             ),
             array(
