@@ -20,6 +20,7 @@
 	    // Return input
 	    return $new_input;
 	}
+	
 	// Checkbox
 	function ambase_sanatize_checkbox( $input ) {
 	    if ( $input == 1 || $input == '1' ) {
