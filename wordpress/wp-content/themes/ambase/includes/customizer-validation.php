@@ -23,6 +23,7 @@
 	
 	// Checkbox
 	function ambase_sanatize_checkbox( $input ) {
+		// Check if input is a string or integer of 1
 	    if ( $input == 1 || $input == '1' ) {
 	        return 1;
 	    } else {
@@ -58,6 +59,7 @@
 
 	// Numbers
     function ambase_sanitize_number( $input ) {
+    	// Check if input is numeric
 	    if ( is_numeric( $input ) ) {
     		return intval( $input );
 	    } else {
@@ -70,6 +72,7 @@
     	// Get each value in the date - month, day, year
         $date = preg_match( '/(\d{4})-(\d{2})-(\d{2})/', $input, $match );
 
+        // Check if the date is valid based on regex match
         if ( $date == '1' && checkdate( $match[2], $match[3], $match[1] ) ) {
         	return $input;
         } else {

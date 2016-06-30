@@ -29,9 +29,12 @@
 				<?php
 					// Check if the author has a website
 					if ( $author_website ) {
+						// Create author block
 						$author_meta = '<div class="author-meta">';
 						$author_meta .= '<p class="website"><a href="' . esc_url( $author_website ) . '">' . __( 'Website', 'ambase' ) . '</a></p>';
 						$author_meta .= '</div>';
+
+						// Display author block
 						echo $author_meta;
 					}				
 		 

@@ -30,7 +30,7 @@
 					$next = get_adjacent_post( false, '', false );
 
 					if ( $next || $previous ) {				
-						// Start navigation html
+						// Creat navigation block - START
 						$single_navigation = '<nav class="navigation-links"><ul>';
 
 						// Check if previous is there
@@ -43,10 +43,10 @@
 							$single_navigation .= '<li class="next">' . get_next_post_link( '%link', __( 'Next: %title', 'ambase' ) ) . '</li>';
 						}
 
-						// End navigation html
+						// Creat navigation block - END
 						$single_navigation .= '</ul></nav>';	
 
-						// Display navigation
+						// Display navigation block
 						echo $single_navigation;
 					}
 				?>

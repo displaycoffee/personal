@@ -21,7 +21,7 @@
 				echo '</a></div>';
 			}
 		} else {
-			edit_post_link( __('Edit', 'ambase'), '<div class="edit">', '</div>' );
+			edit_post_link( __( 'Edit', 'ambase' ), '<div class="edit">', '</div>' );
 		}
 	?>
 </footer>
