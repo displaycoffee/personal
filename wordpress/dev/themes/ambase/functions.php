@@ -43,7 +43,7 @@
 			'name'			=> __( 'Default Sidebar', 'ambase' ),
 			'id'			=> 'default-widget-area',
 			'description'	=> __( 'Widgets in this area will be shown on all posts and pages.', 'ambase' ),
-			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+			'before_widget' => '<div id="' . esc_attr( '%1$s' ) . '" class="widget-container ' . esc_attr( '%2$s' ) . '">',
 			'after_widget'	=> '</div>',
 			'before_title'	=> '<h3 class="widget-title">',
 			'after_title'	=> '</h3>',
