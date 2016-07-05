@@ -26,11 +26,13 @@
             // Loop through each meta box array
             foreach ( $this->_termMetaBox['fields'] as $field ) {
 
-                // Start opening HTML
+                // Create opening HTML block
                 $opening = '<div class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
                 $opening .= '<label for="' . $field['id'] . '">';
                 $opening .= $field['label'];
                 $opening .= '</label>';
+
+                // Display opening HTML block
                 echo $opening;
 
                 // Common display value
@@ -64,8 +66,10 @@
                 // Display description if one is there
                 cstmstff_display_description( $field );
 
-                // Start closing HTML
+                // Create closing HTML block
                 $closing = '</div>';
+
+                // Display closing HTML block
                 echo $closing;
             }
 		}	
@@ -77,7 +81,7 @@
 
 		    // Loop through each meta box array            
 		    foreach ( $this->_termMetaBox['fields'] as $field ) {		    
-	            // Start opening HTML
+	            // Create opening HTML block
 	            $opening = '<tr class="form-field ' . $field['id'] . '-wrap cstmstff-term-meta">';
 	            $opening .= '<th scope="row">';
 	            $opening .= '<label for="' . $field['id'] . '">';
@@ -85,6 +89,8 @@
 	            $opening .= '</label>';
 	            $opening .= '</th>';
 	            $opening .= '<td>';
+
+	            // Display opening HTML block
 	            echo $opening;
 
                 // Get the term meta
@@ -121,9 +127,11 @@
                 // Display description if one is there
                 cstmstff_display_description( $field );
 
-	            // Start closing HTML
+	            // Create closing HTML block
 	            $closing = '</td>';
 	            $closing .= '</tr>';
+
+	            // Display closing HTML block
 	            echo $closing;
 	        }
 		}

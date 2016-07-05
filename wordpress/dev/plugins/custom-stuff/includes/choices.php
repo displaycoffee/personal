@@ -21,9 +21,9 @@
                 'default' => 'yes'
             ),
             array(
-                'label' => __( 'Name 2', 'custom-stuff' ), 
-                'id'    => '_cstmstff-value02',
-                'name'  => '_cstmstff-value02',
+                'label'   => __( 'Name 2', 'custom-stuff' ), 
+                'id'      => '_cstmstff-value02',
+                'name'    => '_cstmstff-value02',
             )
         );
 	}		
@@ -38,9 +38,9 @@
                 'default' => 'yes'
             ),
             array(
-                'label' => __( 'Name 2', 'custom-stuff' ), 
-                'id'    => 'cstmstff-value02',
-                'name'  => 'cstmstff-value02',
+                'label'   => __( 'Name 2', 'custom-stuff' ), 
+                'id'      => 'cstmstff-value02',
+                'name'    => 'cstmstff-value02',
             )
         );
 	}			
