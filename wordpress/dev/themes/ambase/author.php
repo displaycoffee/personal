@@ -8,13 +8,6 @@
 
 	// Include header
 	get_header(); 
-
-	// Grab all the variables we need for this page
-	$author_name = get_the_author();
-	$author_website = get_the_author_meta( 'user_url' );
-	$author_id = get_the_author_meta( 'ID' );
-	$author_avatar = get_avatar( $author_id, 200, '', esc_attr( get_the_author() ) );
-	$author_desc = get_the_author_meta( 'user_description' );
 ?>
 <?php 
 	// Check if the author name is there. Not sure why it wouldn't be...
