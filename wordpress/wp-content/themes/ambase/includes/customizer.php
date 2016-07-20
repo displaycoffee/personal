@@ -231,7 +231,7 @@
 	        'ambase_social',
 	        array(
 	            'title'		  => __( 'Social Media', 'ambase' ),
-	            'description' => __( 'Add links for social media.', 'ambase' )
+	            'description' => __( 'Add links for website social media.', 'ambase' )
 	        )
 	    );
 
@@ -273,17 +273,17 @@
 
 	    // Social Media - LinkedIn
 		$wp_customize->add_setting(
-		    'ambase_linkedin',
+		    'ambase_youtube',
 		    array(
-		    	'default'			   => __( 'http://www.linkedin.com', 'ambase' ),
+		    	'default'			   => __( 'http://www.youtube.com', 'ambase' ),
 		        'sanitize_callback'	   => 'esc_url',
 		        'sanitize_js_callback' => 'esc_url'
 		    )
 		);
 		$wp_customize->add_control(
-		    'ambase_linkedin',
+		    'ambase_youtube',
 		    array(
-		        'label'	  => __( 'LinkedIn', 'ambase' ),
+		        'label'	  => __( 'YouTube', 'ambase' ),
 		        'section' => 'ambase_social',
 		        'type'	  => 'url'
 		    )
