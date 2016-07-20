@@ -51,6 +51,21 @@
 	}
 	add_action( 'widgets_init', 'ambase_widgets_init' );
 
+	// Add user contact methods
+	function ambase_user_contact_methods( $user_contact ) {		
+		$user_contact['facebook']  = __( 'Facebook', 'ambase' );
+		$user_contact['gplus']     = __( 'Google+', 'ambase' );
+		$user_contact['linkedin']  = __( 'LinkedIn', 'ambase' );
+		$user_contact['twitter']   = __( 'Twitter', 'ambase' );
+		$user_contact['instagram'] = __( 'Instagram', 'ambase' );
+		$user_contact['youtube']   = __( 'YouTube', 'ambase' );
+		$user_contact['pinterest'] = __( 'Pinterest', 'ambase' );
+		$user_contact['tumblr']    = __( 'Tumblr', 'ambase' );
+		$user_contact['goodreads'] = __( 'Goodreads', 'ambase' );
+		return $user_contact;
+	}
+	add_filter( 'user_contactmethods', 'ambase_user_contact_methods' );
+
 	// Custom comments template
 	function ambase_custom_comments( $comment, $args, $depth ) {
 	    if ( 'div' === $args['style'] ) {
@@ -147,6 +162,11 @@
 		} else {
 			return '<p>' . get_the_excerpt() . '</p>' . ambase_read_more();
 		}
+	}
+
+	// Create links
+	function ambase_create_link( $class, $url, $text ) {
+		return '<a class="' . $class . '" href="' . esc_url( $url ) . '" target="_blank">' . __( $text, 'ambase' ) . '</a>, ';
 	}
 
 	// Include customizer choices
