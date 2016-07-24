@@ -11,5 +11,6 @@
 // Vendor
 @import 'normalize';
 
-// Base styles
-@import 'reset';
+// Everything else
+@import 'base';
+@import 'typography';
