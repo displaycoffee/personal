@@ -92,7 +92,7 @@
                 'name'     => 'cstmstff-checkbox',
                 'type'     => 'checkbox',
                 'value'    => 1,
-                'validate' => 'cstmstff_sanatize_checkbox',
+                'validate' => 'cstmstff_sanitize_checkbox',
                 'column'   => 'yes'
             ), 
             array(
@@ -100,7 +100,7 @@
                 'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => 'cstmstff-multicheck',
                 'type'     => 'multicheck',
-                'validate' => 'cstmstff_sanatize_checkbox',
+                'validate' => 'cstmstff_sanitize_checkbox',
                 'column'   => 'no',                
                 'options'  => array(
                     array(

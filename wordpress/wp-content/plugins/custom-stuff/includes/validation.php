@@ -19,7 +19,7 @@
 	}	
 	
 	// Checkbox
-	function cstmstff_sanatize_checkbox( $input ) {
+	function cstmstff_sanitize_checkbox( $input ) {
 	    if ( $input == 1 || $input == '1' ) {
 	        return 1;
 	    } else {

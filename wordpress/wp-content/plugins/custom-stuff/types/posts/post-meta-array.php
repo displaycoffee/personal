@@ -100,14 +100,14 @@
                 'name'     => '_cstmstff-checkbox',
                 'type'     => 'checkbox',
                 'value'    => 1,
-                'validate' => 'cstmstff_sanatize_checkbox',
+                'validate' => 'cstmstff_sanitize_checkbox',
             ),
             array(
                 'label'    => __( 'Multiple Checkboxes', 'custom-stuff' ),
                 'desc'     => __( 'Enter something here if you want. If not, just remove it.', 'custom-stuff' ),
                 'id'       => '_cstmstff-multicheck',
                 'type'     => 'multicheck',
-                'validate' => 'cstmstff_sanatize_checkbox',
+                'validate' => 'cstmstff_sanitize_checkbox',
                 'options'  => array(
                     array(
                         'label' => __( 'Multi Check 01', 'custom-stuff' ), 

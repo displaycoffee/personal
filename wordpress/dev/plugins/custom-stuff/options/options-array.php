@@ -78,7 +78,7 @@
                 'name'     => 'cstmstff-options[cstmstff-checkbox]',
                 'type'     => 'checkbox',
                 'value'    => 1,
-                'validate' => 'cstmstff_sanatize_checkbox',
+                'validate' => 'cstmstff_sanitize_checkbox',
                 'section'  => 'cstmstff-option-section-02'
             ), 
             array(
