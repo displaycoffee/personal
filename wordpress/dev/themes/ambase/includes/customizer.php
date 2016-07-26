@@ -114,8 +114,8 @@
 		    'ambase_checkbox',
 		    array(
 		    	'default'			   => __( '1', 'ambase' ),
-		        'sanitize_callback'	   => 'ambase_sanatize_checkbox',
-		        'sanitize_js_callback' => 'ambase_sanatize_checkbox'
+		        'sanitize_callback'	   => 'ambase_sanitize_checkbox',
+		        'sanitize_js_callback' => 'ambase_sanitize_checkbox'
 		    )
 		);
 		$wp_customize->add_control(
