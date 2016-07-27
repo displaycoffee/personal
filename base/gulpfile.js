@@ -55,7 +55,9 @@ var sassSources = [devSass + '/style.scss'];
 gulp.task('sass', function() {
 	gulp.src(sassSources)
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer())
+		.pipe(autoprefixer({
+            browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7']
+        }))
 		.pipe(gulp.dest(distCSS));
 });
 
