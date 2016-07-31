@@ -12,6 +12,9 @@
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
+	// Define paths
+	define( 'CSTMSTFF_DIR', plugin_dir_path( __FILE__ ) );
+
 	// Load plugin text domain
 	function cstmstff_load_textdomain() {
 		load_plugin_textdomain( 'custom-stuff', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
@@ -48,27 +51,27 @@
 	add_action( 'admin_enqueue_scripts', 'cstmstff_enqueue_assets' );
 
 	// Include multi-use files
-	require_once( 'includes/choices.php' );
-	require_once( 'includes/fields.php' );
-	require_once( 'includes/validation.php' );
+	require_once( CSTMSTFF_DIR . 'includes/choices.php' );
+	require_once( CSTMSTFF_DIR . 'includes/fields.php' );
+	require_once( CSTMSTFF_DIR . 'includes/validation.php' );
 
 	// Options
-	require_once( 'options/options-array.php' );
-	require_once( 'options/options-page.php' );
+	require_once( CSTMSTFF_DIR . 'options/options-array.php' );
+	require_once( CSTMSTFF_DIR . 'options/options-page.php' );
 
 	// Post Types
-	require_once( 'types/posts/post-type.php' );
-	require_once( 'types/posts/post-meta-array.php' );
-	require_once( 'types/posts/post-meta-boxes.php' );
+	require_once( CSTMSTFF_DIR . 'types/posts/post-type.php' );
+	require_once( CSTMSTFF_DIR . 'types/posts/post-meta-array.php' );
+	require_once( CSTMSTFF_DIR . 'types/posts/post-meta-boxes.php' );
 
 	// Taxonomies
-	require_once( 'types/taxonomies/cat-public.php' );		
-	require_once( 'types/taxonomies/cat-private.php' );	
-	require_once( 'types/taxonomies/tag.php' );	
-	require_once( 'types/taxonomies/term-meta-array.php' );
-	require_once( 'types/taxonomies/term-meta-boxes.php' );	
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/cat-public.php' );		
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/cat-private.php' );	
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/tag.php' );	
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/term-meta-array.php' );
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/term-meta-boxes.php' );	
 
 	// Display
-	require_once( 'display/display-cat-public.php' );	
-	require_once( 'display/display-options.php' );	
-	require_once( 'display/display-post-type.php' );	
+	require_once( CSTMSTFF_DIR . 'display/display-cat-public.php' );	
+	require_once( CSTMSTFF_DIR . 'display/display-options.php' );	
+	require_once( CSTMSTFF_DIR . 'display/display-post-type.php' );	
