@@ -88,7 +88,8 @@ gulp.task('css', function() {
 
 var staticSources = [
 	dev + '/**/*.php',
-	dev + '/**/*.txt'
+	dev + '/**/*.txt',
+	dev + '/**/images/*.*',
 ];
 
 gulp.task('static', function() {

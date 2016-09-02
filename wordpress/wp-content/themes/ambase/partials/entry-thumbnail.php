@@ -8,7 +8,7 @@
 ?>
 <?php 
 	// Check if we're on a page or not
-	if ( !is_page() ) { 
+	if ( !is_page() || is_front_page() ) { 
 		// Variables for thumbnail schema
 		$thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' )[0];
 		$thumbnail_width = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' )[1];
@@ -27,9 +27,12 @@
 			$thumbnail_html .= '<meta itemprop="height" content="' . esc_attr( $thumbnail_height ) . '">';
 			$thumbnail_html .= '<div class="image-wrap">' . get_the_post_thumbnail( $post->ID, 'medium' ) . '</div>';		
 		} else {
-			$thumbnail_html .= '<meta itemprop="url" content="' . esc_url( get_template_directory_uri() . '/assets/images/default-square-thumbnail.png' ) . '">';
+			$thumbnail_html .= '<meta itemprop="url" content="' . esc_url( get_template_directory_uri() . '/assets/images/default-image.svg' ) . '">';
 			$thumbnail_html .= '<meta itemprop="width" content="400">';
 			$thumbnail_html .= '<meta itemprop="height" content="400">';
+			$thumbnail_html .= '<div class="image-wrap default-image">';
+			$thumbnail_html .= '<svg viewBox="0 0 400 400"><use xlink:href="' . esc_url( get_template_directory_uri() ) . '/assets/images/default-image.svg#default-image"></use></svg>';
+			$thumbnail_html .= '</div>';			
 		}
 
 		// Create thumbnail block - END

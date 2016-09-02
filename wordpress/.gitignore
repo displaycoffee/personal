@@ -21,5 +21,3 @@ wp-content/plugins/*
 # Themes
 wp-content/themes/*
 !wp-content/themes/ambase/
-wp-content/themes/ambase/assets/images
-dev/themes/ambase/assets/images
