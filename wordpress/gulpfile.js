@@ -11,9 +11,9 @@ var browserSync = require('browser-sync').create(),
 /* Global Variables
    ---------------------------------------------- */
 
-// var wpFolder = 'themes';
-// var dirName = 'ambase';
-var wpFolder = 'plugins';
+var wpFolder = 'themes';
+var dirName = 'ambase';
+// var wpFolder = 'plugins';
 // var dirName = 'custom-stuff';
 var dirName = 'owl-post';
 var proxyURL = 'http://localhost/personal/wordpress';
@@ -57,7 +57,6 @@ if (dirName == 'ambase') {
 gulp.task('js', function() {
 	gulp.src(jsSources)
 		.pipe(concat('functions.js'))
-		.pipe(gulp.dest(devJS))
 		.pipe(uglify())
 		.pipe(gulp.dest(distJS));
 });
