@@ -74,7 +74,10 @@ gulp.task('css', function() {
 /* Static Files
    ---------------------------------------------- */
 
-var staticSources = [dev + '/**/*.html'];
+var staticSources = [
+	dev + '/**/*.html',
+	dev + '/**/images/*.*'
+];
 
 gulp.task('static', function() {
 	gulp.src(staticSources)

@@ -1,0 +1,29 @@
+#hero {
+	@include sizing(auto, 550px);
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+	.layer {
+		background-position: bottom center;
+		background-size: auto;
+		background-repeat: no-repeat;
+		@include sizing(100%, 550px);
+		position: fixed;
+		z-index: -1;
+		&.layer-01 {
+			background-image: url(../images/layer-01.png);
+		}
+		&.layer-02 {
+			background-image: url(../images/layer-02.png);			
+		}
+		&.layer-03 {
+			background-image: url(../images/layer-03.png);			
+		}
+		&.layer-04 {
+			background-image: url(../images/layer-04.png);			
+		}
+		&.layer-05 {
+			background-image: url(../images/layer-05.png);			
+		}										
+	}
+}
