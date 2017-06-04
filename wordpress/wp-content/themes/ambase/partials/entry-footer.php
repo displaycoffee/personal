@@ -7,21 +7,17 @@
 	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
 <footer class="entry-footer">
-	<div class="categories" itemprop="keywords">
-		<?php _e( '<strong>Categories:</strong> ', 'ambase' ); ?><?php the_category( ', ' ); ?>
-	</div>
-	<?php echo the_tags( '<div class="tags" itemprop="keywords"><strong>Tags:</strong> ', ', ', '</div>' ); ?>
-	<?php
-		// Check if we're on a single post page
-		if ( !is_single() ) {
-			// Alter text based on number of comments or no comments
-			if ( comments_open() ) {					
-				echo '<div class="comments"><a href="' . esc_url( get_comments_link() ) . '">';
-				comments_number( __( 'No comments', 'ambase' ), __( 'One comment', 'ambase' ), __( '% comments', 'ambase') );
-				echo '</a></div>';
-			}
-		} else {
-			edit_post_link( __( 'Edit', 'ambase' ), '<div class="edit">', '</div>' );
-		}
+	<?php 
+		// Display list of categories
+		echo ambase_term_list( $post->ID, 'category', ', ', '<p class="categories"><strong>' . __( 'Categories', 'ambase' ) . ':</strong> ', '</p>' );
+		
+		// Display list of tags
+		echo ambase_term_list( $post->ID, 'post_tag', ', ', '<p class="tags"><strong>' . __( 'Tags', 'ambase' ) . ':</strong> ', '</p>' );
+
+		// sharing buttons
+		get_template_part( 'partials/sharing', 'buttons' );
+
+		// Display edit post link
+		edit_post_link( __( 'Edit Content', 'ambase' ), '<p class="edit">', '</p>' );
 	?>
 </footer>

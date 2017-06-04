@@ -11,12 +11,11 @@
 	// Include header	
 	get_header(); 
 ?>
-<?php the_archive_title( '<header class="main-title"><div class="wrapper"><h1>', '</h1></div></header>' ); ?>
+<?php get_template_part( 'page', 'title' ); ?>
 <section class="content">
 	<div class="wrapper">
 		<article>			
 			<?php the_archive_description( '<div class="category-description">', '</div>' ); ?>	
-			<h2><?php _e( 'Posts', 'ambase' ); ?></h2>
 			<?php get_template_part( 'loop', 'index' ); ?>
 		</article>
 		<?php get_sidebar(); ?>

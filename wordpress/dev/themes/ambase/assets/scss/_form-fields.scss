@@ -13,6 +13,7 @@
 
 input[type='text'], input[type='email'], input[type='url'], input[type='button'], input[type='reset'], input[type='submit'], button, textarea {
 	outline: 0;
+	border: 1px solid $color-03;
 }
 
 input[type='text'], input[type='email'], input[type='url'], select, textarea {
@@ -31,7 +32,6 @@ input[type='text'], input[type='email'], input[type='url'], select {
 
 textarea {
 	padding: 10px;
-	border: 0;
 }
 
 select option {

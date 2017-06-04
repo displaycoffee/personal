@@ -25,7 +25,8 @@
 
 		// Register navigation menus
 		register_nav_menus( array(
-			'main-menu' => __( 'Main Menu', 'ambase' )
+			'main-menu'   => __( 'Main Menu', 'ambase' ),
+			'social-menu' => __( 'Social Media Menu', 'ambase' )
 		) );
 	}
 	add_action( 'after_setup_theme', 'ambase_setup' );	

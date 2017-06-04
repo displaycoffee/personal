@@ -9,7 +9,7 @@
 	// Include header	
 	get_header(); 
 ?>
-<?php the_title( '<header class="main-title"><div class="wrapper"><h1>', '</h1></div></header>' ); ?>
+<?php get_template_part( 'page', 'title' ); ?>
 <section class="content">
 	<div class="wrapper">
 		<article>
@@ -17,11 +17,13 @@
 				<div class="entry-single">	
 					<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry page">
 						<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
-						<div class="entry-content"><?php the_content(); ?></div>
-						<?php edit_post_link( __( 'Edit', 'ambase' ), '<footer class="entry-footer"><div class="edit">', '</div></footer>' ); ?>				
+						<div class="entry-content">
+							<?php the_content(); ?>
+						</div>
+						<?php edit_post_link( __( 'Edit Content', 'ambase' ), '<p class="edit">', '</p>' ); ?>	
 					</div>
 				</div>
-			<?php endwhile; endif; ?>
+			<?php endwhile; wp_reset_postdata(); endif; ?>
 		</article>
 		<?php get_sidebar(); ?>
 	</div>
