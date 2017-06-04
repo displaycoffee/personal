@@ -1,0 +1,17 @@
+/* Scroll to top/bottom
+========================================================================== */
+
+.scroll-to-top, .scroll-to-bottom {
+	display: none;
+	position: fixed;
+	right: 40px;
+	z-index: 100;
+}
+
+.scroll-to-top {
+	bottom: 100px;
+}
+
+.scroll-to-bottom {
+	bottom: 50px;
+}

@@ -1,0 +1,28 @@
+/* Paths
+========================================================================== */
+
+$assets: '../ambase/assets';
+$fonts: $assets + '/fonts/';
+$images: $assets + '/images/';
+
+/* Colors
+========================================================================== */
+
+$color-01: #ffffff; // white
+$color-02: #000000; // black
+$color-03: #333333; // blackish
+$color-04: #6363c6; // blue
+
+/* Fonts
+========================================================================== */
+
+$base-font-size: 16;
+$serif-fb: garamond, times new roman, serif;
+$sans-serif-fb: arial, sans-serif;
+$font-01: 'Trebuchet MS', $sans-serif-fb;
+$font-02: 'Georgia', $serif-fb;
+
+/* Other
+========================================================================== */
+
+$mobile-menu-width: 300px;

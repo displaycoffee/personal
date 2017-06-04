@@ -2,18 +2,60 @@
 ========================================================================== */
 
 html {
-    font-size: 62.5%;
+    font-size: $base-font-size + px;
 }
 
 body {
-    font-size: 1.5em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: $font-01;
+    font-size: rem(15px);
+    line-height: 1;
+    font-weight: 400;
+    color: $color-03;
+}
+
+a {
+    color: $color-04;
+    @include transition(color 0.3s ease-in-out);
+    text-decoration: none;
+    &:hover {
+        color: $color-03;
+    }
 }
 
 /* Headers
 ========================================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
+    font-family: $font-02;  
+    font-weight: normal;  
+    line-height: 1.1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    a {
+        color: $color-04;
+        &:hover {
+            color: $color-03;
+        }
+    }
+}
+
+h1 {
+    font-size: rem(45px);
+}
+
+h2 {
+    font-size: rem(40px);
+}
+
+h3 {
+    font-size: rem(35px);
+}
+
+h4 {
+    font-size: rem(30px);
+}
+
+h5, h6 {
+    font-size: rem(20px);
 }

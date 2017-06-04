@@ -34,6 +34,7 @@ var distJS = dist + '/assets/js';
 // CSS location is different for themes, so let's add a conditonal
 if (wpFolder == 'themes') {
 	var distCSS = dist;
+	var distCSSChild = dist + '/assets/css';
 } else {
 	var distCSS = dist + '/assets/css';
 }
@@ -44,6 +45,8 @@ if (wpFolder == 'themes') {
 // JS files are different for folders, so let's add a conditonal
 if (dirName == 'ambase') {
 	var jsSources = [
+		devJS + '/featherlight.js',
+		devJS + '/main.js',
 		devJS + '/run-functions.js'
 	];
 } else if (dirName == 'custom-stuff' || dirName == 'owl-post') {
@@ -65,18 +68,36 @@ gulp.task('js', function() {
    ---------------------------------------------- */
 
 var sassSources = [devSass + '/style.scss'];
+var customizer = [devSass + '/customizer.scss'];
 
 gulp.task('sass', function() {
 	gulp.src(sassSources)
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer())
+		.pipe(autoprefixer({
+            browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7']
+        }))
 		.pipe(gulp.dest(distCSS));
+	if (wpFolder == 'themes') {	
+		gulp.src(customizer)
+			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+			.pipe(autoprefixer({
+	            browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7']
+	        }))
+			.pipe(gulp.dest(distCSSChild));
+	}
 });
 
 /* CSS
    ---------------------------------------------- */
 
-var cssSources = [distCSS + '/**.css'];	
+if (wpFolder == 'themes') {
+	var cssSources = [
+		distCSS + '/**.css', 
+		distCSSChild + '/**.css'
+	];
+} else {
+	var cssSources = [distCSS + '/**.css'];
+}
 
 gulp.task('css', function() {
 	gulp.src(cssSources)
@@ -90,6 +111,7 @@ var staticSources = [
 	dev + '/**/*.php',
 	dev + '/**/*.txt',
 	dev + '/**/images/*.*',
+	dev + '/**/fonts/*.*'
 ];
 
 gulp.task('static', function() {

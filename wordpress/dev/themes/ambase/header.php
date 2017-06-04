@@ -29,6 +29,10 @@
 		<p class="site-description"><?php echo get_bloginfo( 'description' ); ?></p>
 	</header>
 	<nav id="header-nav" class="navigation">
-		<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+		<div class="wrapper">
+			<div class="mobile-menu-button"><span class="icon icon-lines"></span><span class="mobile-menu-text">Menu</span></div>
+			<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+		</div>
 	</nav>
+	<nav id="mobile-menu"></nav>
 	<?php get_search_form(); ?>		

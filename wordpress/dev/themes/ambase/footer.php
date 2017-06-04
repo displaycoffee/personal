@@ -15,5 +15,7 @@
 		</p>
 	</footer>
 	<?php wp_footer(); ?>
+	<a href="#" class="scroll-to-top" title="<?php _e( 'Scroll to Top', 'ambase' ) ?>"><?php _e( 'Scroll to Top', 'ambase' ) ?></a>
+	<a href="#" class="scroll-to-bottom" title="<?php _e( 'Scroll to Bottom', 'ambase' ) ?>"><?php _e( 'Scroll to Bottom', 'ambase' ) ?></a>	
 </body>
 </html>

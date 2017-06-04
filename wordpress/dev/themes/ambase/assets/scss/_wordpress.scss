@@ -1,23 +1,99 @@
-/* WordPress specific classes - For posts/pages
+/* WordPress specific (For page/post editor mostly)
 ========================================================================== */
 
-.sticky {}
+.gallery {	
+	@include flex-flow(row wrap);
+	margin: 0 auto 20px auto;
+	figure {
+		margin: 0;
+		.gallery-icon {
+			margin: 5px;
+			a {
+				display: block;
+				@include sizing(100%, 0);
+				padding: 0 0 100% 0;
+				position: relative;
+				overflow: hidden;
+				img {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					margin: auto;
+				}
+			}
+		}
+		.wp-caption-text {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+	}
+	&.gallery-columns-1 {
+		@include gallery-columns(1);
+	}
+	&.gallery-columns-2 {
+		@include gallery-columns(2);
+	}
+	&.gallery-columns-3 {
+		@include gallery-columns(3);
+	}
+	&.gallery-columns-4 {
+		@include gallery-columns(4);
+	}
+	&.gallery-columns-5 {
+		@include gallery-columns(5);
+	}
+	&.gallery-columns-6 {
+		@include gallery-columns(6);
+	}
+	&.gallery-columns-7 {
+		@include gallery-columns(7);
+	}
+	&.gallery-columns-8 {
+		@include gallery-columns(8);
+	}
+	&.gallery-columns-9 {
+		@include gallery-columns(9);
+	}			
+}
 
-.bypostauthor {}
+.alignleft {
+	float: left;
+	clear: left;
+	margin: 0 20px 20px 0;
+}
+ 
+.alignright {
+	float: right;
+	clear: right;
+	margin: 0 0 20px 20px;
+}
 
-.wp-caption {}
-
-.wp-caption-text {}
-
-.gallery-caption {}
-
-.alignright {}
-
-.alignleft {}
-
-.aligncenter {}
+.aligncenter {
+	display: block;
+	margin: 0 auto 20px auto;
+}
 
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
-	position :absolute !important;
+	position: absolute !important;
+}
+
+/* Widgets
+========================================================================== */
+
+.widget-container {
+	ul {
+		list-style: none;
+	}	
+	//&.widget_archive {}	
+	//&.widget_calendar {}
+	//&.widget_categories {}
+	//&.widget_nav_menu {}
+	//&.widget_pages {}	
+	//&.widget_recent_comments {}	
+	//&.widget_recent_entries {}
+	//&.widget_tag_cloud{}		
 }

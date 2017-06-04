@@ -9,7 +9,6 @@
 	License URI: https://www.gnu.org/licenses/gpl.html
 	Tags: custom base wordpress theme
 	Text Domain: ambase
-
 	Temporary theme screenshot from placekitten.com.
 */
 
@@ -20,9 +19,16 @@
 // Vendor
 @import 'normalize';
 
-// WordPress specific classes
-@import 'wordpress';
-
 // Everything else
-@import 'base';
 @import 'typography';
+@import 'base';
+@import 'form-fields';
+@import 'vendors';
+@import 'wordpress';
+@import 'shortcodes';
+@import 'header';
+@import 'front-page';
+@import 'layout';
+@import 'entry';
+@import 'footer';
+@import 'responsive';

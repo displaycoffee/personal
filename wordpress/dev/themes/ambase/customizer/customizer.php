@@ -140,7 +140,6 @@
 		$wp_customize->add_setting(
 		    'ambase_date',
 		    array(
-		    	'default'			   => __( '', 'ambase' ),
 		        'sanitize_callback'	   => 'ambase_sanitize_date',
 		        'sanitize_js_callback' => 'ambase_sanitize_date'
 		    )
