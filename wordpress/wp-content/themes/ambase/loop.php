@@ -6,17 +6,9 @@
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }	
 ?>
-<?php 
-	// Set up args for custom loop query
-	$args = array(
-		'post_type' 	 => 'post',
-		'posts_per_page' => ( is_front_page() ? 6 : '')
-	);
-	$post_query = new WP_Query( $args ); 
-?>
-<?php if ( $post_query->have_posts() ) : ?>
+<?php if ( have_posts() ) : ?>
 	<div class="entry-multiple" itemtype="http://schema.org/Blog">
-		<?php while ( $post_query->have_posts() ) : $post_query->the_post(); ?>	
+		<?php while ( have_posts() ) : the_post(); ?>	
 			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry post" itemscope itemtype="http://schema.org/BlogPosting">
 				<meta itemprop="mainEntityOfPage" content="<?php echo esc_url( get_the_permalink() ); ?>"/>
 				<?php 

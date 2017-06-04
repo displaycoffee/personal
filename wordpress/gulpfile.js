@@ -15,7 +15,7 @@ var wpFolder = 'themes';
 var dirName = 'ambase';
 // var wpFolder = 'plugins';
 // var dirName = 'custom-stuff';
-var dirName = 'owl-post';
+// var dirName = 'owl-post';
 var proxyURL = 'http://localhost/personal/wordpress';
 
 /* Development Variables
