@@ -39,13 +39,13 @@ a {
 }
 
 .columns {
-	@include flex-flow(wrap);
+	@include flex-flow(row wrap);
 	.column {
 		@include flex(base);
+		min-width: 0;
 	}
 	.column-01 {
-		@include flex;
-		width: 340px;
+		flex: 0 0 340px;
 		margin: 0 30px 0 0;
 	}
 }
@@ -54,7 +54,7 @@ a {
 
 @include respond(991) {
 	.columns .column-01 {
-		width: 240px;
+		flex: 0 0 240px;
 	}
 }
 
@@ -62,7 +62,6 @@ a {
 	.columns {
 		display: block;
 		.column-01 {
-			width: auto;
 			margin: 0 0 30px 0;
 		}
 	}

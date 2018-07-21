@@ -1,0 +1,69 @@
+// Helpers
+@import 'variables';
+@import 'mixins';
+
+/* Template by Memoria / displaycoffee.
+   Last updated 07.21.18.
+   Please do not remove credits! */
+
+/* Hello Content! - Overall Styles */
+
+.hc-tabs-wrapper {
+	&, & * {
+		box-sizing: border-box;
+	}
+	.hc-tabs {
+		border-bottom: 1px solid $color-03;
+	}
+	.hc-tabs-list {
+		@include clearfix('&');
+		list-style: none;
+		margin: 0 -2.5px -1px -2.5px;
+		padding: 0;
+		li {
+			float: left;
+			width: 20%; /* Width = 100 / Number of tabs )*/
+			padding: 0 2.5px;
+			span {
+				display: block;
+				@include ellipsis;
+				border: 1px solid $color-03;
+				background: $color-03;
+				color: $color-01;
+				cursor: pointer;
+				padding: 0 10px;
+				border-radius: 3px 3px 0 0;
+			}
+			&.hc-tab-active {
+				font-weight: bold;
+				span {
+					background: $color-01;
+					color: $color-03;
+				}
+			}
+		}
+	}
+	.hc-tab-content {
+		@include position($type: absolute, $top: -9999px, $left: -9999px, $z: -1);
+		@include toggle-content(hide, true);
+		&.hc-tab-show {
+			position: static;
+			@include toggle-content(show, false);
+		}
+	}
+}
+
+/* Hello Content! - Responsive */
+
+@include respond(540) {
+	.hc-tabs-wrapper .hc-tabs-list li {
+		width: auto;
+		float: none;
+		&:first-child ~ li span {
+			border-radius: 0;
+		}
+		span {
+			border-bottom-color: mix($color-01, $color-03, 10%);
+		}
+	}
+}

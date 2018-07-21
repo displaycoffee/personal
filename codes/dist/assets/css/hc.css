@@ -1,0 +1,91 @@
+/* Colors
+========================================================================== */
+/* Fonts
+========================================================================== */
+/* Template by Memoria / displaycoffee.
+   Last updated 07.21.18.
+   Please do not remove credits! */
+/* Hello Content! - Overall Styles */
+.hc-tabs-wrapper, .hc-tabs-wrapper * {
+  box-sizing: border-box;
+}
+
+.hc-tabs-wrapper .hc-tabs {
+  border-bottom: 1px solid #333333;
+}
+
+.hc-tabs-wrapper .hc-tabs-list {
+  list-style: none;
+  margin: 0 -2.5px -1px -2.5px;
+  padding: 0;
+}
+
+.hc-tabs-wrapper .hc-tabs-list:before, .hc-tabs-wrapper .hc-tabs-list:after {
+  content: "";
+  display: table;
+  zoom: 1;
+}
+
+.hc-tabs-wrapper .hc-tabs-list:after {
+  clear: both;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li {
+  float: left;
+  width: 20%;
+  /* Width = 100 / Number of tabs )*/
+  padding: 0 2.5px;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid #333333;
+  background: #333333;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0 10px;
+  border-radius: 3px 3px 0 0;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li.hc-tab-active {
+  font-weight: bold;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li.hc-tab-active span {
+  background: #ffffff;
+  color: #333333;
+}
+
+.hc-tabs-wrapper .hc-tab-content {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.hc-tabs-wrapper .hc-tab-content.hc-tab-show {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Hello Content! - Responsive */
+@media only screen and (max-width: 540px) {
+  .hc-tabs-wrapper .hc-tabs-list li {
+    width: auto;
+    float: none;
+  }
+  .hc-tabs-wrapper .hc-tabs-list li:first-child ~ li span {
+    border-radius: 0;
+  }
+  .hc-tabs-wrapper .hc-tabs-list li span {
+    border-bottom-color: #474747;
+  }
+}

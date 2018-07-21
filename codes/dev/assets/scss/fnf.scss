@@ -16,7 +16,7 @@ Please do not remove credits! */
     font-size: 12px;
 	line-height: 18px;
     color: $color-01; /* default font color */
-	&, & > * {
+	&, & * {
 		box-sizing: border-box;
 	}
 	.fnf-name, .fnf-title, .fnf-block > span, .fnf-hover-button {
