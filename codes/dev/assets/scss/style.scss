@@ -8,6 +8,62 @@
 @import 'variables';
 @import 'mixins';
 
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: $base-font-size + px;
+}
+
 body {
-	color: #ff00ff;
+	font-family: $sans-serif-fb;
+	font-size: rem($global-font-size);
+	line-height: 1.5;
+	font-weight: normal;
+	color: $color-03;
+	padding: 100px 0 0 0;
+}
+
+a {
+	color: $color-04;
+	&:hover {
+		color: $color-03;
+	}
+}
+
+.wrapper {
+	max-width: 1200px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.columns {
+	@include flex-flow(wrap);
+	.column {
+		@include flex(base);
+	}
+	.column-01 {
+		@include flex;
+		width: 340px;
+		margin: 0 30px 0 0;
+	}
+}
+
+// Responsive
+
+@include respond(991) {
+	.columns .column-01 {
+		width: 240px;
+	}
+}
+
+@include respond(767) {
+	.columns {
+		display: block;
+		.column-01 {
+			width: auto;
+			margin: 0 0 30px 0;
+		}
+	}
 }

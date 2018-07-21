@@ -7,6 +7,75 @@
 ========================================================================== */
 /* Fonts
 ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
 body {
-  color: #ff00ff;
+  font-family: arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #333333;
+  padding: 100px 0 0 0;
+}
+
+a {
+  color: #393e86;
+}
+
+a:hover {
+  color: #333333;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.columns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: wrap;
+      -ms-flex-flow: wrap;
+          flex-flow: wrap;
+}
+
+.columns .column {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 0%;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+.columns .column-01 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  width: 340px;
+  margin: 0 30px 0 0;
+}
+
+@media only screen and (max-width: 991px) {
+  .columns .column-01 {
+    width: 240px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .columns {
+    display: block;
+  }
+  .columns .column-01 {
+    width: auto;
+    margin: 0 0 30px 0;
+  }
 }
