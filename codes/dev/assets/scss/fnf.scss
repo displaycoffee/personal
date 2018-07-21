@@ -1,170 +1,174 @@
-/* Template by Memoria of RPG-D.
-Last updated 05.01.16.
+// Helpers
+@import 'variables';
+@import 'mixins';
+
+/* Template by Memoria / displaycoffee.
+Last updated 07.20.18.
 Please do not remove credits! */
 
-/* Overall Styles */
-.shark-thing {
-    width: 375px;/* template width */
-    margin: 0 auto;
-    font-family: 'Open Sans', sans-serif; /* default font family */
+/* Friends Not Food - Overall Styles */
+
+.fnf {
+	width: auto;
+    max-width: 375px; /* max template width */
+    margin: 0 auto; /* remove to take away centering */
+    font-family: $sans-serif-fb; /* default font family */
     font-size: 12px;
-    line-height: 16px;
-    color: #fff; /* default font color */
-    position: relative;
-    overflow: hidden;
-}
-.shark-thing, .shark-thing div {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.stats-and-stuff .title, .stats-and-stuff .blocks .half, .stats-and-stuff .quote, .more-information .blocks {
-    background: rgba(23, 71, 109, 0.6); /* block colors - keep rgba for transparency */
-    padding: 5px 10px;
-}
-.top-bar .name, .stats-and-stuff .title, .stats-and-stuff .blocks .half span, .stats-and-stuff .quote span {
-    font-family: 'Oswald', sans-serif; /* title font family */
-    text-transform: uppercase;
-}
-.top-bar .species, .stats-and-stuff .title {
-    font-size: 14px;
-    line-height: 18px;
+	line-height: 18px;
+    color: $color-01; /* default font color */
+	&, & > * {
+		box-sizing: border-box;
+	}
+	.fnf-name, .fnf-title, .fnf-block > span, .fnf-hover-button {
+		font-family: $font-01; /* title font family */
+		font-weight: bold;
+	    text-transform: uppercase;
+	}
+	.fnf-name, .fnf-hover-button {
+		font-size: 18px;
+		text-shadow: 2px 2px 0 rgba($color-02, 0.75);
+	}
+	.fnf-information, .fnf-more {
+		padding: 20px;
+		@include transition(opacity 1.5s ease-in-out);
+	}
 }
 
-/* Wrapper */
-.shark-thing .wrapper {
+/* Friends Not Food - Wrapper */
+
+.fnf .fnf-wrapper {
     background: url('//i.imgur.com/F0yxEua.jpg') no-repeat 0 0; /* background image */
     background-size: cover;
-    padding: 20px;
-    margin: 0 0 60px 0;
+    padding: 0 0 60px 0;
+	position: relative;
 }
 
-/* Top Bar */
-.top-bar {
+/* Friends Not Food - Blocks */
+
+.fnf .fnf-block {
+	background: rgba(23, 71, 109, 0.6); /* block colors - keep rgba for transparency */
+	padding: 5px 10px;
+}
+
+/* Friends Not Food - Top Bar */
+
+.fnf .fnf-top-bar {
     width: auto;
-    height: 125px;
-    background: #17476d; /* header background color */
+    background: $color-05; /* header background color */
     margin: -20px -20px 0 -20px;
-    padding: 20px;
+    padding: 20px 180px 20px 20px;
     position: relative;
-}
-.top-bar .name {
-    font-size: 18px;
-    line-height: 22px;
-    text-shadow: 2px 2px #000;
-    margin: 45px 0 0 0;
-}
-.top-bar .species {
-    margin: 5px 0 0 0;
-}
-.top-bar .avatar, .top-bar .avatar img {
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    -o-border-radius: 100%;
-    border-radius: 100%;
-}
-.top-bar .avatar {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    bottom: -70px;
-    right: 40px;
-    line-height: 0;
-    border: 10px solid #17476d; /* avatar border color */
-    overflow: hidden;
-}
-.top-bar .avatar img {
-    width: auto;
-    height: 100%;
+	.fnf-name, .fnf-species {
+		@include ellipsis;
+	}
+	.fnf-name {
+		margin: 45px 0 0 0;
+	}
+	.fnf-species {
+		margin: 5px 0 0 0;
+		font-size: 14px;
+	}
+	.fnf-avatar {
+		border-radius: 100%;
+		overflow: hidden;
+		@include sizing(125px, 125px);
+		@include position($type: absolute, $bottom: -70px, $right: 20px);
+	    line-height: 0;
+	    border: 10px solid $color-05; /* avatar border color */
+		img {
+			max-width: 100%;
+		}
+	}
 }
 
-/* Stats and Stuff */
-.stats-and-stuff {
-    margin: 100px 0 0 0;
-    text-align: center;
-}
-.stats-and-stuff .title, .stats-and-stuff .blocks .half span, .stats-and-stuff .quote span {
-    display: block;
-}
-.stats-and-stuff .blocks:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-.stats-and-stuff .blocks {
-    margin: 4% 0 0 0;
-}
-.stats-and-stuff .blocks .half {
-    float: left;
-    width: 48%;
-}
-.stats-and-stuff .blocks .half:nth-child(odd) {
-    margin: 0 2% 4% 0;
-}
-.stats-and-stuff .blocks .half:nth-child(even) {
-    margin: 0 0 4% 2%;
-}
-.stats-and-stuff .blocks .half span {
-    margin: 2px 0 0 0;
-}
-.stats-and-stuff .blocks .half span, .stats-and-stuff .quote span {
-    display: block;
-}
-.stats-and-stuff .quote {
-    text-align: left;
-}
-.stats-and-stuff .quote span {
-    text-align: right;
-    margin: 5px 0 0 0;
+/* Friends Not Food - Profile */
+
+.fnf .fnf-profile {
+    margin: 90px 0 0 0;
+	.fnf-title, .fnf-grid {
+		text-align: center;
+	}
+	.fnf-block span {
+		display: block;
+		margin: 2px 0 0 0;
+	}
+	.fnf-title {
+		margin: 0 0 4% 0;
+		font-size: 14px;
+	}
+	.fnf-grid {
+		@include clearfix('&');
+		margin: 0 -2%;
+		.fnf-column {
+			float: left;
+			width: 46%;
+			margin: 0 2% 4% 2%;
+		}
+	}
+	.fnf-quote span {
+		text-align: right;
+	}
 }
 
-/* Hover button */
-.hover-button {
+/* Friends Not Food - More Information */
+
+.fnf .fnf-more {
+	@include position($type: absolute, $top: 0, $bottom: 60px, $left: 0, $right: 0, $z: 1);
+	margin: auto;
+	@include toggle-content(hide, false);
+	.fnf-block {
+		height: 48%;
+		overflow: hidden;
+	}
+	.fnf-divider {
+		height: 4%;
+	}
+}
+
+/* Friends Not Food - Hover Button & Animation */
+
+.fnf .fnf-hover-button {
     text-align: center;
-    background: #17476d; /* button background color */
+    background: $color-05; /* button background color */
     padding: 0 20px;
-    font-family: 'Oswald', sans-serif; /* button font family */
-    text-transform: uppercase;
-    font-size: 18px;
+	margin: 20px -20px -20px -20px;
     line-height: 60px;
-    text-shadow: 2px 2px #000;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
     cursor: pointer;
+	@include position($type: absolute, $bottom: 20px, $left: 20px, $right: 20px, $z: 1);
+	&:hover {
+		& ~ .fnf-information {
+			@include toggle-content(hide, false);
+		}
+		& ~ .fnf-more {
+			@include toggle-content(show, false);
+			z-index: 2;
+		}
+	}
 }
 
-/* Hover Blocks */
-.shark-thing .more-information .blocks {
-    margin: 0 0 4% 0;
-}
-.shark-thing .more-information .blocks:last-child {
-    margin: 0;
-}
+/* Friends Not Food - Responsive */
 
-/* Hover Transitions */
-.shark-thing .hover-button ~ .wrapper .information, .shark-thing .hover-button:hover ~ .wrapper .information,
-.shark-thing .hover-button ~ .wrapper .more-information, .shark-thing .hover-button:hover ~ .wrapper .more-information {
-    -webkit-transition: all 0.7s ease;
-    -moz-transition: all 0.7s ease;
-    -o-transition: all 0.7s ease;
-    transition: all 0.7s ease;
-}
-.shark-thing .hover-button ~ .wrapper .information, {
-    opacity: 1;
-}
-.shark-thing .hover-button:hover ~ .wrapper .information {
-    opacity: 0;
-}
-.shark-thing .hover-button ~ .wrapper .more-information {
-    position: absolute;
-    top: -2000px;
-    left: 0;
-    padding: 20px;
-}
-.shark-thing .hover-button:hover ~ .wrapper .more-information {
-    top: 0;
+@include respond(420) {
+	.fnf {
+		.fnf-top-bar {
+			padding: 20px 20px 60px 20px;
+			text-align: center;
+			.fnf-name {
+				margin-top: 0;
+			}
+			.fnf-avatar {
+				@include position($bottom: -50px, $left: 0, $right: 0);
+				margin: auto;
+				@include sizing(100px, 100px);
+				border-width: 5px;
+			}
+		}
+		.fnf-profile {
+			margin-top: 70px;
+			.fnf-grid .fnf-column {
+				float: none;
+				width: auto;
+			}
+		}
+	}
 }

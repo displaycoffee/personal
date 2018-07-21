@@ -1,195 +1,220 @@
-/* Template by Memoria of RPG-D.
-Last updated 05.01.16.
+/* Colors
+========================================================================== */
+/* Fonts
+========================================================================== */
+/* Template by Memoria / displaycoffee.
+Last updated 07.20.18.
 Please do not remove credits! */
-/* Overall Styles */
-.shark-thing {
-  width: 375px;
-  /* template width */
+/* Friends Not Food - Overall Styles */
+.fnf {
+  width: auto;
+  max-width: 375px;
+  /* max template width */
   margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
+  /* remove to take away centering */
+  font-family: arial, sans-serif;
   /* default font family */
   font-size: 12px;
-  line-height: 16px;
-  color: #fff;
+  line-height: 18px;
+  color: #ffffff;
   /* default font color */
-  position: relative;
-  overflow: hidden;
 }
 
-.shark-thing, .shark-thing div {
+.fnf, .fnf > * {
   box-sizing: border-box;
 }
 
-.stats-and-stuff .title, .stats-and-stuff .blocks .half, .stats-and-stuff .quote, .more-information .blocks {
+.fnf .fnf-name, .fnf .fnf-title, .fnf .fnf-block > span, .fnf .fnf-hover-button {
+  font-family: "Arial Narrow", arial, sans-serif;
+  /* title font family */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.fnf .fnf-name, .fnf .fnf-hover-button {
+  font-size: 18px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
+}
+
+.fnf .fnf-information, .fnf .fnf-more {
+  padding: 20px;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Friends Not Food - Wrapper */
+.fnf .fnf-wrapper {
+  background: url("//i.imgur.com/F0yxEua.jpg") no-repeat 0 0;
+  /* background image */
+  background-size: cover;
+  padding: 0 0 60px 0;
+  position: relative;
+}
+
+/* Friends Not Food - Blocks */
+.fnf .fnf-block {
   background: rgba(23, 71, 109, 0.6);
   /* block colors - keep rgba for transparency */
   padding: 5px 10px;
 }
 
-.top-bar .name, .stats-and-stuff .title, .stats-and-stuff .blocks .half span, .stats-and-stuff .quote span {
-  font-family: 'Oswald', sans-serif;
-  /* title font family */
-  text-transform: uppercase;
-}
-
-.top-bar .species, .stats-and-stuff .title {
-  font-size: 14px;
-  line-height: 18px;
-}
-
-/* Wrapper */
-.shark-thing .wrapper {
-  background: url("//i.imgur.com/F0yxEua.jpg") no-repeat 0 0;
-  /* background image */
-  background-size: cover;
-  padding: 20px;
-  margin: 0 0 60px 0;
-}
-
-/* Top Bar */
-.top-bar {
+/* Friends Not Food - Top Bar */
+.fnf .fnf-top-bar {
   width: auto;
-  height: 125px;
   background: #17476d;
   /* header background color */
   margin: -20px -20px 0 -20px;
-  padding: 20px;
+  padding: 20px 180px 20px 20px;
   position: relative;
 }
 
-.top-bar .name {
-  font-size: 18px;
-  line-height: 22px;
-  text-shadow: 2px 2px #000;
+.fnf .fnf-top-bar .fnf-name, .fnf .fnf-top-bar .fnf-species {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fnf .fnf-top-bar .fnf-name {
   margin: 45px 0 0 0;
 }
 
-.top-bar .species {
+.fnf .fnf-top-bar .fnf-species {
   margin: 5px 0 0 0;
+  font-size: 14px;
 }
 
-.top-bar .avatar, .top-bar .avatar img {
+.fnf .fnf-top-bar .fnf-avatar {
   border-radius: 100%;
-}
-
-.top-bar .avatar {
-  width: 150px;
-  height: 150px;
+  overflow: hidden;
+  width: 125px;
+  height: 125px;
   position: absolute;
   bottom: -70px;
-  right: 40px;
+  right: 20px;
   line-height: 0;
   border: 10px solid #17476d;
   /* avatar border color */
-  overflow: hidden;
 }
 
-.top-bar .avatar img {
-  width: auto;
-  height: 100%;
+.fnf .fnf-top-bar .fnf-avatar img {
+  max-width: 100%;
 }
 
-/* Stats and Stuff */
-.stats-and-stuff {
-  margin: 100px 0 0 0;
+/* Friends Not Food - Profile */
+.fnf .fnf-profile {
+  margin: 90px 0 0 0;
+}
+
+.fnf .fnf-profile .fnf-title, .fnf .fnf-profile .fnf-grid {
   text-align: center;
 }
 
-.stats-and-stuff .title, .stats-and-stuff .blocks .half span, .stats-and-stuff .quote span {
+.fnf .fnf-profile .fnf-block span {
   display: block;
-}
-
-.stats-and-stuff .blocks:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.stats-and-stuff .blocks {
-  margin: 4% 0 0 0;
-}
-
-.stats-and-stuff .blocks .half {
-  float: left;
-  width: 48%;
-}
-
-.stats-and-stuff .blocks .half:nth-child(odd) {
-  margin: 0 2% 4% 0;
-}
-
-.stats-and-stuff .blocks .half:nth-child(even) {
-  margin: 0 0 4% 2%;
-}
-
-.stats-and-stuff .blocks .half span {
   margin: 2px 0 0 0;
 }
 
-.stats-and-stuff .blocks .half span, .stats-and-stuff .quote span {
-  display: block;
+.fnf .fnf-profile .fnf-title {
+  margin: 0 0 4% 0;
+  font-size: 14px;
 }
 
-.stats-and-stuff .quote {
-  text-align: left;
+.fnf .fnf-profile .fnf-grid {
+  margin: 0 -2%;
 }
 
-.stats-and-stuff .quote span {
+.fnf .fnf-profile .fnf-grid:before, .fnf .fnf-profile .fnf-grid:after {
+  content: "";
+  display: table;
+  zoom: 1;
+}
+
+.fnf .fnf-profile .fnf-grid:after {
+  clear: both;
+}
+
+.fnf .fnf-profile .fnf-grid .fnf-column {
+  float: left;
+  width: 46%;
+  margin: 0 2% 4% 2%;
+}
+
+.fnf .fnf-profile .fnf-quote span {
   text-align: right;
-  margin: 5px 0 0 0;
 }
 
-/* Hover button */
-.hover-button {
+/* Friends Not Food - More Information */
+.fnf .fnf-more {
+  position: absolute;
+  top: 0;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fnf .fnf-more .fnf-block {
+  height: 48%;
+  overflow: hidden;
+}
+
+.fnf .fnf-more .fnf-divider {
+  height: 4%;
+}
+
+/* Friends Not Food - Hover Button & Animation */
+.fnf .fnf-hover-button {
   text-align: center;
   background: #17476d;
   /* button background color */
   padding: 0 20px;
-  font-family: 'Oswald', sans-serif;
-  /* button font family */
-  text-transform: uppercase;
-  font-size: 18px;
+  margin: 20px -20px -20px -20px;
   line-height: 60px;
-  text-shadow: 2px 2px #000;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
   cursor: pointer;
-}
-
-/* Hover Blocks */
-.shark-thing .more-information .blocks {
-  margin: 0 0 4% 0;
-}
-
-.shark-thing .more-information .blocks:last-child {
-  margin: 0;
-}
-
-/* Hover Transitions */
-.shark-thing .hover-button ~ .wrapper .information, .shark-thing .hover-button:hover ~ .wrapper .information,
-.shark-thing .hover-button ~ .wrapper .more-information, .shark-thing .hover-button:hover ~ .wrapper .more-information {
-  -webkit-transition: all 0.7s ease;
-  transition: all 0.7s ease;
-}
-
-.shark-thing .hover-button ~ .wrapper .information {
-  opacity: 1;
-}
-
-.shark-thing .hover-button:hover ~ .wrapper .information {
-  opacity: 0;
-}
-
-.shark-thing .hover-button ~ .wrapper .more-information {
   position: absolute;
-  top: -2000px;
-  left: 0;
-  padding: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 1;
 }
 
-.shark-thing .hover-button:hover ~ .wrapper .more-information {
-  top: 0;
+.fnf .fnf-hover-button:hover ~ .fnf-information {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fnf .fnf-hover-button:hover ~ .fnf-more {
+  visibility: visible;
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Friends Not Food - Responsive */
+@media only screen and (max-width: 420px) {
+  .fnf .fnf-top-bar {
+    padding: 20px 20px 60px 20px;
+    text-align: center;
+  }
+  .fnf .fnf-top-bar .fnf-name {
+    margin-top: 0;
+  }
+  .fnf .fnf-top-bar .fnf-avatar {
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-width: 5px;
+  }
+  .fnf .fnf-profile {
+    margin-top: 70px;
+  }
+  .fnf .fnf-profile .fnf-grid .fnf-column {
+    float: none;
+    width: auto;
+  }
 }
