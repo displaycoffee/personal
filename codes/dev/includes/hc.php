@@ -1,5 +1,5 @@
 <!-- To another tab set, copy a tab-wrapper element and the contents inside -->
-<div class="hc-tabs-wrapper">
+<div class="hc-tabs-wrapper testing-class">
 	<div class="hc-tabs">
 		<ul class="hc-tabs-list">
 	        <li class="hc-tab-active">
