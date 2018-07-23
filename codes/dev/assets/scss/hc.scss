@@ -3,7 +3,7 @@
 @import 'mixins';
 
 /* Template by Memoria / displaycoffee.
-   Last updated 07.21.18.
+   Last updated 07.22.18.
    Please do not remove credits! */
 
 /* Hello Content! - Overall Styles */
@@ -13,7 +13,7 @@
 		box-sizing: border-box;
 	}
 	.hc-tabs {
-		border-bottom: 1px solid $color-03;
+		border-bottom: 1px solid $color-06;
 	}
 	.hc-tabs-list {
 		@include clearfix('&');
@@ -27,23 +27,23 @@
 			span {
 				display: block;
 				@include ellipsis;
-				border: 1px solid $color-03;
-				background: $color-03;
-				color: $color-01;
+				border: 1px solid $color-06;
+				background: $color-06;
+				color: $color-03;
 				cursor: pointer;
-				padding: 0 10px;
+				padding: 2.5px 10px;
 				border-radius: 3px 3px 0 0;
 			}
 			&.hc-tab-active {
 				font-weight: bold;
 				span {
 					background: $color-01;
-					color: $color-03;
+					color: $color-06;
 				}
 			}
 		}
 	}
-	.hc-tab-content {
+	.hc-content-block {
 		@include position($type: absolute, $top: -9999px, $left: -9999px, $z: -1);
 		@include toggle-content(hide, true);
 		&.hc-tab-show {
@@ -63,7 +63,7 @@
 			border-radius: 0;
 		}
 		span {
-			border-bottom-color: mix($color-01, $color-03, 10%);
+			border-bottom-color: mix($color-01, $color-06, 10%);
 		}
 	}
 }

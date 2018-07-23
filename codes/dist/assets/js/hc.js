@@ -1,67 +1,81 @@
 // Hello Content! (A Tabbing Script) by Memoria / displaycoffee.
-// Last updated 07.21.18.
+// Last updated 07.22.18.
+helloContent('.hc-tabs-list li span');
+
+// You only need to add this function once
 function helloContent(selector) {
-	var selector = document.querySelectorAll(selector);
+	var tabSelector = document.querySelectorAll(selector);
 
 	// Check if selector is on the page
-	if (selector && selector.length) {
-		for (var i = 0; i < selector.length; i++) {
-
-			selector[i].addEventListener( 'click', function(e) {
+	if (tabSelector) {
+		// Loop through tabs and add click event
+		for (var i = 0; i < tabSelector.length; i++) {
+			tabSelector[i].addEventListener( 'click', function(e) {
 				// Store the current selector as a variable
 				var current = e.target || e.srcElement;
+				var dataAttribute = current.getAttribute('data-tab');
 
-				// Get parent wrapper
-				var tabWrapper = findParent(current, 'hc-tabs-wrapper');
+				// Get parent elements
+				var tabContent = hcFindParent(current, 'hc-tabs-wrapper').querySelector('.hc-tab-content');
+				var tabList = hcFindParent(current, 'hc-tabs-list');
 
-				for (var j = 0; j < tabWrapper.childNodes.length; j++) {
-					var tabContent = tabWrapper.childNodes[j];
-					var tabClass = tabContent.className;
+				// Check if necessary elements are available
+				if (tabList && tabContent) {
+					if (tabList) {
+						// Loop through hc-tabs-list child elements
+						for (var j = 0; j < tabList.childNodes.length; j++) {
+							var tabListOption = tabList.childNodes[j];
+							var tabListClass = tabListOption.className;
 
-					if (tabClass && tabClass.indexOf('hc-tab-content') !== -1 && tabClass.indexOf('hc-tab-show') !== -1) {
-						tabContent.className = tabContent.className.replace('hc-tab-show', '');
+							// Find any element with hc-tab-active and remove the class
+							if (tabListClass && hcCheckValue(tabListClass, 'hc-tab-active')) {
+								tabListOption.className = hcToggleClass('remove', tabListClass, 'hc-tab-active');
+							}
+						}
+
+						// Add hc-tab-active to the new active tab
+						current.parentNode.className = hcToggleClass('add', current.parentNode.className, 'hc-tab-active');
 					}
 
-					// if (tabContent && tabContent.className.indexOf('hc-tab-content') !== -1) {
-					// 	console.log('true')
-					// }
-				}
+					if (tabContent) {
+						// Loop through hc-tabs-wrapper child elements
+						for (var k = 0; k < tabContent.childNodes.length; k++) {
+							var tabContentBlock = tabContent.childNodes[k];
+							var tabContentClass = tabContentBlock.className;
 
+							// Find the hc-content-block elements and add or remove hc-tab-show class
+							if (tabContentClass && hcCheckValue(tabContentClass, 'hc-content-block')) {
+								if (hcCheckValue(tabContentClass, 'hc-tab-show') && !hcCheckValue(tabContentClass, dataAttribute)) {
+									tabContentBlock.className = hcToggleClass('remove', tabContentClass, 'hc-tab-show');
+								} else if (!hcCheckValue(tabContentClass, 'hc-tab-show') && hcCheckValue(tabContentClass, dataAttribute)) {
+									tabContentBlock.className = hcToggleClass('add', tabContentClass, 'hc-tab-show');
+								}
+							}
+						}
+					}
+				}
 			});
 		}
 
-		// Click action for tabs
-		// selector.off().on( 'click', function() {
-		//
-		// 	var current = jQuery(this);
-		//
-
-		//
-		// 	// Remove all show and active classes
-		// 	tabWrapper.find('.hc-tabs-list li').removeClass('hc-tab-active');
-		// 	tabWrapper.find('.hc-tab-content').removeClass('hc-tab-show');
-		//
-		// 	// Add active class onto the active clicked tab
-		// 	current.parent('li').addClass('hc-tab-active');
-		//
-		// 	// Find the content tab for the current selector and show it
-		// 	tabWrapper.find('.' + current.attr('data-tab')).addClass('hc-tab-show');
-		// });
-
-		function findParent(selector, selectorClass) {
-			while ((selector = selector.parentNode)) {
-				if (selector.parentNode.className.indexOf(selectorClass) !== -1) {
+		// Find specific parent selectors
+		function hcFindParent(selector, selectorClass) {
+			while (selector = selector.parentNode) {
+				if (hcCheckValue(selector.parentNode.className, selectorClass)) {
 					return selector.parentNode;
 				}
 			}
 			return null;
 		}
 
+		// Add or remove classes
+		function hcToggleClass(type, selectorClass, value) {
+			var newClasses = (type == 'add') ? (selectorClass + ' ' + value) : selectorClass.replace(value, '');
+			return newClasses.replace(/ +/g, ' ').trim()
+		}
+
+		// Check if the value is in the string
+		function hcCheckValue(selector, find) {
+			return (selector.indexOf(find) !== -1) ? true : false;
+		}
 	}
 }
-
-//jQuery(document).ready( function($) {
-	// Initialize the tabs
-	// Should be run AFTER jQuery loads on the site
-	helloContent('.hc-tabs-list li span');
-//});
