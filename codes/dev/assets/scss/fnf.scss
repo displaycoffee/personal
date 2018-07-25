@@ -73,8 +73,8 @@ Please do not remove credits! */
 		overflow: hidden;
 		@include sizing(125px, 125px);
 		@include position($type: absolute, $bottom: -70px, $right: 20px);
-	    line-height: 0;
-	    border: 10px solid $color-05; /* avatar border color */
+		line-height: 0;
+		border: 10px solid $color-05; /* avatar border color */
 		img {
 			max-width: 100%;
 		}

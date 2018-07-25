@@ -8,6 +8,10 @@ $color-04: #393e86; // blue
 $color-05: #17476d; // dark blue
 $color-06: #999999; // gray
 $color-07: #222222; // blackish
+$color-08: #383c46; // dark blue
+$color-09: #f5f5f5; // whiteish
+$color-10: #a4adc5; // light blue
+$color-11: #50634e; // green
 
 /* Fonts
 ========================================================================== */
@@ -17,5 +21,5 @@ $global-font-size: 14px;
 $serif-fb: garamond, times new roman, serif;
 $sans-serif-fb: arial, sans-serif;
 $font-01: 'Arial Narrow', $sans-serif-fb;
-$font-02: 'Spectral', $serif-fb;
-$font-03: 'Selima', $sans-serif-fb;
+$font-02: 'Trebuchet MS', $sans-serif-fb;
+$font-03: georgia, $serif-fb;

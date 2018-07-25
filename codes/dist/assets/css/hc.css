@@ -33,7 +33,7 @@
 .hc-tabs-wrapper .hc-tabs-list li {
   float: left;
   width: 20%;
-  /* Width = 100 / Number of tabs )*/
+  /* Width = 100 / Number of tabs */
   padding: 0 2.5px;
 }
 

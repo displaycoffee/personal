@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Codes</title>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/hc.css">
+	<link rel="stylesheet" href="assets/css/bstfrnds.css">
 </head>
 <body>
 	<!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 					dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 			<div class="column column-02">
-				<?php include('includes/hc.php') ?>
+				<?php include('includes/bstfrnds.php') ?>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,173 @@
+/* Colors
+========================================================================== */
+/* Fonts
+========================================================================== */
+/* Best Friends by Memoria / displaycoffee.
+Last updated 07.24.18.
+Please do not remove credits! */
+/* Best Friends - Overall Styles */
+.bstfrnds {
+  max-width: 700px;
+  /* max template width */
+  width: auto;
+  margin: 0 auto;
+  font-family: "Trebuchet MS", arial, sans-serif;
+  /* font family */
+  font-size: 13px;
+  line-height: 1.7;
+  color: #f5f5f5;
+  /* font color */
+  border: 1px solid #383c46;
+  /* background color */
+  background: #383c46;
+  /* background color */
+}
+
+.bstfrnds, .bstfrnds * {
+  box-sizing: border-box;
+}
+
+.bstfrnds h3, .bstfrnds h4 {
+  font-family: georgia, garamond, times new roman, serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.bstfrnds h3, .bstfrnds h4, .bstfrnds p, .bstfrnds ul {
+  margin: 0 0 20px 0;
+}
+
+.bstfrnds a {
+  color: #a4adc5;
+  /* link color */
+  text-decoration: none;
+}
+
+.bstfrnds a:hover {
+  color: #f5f5f5;
+  /* link hover color */
+}
+
+/* Best Friends - Header */
+.bstfrnds .bstfrnds-header {
+  position: relative;
+  line-height: 0;
+}
+
+.bstfrnds .bstfrnds-header img {
+  max-width: 100%;
+  width: auto;
+}
+
+.bstfrnds .bstfrnds-header h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.5);
+  /* header background color - keep rgba for transparency */
+  margin: 0;
+  padding: 20px;
+  color: #383c46;
+  /* header font color */
+  font-size: 20px;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Best Friends - Tabs */
+.hc-tabs-wrapper .hc-tabs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hc-tabs-wrapper .hc-tabs-list:before, .hc-tabs-wrapper .hc-tabs-list:after {
+  content: "";
+  display: table;
+  zoom: 1;
+}
+
+.hc-tabs-wrapper .hc-tabs-list:after {
+  clear: both;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li {
+  float: left;
+  width: 25%;
+  /* Width = 100 / Number of tabs */
+}
+
+.hc-tabs-wrapper .hc-tabs-list li span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #50634e;
+  border-right: 1px solid #485946;
+  color: #f5f5f5;
+  cursor: pointer;
+  padding: 5px 20px;
+  text-align: center;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li.hc-tab-active span {
+  background: #383c46;
+  border-right-color: #32363f;
+}
+
+.hc-tabs-wrapper .hc-tabs-list li:last-child span {
+  border-right-color: transparent;
+}
+
+.hc-tabs-wrapper .hc-content-block {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  padding: 20px;
+}
+
+.hc-tabs-wrapper .hc-content-block > *:last-child {
+  margin-bottom: 0;
+}
+
+.hc-tabs-wrapper .hc-content-block h4 {
+  font-size: 16px;
+}
+
+.hc-tabs-wrapper .hc-content-block.hc-tab-show {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Best Friends - Responsive */
+@media only screen and (max-width: 540px) {
+  .bstfrnds .bstfrnds-header h3 {
+    font-size: 17px;
+  }
+  .hc-tabs-wrapper .hc-tabs-list li {
+    width: auto;
+    float: none;
+  }
+  .hc-tabs-wrapper .hc-tabs-list li span {
+    text-align: left;
+    border-bottom: 1px solid #485946;
+  }
+  .hc-tabs-wrapper .hc-tabs-list li.hc-tab-active span {
+    border-bottom-color: #32363f;
+  }
+  .hc-tabs-wrapper .hc-tabs-list li span, .hc-tabs-wrapper .hc-tabs-list li.hc-tab-active {
+    border-right: 0;
+  }
+  .hc-tabs-wrapper .hc-content-block h4 {
+    font-size: 15px;
+  }
+}
