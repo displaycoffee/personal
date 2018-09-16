@@ -1,0 +1,32 @@
+/* Colors
+========================================================================== */
+/* Fonts
+========================================================================== */
+/* Banner Code Generator by Memoria / displaycoffee.
+Last updated 09.16.18.
+Please do not remove credits! */
+/* Banner Code Generator - Overall Styles */
+.bcg-banners, .bcg-banners *, #bcg-code, #bcg-code * {
+  box-sizing: border-box;
+}
+
+/* Banner Code Generator - Banners */
+.bcg-banners img {
+  cursor: pointer;
+}
+
+/* Banner Code Generator - Code */
+#bcg-code pre, #bcg-code code {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+#bcg-code pre code {
+  display: block;
+  font-family: 'Courier New', monospace;
+  background: #333333;
+  color: #ededed;
+  padding: 20px;
+  white-space: pre-wrap;
+}
