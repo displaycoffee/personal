@@ -23,6 +23,6 @@ function bannerCodeGenerator(bannerImages, bannerCode) {
 		var selector = e.target || e.srcElement;
 
 		// Replace current image src and alt with new element alt and src
-		document.querySelector(bannerCode).innerHTML = codeBlock.replace(image, selector.src).replace(alt, selector.alt);
+		document.querySelector(bannerCode).innerHTML = codeBlock.replace(image, selector.getAttribute('src')).replace(alt, selector.getAttribute('alt'));
 	}
 }

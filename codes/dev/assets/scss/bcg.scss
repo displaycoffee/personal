@@ -9,6 +9,10 @@ Please do not remove credits! */
 /* Banner Code Generator - Overall Styles */
 
 .bcg-banners, #bcg-code {
+	margin: 0 0 20px 0;
+	h3 {
+		margin: 0 0 10px 0;
+	}
 	&, * {
 		box-sizing: border-box;
 	}
@@ -31,7 +35,7 @@ Please do not remove credits! */
 	pre code {
 		display: block;
 		font-family: 'Courier New', monospace;
-		background: #333333;
+		background: #222222;
 		color: #ededed;
 		padding: 20px;
 		white-space: pre-wrap;
