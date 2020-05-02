@@ -1,5 +1,5 @@
 /* Required Sources
-   ---------------------------------------------- */
+------------------------------------------------- */
 
 var browserSync = require('browser-sync').create(),
 	gulp = require('gulp'),
@@ -9,148 +9,164 @@ var browserSync = require('browser-sync').create(),
 	uglify = require('gulp-uglify');
 
 /* Global Variables
-   ---------------------------------------------- */
+------------------------------------------------- */
 
-var wpFolder = 'themes';
-var dirName = 'ambase';
-// var wpFolder = 'plugins';
-// var dirName = 'custom-stuff';
-// var dirName = 'owl-post';
-var proxyURL = 'http://localhost/personal/wordpress';
+var styles = 'themes/';
+var ext = 'plugins/';
+var dev = '_dev/';
+var dist = 'wp-content/';
+var wpTheme = 'ambase';
+var wpPlugin = 'custom-stuff';
+var watchers = [];
 
-/* Development Variables
-   ---------------------------------------------- */
+/* Project Folders
+------------------------------------------------- */
 
-var dev = 'dev/' + wpFolder + '/' + dirName;
-var devJS = dev + '/assets/js';
-var devSass = dev + '/assets/scss';
-
-/* Distribution Variables
-   ---------------------------------------------- */
-
-var dist = 'wp-content/' + wpFolder + '/' + dirName;
-var distJS = dist + '/assets/js';
-
-// CSS location is different for themes, so let's add a conditonal
-if (wpFolder == 'themes') {
-	var distCSS = dist;
-	var distCSSChild = dist + '/assets/css';
-} else {
-	var distCSS = dist + '/assets/css';
-}
-
-/* JavaScript
-   ---------------------------------------------- */
-
-// JS files are different for folders, so let's add a conditonal
-if (dirName == 'ambase') {
-	var jsSources = [
-		devJS + '/featherlight.js',
-		devJS + '/main.js',
-		devJS + '/run-functions.js'
-	];
-} else if (dirName == 'custom-stuff' || dirName == 'owl-post') {
-	var jsSources = [	
-		devJS + '/image-reset.js',
-		devJS + '/media-library.js',
-		devJS + '/run-functions.js'
-	];
-}
-
-gulp.task('js', function() {
-	gulp.src(jsSources)
-		.pipe(concat('functions.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest(distJS));
-});
-
-/* SASS
-   ---------------------------------------------- */
-
-var sassSources = [devSass + '/style.scss'];
-var customizer = [devSass + '/customizer.scss'];
-
-gulp.task('sass', function() {
-	gulp.src(sassSources)
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer({
-            browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7']
-        }))
-		.pipe(gulp.dest(distCSS));
-	if (wpFolder == 'themes') {	
-		gulp.src(customizer)
-			.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-			.pipe(autoprefixer({
-	            browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7']
-	        }))
-			.pipe(gulp.dest(distCSSChild));
+var projects = {
+	[wpTheme] : {
+		'dev_css'     : dev + styles + wpTheme + '/assets/sass',
+		'dist_css'    : dist + styles + wpTheme + '/assets/css',
+		'dev_js'      : dev + styles + wpTheme + '/assets/js',
+		'dist_js'     : dist + styles + wpTheme + '/assets/js',
+		'dev_static'  : dev + styles + wpTheme,
+		'dist_static' : dist + styles + wpTheme
+	},
+	[wpPlugin] : {
+		'dev_css'     : dev + ext + wpPlugin + '/assets/sass',
+		'dist_css'    : dist + ext + wpPlugin + '/assets/css',
+		'dev_js'      : dev + ext + wpPlugin + '/assets/js',
+		'dist_js'     : dist + ext + wpPlugin + '/assets/js',
+		'dev_static'  : dev + ext + wpPlugin,
+		'dist_static' : dist + ext + wpPlugin
 	}
-});
-
-/* CSS
-   ---------------------------------------------- */
-
-if (wpFolder == 'themes') {
-	var cssSources = [
-		distCSS + '/**.css', 
-		distCSSChild + '/**.css'
-	];
-} else {
-	var cssSources = [distCSS + '/**.css'];
 }
 
-gulp.task('css', function() {
-	gulp.src(cssSources)
-		.pipe(browserSync.stream());
-});
+/* Project Task Loop
+------------------------------------------------- */
 
-/* Static Files
-   ---------------------------------------------- */
+for (key in projects) {
+	createTask(key);
+}
 
-var staticSources = [
-	dev + '/**/*.php',
-	dev + '/**/*.txt',
-	dev + '/**/images/*.*',
-	dev + '/**/fonts/*.*'
-];
+/* Browsersync Init
+------------------------------------------------- */
 
-gulp.task('static', function() {
-	gulp.src(staticSources)
-		.pipe(gulp.dest(dist));
-});
-
-/* Owl Carousel
-   ---------------------------------------------- */
-
-gulp.task('owlJs', function() {
-	gulp.src(devJS + '/owl.carousel.min.js')
-		.pipe(gulp.dest(distJS));		
-});
-
-gulp.task('owlCSS', function() {
-	gulp.src(devSass + '/owl-post.scss')
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer())
-		.pipe(gulp.dest(distCSS));	
-});
-
-/* Watch All The Things
-   ---------------------------------------------- */
-
-gulp.task('watch', function() {
-    browserSync.init({
-        proxy: proxyURL,
-        open: false
-    })
-	gulp.watch(jsSources, ['js']);
-	gulp.watch(devSass + '/*.scss', ['sass']);
-	gulp.watch(cssSources, ['css']);
-	gulp.watch(staticSources, ['static']);
-	gulp.watch(devJS + '/owl.carousel.min.js', ['owlJs']);
-	gulp.watch(devSass + '/owl-post.scss', ['owlCSS']);	
+gulp.task('bs', function() {
+	browserSync.init({
+		proxy : 'http://localhost/personal/wordpress',
+		open  : false
+	})
 });
 
 /* Default Gulp Task
-   ---------------------------------------------- */
+------------------------------------------------- */
 
-gulp.task('default', ['js', 'sass', 'css', 'static', 'owlJs', 'owlCSS', 'watch']);
+gulp.task('default', watchers.concat('bs'));
+
+/* Function to loop through projects
+------------------------------------------------- */
+
+function createTask(key) {
+	if (projects[key]['dev_css']) {
+		/* SASS
+		------------------------------------------------- */
+
+		var devCSS = projects[key]['dev_css'];
+		var distCSS = projects[key]['dist_css'];
+		var watcherSass = key + 'sass';
+		watchers.push(watcherSass);
+
+		var sassSources = [devCSS + '/compressed/**.scss'];
+		var expandedSources = [devCSS + '/expanded/**.scss'];
+		var versions = ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7'];
+
+		gulp.task(watcherSass, function() {
+			gulp.src(sassSources)
+				.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+				.pipe(autoprefixer({browsers: versions}))
+				.pipe(gulp.dest(distCSS));
+			gulp.src(expandedSources)
+				.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+				.pipe(autoprefixer({browsers: versions}))
+				.pipe(gulp.dest(distCSS));
+		});
+
+		/* CSS
+		------------------------------------------------- */
+
+		var cssSources = [distCSS + '/**.css'];
+		var watcherCSS = key + 'css';
+		watchers.push(watcherCSS);
+
+		gulp.task(watcherCSS, function() {
+			gulp.src(cssSources)
+				.pipe(browserSync.stream());
+		});
+	}
+
+	if (projects[key]['dev_js']) {
+		/* JavaScript
+		------------------------------------------------- */
+
+		var devJS = projects[key]['dev_js'];
+		var distJS = projects[key]['dist_js'];
+		var watcherJS = key + 'JS';
+		watchers.push(watcherJS);
+
+		var jsSources = [
+			devJS + '/global-functions.js',
+			devJS + '/javascript-functions.js',
+			devJS + '/jquery-functions.js',
+			devJS + '/run-functions.js'
+		];
+
+		gulp.task(watcherJS, function() {
+			gulp.src(jsSources)
+				.pipe(concat('functions.js'))
+				.pipe(uglify())
+				.pipe(gulp.dest(distJS));
+		});
+	}
+
+	if (projects[key]['dev_static']) {
+		/* Static Files
+		------------------------------------------------- */
+
+		var devStatic = projects[key]['dev_static'];
+		var distStatic = projects[key]['dist_static'];
+		var watcherStatic = key + 'Static';
+		watchers.push(watcherStatic);
+
+		var staticSources = [
+			devStatic + '/**/*.php',
+			devStatic + '/**/*.html',
+			devStatic + '/**/*.txt',
+			devStatic + '/assets/images/*.*',
+			devStatic + '/assets/fonts/*.*'
+		];
+
+		gulp.task(watcherStatic, function() {
+			gulp.src(staticSources)
+				.pipe(gulp.dest(distStatic));
+		});
+	}
+
+	/* Watch All The Things
+	------------------------------------------------- */
+
+	var watcherWatch = key + 'watch';
+	watchers.push(watcherWatch);
+
+	gulp.task(watcherWatch, function() {
+		if (projects[key]['dev_js']) {
+			gulp.watch(jsSources, [watcherJS]);
+		}
+		if (devCSS) {
+			gulp.watch(devCSS + '/**/*.scss', [watcherSass]);
+			gulp.watch(cssSources, [watcherCSS]);
+		}
+		if (projects[key]['dev_static']) {
+			gulp.watch(staticSources, [watcherStatic]);
+		}
+	});
+}
