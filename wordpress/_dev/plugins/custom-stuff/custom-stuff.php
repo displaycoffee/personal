@@ -57,9 +57,9 @@
 	}
 	add_action( 'admin_enqueue_scripts', 'cstmstff_enqueue_assets' );
 
-	// // Include multi-use files
+	// Include multi-use files
 	// require_once( CSTMSTFF_DIR . 'includes/choices.php' );
-	// require_once( CSTMSTFF_DIR . 'includes/fields.php' );
+	require_once( CSTMSTFF_DIR . 'includes/fields.php' );
 	// require_once( CSTMSTFF_DIR . 'includes/validation.php' );
 	//
 	// // Options
@@ -68,8 +68,8 @@
 
 	// Post Types
 	require_once( CSTMSTFF_DIR . 'types/posts/post-type.php' );
-	// require_once( CSTMSTFF_DIR . 'types/posts/post-meta-array.php' );
-	// require_once( CSTMSTFF_DIR . 'types/posts/post-meta-boxes.php' );
+	require_once( CSTMSTFF_DIR . 'types/posts/post-meta-fields.php' );
+	require_once( CSTMSTFF_DIR . 'types/posts/post-meta-boxes.php' );
 
 	// Taxonomies
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-public.php' );
