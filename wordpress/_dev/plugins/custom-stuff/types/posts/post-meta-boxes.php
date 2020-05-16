@@ -16,7 +16,7 @@
 
 			// Add actions for meta boxes
 			add_action( 'admin_menu', array( &$this, 'add' ) );
-			//add_action( 'save_post', array( &$this, 'save' ) );
+			add_action( 'save_post', array( &$this, 'save' ) );
 		}
 
 		// Add meta box
@@ -48,7 +48,7 @@
 				$post_meta_data = get_post_meta( $post->ID, $field_key, true );
 
 				// Common display value
-				$post_meta_value = isset( $field_data ) ? $field_data : false;
+				$post_meta_value = isset( $post_meta_data ) ? $post_meta_data : false;
 
 				// Class prefixes
 				$field_column = $this->obj['prefix'] . '-column';
@@ -61,9 +61,28 @@
 				$fields .= '</div>';
 				$fields .= '<div class="' . $field_column . ' ' . $field_column . '-field">';
 
-				if ( $field['type'] == 'multitext' ) {
+				if ( $field_value['type'] == 'multitext' ) {
+					$fields .= '<div class="' . $this->obj['prefix'] . '-row-multi">';
 
-				} else if ( $field['type'] == 'multicheck' ) {
+					// Loop through basic field types
+					foreach ( $field_value['options'] as $option_key => $option_value ) {
+						// Get the multitext meta
+						$multitext_data = get_post_meta( $post->ID, $option_key, true );
+
+						// Common multitext value
+						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
+
+						// Loop through mutlitext fields
+						$fields .= '<div class="' . $this->obj['prefix'] . '-column-multi">';
+						$fields .= '<label for=' . $option_key . '>';
+						$fields .= $option_value['label'];
+						$fields .= '</label>';
+						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value );
+						$fields .= '</div>';
+					}
+
+					$fields .= '</div>';
+				} else if ( $field_value['type'] == 'multicheck' ) {
 
 				} else {
 					// Loop through basic field types
@@ -73,18 +92,6 @@
 				// Create and display closing HTML block
 				$fields .= '</div></div>';
 
-
-			// 	// Display multiple text fields
-			// 	if ( $field['type'] == 'multitext' ) {
-			// 		echo '<div class="options">';
-			// 		foreach ( $field['options'] as $option ) {
-			// 			$meta = get_post_meta( $post->ID, $option['id'], true );
-			// 			$value = isset( $meta ) ? $meta : '';
-			// 			cstmstff_display_multitext( $field, $option, $value );
-			// 		}
-			// 		echo '</div>';
-			// 	}
-			//
 			// 	// Display multiple checkboxes
 			// 	if ( $field['type'] == 'multicheck' ) {
 			// 		echo '<div class="options">';
@@ -104,56 +111,67 @@
 
 			echo $open . $fields . $close;
 		}
-		//
-		// // Save data from meta box
-		// function save( $post_id ) {
-		// 	// Verify nonce
-		// 	if ( !isset($_POST['meta_field_nonce'] ) || !wp_verify_nonce( $_POST['meta_field_nonce'], basename( __FILE__ ) ) ) {
-		// 		return $post_id;
-		// 	}
-		//
-		// 	// Check autosave
-		// 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		// 		return $post_id;
-		// 	}
-		//
-		// 	// Check permissions
-		// 	if ( 'page' == $_POST['post_type'] ) {
-		// 		if ( !current_user_can( 'edit_page', $post_id ) ) {
-		// 			return $post_id;
-		// 		}
-		// 	} elseif ( !current_user_can( 'edit_post', $post_id ) ) {
-		// 		return $post_id;
-		// 	}
-		//
-		// 	// Validate fields before updating
-		// 	// If there is no validate in the array, nothing will save
-		// 	foreach ( $this->meta_value['fields'] as $field ) {
-		// 		if ( in_array( $field['type'], ['multitext','multicheck'] ) ) {
-		// 			foreach ( $field['options'] as $option ) {
-		// 				$old = get_post_meta( $post_id, $option['id'], true );
-		// 				$new = ( isset( $_POST[$option['id']] ) ? $field['validate']( $_POST[$option['id']] ) : '' );
-		// 				if ( $field['validate'] != '' ) {
-		// 					if ( $new && $new != $old || $new === '0' ) {
-		// 						update_post_meta( $post_id, $option['id'], $new );
-		// 					} elseif ( '' == $new && $old || $old === '0' ) {
-		// 						delete_post_meta( $post_id, $option['id'], $old );
-		// 					}
-		// 				}
-		// 			}
-		// 		} else {
-		// 			$old = get_post_meta( $post_id, $field['id'], true );
-		// 			$new = ( isset( $_POST[$field['id']] ) ? $field['validate']( $_POST[$field['id']] ) : '' );
-		// 			if ( $field['validate'] != '' ) {
-		// 				if ( $new && $new != $old || $new === '0' ) {
-		// 					update_post_meta( $post_id, $field['id'], $new );
-		// 				} elseif ( '' == $new && $old || $old === '0' ) {
-		// 					delete_post_meta( $post_id, $field['id'], $old );
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }
+
+		// Save data from meta box
+		function save( $post_id ) {
+			// Verify nonce
+			if ( !isset( $_POST['meta_field_nonce'] ) || !wp_verify_nonce( $_POST['meta_field_nonce'], basename( __FILE__ ) ) ) {
+				return $post_id;
+			}
+
+			// Check autosave
+			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+				return $post_id;
+			}
+
+			// Check permissions
+			if ( 'page' == $_POST['post_type'] ) {
+				if ( !current_user_can( 'edit_page', $post_id ) ) {
+					return $post_id;
+				}
+			} elseif ( !current_user_can( 'edit_post', $post_id ) ) {
+				return $post_id;
+			}
+
+			// Validate fields before updating
+			// If there is no validate in the array, nothing will save
+			foreach ( $this->meta_value['fields'] as $field_key => $field_value ) {
+				if ( $field_value['validate'] != '' ) {
+					if ( in_array( $field_value['type'], ['multitext', 'multicheck'] ) ) {
+						foreach ( $field_value['options'] as $option_key => $option_value ) {
+							// Get new and old values
+							$old = get_post_meta( $post_id, $option_key, true );
+							$new = ( isset( $_POST[$option_key] ) ? $field_value['validate']( $_POST[$option_key] ) : '' );
+
+							// Update or delete meta data
+							if ( $new && $new != $old || $new === '0' ) {
+								update_post_meta( $post_id, $option_key, $new );
+							} elseif ( '' == $new && $old || $old === '0' ) {
+								delete_post_meta( $post_id, $option_key, $old );
+							}
+						}
+					} else {
+						// Some vaidate functions pass an extra parameter
+						if ( $field_value['type'] == 'select' ) {
+							$validated_value = $field_value['validate']( $_POST[$field_key], $field_value['options'] );
+						} else {
+							$validated_value = $field_value['validate']( $_POST[$field_key] );
+						}
+
+						// Get new and old values
+						$old = get_post_meta( $post_id, $field_key, true );
+						$new = ( isset( $_POST[$field_key] ) ? $validated_value : '' );
+
+						// Update or delete meta data
+						if ( $new && $new != $old || $new === '0' ) {
+							update_post_meta( $post_id, $field_key, $new );
+						} elseif ( '' == $new && $old || $old === '0' ) {
+							delete_post_meta( $post_id, $field_key, $old );
+						}
+					}
+				}
+			}
+		}
 	}
 
 	// Go through each meta box array and build them

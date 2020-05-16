@@ -5,40 +5,33 @@
 	// Loop through basic field types
 	function cstmstff_display_fields( $key, $value, $meta_value ) {
 		$field_display = '';
-		$field_value = $meta_value ? ' value="' . $meta_value . '"' : '';
 
 		switch ( $value['type'] ) {
-			// Text and url
-			default:
-				$field_display = '<input type="' . $value['type'] . '" name="' . $key . '" id="' . $key . '"' . $field_value . ' />';
-			//
-			// case 'text':
-			// case 'url':
-			// 	$field_display = '<input type="' . $field['type'] . '" name="' . $field['name'] . '" id="' . $field['id'] . '" value="' . $field['validate']( $value ) . '" />';
-			// 	break;
+			// Text area
+			case 'textarea':
+				$field_display = '<textarea name="' . $key . '" id="' . $key . '">' . $value['validate']( $meta_value ) . '</textarea>';
+				break;
 
-			// // Text area
-			// case 'textarea':
-			// 	echo '<textarea name="' . $field['name'] . '" id="' . $field['id'] . '">' . $field['validate']( $value ) . '</textarea>';
-			// 	break;
-			//
-			// // Select drop down
-			// case 'select':
-			// 	echo '<select name="' . $field['name'] . '" id="' . $field['id'] . '">';
-			// 	foreach ( $field['options'] as $option ) {
-			// 		// Check for selected option and set as value
-			// 		$selected = ( $value == $option ) ? ' selected="selected"' : '';
-			//
-			// 		// Create option items block
-			// 		$option_items = '<option' . $selected . '>';
-			// 		$option_items .= $field['validate']( $option );
-			// 		$option_items .= '</option>';
-			//
-			// 		// Display option items block
-			// 		echo $option_items;
-			// 	}
-			// 	echo '</select>';
-			// 	break;
+			// Select drop down
+			case 'select':
+				$field_display = '<select name="' . $key . '" id="' . $key . '">';
+				foreach ( $value['options'] as $option ) {
+					// Check for selected option and set as value
+					$selected_option = ( $meta_value == $option ) ? ' selected="selected"' : '';
+
+					// Create option items block
+					$field_display .= '<option' . $selected_option . '>';
+					$field_display .= $value['validate']( $option, $value['options'] );
+					$field_display .= '</option>';
+				}
+				$field_display .= '</select>';
+				break;
+
+			// Default, text and url mostly
+			default:
+				$field_type = ( $value['type'] == 'multitext' ) ? 'text' : $value['type'];
+				$field_display = '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
+
 			//
 			// //  Radio option
 			// case 'radio':
@@ -118,21 +111,6 @@
 
 		return $field_display;
 	}
-	//
-	// // Display multiple text fields
-	// function cstmstff_display_multitext( $field, $option, $value ) {
-	// 	// Create multi text block
-	// 	$multi_text = '<div class="text">';
-	// 	$multi_text .= '<label for=' . $option['id'] . '>';
-	// 	$multi_text .= $option['label'];
-	// 	$multi_text .= '</label>';
-	// 	$multi_text .= '<input type="text" name="' . $option['name'] . '" id="' . $option['id'] . '" value="' . $field['validate']( $value ) . '" />';
-	// 	$multi_text .= '</div>';
-	//
-	// 	// Display multi text block
-	// 	echo $multi_text;
-	// }
-	//
 	// // Display multiple checkboxes
 	// function cstmstff_display_multicheck( $field, $option, $checked ) {
 	// 	// Create multi check block

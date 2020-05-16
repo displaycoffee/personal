@@ -60,7 +60,7 @@
 	// Include multi-use files
 	// require_once( CSTMSTFF_DIR . 'includes/choices.php' );
 	require_once( CSTMSTFF_DIR . 'includes/fields.php' );
-	// require_once( CSTMSTFF_DIR . 'includes/validation.php' );
+	require_once( CSTMSTFF_DIR . 'includes/validation.php' );
 	//
 	// // Options
 	// require_once( CSTMSTFF_DIR . 'options/options-array.php' );
