@@ -9,17 +9,17 @@
 		switch ( $value['type'] ) {
 			// Text area
 			case 'textarea':
-				$field_display = '<textarea name="' . $key . '" id="' . $key . '">' . $value['validate']( $meta_value ) . '</textarea>';
+				$field_display .= '<textarea name="' . $key . '" id="' . $key . '">' . $value['validate']( $meta_value ) . '</textarea>';
 				break;
 
 			// Select drop down
 			case 'select':
-				$field_display = '<select name="' . $key . '" id="' . $key . '">';
+				$field_display .= '<select name="' . $key . '" id="' . $key . '">';
 				foreach ( $value['options'] as $option ) {
 					// Check for selected option and set as value
 					$selected_option = ( $meta_value == $option ) ? ' selected="selected"' : '';
 
-					// Create option items block
+					// Create option block
 					$field_display .= '<option' . $selected_option . '>';
 					$field_display .= $value['validate']( $option, $value['options'] );
 					$field_display .= '</option>';
@@ -27,36 +27,25 @@
 				$field_display .= '</select>';
 				break;
 
-			// Default, text and url mostly
+			//  Radio option
+			case 'radio':
+				foreach ( $value['options'] as $option_key => $option_value ) {
+					// Check for selected radio and set as value
+					$selected_option = '';
+					if ( $meta_value == $option_value['label'] || ( $option_value['default'] && !$meta_value ) ) {
+						$selected_option = ' checked="checked"';
+					}
+
+					// Create option block
+					$field_display .= '<input type="radio" name="' . $key . '" id="' . $option_key . '" value="' . $value['validate']( $option_value['label'], $value['options'] ) . '"' . $selected_option . ' />';
+				}
+				break;
+
+			// Default - text and url mostly
 			default:
 				$field_type = ( $value['type'] == 'multitext' ) ? 'text' : $value['type'];
-				$field_display = '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
+				$field_display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
 
-			//
-			// //  Radio option
-			// case 'radio':
-			// 	echo '<div class="options">';
-			// 	foreach ( $field['options'] as $option ) {
-			// 		// Check for checked checkbox and set as value
-			// 		if ( isset( $option['default'] ) ) {
-			// 			$checked = ' checked="checked"';
-			// 		} else {
-			// 			$checked = ( $value == $option['label'] ) ? ' checked="checked"' : '';
-			// 		}
-			//
-			// 		// Create radio choices block
-			// 		$radio_choices =  '<div class="radio">';
-			// 		$radio_choices .= '<input type="radio" name="' . $field['name'] . '" id="' . $option['id'] . '" value="' . $field['validate']( $option['label'] ) . '"' . $checked . ' />';
-			// 		$radio_choices .=  '<label for=' . $option['id'] . '>';
-			// 		$radio_choices .=  $option['label'];
-			// 		$radio_choices .=  '</label>';
-			// 		$radio_choices .=  '</div>';
-			//
-			// 		// Display radio choices block
-			// 		echo $radio_choices;
-			// 	}
-			// 	echo '</div>';
-			// 	break;
 			//
 			// // Checkbox
 			// case 'checkbox':

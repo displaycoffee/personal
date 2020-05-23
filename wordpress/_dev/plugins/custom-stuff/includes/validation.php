@@ -40,34 +40,31 @@
 		}
 	}
 
-
-
-
-
-
-
-	// Checkbox
-	function cstmstff_sanitize_checkbox( $input ) {
-		if ( $input == 1 || $input == '1' ) {
-			return 1;
-		} else {
-			return null;
-		}
-	}
-
-
 	// Post radio
-	function cstmstff_sanitize_post_radio( $input ) {
-		// Get radio choices
-		$choices = cstmstff_post_radio_choices();
-
+	function cstmstff_sanitize_post_radio( $input, $options ) {
 		// Check if choices are in array
-		foreach ( $choices as $choice ) {
-		   	if ( $choice['label'] == $input ) {
-		   		return $input;
+		foreach ( $options as $option ) {
+			if ( $option['label'] == $input ) {
+				return $input;
 			}
 		}
 	}
+
+	// Checkbox
+	// function cstmstff_sanitize_checkbox( $input ) {
+	// 	if ( $input == 'true' ) {
+	// 		return $input;
+	// 	} else {
+	// 		return null;
+	// 	}
+	// }
+
+
+
+
+
+
+
 
 	// Term radio
 	function cstmstff_sanitize_other_radio( $input ) {

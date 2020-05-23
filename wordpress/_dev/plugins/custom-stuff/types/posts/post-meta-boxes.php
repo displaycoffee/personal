@@ -50,20 +50,37 @@
 				// Common display value
 				$post_meta_value = isset( $post_meta_data ) ? $post_meta_data : false;
 
-				// Class prefixes
-				$field_column = $this->obj['prefix'] . '-column';
-				$field_row = $this->obj['prefix'] . '-row';
+				// Main class
+				$field_class = $this->obj['prefix'] . '-field';
+
+				// Other classes
+				$field_class_type =  $field_class . ' ' . $field_class . '-' . $field_value['type'];
+				$field_class_label = $field_class . '-label';
+				$field_class_value = $field_class . '-value';
+
+				// Multi-type classes
+				if ( $field_value['type'] == 'multitext' || $field_value['type'] == 'multicheck' ) {
+					$field_class_row = ' ' . $field_class . '-row';
+					$field_class_label .= $field_class_row;
+					$field_class_value .= $field_class_row;
+
+					// Create column class and adjust field types
+					$field_class_column = str_replace(
+						array( 'multitext', 'multicheck' ),
+						array( 'text', 'checkbox' ),
+						$field_class_type
+					);
+					$field_class_column .= ' ' . $field_class . '-column' ;
+				}
 
 				// Create and display opening HTML block
-				$fields .= '<div class="' . $field_row . ' ' . $field_row . '-' . $field_value['type'] . '">';
-				$fields .= '<div class="' . $field_column . ' ' . $field_column . '-label">';
+				$fields .= '<div class="' . $field_class_type . '">';
+				$fields .= '<div class="' . $field_class_label . '">';
 				$fields .= '<label for="' . $field_key . '">' . $field_value['label'] . '</label>';
 				$fields .= '</div>';
-				$fields .= '<div class="' . $field_column . ' ' . $field_column . '-field">';
+				$fields .= '<div class="' . $field_class_value . '">';
 
 				if ( $field_value['type'] == 'multitext' ) {
-					$fields .= '<div class="' . $this->obj['prefix'] . '-row-multi">';
-
 					// Loop through basic field types
 					foreach ( $field_value['options'] as $option_key => $option_value ) {
 						// Get the multitext meta
@@ -73,15 +90,11 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Loop through mutlitext fields
-						$fields .= '<div class="' . $this->obj['prefix'] . '-column-multi">';
-						$fields .= '<label for=' . $option_key . '>';
-						$fields .= $option_value['label'];
-						$fields .= '</label>';
+						$fields .= '<div class="' . $field_class_column . '">';
+						$fields .= '<label for=' . $option_key . '>' . $option_value['label'] . '</label>';
 						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value );
 						$fields .= '</div>';
 					}
-
-					$fields .= '</div>';
 				} else if ( $field_value['type'] == 'multicheck' ) {
 
 				} else {
@@ -152,7 +165,7 @@
 						}
 					} else {
 						// Some vaidate functions pass an extra parameter
-						if ( $field_value['type'] == 'select' ) {
+						if ( $field_value['type'] == 'select' || $field_value['type'] == 'radio' ) {
 							$validated_value = $field_value['validate']( $_POST[$field_key], $field_value['options'] );
 						} else {
 							$validated_value = $field_value['validate']( $_POST[$field_key] );

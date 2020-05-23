@@ -61,87 +61,87 @@
 				)
 			)
 		),
-		// $obj['prefix'] . '-metabox02' => array(
-		// 	'title'    => __( 'Custom meta box 2', $obj['lang'] ),
-		// 	'page'     => $obj['prefix'] . '-post-type',
-		// 	'context'  => 'normal',
-		// 	'priority' => 'high',
-		// 	'fields'   => array(
-		// 		$obj['prefix'] . '-radio' => array(
-		// 			'label'    => __( 'Radio', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'radio',
-		// 			'validate' => $obj['prefix'] . '_sanitize_post_radio',
-		// 			'options'  => array(
-		// 				$obj['prefix'] . '-radio01' => array(
-		// 					'label'   => __( 'Radio 01', $obj['lang'] ),
-		// 					'default' => false
-		// 				),
-		// 				$obj['prefix'] . '-radio02' => array(
-		// 					'label'   => __( 'Radio 02', $obj['lang'] ),
-		// 					'default' => true
-		// 				),
-		// 				$obj['prefix'] . '-radio03' => array(
-		// 					'label'   => __( 'Radio 03', $obj['lang'] ),
-		// 					'default' => false
-		// 				)
-		// 			)
-		// 		),
-		// 		$obj['prefix'] . '-checkbox' => array(
-		// 			'label'    => __( 'Checkbox', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'checkbox',
-		// 			'validate' => $obj['prefix'] . '_sanitize_checkbox',
-		// 			'value'    => 1
-		// 		),
-		// 		$obj['prefix'] . '-multicheck' => array(
-		// 			'label'    => __( 'Multiple Checkboxes', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'multicheck',
-		// 			'validate' => $obj['prefix'] . '_sanitize_checkbox',
-		// 			'options'  => array(
-		// 				$obj['prefix'] . '-multicheck01' => array(
-		// 					'label' => __( 'Multi Check 01', $obj['lang'] ),
-		// 					'value' => 1
-		// 				),
-		// 				$obj['prefix'] . '-multicheck02' => array(
-		// 					'label' => __( 'Multi Check 02', $obj['lang'] ),
-		// 					'value' => 1
-		// 				),
-		// 				$obj['prefix'] . '-multicheck03' => array(
-		// 					'label' => __( 'Multi Check 03', $obj['lang'] ),
-		// 					'value' => 1
-		// 				),
-		// 				$obj['prefix'] . '-multicheck04' => array(
-		// 					'label' => __( 'Multi Check 04', $obj['lang'] ),
-		// 					'value' => 1
-		// 				)
-		// 			)
-		// 		),
-		// 		$obj['prefix'] . '-date' => array(
-		// 			'label'    => __( 'Date', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'date',
-		// 			'validate' => $obj['prefix'] . '_sanitize_date'
-		// 		),
-		// 		$obj['prefix'] . '-color' => array(
-		// 			'label'    => __( 'Color Picker', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'color',
-		// 			'validate' => $obj['prefix'] . '_sanitize_hex'
-		// 		),
-		// 		$obj['prefix'] . '-media' => array(
-		// 			'label'    => __( 'Media Library', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'media',
-		// 			'validate' => 'esc_url'
-		// 		),
-		// 		$obj['prefix'] . '-editor' => array(
-		// 			'label'    => __( 'WordPress Editor', $obj['lang'] ),
-		// 			'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-		// 			'type'     => 'editor',
-		// 			'validate' => 'wp_kses_post'
-		// 		),
-		// 	)
-		// ),
+		$obj['prefix'] . '-metabox02' => array(
+			'title'    => __( 'Custom meta box 2', $obj['lang'] ),
+			'page'     => $obj['prefix'] . '-post-type',
+			'context'  => 'normal',
+			'priority' => 'high',
+			'fields'   => array(
+				$obj['prefix'] . '-radio' => array(
+					'label'    => __( 'Radio', $obj['lang'] ),
+					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+					'type'     => 'radio',
+					'validate' => $obj['prefix'] . '_sanitize_post_radio',
+					'options'  => array(
+						$obj['prefix'] . '-radio01' => array(
+							'label'   => __( 'Radio 01', $obj['lang'] ),
+							'default' => false
+						),
+						$obj['prefix'] . '-radio02' => array(
+							'label'   => __( 'Radio 02', $obj['lang'] ),
+							'default' => true
+						),
+						$obj['prefix'] . '-radio03' => array(
+							'label'   => __( 'Radio 03', $obj['lang'] ),
+							'default' => false
+						)
+					)
+				),
+				// $obj['prefix'] . '-checkbox' => array(
+				// 	'label'    => __( 'Checkbox', $obj['lang'] ),
+				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+				// 	'type'     => 'checkbox',
+				// 	'validate' => $obj['prefix'] . '_sanitize_checkbox',
+				// 	'value'    => 1
+				// ),
+				// $obj['prefix'] . '-multicheck' => array(
+				// 	'label'    => __( 'Multiple Checkboxes', $obj['lang'] ),
+				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+				// 	'type'     => 'multicheck',
+				// 	'validate' => $obj['prefix'] . '_sanitize_checkbox',
+				// 	'options'  => array(
+				// 		$obj['prefix'] . '-multicheck01' => array(
+				// 			'label' => __( 'Multi Check 01', $obj['lang'] ),
+				// 			'value' => 1
+				// 		),
+				// 		$obj['prefix'] . '-multicheck02' => array(
+				// 			'label' => __( 'Multi Check 02', $obj['lang'] ),
+				// 			'value' => 1
+				// 		),
+				// 		$obj['prefix'] . '-multicheck03' => array(
+				// 			'label' => __( 'Multi Check 03', $obj['lang'] ),
+				// 			'value' => 1
+				// 		),
+				// 		$obj['prefix'] . '-multicheck04' => array(
+				// 			'label' => __( 'Multi Check 04', $obj['lang'] ),
+				// 			'value' => 1
+				// 		)
+				// 	)
+				// ),
+				// $obj['prefix'] . '-date' => array(
+				// 	'label'    => __( 'Date', $obj['lang'] ),
+				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+				// 	'type'     => 'date',
+				// 	'validate' => $obj['prefix'] . '_sanitize_date'
+				// ),
+				// $obj['prefix'] . '-color' => array(
+				// 	'label'    => __( 'Color Picker', $obj['lang'] ),
+				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+				// 	'type'     => 'color',
+				// 	'validate' => $obj['prefix'] . '_sanitize_hex'
+				// ),
+				// $obj['prefix'] . '-media' => array(
+				// 	'label'    => __( 'Media Library', $obj['lang'] ),
+				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+				// 	'type'     => 'media',
+				// 	'validate' => 'esc_url'
+				// ),
+				// $obj['prefix'] . '-editor' => array(
+				// 	'label'    => __( 'WordPress Editor', $obj['lang'] ),
+				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+				// 	'type'     => 'editor',
+				// 	'validate' => 'wp_kses_post'
+				// ),
+			)
+		)
 	);
