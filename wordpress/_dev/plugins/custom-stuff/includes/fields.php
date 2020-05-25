@@ -4,6 +4,7 @@
 
 	// Loop through basic field types
 	function cstmstff_display_fields( $key, $value, $meta_value ) {
+		$checked = ' checked="checked"';
 		$field_display = '';
 
 		switch ( $value['type'] ) {
@@ -33,7 +34,7 @@
 					// Check for selected radio and set as value
 					$selected_option = '';
 					if ( $meta_value == $option_value['label'] || ( $option_value['default'] && !$meta_value ) ) {
-						$selected_option = ' checked="checked"';
+						$selected_option = $checked;
 					}
 
 					// Create option block
@@ -41,35 +42,31 @@
 				}
 				break;
 
-			// Default - text and url mostly
-			default:
-				$field_type = ( $value['type'] == 'multitext' ) ? 'text' : $value['type'];
-				$field_display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
+			// Checkbox
+			case 'checkbox':
+				$selected_option = $meta_value ? $checked : '';
+				$field_display .= '<input type="checkbox" name="' . $key . '" value="' . $value['validate']( $value['value'] )  . '" id="' . $key . '"' . $selected_option . ' />';
+				break;
 
-			//
-			// // Checkbox
-			// case 'checkbox':
-			// 	$checked = $value ? ' checked="checked"' : '';
-			// 	echo '<input type="checkbox" name="' . $field['name'] . '" value="' . $field['validate']( $field['value'] )  . '" id="' . $field['id'] . '"' . $checked . ' />';
-			// 	break;
-			//
-			// // Date
-			// case 'date':
-			// 	echo '<input type="text" name="' . $field['name'] . '" id="' . $field['id'] . '" value="' . $field['validate']( $value ) . '" class="date-picker" />';
-			// 	break;
-			//
-			// // Hex color color selection
-			// case 'color':
-			// 	// Check if color is selected already
-			// 	$color = $value ? $field['validate']( $value ) : __( 'No color selected.', 'custom-stuff' );
-			//
-			// 	 // Create color selection block
-			// 	$color_selection = '<input type="text" name="' . $field['name'] . '" id="' . $field['id'] . '" value="' . $field['validate']( $value ) . '" class="color-select" />';
-			// 	$color_selection .= '<div class="current-color"><strong>' . __( 'Current Color:', 'custom-stuff' ) . '</strong> ' . $color . '</div>';
-			//
-			// 	// Display color selection block
-			// 	echo $color_selection;
-			// 	break;
+			// Default - Used for text, url, date, and color
+			default:
+				// Classes for date and color
+				$field_class = '';
+				if ( $value['type'] == 'date' ) {
+					$field_class = ' class="date-picker"';
+				} else if ( $value['type'] == 'color' ) {
+					$field_class = ' class="color-picker"';
+				}
+
+				// Field type attribute
+				$field_type = $value['type'] == 'url' ? 'url' : 'text';
+
+				// Display final field type
+				$field_display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '"' . $field_class . ' />';
+
+
+
+
 			//
 			// // Wordpress Media library
 			// case 'media':
@@ -100,19 +97,7 @@
 
 		return $field_display;
 	}
-	// // Display multiple checkboxes
-	// function cstmstff_display_multicheck( $field, $option, $checked ) {
-	// 	// Create multi check block
-	// 	$multi_check = '<div class="check">';
-	// 	$multi_check .= '<input type="checkbox" name="' . $option['name'] . '" value="' . $field['validate']( $option['value'] ) . '" id="' . $option['id'] . '"' . $checked . ' />';
-	// 	$multi_check .= '<label for=' . $option['id'] . '>';
-	// 	$multi_check .= $option['label'];
-	// 	$multi_check .= '</label>';
-	// 	$multi_check .= '</div>';
-	//
-	// 	// Display multi check block
-	// 	echo $multi_check;
-	// }
+
 	//
 	// // Display description if one is there
 	// function cstmstff_display_description( $field ) {

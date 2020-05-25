@@ -27,10 +27,11 @@
 	}
 
 	// Loads necessary javascript and CSS
-	function cstmstff_enqueue_assets() {
-		//global $typenow;
-
-		// if ( $typenow == 'cstmstff-post-type' ) {
+	function cstmstff_enqueue_assets( $obj ) {
+		if ( get_current_screen()->post_type == ( $obj['prefix'] . '-post-type' ) ) {
+			// Register and enqueue jquery ui styles
+			wp_register_style( 'jquery-ui', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
+			wp_enqueue_style( 'jquery-ui' );
 		// 	// Enqueue and localize media library
 		// 	wp_enqueue_media();
 		// 	wp_localize_script( 'cstmstff_asset', 'image_select',
@@ -40,22 +41,21 @@
 		// 		)
 		// 	);
 		//
-		// 	// Enqueue color picker
-		// 	wp_enqueue_style( 'wp-color-picker' );
-		// 	wp_enqueue_script( 'wp-color-picker' );
-		//
-		// 	// Enqueue date picker
-		// 	wp_enqueue_style( 'jquery-ui-datepicker' );
-		// 	wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker' ), time(), true );
-		//
-		// 	// Enqueue the required javascript
-		// 	wp_enqueue_script( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
+			// Enqueue date picker
+			wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker' ), time(), true );
+
+			// Enqueue color picker
+			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_script( 'wp-color-picker' );
+
+			// Enqueue the required javascript
+			wp_enqueue_script( $obj['prefix'] . '_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
 		//
 		// 	// Enqueue the required CSS
 		// 	wp_enqueue_style( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
-		// }
+		}
 	}
-	add_action( 'admin_enqueue_scripts', 'cstmstff_enqueue_assets' );
+	add_action( 'admin_enqueue_scripts', function() use ( $obj ) { cstmstff_enqueue_assets( $obj ); }, 10, 1 );
 
 	// Include multi-use files
 	// require_once( CSTMSTFF_DIR . 'includes/choices.php' );

@@ -59,29 +59,18 @@
 				$field_class_value = $field_class . '-value';
 
 				// Multi-type classes
-				if ( $field_value['type'] == 'multitext' || $field_value['type'] == 'multicheck' ) {
-					$field_class_row = ' ' . $field_class . '-row';
-					$field_class_label .= $field_class_row;
-					$field_class_value .= $field_class_row;
-
-					// Create column class and adjust field types
-					$field_class_column = str_replace(
-						array( 'multitext', 'multicheck' ),
-						array( 'text', 'checkbox' ),
-						$field_class_type
-					);
-					$field_class_column .= ' ' . $field_class . '-column' ;
-				}
+				$field_class_row = ( $field_value['multi'] ) ? ( ' ' . $field_class . '-row' ) : '';
+				$field_class_column = ( $field_value['multi'] ) ? ( ' ' . $field_class . '-column' ) : '';
 
 				// Create and display opening HTML block
 				$fields .= '<div class="' . $field_class_type . '">';
-				$fields .= '<div class="' . $field_class_label . '">';
+				$fields .= '<div class="' . $field_class_label . $field_class_row . '">';
 				$fields .= '<label for="' . $field_key . '">' . $field_value['label'] . '</label>';
 				$fields .= '</div>';
-				$fields .= '<div class="' . $field_class_value . '">';
+				$fields .= '<div class="' . $field_class_value . $field_class_row . '">';
 
-				if ( $field_value['type'] == 'multitext' ) {
-					// Loop through basic field types
+				if ( $field_value['multi'] ) {
+					// Loop through multiple text fields
 					foreach ( $field_value['options'] as $option_key => $option_value ) {
 						// Get the multitext meta
 						$multitext_data = get_post_meta( $post->ID, $option_key, true );
@@ -89,31 +78,32 @@
 						// Common multitext value
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
-						// Loop through mutlitext fields
-						$fields .= '<div class="' . $field_class_column . '">';
+						// Display mutlitext fields
+						$fields .= '<div class="' . $field_class_type . $field_class_column . '">';
+						$fields .= '<div class="' . $field_class_label . '">';
 						$fields .= '<label for=' . $option_key . '>' . $option_value['label'] . '</label>';
+						$fields .= '</div>';
+						$fields .= '<div class="' . $field_class_value . '">';
 						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value );
 						$fields .= '</div>';
+						$fields .= '</div>';
 					}
-				} else if ( $field_value['type'] == 'multicheck' ) {
+				} else if ( $field_value['type'] == 'color' ) {
+					// Check if color is selected already
+					$selected_color = $post_meta_value ? $field_value['validate']( $post_meta_value ) : __( 'No color selected.', $this->obj['lang'] );
 
+					// Display color field
+					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
+					$fields .= '<div class="' . $this->obj['prefix'] . '-selected-color">';
+					$fields .= '<strong>' . __( 'Current Color:', $this->obj['lang'] ) . '</strong> ' . $selected_color;
+					$fields .= '</div>';
 				} else {
-					// Loop through basic field types
+					// Display basic field types
 					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
 				}
 
 				// Create and display closing HTML block
 				$fields .= '</div></div>';
-
-			// 	// Display multiple checkboxes
-			// 	if ( $field['type'] == 'multicheck' ) {
-			// 		echo '<div class="options">';
-			// 		foreach ( $field['options'] as $option ) {
-			// 			$meta = get_post_meta( $post->ID, $option['id'], true );
-			// 			$checked = $meta ? ' checked="checked"' : '';
-			// 			cstmstff_display_multicheck( $field, $option, $checked );
-			// 		}
-			// 		echo '</div>';
 			}
 			//
 			// 	// Display description if one is there
@@ -150,7 +140,7 @@
 			// If there is no validate in the array, nothing will save
 			foreach ( $this->meta_value['fields'] as $field_key => $field_value ) {
 				if ( $field_value['validate'] != '' ) {
-					if ( in_array( $field_value['type'], ['multitext', 'multicheck'] ) ) {
+					if ( $field_value['multi'] ) {
 						foreach ( $field_value['options'] as $option_key => $option_value ) {
 							// Get new and old values
 							$old = get_post_meta( $post_id, $option_key, true );

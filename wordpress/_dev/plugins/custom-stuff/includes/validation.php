@@ -33,11 +33,7 @@
 	// Select
 	function cstmstff_sanitize_select( $input, $options ) {
 		// Check if choices are in array
-		if ( in_array( $input, $options ) ) {
-			return $input;
-		} else {
-			return null;
-		}
+		return ( in_array( $input, $options ) ) ? $input : null;
 	}
 
 	// Post radio
@@ -51,16 +47,31 @@
 	}
 
 	// Checkbox
-	// function cstmstff_sanitize_checkbox( $input ) {
-	// 	if ( $input == 'true' ) {
-	// 		return $input;
-	// 	} else {
-	// 		return null;
-	// 	}
-	// }
+	function cstmstff_sanitize_checkbox( $input ) {
+		return ( $input == 1 || $input == '1' ) ? 1 : null;
+	}
 
+	// Date
+	function cstmstff_sanitize_date( $input ) {
+		// Get each value in the date - month, day, year
+		$date = preg_match( '/(\d{2})\/(\d{2})\/(\d{4})/', $input, $match );
 
+		if ( $date == '1' && checkdate( $match[1], $match[2], $match[3] ) ) {
+			return $match[1] . '/' . $match[2] . '/' . $match[3];
+		} else {
+			return null;
+		}
+	}
 
+	// Hex color
+	function cstmstff_sanitize_hex( $input ) {
+		// 3 or 6 hex digits, or the empty string.
+		if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $input ) ) {
+			return $input;
+		} else {
+			return null;
+		}
+	}
 
 
 
@@ -79,30 +90,9 @@
 		}
 	}
 
-	// Hex color
-	function cstmstff_sanitize_hex( $input ) {
-		if ( '' ===  $input ) {
-			return '';
-		}
 
-		// 3 or 6 hex digits, or the empty string.
-		if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $input ) ) {
-			return $input;
-		}
-		return null;
-	}
 
-	// Date
-	function cstmstff_sanitize_date( $input ) {
-		// Get each value in the date - month, day, year
-		$date = preg_match( '/(\d{2})\/(\d{2})\/(\d{4})/', $input, $match );
 
-		if ( $date == '1' && checkdate( $match[1], $match[2], $match[3] ) ) {
-			return $match[1] . '/' . $match[2] . '/' . $match[3];
-		} else {
-			return null;
-		}
-	}
 
 
 	// For santizing numbers

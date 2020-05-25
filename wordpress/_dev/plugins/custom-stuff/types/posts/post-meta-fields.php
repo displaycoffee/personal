@@ -25,7 +25,8 @@
 				$obj['prefix'] . '-multitext' => array(
 					'label'    => __( 'Multiple Text Boxes', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-					'type'     => 'multitext',
+					'type'     => 'text',
+					'multi'    => true,
 					'validate' => $obj['prefix'] . '_sanitize_html',
 					'options'  => array(
 						$obj['prefix'] . '-multitext01' => array(
@@ -87,49 +88,47 @@
 						)
 					)
 				),
-				// $obj['prefix'] . '-checkbox' => array(
-				// 	'label'    => __( 'Checkbox', $obj['lang'] ),
-				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-				// 	'type'     => 'checkbox',
-				// 	'validate' => $obj['prefix'] . '_sanitize_checkbox',
-				// 	'value'    => 1
-				// ),
-				// $obj['prefix'] . '-multicheck' => array(
-				// 	'label'    => __( 'Multiple Checkboxes', $obj['lang'] ),
-				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-				// 	'type'     => 'multicheck',
-				// 	'validate' => $obj['prefix'] . '_sanitize_checkbox',
-				// 	'options'  => array(
-				// 		$obj['prefix'] . '-multicheck01' => array(
-				// 			'label' => __( 'Multi Check 01', $obj['lang'] ),
-				// 			'value' => 1
-				// 		),
-				// 		$obj['prefix'] . '-multicheck02' => array(
-				// 			'label' => __( 'Multi Check 02', $obj['lang'] ),
-				// 			'value' => 1
-				// 		),
-				// 		$obj['prefix'] . '-multicheck03' => array(
-				// 			'label' => __( 'Multi Check 03', $obj['lang'] ),
-				// 			'value' => 1
-				// 		),
-				// 		$obj['prefix'] . '-multicheck04' => array(
-				// 			'label' => __( 'Multi Check 04', $obj['lang'] ),
-				// 			'value' => 1
-				// 		)
-				// 	)
-				// ),
-				// $obj['prefix'] . '-date' => array(
-				// 	'label'    => __( 'Date', $obj['lang'] ),
-				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-				// 	'type'     => 'date',
-				// 	'validate' => $obj['prefix'] . '_sanitize_date'
-				// ),
-				// $obj['prefix'] . '-color' => array(
-				// 	'label'    => __( 'Color Picker', $obj['lang'] ),
-				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-				// 	'type'     => 'color',
-				// 	'validate' => $obj['prefix'] . '_sanitize_hex'
-				// ),
+				$obj['prefix'] . '-checkbox' => array(
+					'label'    => __( 'Checkbox', $obj['lang'] ),
+					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+					'type'     => 'checkbox',
+					'validate' => $obj['prefix'] . '_sanitize_checkbox',
+					'value'    => 1
+				),
+				$obj['prefix'] . '-multicheck' => array(
+					'label'    => __( 'Multiple Checkboxes', $obj['lang'] ),
+					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+					'type'     => 'checkbox',
+					'multi'    => true,
+					'validate' => $obj['prefix'] . '_sanitize_checkbox',
+					'value'    => 1,
+					'options'  => array(
+						$obj['prefix'] . '-multicheck01' => array(
+							'label' => __( 'Multi Check 01', $obj['lang'] )
+						),
+						$obj['prefix'] . '-multicheck02' => array(
+							'label' => __( 'Multi Check 02', $obj['lang'] )
+						),
+						$obj['prefix'] . '-multicheck03' => array(
+							'label' => __( 'Multi Check 03', $obj['lang'] )
+						),
+						$obj['prefix'] . '-multicheck04' => array(
+							'label' => __( 'Multi Check 04', $obj['lang'] )
+						)
+					)
+				),
+				$obj['prefix'] . '-date' => array(
+					'label'    => __( 'Date', $obj['lang'] ),
+					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+					'type'     => 'date',
+					'validate' => $obj['prefix'] . '_sanitize_date'
+				),
+				$obj['prefix'] . '-color' => array(
+					'label'    => __( 'Color Picker', $obj['lang'] ),
+					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+					'type'     => 'color',
+					'validate' => $obj['prefix'] . '_sanitize_hex'
+				),
 				// $obj['prefix'] . '-media' => array(
 				// 	'label'    => __( 'Media Library', $obj['lang'] ),
 				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
