@@ -36,7 +36,7 @@
 		return ( in_array( $input, $options ) ) ? $input : null;
 	}
 
-	// Post radio
+	// Radio
 	function cstmstff_sanitize_post_radio( $input, $options ) {
 		// Check if choices are in array
 		foreach ( $options as $option ) {
@@ -73,28 +73,6 @@
 		}
 	}
 
-
-
-
-
-	// Term radio
-	function cstmstff_sanitize_other_radio( $input ) {
-		// Get radio choices
-		$choices = cstmstff_other_radio_choices();
-
-		// Check if choices are in array
-		foreach ( $choices as $choice ) {
-		   	if ( $choice['label'] == $input ) {
-		   		return $input;
-			}
-		}
-	}
-
-
-
-
-
-
 	// For santizing numbers
 	function cstmstff_sanitize_number( $input ) {
 		if ( $input === '0' ) {
@@ -119,25 +97,8 @@
 		}
 	}
 
-	// If the value is a number, left, right, or center (for positioning background)
-	function cstmstff_sanitize_image_x_pos( $input ) {
-		if ( $input === '0' ) {
-			return '0';
-		} elseif ( is_numeric( $input ) ) {
-			return floatval( $input );
-		} elseif ( strtolower( $input ) == 'center' ) {
-			return 'center';
-		} elseif ( strtolower( $input ) == 'left' ) {
-			return 'left';
-		} elseif ( strtolower( $input ) == 'right' ) {
-			return 'right';
-		} else {
-			return null;
-		}
-	}
-
 	// If the value is a number, top, bottom, or center (for positioning background)
-	function cstmstff_sanitize_image_y_pos( $input ) {
+	function cstmstff_sanitize_image_pos( $input ) {
 		if ( $input === '0' ) {
 			return '0';
 		} elseif ( is_numeric( $input ) ) {

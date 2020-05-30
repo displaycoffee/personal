@@ -59,47 +59,11 @@
 				}
 
 				// Field type attribute
-				$field_type = $value['type'] == 'url' ? 'url' : 'text';
+				$field_type = ( $value['type'] == 'url' || $value['type'] == 'media' ) ? 'url' : 'text';
 
 				// Display final field type
 				$field_display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '"' . $field_class . ' />';
-
-
-
-
-			//
-			// // Wordpress Media library
-			// case 'media':
-			// 	// Check if there's an image already
-			// 	$image = $value ? '<div class="image-preview"><strong>' . __( 'Current Image:', 'custom-stuff' ) . '</strong><img src="' . $field['validate']( $value ) . '" /></div>' : '';
-			//
-			// 	// Create media selection block
-			// 	$media_selection = '<div class="media-field">';
-			// 	$media_selection .= $image;
-			// 	$media_selection .= '<input type="url" name="' . $field['name'] . '" id="' . $field['id'] . '" value="' . $field['validate']( $value ) . '" /><br />';
-			// 	$media_selection .= '<input type="button" class="image-select button" value="' . __( 'Choose or Upload an Image', 'custom-stuff' ) . '" />';
-			// 	$media_selection .= '<input type="button" class="image-reset button" value="' . __( 'Clear Image', 'custom-stuff' ) . '" />';
-			// 	$media_selection .= '</div>';
-			//
-			// 	// Display media selection block
-			// 	echo $media_selection;
-			// 	break;
-			//
-			// // Wordpress Editor
-			// case 'editor':
-			// 	$settings = array(
-			// 		'textarea_name' => $field['name'],
-			// 		'editor_class'  => 'cstmstff-editor'
-			// 	);
-			// 	wp_editor( $value, $field['id'], $settings );
-			// 	break;
 		}
 
 		return $field_display;
 	}
-
-	//
-	// // Display description if one is there
-	// function cstmstff_display_description( $field ) {
-	// 	echo $field['desc'] ? '<p class="description">' . $field['desc'] . '</p>' : '';
-	// }

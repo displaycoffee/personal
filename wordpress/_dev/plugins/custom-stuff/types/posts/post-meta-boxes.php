@@ -4,9 +4,6 @@
 
 	// Class for putting together all the meta box goodness
 	class CSTMSTFF_Post_Meta_Box {
-		// protected $_key;
-		// protected $_meta_field;
-
 		// Add actions for meta boxes
 		function __construct( $meta_key, $meta_value, $obj ) {
 			// Setting up "global" variables
@@ -33,8 +30,6 @@
 
 		// Show meta box
 		function show( $post ) {
-			// global $post;
-
 			// Use nonce for verification
 			$open = '<input type="hidden" name="meta_field_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
 
@@ -62,10 +57,17 @@
 				$field_class_row = ( $field_value['multi'] ) ? ( ' ' . $field_class . '-row' ) : '';
 				$field_class_column = ( $field_value['multi'] ) ? ( ' ' . $field_class . '-column' ) : '';
 
-				// Create and display opening HTML block
+				// START - Create and display opening HTML block
 				$fields .= '<div class="' . $field_class_type . '">';
 				$fields .= '<div class="' . $field_class_label . $field_class_row . '">';
 				$fields .= '<label for="' . $field_key . '">' . $field_value['label'] . '</label>';
+
+				// Display description if one is there
+				if ( $field_value['desc'] ) {
+					$fields .= '<p class="' . $this->obj['prefix'] . '-field-description">' . $field_value['desc'] . '</p>';
+				}
+
+				// END - Create and display opening HTML block
 				$fields .= '</div>';
 				$fields .= '<div class="' . $field_class_value . $field_class_row . '">';
 
@@ -85,17 +87,34 @@
 						$fields .= '</div>';
 						$fields .= '<div class="' . $field_class_value . '">';
 						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value );
-						$fields .= '</div>';
-						$fields .= '</div>';
+						$fields .= '</div></div>';
 					}
 				} else if ( $field_value['type'] == 'color' ) {
 					// Check if color is selected already
-					$selected_color = $post_meta_value ? $field_value['validate']( $post_meta_value ) : __( 'No color selected.', $this->obj['lang'] );
+					$selected_color = '';
+					if ( $post_meta_value ) {
+						$selected_color = '<div class="selected-color"><strong>' . __( 'Current Color:', $this->obj['lang'] ) . '</strong>' . $field_value['validate']( $post_meta_value ) . '</div>';
+					}
 
-					// Display color field
+					$fields .= $selected_color;
 					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
-					$fields .= '<div class="' . $this->obj['prefix'] . '-selected-color">';
-					$fields .= '<strong>' . __( 'Current Color:', $this->obj['lang'] ) . '</strong> ' . $selected_color;
+				} else if ( $field_value['type'] == 'media' ) {
+					// Check if media is selected already
+					$selected_media = '';
+					if ( $post_meta_value ) {
+						$selected_media = '<div class="selected-media"><strong>' . __( 'Current Image:', $this->obj['lang'] ) . '</strong><img src="' . $field_value['validate']( $post_meta_value ) . '" /></div>';
+					}
+
+					// Button classes
+					$media_select = 'is-primary media-select';
+					$media_reset = 'is-secondary media-reset';
+
+					// Create media selection block
+					$fields .= $selected_media;
+					$fields .= '<div class="media-picker">';
+					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
+					$fields .= '<button type="button" class="components-button ' . $media_select . '" />' . __( 'Choose Image', $this->obj['lang'] ) . '</button>';
+					$fields .= '<button type="button" class="components-button ' . $media_reset . '" />' . __( 'Clear Image', $this->obj['lang'] ) . '</button>';
 					$fields .= '</div>';
 				} else {
 					// Display basic field types
@@ -105,13 +124,11 @@
 				// Create and display closing HTML block
 				$fields .= '</div></div>';
 			}
-			//
-			// 	// Display description if one is there
-			// 	cstmstff_display_description( $field );
 
 			// Create closing HTML block
 			$close = '</div>';
 
+			// Display all field HTML
 			echo $open . $fields . $close;
 		}
 

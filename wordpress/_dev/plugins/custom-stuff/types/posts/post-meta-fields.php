@@ -129,18 +129,12 @@
 					'type'     => 'color',
 					'validate' => $obj['prefix'] . '_sanitize_hex'
 				),
-				// $obj['prefix'] . '-media' => array(
-				// 	'label'    => __( 'Media Library', $obj['lang'] ),
-				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-				// 	'type'     => 'media',
-				// 	'validate' => 'esc_url'
-				// ),
-				// $obj['prefix'] . '-editor' => array(
-				// 	'label'    => __( 'WordPress Editor', $obj['lang'] ),
-				// 	'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
-				// 	'type'     => 'editor',
-				// 	'validate' => 'wp_kses_post'
-				// ),
+				$obj['prefix'] . '-media' => array(
+					'label'    => __( 'Media Library', $obj['lang'] ),
+					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
+					'type'     => 'media',
+					'validate' => 'esc_url'
+				)
 			)
 		)
 	);

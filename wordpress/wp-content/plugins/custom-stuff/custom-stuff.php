@@ -32,21 +32,16 @@
 			// Register and enqueue jquery ui styles
 			wp_register_style( 'jquery-ui', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
 			wp_enqueue_style( 'jquery-ui' );
-		// 	// Enqueue and localize media library
-		// 	wp_enqueue_media();
-		// 	wp_localize_script( 'cstmstff_asset', 'image_select',
-		// 		array(
-		// 			'title'  => __( 'Choose or Upload an Image', 'custom-stuff' ),
-		// 			'button' => __( 'Use this image', 'custom-stuff' ),
-		// 		)
-		// 	);
-		//
+
 			// Enqueue date picker
 			wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker' ), time(), true );
 
 			// Enqueue color picker
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker' );
+
+			// Enqueue and localize media library
+			wp_enqueue_media();
 
 			// Enqueue the required javascript
 			wp_enqueue_script( $obj['prefix'] . '_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
