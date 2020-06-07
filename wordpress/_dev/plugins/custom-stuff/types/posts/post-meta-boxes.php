@@ -31,10 +31,10 @@
 		// Show meta box
 		function show( $post ) {
 			// Use nonce for verification
-			$open = '<input type="hidden" name="meta_field_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
+			$open = '<input type="hidden" name="post_meta_field_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
 
 			// Opening div to style meta
-			$open .= '<div class="' . $this->obj['prefix'] . '-meta-fields">';
+			$open .= '<div class="' . $this->obj['classes']['fields'] . '">';
 
 			// Loop through each meta box
 			$fields = '';
@@ -45,31 +45,10 @@
 				// Common display value
 				$post_meta_value = isset( $post_meta_data ) ? $post_meta_data : false;
 
-				// Main class
-				$field_class = $this->obj['prefix'] . '-field';
-
-				// Other classes
-				$field_class_type =  $field_class . ' ' . $field_class . '-' . $field_value['type'];
-				$field_class_label = $field_class . '-label';
-				$field_class_value = $field_class . '-value';
-
-				// Multi-type classes
-				$field_class_row = ( $field_value['multi'] ) ? ( ' ' . $field_class . '-row' ) : '';
-				$field_class_column = ( $field_value['multi'] ) ? ( ' ' . $field_class . '-column' ) : '';
-
 				// START - Create and display opening HTML block
-				$fields .= '<div class="' . $field_class_type . '">';
-				$fields .= '<div class="' . $field_class_label . $field_class_row . '">';
-				$fields .= '<label for="' . $field_key . '">' . $field_value['label'] . '</label>';
-
-				// Display description if one is there
-				if ( $field_value['desc'] ) {
-					$fields .= '<p class="' . $this->obj['prefix'] . '-field-description">' . $field_value['desc'] . '</p>';
-				}
-
-				// END - Create and display opening HTML block
-				$fields .= '</div>';
-				$fields .= '<div class="' . $field_class_value . $field_class_row . '">';
+				$fields .= cstmstff_display_type( $field_value, $this->obj, false );
+				$fields .= cstmstff_display_label( $field_key, $field_value, $this->obj );
+				$fields .= cstmstff_display_layout( 'value', $field_value, $this->obj );
 
 				if ( $field_value['multi'] ) {
 					// Loop through multiple text fields
@@ -81,13 +60,11 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Display mutlitext fields
-						$fields .= '<div class="' . $field_class_type . $field_class_column . '">';
-						$fields .= '<div class="' . $field_class_label . '">';
-						$fields .= '<label for=' . $option_key . '>' . $option_value['label'] . '</label>';
-						$fields .= '</div>';
-						$fields .= '<div class="' . $field_class_value . '">';
+						$fields .= cstmstff_display_type( $field_value, $this->obj, true );
+						$fields .= cstmstff_display_label( $option_key, $option_value, $this->obj );
+						$fields .= cstmstff_display_layout( 'value', $option_value, $this->obj );
 						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value );
-						$fields .= '</div></div>';
+						$fields .= '</div></div>'; // End for cstmstff_display_layout and cstmstff_display_type
 					}
 				} else if ( $field_value['type'] == 'color' ) {
 					// Check if color is selected already
@@ -122,11 +99,11 @@
 				}
 
 				// Create and display closing HTML block
-				$fields .= '</div></div>';
+				$fields .= '</div></div>'; // End for cstmstff_display_layout and cstmstff_display_type
 			}
 
 			// Create closing HTML block
-			$close = '</div>';
+			$close = '</div>'; // End for previous opening meta fields
 
 			// Display all field HTML
 			echo $open . $fields . $close;

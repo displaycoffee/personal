@@ -13,9 +13,23 @@
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
 	// Re-usable variables for the plugin
+	$prefix = 'cstmstff';
 	$obj = array(
-		'lang'   => 'custom-stuff',
-		'prefix' => 'cstmstff'
+		'lang'    => 'custom-stuff',
+		'prefix'  => $prefix,
+		'classes' => array(
+			'fields' => $prefix . '-meta-fields',
+			'field'  => $prefix . '-field',
+			'label'  => $prefix . '-field-label',
+			'value'  => $prefix . '-field-value',
+			'desc'   => $prefix . '-field-description',
+			'type'   => function( $prefix, $type ) {
+				return $prefix . '-field ' . $prefix . '-field' . '-' . $type;
+			},
+			'layout' => function( $multi, $prefix, $type ) {
+				return ( $multi ) ? ( ' ' . $prefix . '-field-' . $type ) : '';
+			}
+		)
 	);
 
 	// Define paths
@@ -53,7 +67,6 @@
 	add_action( 'admin_enqueue_scripts', function() use ( $obj ) { cstmstff_enqueue_assets( $obj ); }, 10, 1 );
 
 	// Include multi-use files
-	// require_once( CSTMSTFF_DIR . 'includes/choices.php' );
 	require_once( CSTMSTFF_DIR . 'includes/fields.php' );
 	require_once( CSTMSTFF_DIR . 'includes/validation.php' );
 	//
@@ -70,8 +83,8 @@
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-public.php' );
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-private.php' );
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-tag.php' );
-	// require_once( CSTMSTFF_DIR . 'types/taxonomies/term-meta-array.php' );
-	// require_once( CSTMSTFF_DIR . 'types/taxonomies/term-meta-boxes.php' );
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-meta-fields.php' );
+	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-meta-boxes.php' );
 	//
 	// // Display
 	// require_once( CSTMSTFF_DIR . 'display/display-cat-public.php' );

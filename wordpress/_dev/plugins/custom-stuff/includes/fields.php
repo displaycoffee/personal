@@ -2,6 +2,27 @@
 	// Exit if accessed directly
 	if ( ! defined( 'ABSPATH' ) ) exit;
 
+	// Display opening type HTML
+	function cstmstff_display_type( $value, $obj, $column ) {
+		$field_class_column = ( $column ) ? ( ' ' . $obj['classes']['field'] . '-column' ) : '';
+		return '<div class="' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-' . $value['type'] . $field_class_column . '">';
+	}
+
+	// Display opening layout HTML
+	function cstmstff_display_layout( $layout, $value, $obj ) {
+		$field_class_row = ( $value['multi'] ) ? ( ' ' . $obj['classes']['field'] . '-row' ) : '';
+		return '<div class="' . $obj['classes'][$layout] . $field_class_row . '">';
+	}
+
+	// Display field type labels and descriptions
+	function cstmstff_display_label( $key, $value, $obj ) {
+		$label_display = cstmstff_display_layout( 'label', $value, $obj );
+		$label_display .= '<label for="' . $key . '">' . $value['label'] . '</label>';
+		$label_display .= ( $value['desc'] ) ? '<p class="' . $obj['classes']['desc'] . '">' . $value['desc'] . '</p>' : '';
+		$label_display .= '</div>';
+		return $label_display;
+	}
+
 	// Loop through basic field types
 	function cstmstff_display_fields( $key, $value, $meta_value ) {
 		$checked = ' checked="checked"';

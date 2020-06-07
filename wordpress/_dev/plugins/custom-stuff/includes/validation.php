@@ -37,7 +37,7 @@
 	}
 
 	// Radio
-	function cstmstff_sanitize_post_radio( $input, $options ) {
+	function cstmstff_sanitize_radio( $input, $options ) {
 		// Check if choices are in array
 		foreach ( $options as $option ) {
 			if ( $option['label'] == $input ) {
