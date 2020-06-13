@@ -39,71 +39,36 @@
 			// Loop through each meta box
 			$fields = '';
 			foreach ( $this->meta_value['fields'] as $field_key => $field_value ) {
-				// Get the post meta
+				// Get the post meta data and value
 				$post_meta_data = get_post_meta( $post->ID, $field_key, true );
-
-				// Common display value
 				$post_meta_value = isset( $post_meta_data ) ? $post_meta_data : false;
 
 				// START - Create and display opening HTML block
-				$fields .= cstmstff_display_type( $field_value, $this->obj, false );
-				$fields .= cstmstff_display_label( $field_key, $field_value, $this->obj );
-				$fields .= cstmstff_display_layout( 'value', $field_value, $this->obj );
+				$fields .= cstmstff_display_open( $field_key, $field_value, $field_value['type'], $this->obj, false );
 
 				if ( $field_value['multi'] ) {
-					// Loop through multiple text fields
+					// Loop through multiple text and checkbox fields
 					foreach ( $field_value['options'] as $option_key => $option_value ) {
-						// Get the multitext meta
+						// Get the multi meta data and value
 						$multitext_data = get_post_meta( $post->ID, $option_key, true );
-
-						// Common multitext value
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
-						// Display mutlitext fields
-						$fields .= cstmstff_display_type( $field_value, $this->obj, true );
-						$fields .= cstmstff_display_label( $option_key, $option_value, $this->obj );
-						$fields .= cstmstff_display_layout( 'value', $option_value, $this->obj );
-						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value );
-						$fields .= '</div></div>'; // End for cstmstff_display_layout and cstmstff_display_type
+						// Display mutli fields
+						$fields .= cstmstff_display_open( $option_key, $option_value, $field_value['type'], $this->obj, true );
+						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj );
+						$fields .= cstmstff_display_close();
 					}
-				} else if ( $field_value['type'] == 'color' ) {
-					// Check if color is selected already
-					$selected_color = '';
-					if ( $post_meta_value ) {
-						$selected_color = '<div class="selected-color"><strong>' . __( 'Current Color:', $this->obj['lang'] ) . '</strong>' . $field_value['validate']( $post_meta_value ) . '</div>';
-					}
-
-					$fields .= $selected_color;
-					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
-				} else if ( $field_value['type'] == 'media' ) {
-					// Check if media is selected already
-					$selected_media = '';
-					if ( $post_meta_value ) {
-						$selected_media = '<div class="selected-media"><strong>' . __( 'Current Image:', $this->obj['lang'] ) . '</strong><img src="' . $field_value['validate']( $post_meta_value ) . '" /></div>';
-					}
-
-					// Button classes
-					$media_select = 'is-primary media-select';
-					$media_reset = 'is-secondary media-reset';
-
-					// Create media selection block
-					$fields .= $selected_media;
-					$fields .= '<div class="media-picker">';
-					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
-					$fields .= '<button type="button" class="components-button ' . $media_select . '" />' . __( 'Choose Image', $this->obj['lang'] ) . '</button>';
-					$fields .= '<button type="button" class="components-button ' . $media_reset . '" />' . __( 'Clear Image', $this->obj['lang'] ) . '</button>';
-					$fields .= '</div>';
 				} else {
-					// Display basic field types
-					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value );
+					// Display all other field types
+					$fields .= cstmstff_display_fields( $field_key, $field_value, $post_meta_value, $this->obj );
 				}
 
 				// Create and display closing HTML block
-				$fields .= '</div></div>'; // End for cstmstff_display_layout and cstmstff_display_type
+				$fields .= cstmstff_display_close();
 			}
 
 			// Create closing HTML block
-			$close = '</div>'; // End for previous opening meta fields
+			$close = '</div>';
 
 			// Display all field HTML
 			echo $open . $fields . $close;
@@ -112,7 +77,7 @@
 		// Save data from meta box
 		function save( $post_id ) {
 			// Verify nonce
-			if ( !isset( $_POST['meta_field_nonce'] ) || !wp_verify_nonce( $_POST['meta_field_nonce'], basename( __FILE__ ) ) ) {
+			if ( !isset( $_POST['post_meta_field_nonce'] ) || !wp_verify_nonce( $_POST['post_meta_field_nonce'], basename( __FILE__ ) ) ) {
 				return $post_id;
 			}
 

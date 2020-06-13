@@ -84,7 +84,7 @@
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-private.php' );
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-tag.php' );
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-meta-fields.php' );
-	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-meta-boxes.php' );
+	//require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-meta-boxes.php' );
 	//
 	// // Display
 	// require_once( CSTMSTFF_DIR . 'display/display-cat-public.php' );

@@ -2,29 +2,35 @@
 	// Exit if accessed directly
 	if ( ! defined( 'ABSPATH' ) ) exit;
 
-	// Display opening type HTML
-	function cstmstff_display_type( $value, $obj, $column ) {
-		$field_class_column = ( $column ) ? ( ' ' . $obj['classes']['field'] . '-column' ) : '';
-		return '<div class="' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-' . $value['type'] . $field_class_column . '">';
+	// Opening html for labels, values, columns, and rows
+	function cstmstff_display_open( $key, $value, $type, $obj, $has_column ) {
+		// Row and column class conditions
+		$row_class = ( $value['multi'] ) ? ( ' ' . $obj['classes']['field'] . '-row' ) : '';
+		$column_class = ( $has_column ) ? ( ' ' . $obj['classes']['field'] . '-column' ) : '';
+
+		// Field type wrapper
+		$type_html = '<div class="' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-' . $type . $column_class . '">';
+
+		// Label wrapper html
+		$label_html = '<div class="' . $obj['classes']['label'] . $row_class . '">';
+		$label_html .= '<label for="' . $key . '">' . $value['label'] . '</label>';
+		$label_html .= ( $value['desc'] ) ? '<p class="' . $obj['classes']['desc'] . '">' . $value['desc'] . '</p>' : '';
+		$label_html .= '</div>';
+
+		// Value wrapper html
+		$value_html = '<div class="' . $obj['classes']['value'] . $row_class . '">';
+
+		// Return all opening html together
+		return $type_html . $label_html . $value_html;
 	}
 
-	// Display opening layout HTML
-	function cstmstff_display_layout( $layout, $value, $obj ) {
-		$field_class_row = ( $value['multi'] ) ? ( ' ' . $obj['classes']['field'] . '-row' ) : '';
-		return '<div class="' . $obj['classes'][$layout] . $field_class_row . '">';
-	}
-
-	// Display field type labels and descriptions
-	function cstmstff_display_label( $key, $value, $obj ) {
-		$label_display = cstmstff_display_layout( 'label', $value, $obj );
-		$label_display .= '<label for="' . $key . '">' . $value['label'] . '</label>';
-		$label_display .= ( $value['desc'] ) ? '<p class="' . $obj['classes']['desc'] . '">' . $value['desc'] . '</p>' : '';
-		$label_display .= '</div>';
-		return $label_display;
+	// Closing html for the above cstmstff_display_open function
+	function cstmstff_display_close() {
+		return '</div></div>';
 	}
 
 	// Loop through basic field types
-	function cstmstff_display_fields( $key, $value, $meta_value ) {
+	function cstmstff_display_fields( $key, $value, $meta_value, $obj ) {
 		$checked = ' checked="checked"';
 		$field_display = '';
 
@@ -69,18 +75,40 @@
 				$field_display .= '<input type="checkbox" name="' . $key . '" value="' . $value['validate']( $value['value'] )  . '" id="' . $key . '"' . $selected_option . ' />';
 				break;
 
+			// Color
+			case 'color':
+				// Check if selected color is available
+				if ( $meta_value ) {
+					$field_display .= '<div class="selected-color"><strong>' . __( 'Current Color:', $obj['lang'] ) . '</strong>' . $value['validate']( $meta_value ) . '</div>';
+				}
+
+				$field_display .= '<input type="text" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" class="color-picker" />';
+				break;
+
+			// Media
+			case 'media':
+				// Check if selected media is available
+				if ( $meta_value ) {
+					$field_display .= '<div class="selected-media"><strong>' . __( 'Current Image:', $obj['lang'] ) . '</strong><img src="' . $value['validate']( $meta_value ) . '" /></div>';
+				}
+
+				$field_display .= '<div class="media-picker">';
+				$field_display .= '<input type="url" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
+				$field_display .= '<button type="button" class="components-button is-primary media-select" />' . __( 'Choose Image', $obj['lang'] ) . '</button>';
+				$field_display .= '<button type="button" class="components-button is-secondary media-reset" />' . __( 'Clear Image', $obj['lang'] ) . '</button>';
+				$field_display .= '</div>';
+				break;
+
 			// Default - Used for text, url, date, and color
 			default:
 				// Classes for date and color
 				$field_class = '';
 				if ( $value['type'] == 'date' ) {
 					$field_class = ' class="date-picker"';
-				} else if ( $value['type'] == 'color' ) {
-					$field_class = ' class="color-picker"';
 				}
 
 				// Field type attribute
-				$field_type = ( $value['type'] == 'url' || $value['type'] == 'media' ) ? 'url' : 'text';
+				$field_type = ( $value['type'] == 'url' ) ? 'url' : 'text';
 
 				// Display final field type
 				$field_display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '"' . $field_class . ' />';
