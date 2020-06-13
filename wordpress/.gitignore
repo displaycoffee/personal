@@ -10,14 +10,24 @@ sitemap.xml.gz
 # Folders
 wp-admin/
 wp-includes/
-wp-content/
+wp-content/*
 
-# WP Content
+# WP Content - Plugins
 
-# Plugins
+!wp-content/plugins/
+wp-content/plugins/*
+
+# WP Content - Plugins - Custom
+
 !wp-content/plugins/custom-stuff/
 !wp-content/plugins/custom-stuff/**/
 
-# Themes
+# WP Content - Themes
+
+!wp-content/themes/
+wp-content/themes/*
+
+# WP Content - Themes - Custom
+
 !wp-content/themes/ambase/
 !wp-content/themes/ambase/**/
