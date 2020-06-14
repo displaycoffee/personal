@@ -94,8 +94,8 @@
 
 				$field_display .= '<div class="media-picker">';
 				$field_display .= '<input type="url" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
-				$field_display .= '<button type="button" class="components-button is-primary media-select" />' . __( 'Choose Image', $obj['lang'] ) . '</button>';
-				$field_display .= '<button type="button" class="components-button is-secondary media-reset" />' . __( 'Clear Image', $obj['lang'] ) . '</button>';
+				$field_display .= '<button type="button" class="button button-primary media-select" />' . __( 'Choose Image', $obj['lang'] ) . '</button>';
+				$field_display .= '<button type="button" class="button button-secondary media-reset" />' . __( 'Clear Image', $obj['lang'] ) . '</button>';
 				$field_display .= '</div>';
 				break;
 

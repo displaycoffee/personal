@@ -33,13 +33,10 @@
 			// Use nonce for verification
 			$open = '<input type="hidden" name="post_meta_field_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
 
-			// Opening div to style meta
-			$open .= '<div class="' . $this->obj['classes']['fields'] . '">';
-
 			// Loop through each meta box
 			$fields = '';
 			foreach ( $this->meta_value['fields'] as $field_key => $field_value ) {
-				// Get the post meta data and value
+				// Get the meta data and value
 				$post_meta_data = get_post_meta( $post->ID, $field_key, true );
 				$post_meta_value = isset( $post_meta_data ) ? $post_meta_data : false;
 
@@ -66,9 +63,6 @@
 				// Create and display closing HTML block
 				$fields .= cstmstff_display_close();
 			}
-
-			// Create closing HTML block
-			$close = '</div>';
 
 			// Display all field HTML
 			echo $open . $fields . $close;

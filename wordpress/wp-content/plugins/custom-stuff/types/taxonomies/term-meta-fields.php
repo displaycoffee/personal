@@ -2,26 +2,26 @@
 	// Exit if accessed directly
 	if ( ! defined( 'ABSPATH' ) ) exit;
 
-	// Taxonomy array for all sections and fields
-	$taxonomy_meta_fields = array(
-		$obj['prefix'] . '-taxonomy-meta-box01' => array(
+	// Term array for all sections and fields
+	$term_meta_fields = array(
+		$obj['prefix'] . '-term-meta-box01' => array(
 			'category' => $obj['prefix'] . '-taxonomy-public',
 			'fields'   => array(
-				$obj['prefix'] . '-taxonomy-text' => array(
+				$obj['prefix'] . '-term-text' => array(
 					'label'    => __( 'Text box', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'text',
 					'validate' => $obj['prefix'] . '_sanitize_html',
 					'column'   => 'yes'
 				),
-				$obj['prefix'] . '-taxonomy-url' => array(
+				$obj['prefix'] . '-term-url' => array(
 					'label'    => __( 'URL', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'url',
 					'validate' => 'esc_url',
 					'column'   => 'no'
 				),
-				$obj['prefix'] . '-taxonomy-multitext' => array(
+				$obj['prefix'] . '-term-multitext' => array(
 					'label'    => __( 'Multiple Text Boxes', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'text',
@@ -29,28 +29,28 @@
 					'validate' => $obj['prefix'] . '_sanitize_html',
 					'column'   => 'no',
 					'options'  => array(
-						$obj['prefix'] . '-taxonomy-multitext01' => array(
+						$obj['prefix'] . '-term-multitext01' => array(
 							'label' => __( 'Multi Text 01', $obj['lang'] )
 						),
-						$obj['prefix'] . '-taxonomy-multitext02' => array(
+						$obj['prefix'] . '-term-multitext02' => array(
 							'label' => __( 'Multi Text 02', $obj['lang'] )
 						),
-						$obj['prefix'] . '-taxonomy-multitext03' => array(
+						$obj['prefix'] . '-term-multitext03' => array(
 							'label' => __( 'Multi Text 03', $obj['lang'] )
 						),
-						$obj['prefix'] . '-taxonomy-multitext04' => array(
+						$obj['prefix'] . '-term-multitext04' => array(
 							'label' => __( 'Multi Text 04', $obj['lang'] )
 						)
 					)
 				),
-				$obj['prefix'] . '-taxonomy-textarea' => array(
+				$obj['prefix'] . '-term-textarea' => array(
 					'label'    => __( 'Textarea', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'textarea',
 					'validate' => $obj['prefix'] . '_sanitize_textarea',
 					'column'   => 'no'
 				),
-				$obj['prefix'] . '-taxonomy-select' => array(
+				$obj['prefix'] . '-term-select' => array(
 					'label'    => __( 'Select Box', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'select',
@@ -62,28 +62,28 @@
 						__( 'Option 3', $obj['lang'] )
 					)
 				),
-				$obj['prefix'] . '-taxonomy-radio' => array(
+				$obj['prefix'] . '-term-radio' => array(
 					'label'    => __( 'Radio', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'radio',
 					'validate' => $obj['prefix'] . '_sanitize_radio',
 					'column'   => 'yes',
 					'options'  => array(
-						$obj['prefix'] . '-taxonomy-radio01' => array(
+						$obj['prefix'] . '-term-radio01' => array(
 							'label'   => __( 'Radio 01', $obj['lang'] ),
 							'default' => false
 						),
-						$obj['prefix'] . '-taxonomy-radio02' => array(
+						$obj['prefix'] . '-term-radio02' => array(
 							'label'   => __( 'Radio 02', $obj['lang'] ),
 							'default' => true
 						),
-						$obj['prefix'] . '-taxonomy-radio03' => array(
+						$obj['prefix'] . '-term-radio03' => array(
 							'label'   => __( 'Radio 03', $obj['lang'] ),
 							'default' => false
 						)
 					)
 				),
-				$obj['prefix'] . '-taxonomy-checkbox' => array(
+				$obj['prefix'] . '-term-checkbox' => array(
 					'label'    => __( 'Checkbox', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'checkbox',
@@ -91,7 +91,7 @@
 					'value'    => 1,
 					'column'   => 'yes'
 				),
-				$obj['prefix'] . '-taxonomy-multicheck' => array(
+				$obj['prefix'] . '-term-multicheck' => array(
 					'label'    => __( 'Multiple Checkboxes', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'checkbox',
@@ -100,35 +100,35 @@
 					'value'    => 1,
 					'column'   => 'no',
 					'options'  => array(
-						$obj['prefix'] . '-taxonomy-multicheck01' => array(
+						$obj['prefix'] . '-term-multicheck01' => array(
 							'label' => __( 'Multi Check 01', $obj['lang'] )
 						),
-						$obj['prefix'] . '-taxonomy-multicheck02' => array(
+						$obj['prefix'] . '-term-multicheck02' => array(
 							'label' => __( 'Multi Check 02', $obj['lang'] )
 						),
-						$obj['prefix'] . '-taxonomy-multicheck03' => array(
+						$obj['prefix'] . '-term-multicheck03' => array(
 							'label' => __( 'Multi Check 03', $obj['lang'] )
 						),
-						$obj['prefix'] . '-taxonomy-multicheck04' => array(
+						$obj['prefix'] . '-term-multicheck04' => array(
 							'label' => __( 'Multi Check 04', $obj['lang'] )
 						)
 					)
 				),
-				$obj['prefix'] . '-taxonomy-date' => array(
+				$obj['prefix'] . '-term-date' => array(
 					'label'    => __( 'Date', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'date',
 					'validate' => $obj['prefix'] . '_sanitize_date',
 					'column'   => 'no'
 				),
-				$obj['prefix'] . '-taxonomy-color' => array(
+				$obj['prefix'] . '-term-color' => array(
 					'label'    => __( 'Color Picker', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'color',
 					'validate' => $obj['prefix'] . '_sanitize_hex',
 					'column'   => 'no'
 				),
-				$obj['prefix'] . '-taxonomy-media' => array(
+				$obj['prefix'] . '-term-media' => array(
 					'label'    => __( 'Media Library', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'media',
