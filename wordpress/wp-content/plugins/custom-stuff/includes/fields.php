@@ -2,37 +2,32 @@
 	// Exit if accessed directly
 	if ( ! defined( 'ABSPATH' ) ) exit;
 
-	// Opening html for labels, values, columns, and rows
-	function cstmstff_display_open( $key, $value, $type, $obj, $has_column ) {
-		// Row and column class conditions
-		$row_class = ( $value['multi'] ) ? ( ' ' . $obj['classes']['field'] . '-row' ) : '';
+	// Get form field class
+	function cstmstff_get_column( $obj, $type, $has_column, $element ) {
 		$column_class = ( $has_column ) ? ( ' ' . $obj['classes']['field'] . '-column' ) : '';
-
-		// Field type wrapper
-		$type_html = '<div class="' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-' . $type . $column_class . '">';
-
-		// Label wrapper html
-		$label_html = '<div class="' . $obj['classes']['label'] . $row_class . '">';
-		$label_html .= '<label for="' . $key . '">' . $value['label'] . '</label>';
-		$label_html .= ( $value['desc'] ) ? '<p class="' . $obj['classes']['desc'] . '">' . $value['desc'] . '</p>' : '';
-		$label_html .= '</div>';
-
-		// Value wrapper html
-		$value_html = '<div class="' . $obj['classes']['value'] . $row_class . '">';
-
-		// Return all opening html together
-		return $type_html . $label_html . $value_html;
+		$column_html = '<' . $element . ' class="' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-' . $type . $column_class .  '">';
+		return $column_html;
 	}
 
-	// Closing html for the above cstmstff_display_open function
-	function cstmstff_display_close() {
-		return '</div></div>';
+	// Get form field class
+	function cstmstff_get_row( $obj, $element ) {
+		$row_html = '<' . $element . ' class="' . $obj['classes']['value'] . '">';
+		$row_html .= '<div class="' . $obj['classes']['field'] . '-row' . '">';
+		return $row_html;
+	}
+
+	// Get label
+	function cstmstff_get_label( $obj, $key, $label, $element ) {
+		$label_html = '<' . $element . ' class="' . $obj['classes']['label'] . '">';
+		$label_html .= '<label for="' . $key . '">' . $label . '</label>';
+		$label_html .= '</' . $element . '>';
+		return $label_html;
 	}
 
 	// Loop through basic field types
-	function cstmstff_display_fields( $key, $value, $meta_value, $obj ) {
+	function cstmstff_display_fields( $key, $value, $meta_value, $obj, $element ) {
 		$checked = ' checked="checked"';
-		$field_display = '';
+		$field_display = '<' . $element . ' class="' . $obj['classes']['value'] . '">';
 
 		switch ( $value['type'] ) {
 			// Text area
@@ -113,6 +108,8 @@
 				// Display final field type
 				$field_display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '"' . $field_class . ' />';
 		}
+
+		$field_display .= '</' . $element . '>';
 
 		return $field_display;
 	}

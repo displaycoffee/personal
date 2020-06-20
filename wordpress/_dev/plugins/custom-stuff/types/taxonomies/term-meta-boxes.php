@@ -34,9 +34,12 @@
 				$term_meta_value = isset( $term_meta_data ) ? $term_meta_data : false;
 
 				// START - Create and display opening HTML block
-				$fields .= cstmstff_display_open( $field_key, $field_value, $field_value['type'], $this->obj, false );
+				$fields .= cstmstff_get_column( $this->obj, $field_value['type'], false, 'div' );
+				$fields .= cstmstff_get_label( $this->obj, $field_key, $field_value['label'], 'div' );
 
 				if ( $field_value['multi'] ) {
+					$fields .= cstmstff_get_row( $this->obj, 'div' );
+
 					// Loop through multiple text and checkbox fields
 					foreach ( $field_value['options'] as $option_key => $option_value ) {
 						// Get the multi meta data and value
@@ -44,17 +47,20 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Display mutli fields
-						$fields .= cstmstff_display_open( $option_key, $option_value, $field_value['type'], $this->obj, true );
-						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj );
-						$fields .= cstmstff_display_close();
+						$fields .= cstmstff_get_column( $this->obj, $field_value['type'], true, 'div' );
+						$fields .= cstmstff_get_label( $this->obj, $option_key, $option_value['label'], 'div' );
+						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj, 'div' );
+						$fields .= '</div>'; // End of multi cstmstff_get_column
 					}
+
+					$fields .= '</div></div>'; // End of multi cstmstff_get_row
 				} else {
 					// Display all other field types
-					$fields .= cstmstff_display_fields( $field_key, $field_value, $term_meta_value, $this->obj );
+					$fields .= cstmstff_display_fields( $field_key, $field_value, $term_meta_value, $this->obj, 'div' );
 				}
 
 				// Create and display closing HTML block
-				$fields .= cstmstff_display_close();
+				$fields .= '</div>'; // End of opening cstmstff_get_column
 			}
 
 			// Display all field HTML
@@ -74,9 +80,12 @@
 				$term_meta_value = isset( $term_meta_data ) ? $term_meta_data : false;
 
 				// START - Create and display opening HTML block
-				$fields .= cstmstff_display_open( $field_key, $field_value, $field_value['type'], $this->obj, false );
+				$fields .= cstmstff_get_column( $this->obj, $field_value['type'], false, 'tr' );
+				$fields .= cstmstff_get_label( $this->obj, $field_key, $field_value['label'], 'th' );
 
 				if ( $field_value['multi'] ) {
+					$fields .= cstmstff_get_row( $this->obj, 'td' );
+
 					// Loop through multiple text and checkbox fields
 					foreach ( $field_value['options'] as $option_key => $option_value ) {
 						// Get the multi meta data and value
@@ -84,17 +93,20 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Display mutli fields
-						$fields .= cstmstff_display_open( $option_key, $option_value, $field_value['type'], $this->obj, true );
-						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj );
-						$fields .= cstmstff_display_close();
+						$fields .= cstmstff_get_column( $this->obj, $field_value['type'], true, 'div' );
+						$fields .= cstmstff_get_label( $this->obj, $option_key, $option_value['label'], 'div' );
+						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj, 'div' );
+						$fields .= '</div>'; // End of multi cstmstff_get_column
 					}
+
+					$fields .= '</div></td>'; // End of multi cstmstff_get_row
 				} else {
 					// Display all other field types
-					$fields .= cstmstff_display_fields( $field_key, $field_value, $term_meta_value, $this->obj );
+					$fields .= cstmstff_display_fields( $field_key, $field_value, $term_meta_value, $this->obj, 'td' );
 				}
 
 				// Create and display closing HTML block
-				$fields .= cstmstff_display_close();
+				$fields .= '</tr>'; // End of opening cstmstff_get_column
 			}
 
 			// Display all field HTML
