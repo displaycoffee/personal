@@ -65,10 +65,10 @@
 	// Include multi-use files
 	require_once( CSTMSTFF_DIR . 'includes/fields.php' );
 	require_once( CSTMSTFF_DIR . 'includes/validation.php' );
-	//
-	// // Options
-	// require_once( CSTMSTFF_DIR . 'options/options-array.php' );
-	// require_once( CSTMSTFF_DIR . 'options/options-page.php' );
+
+	// Options
+	require_once( CSTMSTFF_DIR . 'options/option-fields.php' );
+	require_once( CSTMSTFF_DIR . 'options/option-page.php' );
 
 	// Post Types
 	require_once( CSTMSTFF_DIR . 'types/posts/post-type.php' );

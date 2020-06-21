@@ -58,12 +58,12 @@
 		switch ( $value['type'] ) {
 			// Text area
 			case 'textarea':
-				$display .= '<textarea name="' . $key . '" id="' . $key . '">' . $value['validate']( $meta_value ) . '</textarea>';
+				$display .= '<textarea name="' . $value['name'] . '" id="' . $key . '">' . $value['validate']( $meta_value ) . '</textarea>';
 				break;
 
 			// Select drop down
 			case 'select':
-				$display .= '<select name="' . $key . '" id="' . $key . '">';
+				$display .= '<select name="' . $value['name'] . '" id="' . $key . '">';
 				foreach ( $value['options'] as $option ) {
 					// Check for selected option and set as value
 					$selected_option = ( $meta_value == $option ) ? ' selected="selected"' : '';
@@ -86,14 +86,14 @@
 					}
 
 					// Create option block
-					$display .= '<input type="radio" name="' . $key . '" id="' . $option_key . '" value="' . $value['validate']( $option_value['label'], $value['options'] ) . '"' . $selected_option . ' />';
+					$display .= '<input type="radio" name="' . $value['name'] . '" id="' . $option_key . '" value="' . $value['validate']( $option_value['label'], $value['options'] ) . '"' . $selected_option . ' />';
 				}
 				break;
 
 			// Checkbox
 			case 'checkbox':
 				$selected_option = $meta_value ? $checked : '';
-				$display .= '<input type="checkbox" name="' . $key . '" value="' . $value['validate']( $value['value'] )  . '" id="' . $key . '"' . $selected_option . ' />';
+				$display .= '<input type="checkbox" name="' . $value['name'] . '" value="' . $value['validate']( $value['value'] )  . '" id="' . $key . '"' . $selected_option . ' />';
 				break;
 
 			// Color
@@ -103,7 +103,7 @@
 					$display .= '<div class="selected-color"><strong>' . __( 'Current Color:', $obj['lang'] ) . '</strong>' . $value['validate']( $meta_value ) . '</div>';
 				}
 
-				$display .= '<input type="text" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" class="color-picker" />';
+				$display .= '<input type="text" name="' . $value['name'] . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" class="color-picker" />';
 				break;
 
 			// Media
@@ -114,7 +114,7 @@
 				}
 
 				$display .= '<div class="media-picker">';
-				$display .= '<input type="url" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
+				$display .= '<input type="url" name="' . $value['name'] . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
 				$display .= '<button type="button" class="button button-primary media-select" />' . __( 'Choose Image', $obj['lang'] ) . '</button>';
 				$display .= '<button type="button" class="button button-secondary media-reset" />' . __( 'Clear Image', $obj['lang'] ) . '</button>';
 				$display .= '</div>';
@@ -132,7 +132,7 @@
 				$field_type = ( $value['type'] == 'url' ) ? 'url' : 'text';
 
 				// Display final field type
-				$display .= '<input type="' . $field_type . '" name="' . $key . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '"' . $field_class . ' />';
+				$display .= '<input type="' . $field_type . '" name="' . $value['name'] . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '"' . $field_class . ' />';
 		}
 
 		return $display;

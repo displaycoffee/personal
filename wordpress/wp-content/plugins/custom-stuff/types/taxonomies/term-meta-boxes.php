@@ -4,7 +4,7 @@
 
 	// Class for putting together all the meta box goodness
 	class CSTMSTFF_Term_Meta_Box {
-		// Add actions for meta boxes
+		// Contruct variables and actions
 		function __construct( $meta_key, $meta_value, $obj ) {
 			// Setting up "global" variables
 			$this->meta_key = $meta_key;
@@ -44,6 +44,7 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Add to option properties
+						$field_value['name'] = $option_key;
 						$option_value['type'] = $field_value['type'];
 						$option_value['parent'] = true;
 
@@ -53,6 +54,9 @@
 						$fields .= cstmstff_get_layout_close( $this->obj['classes'], $option_value, 'div' );
 					}
 				} else {
+					// Add to value properties
+					$field_value['name'] = $field_key;
+
 					// Display all other field types
 					$fields .= cstmstff_display_fields( $field_key, $field_value, $term_meta_value, $this->obj );
 				}
@@ -87,6 +91,7 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Add to option properties
+						$field_value['name'] = $option_key;
 						$option_value['type'] = $field_value['type'];
 						$option_value['parent'] = true;
 
@@ -96,6 +101,9 @@
 						$fields .= cstmstff_get_layout_close( $this->obj['classes'], $option_value, 'div' );
 					}
 				} else {
+					// Add to value properties
+					$field_value['name'] = $field_key;
+
 					// Display all other field types
 					$fields .= cstmstff_display_fields( $field_key, $field_value, $term_meta_value, $this->obj );
 				}
@@ -138,7 +146,7 @@
 							}
 						}
 					} else {
-						// Some vaidate functions pass an extra parameter
+						// Some validate functions pass an extra parameter
 						if ( $field_value['type'] == 'select' || $field_value['type'] == 'radio' ) {
 							$validated_value = $field_value['validate']( $_POST[$field_key], $field_value['options'] );
 						} else {
