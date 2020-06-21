@@ -12,14 +12,14 @@
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'text',
 					'validate' => $obj['prefix'] . '_sanitize_html',
-					'column'   => 'yes'
+					'column'   => true
 				),
 				$obj['prefix'] . '-term-url' => array(
 					'label'    => __( 'URL', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'url',
 					'validate' => 'esc_url',
-					'column'   => 'no'
+					'column'   => false
 				),
 				$obj['prefix'] . '-term-multitext' => array(
 					'label'    => __( 'Multiple Text Boxes', $obj['lang'] ),
@@ -27,7 +27,7 @@
 					'type'     => 'text',
 					'multi'    => true,
 					'validate' => $obj['prefix'] . '_sanitize_html',
-					'column'   => 'no',
+					'column'   => false,
 					'options'  => array(
 						$obj['prefix'] . '-term-multitext01' => array(
 							'label' => __( 'Multi Text 01', $obj['lang'] )
@@ -48,14 +48,14 @@
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'textarea',
 					'validate' => $obj['prefix'] . '_sanitize_textarea',
-					'column'   => 'no'
+					'column'   => false
 				),
 				$obj['prefix'] . '-term-select' => array(
 					'label'    => __( 'Select Box', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'select',
 					'validate' => $obj['prefix'] . '_sanitize_select',
-					'column'   => 'yes',
+					'column'   => true,
 					'options'  => array(
 						__( 'Option 1', $obj['lang'] ),
 						__( 'Option 2', $obj['lang'] ),
@@ -67,7 +67,7 @@
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'radio',
 					'validate' => $obj['prefix'] . '_sanitize_radio',
-					'column'   => 'yes',
+					'column'   => true,
 					'options'  => array(
 						$obj['prefix'] . '-term-radio01' => array(
 							'label'   => __( 'Radio 01', $obj['lang'] ),
@@ -89,7 +89,7 @@
 					'type'     => 'checkbox',
 					'validate' => $obj['prefix'] . '_sanitize_checkbox',
 					'value'    => 1,
-					'column'   => 'yes'
+					'column'   => true
 				),
 				$obj['prefix'] . '-term-multicheck' => array(
 					'label'    => __( 'Multiple Checkboxes', $obj['lang'] ),
@@ -98,7 +98,7 @@
 					'multi'    => true,
 					'validate' => $obj['prefix'] . '_sanitize_checkbox',
 					'value'    => 1,
-					'column'   => 'no',
+					'column'   => false,
 					'options'  => array(
 						$obj['prefix'] . '-term-multicheck01' => array(
 							'label' => __( 'Multi Check 01', $obj['lang'] )
@@ -119,21 +119,21 @@
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'date',
 					'validate' => $obj['prefix'] . '_sanitize_date',
-					'column'   => 'no'
+					'column'   => false
 				),
 				$obj['prefix'] . '-term-color' => array(
 					'label'    => __( 'Color Picker', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'color',
 					'validate' => $obj['prefix'] . '_sanitize_hex',
-					'column'   => 'no'
+					'column'   => false
 				),
 				$obj['prefix'] . '-term-media' => array(
 					'label'    => __( 'Media Library', $obj['lang'] ),
 					'desc'     => __( 'Enter something here if you want. If not, just remove it.', $obj['lang'] ),
 					'type'     => 'media',
 					'validate' => 'esc_url',
-					'column'   => 'no'
+					'column'   => false
 				)
 			)
 		)

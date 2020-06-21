@@ -10,6 +10,7 @@
 			$this->meta_key = $meta_key;
 			$this->meta_value = $meta_value;
 			$this->obj = $obj;
+			$this->nonce = 'post_meta_field_nonce';
 
 			// Add actions for meta boxes
 			add_action( 'admin_menu', array( &$this, 'add' ) );
@@ -31,17 +32,16 @@
 		// Show meta box
 		function show( $post ) {
 			// Use nonce for verification
-			$open = '<input type="hidden" name="post_meta_field_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
+			$fields = '<input type="hidden" name="' . $this->nonce . '" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
 
 			// Loop through each meta box
-			$fields = '';
 			foreach ( $this->meta_value['fields'] as $field_key => $field_value ) {
 				// Get the meta data and value
 				$post_meta_data = get_post_meta( $post->ID, $field_key, true );
 				$post_meta_value = isset( $post_meta_data ) ? $post_meta_data : false;
 
-				// START - Create and display opening HTML block
-				$fields .= cstmstff_display_open( $field_key, $field_value, $field_value['type'], $this->obj, false );
+				// Create and display opening HTML block
+				$fields .= cstmstff_get_layout_open( $this->obj['classes'], $field_key, $field_value, 'div' );
 
 				if ( $field_value['multi'] ) {
 					// Loop through multiple text and checkbox fields
@@ -50,10 +50,14 @@
 						$multitext_data = get_post_meta( $post->ID, $option_key, true );
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
+						// Add to option properties
+						$option_value['type'] = $field_value['type'];
+						$option_value['parent'] = true;
+
 						// Display mutli fields
-						$fields .= cstmstff_display_open( $option_key, $option_value, $field_value['type'], $this->obj, true );
+						$fields .= cstmstff_get_layout_open( $this->obj['classes'], $option_key, $option_value, 'div' );
 						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj );
-						$fields .= cstmstff_display_close();
+						$fields .= cstmstff_get_layout_close( $this->obj['classes'], $option_value, 'div' );
 					}
 				} else {
 					// Display all other field types
@@ -61,17 +65,17 @@
 				}
 
 				// Create and display closing HTML block
-				$fields .= cstmstff_display_close();
+				$fields .= cstmstff_get_layout_close( $this->obj['classes'], $field_value, 'div' );
 			}
 
 			// Display all field HTML
-			echo $open . $fields . $close;
+			echo $fields;
 		}
 
 		// Save data from meta box
 		function save( $post_id ) {
 			// Verify nonce
-			if ( !isset( $_POST['post_meta_field_nonce'] ) || !wp_verify_nonce( $_POST['post_meta_field_nonce'], basename( __FILE__ ) ) ) {
+			if ( !isset( $_POST[$this->nonce] ) || !wp_verify_nonce( $_POST[$this->nonce], basename( __FILE__ ) ) ) {
 				return $post_id;
 			}
 

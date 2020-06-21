@@ -18,16 +18,13 @@
 		'lang'    => 'custom-stuff',
 		'prefix'  => $prefix,
 		'classes' => array(
+			'main'   => $prefix . '-form-field',
 			'field'  => 'form-field',
-			'label'  => $prefix . '-field-label',
-			'value'  => $prefix . '-field-value',
-			'desc'   => $prefix . '-field-description',
-			'type'   => function( $prefix, $type ) {
-				return $prefix . '-field ' . $prefix . '-field' . '-' . $type;
-			},
-			'layout' => function( $multi, $prefix, $type ) {
-				return ( $multi ) ? ( ' ' . $prefix . '-field-' . $type ) : '';
-			}
+			'row'    => 'form-field-row',
+			'column' => 'form-field-column',
+			'label'  => 'form-field-label',
+			'value'  => 'form-field-value',
+			'desc'   => 'form-field-description description'
 		)
 	);
 
