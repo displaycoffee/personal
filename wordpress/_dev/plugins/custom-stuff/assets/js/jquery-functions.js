@@ -1,3 +1,26 @@
+// Add classes to table elements on options page
+function addOptionClasses( selector ) {
+	var tableRows = jQuery( selector );
+	var labelClass = 'form-field-label';
+	var valueClass = 'form-field-value';
+
+	if ( tableRows && tableRows.length > 0 ) {
+		tableRows.each( function() {
+			var currentRow = jQuery( this );
+			var currentTh = currentRow.find( 'th' );
+			var currentTd = currentRow.find( 'td' );
+
+			if ( !currentTh.hasClass( labelClass ) ) {
+				currentTh.addClass( labelClass );
+			}
+
+			if ( !currentTd.hasClass( valueClass ) ) {
+				currentTd.addClass( valueClass );
+			}
+		});
+	}
+}
+
 // WordPress Media Library
 function cstmstffSelectImage( selectButton, selectInput ) {
 	// Instantiates the variable that holds the media library frame...

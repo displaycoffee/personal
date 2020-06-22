@@ -22,6 +22,9 @@ jQuery( document ).ready( function( $ ) {
 	// Media picker input
 	var mediaInput = 'input[type="url"]';
 
+	// Add classes to options page as needed
+	addOptionClasses( '.' + pluginObj['prefix'] + '-options .' + pluginObj['prefix'] + '-form-field' );
+
 	// Add media library picker
 	var selectMedia = $( '.media-select' );
 	selectMedia.each( function() {
@@ -42,8 +45,4 @@ jQuery( document ).ready( function( $ ) {
 			resetParents.find( '.selected-media' ).remove();
 		});
 	});
-
-	// $( '.cstmstff-options .form-table' ).each( function() {
-	// 	$( this ).find( 'tr' ).addClass( 'form-field' );
-	// });
 });

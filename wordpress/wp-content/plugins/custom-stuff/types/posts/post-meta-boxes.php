@@ -51,13 +51,15 @@
 						$multitext_value = isset( $multitext_data ) ? $multitext_data : false;
 
 						// Add to option properties
-						$field_value['name'] = $option_key;
+						$option_value['name'] = $option_key;
 						$option_value['type'] = $field_value['type'];
+						$option_value['validate'] = $field_value['validate'];
+						$option_value['value'] = $field_value['value'];
 						$option_value['parent'] = true;
 
 						// Display mutli fields
 						$fields .= cstmstff_get_layout_open( $this->obj['classes'], $option_key, $option_value, 'div' );
-						$fields .= cstmstff_display_fields( $option_key, $field_value, $multitext_value, $this->obj );
+						$fields .= cstmstff_display_fields( $option_key, $option_value, $multitext_value, $this->obj );
 						$fields .= cstmstff_get_layout_close( $this->obj['classes'], $option_value, 'div' );
 					}
 				} else {
