@@ -1,0 +1,44 @@
+/* Form fields
+============================================== */
+
+.#{$prefix}-form-field {
+	.form-field-value {
+		input[type='text'], input[type='url'], textarea, select {
+			width: 100%;
+			max-width: none;
+		}
+		textarea {
+			min-height: 300px;
+		}
+	}
+	.form-field-description {
+		margin: 10px 0 0 0;
+	}
+}
+
+/* Form fields - Posts
+============================================== */
+
+#poststuff [id*='cstmstff-post-meta'] {
+	h2.hndle {
+		margin: 0 0 30px 0;
+	}
+	.#{$prefix}-form-field:not(.form-field-column) {
+		@include flex-flow(row nowrap);
+		margin: 20px -10px;
+		& > .form-field-label, & > .form-field-value {
+			padding: 0 10px;
+		}
+		& > .form-field-label {
+			padding-top: 4px;
+			flex: 0 0 200px;
+			label {
+				color: $color-00;
+				font-weight: 600;
+			}
+		}
+		& > .form-field-value {
+			flex: 1 1 0%;
+		}
+	}
+}

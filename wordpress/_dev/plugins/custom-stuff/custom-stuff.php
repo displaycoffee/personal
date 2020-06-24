@@ -55,9 +55,9 @@
 
 			// Enqueue the required javascript
 			wp_enqueue_script( $obj['prefix'] . '_asset', plugin_dir_url( __FILE__ ) . 'assets/js/functions.js' );
-		//
-		// 	// Enqueue the required CSS
-		// 	wp_enqueue_style( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
+
+			// Enqueue the required CSS
+			wp_enqueue_style( 'cstmstff_asset', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
 		}
 	}
 	add_action( 'admin_enqueue_scripts', function() use ( $obj ) { cstmstff_enqueue_assets( $obj ); }, 10, 1 );
