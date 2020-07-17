@@ -16,12 +16,41 @@ body[class*='#{$prefix}'] .form-field {
 		width: 200px;
 	}
 	.wp-picker-container {
-		.wp-color-result {
-			padding-left: 60px;
+		.wp-color-result, .wp-picker-holder .iris-picker {
 			border-color: $color-01;
 		}
+		&.wp-picker-active {
+			.wp-picker-input-wrap {
+				display: block;
+			}
+		}
+		.wp-color-result {
+			padding-left: 60px;
+		}
+		.wp-picker-input-wrap {
+			position: relative;
+			padding: 0 55px 0 0;
+			label {
+				padding: 0;
+			}
+			.button {
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 45px;
+				min-height: 30px;
+			}
+		}
+		.wp-picker-holder {
+			&, * {
+				box-sizing: content-box;
+			}
+			.iris-picker {
+				border-radius: 4px;
+			}
+		}
 	}
-	.wp-picker-container .wp-color-result, .form-field-description, .description {
+	.wp-picker-container .wp-color-result, .wp-picker-container .wp-picker-input-wrap, .wp-picker-container .wp-picker-holder .iris-picker, .form-field-description, .description {
 		margin: 10px 0 0 0;
 	}
 }
