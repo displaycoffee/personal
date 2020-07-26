@@ -1,90 +1,132 @@
 /* Form fields
 ============================================== */
 
-body[class*='#{$prefix}'] .form-field {
-	&, * {
-		box-sizing: border-box;
+body[class*='#{$prefix}'] {
+	#wpbody-content > .wrap h1, #wpbody-content > .wrap h2, #{$ff} label {
+		padding: 0;
 	}
-	input[type='text'], input[type='url'], textarea, select, .wp-picker-container .wp-color-result {
-		width: 100%;
-		max-width: none;
+	#wpbody-content > .wrap h2, #wpbody-content > .wrap h2 + p, #{$ff} {
+		margin: 0 0 20px 0;
 	}
-	textarea {
-		min-height: 300px;
+	#wpbody-content > .wrap h1, #poststuff .postbox h2.hndle {
+		margin: 0 0 30px 0;
 	}
-	input[type='text'].date-picker, .date-picker, .wp-picker-container {
-		width: 200px;
+	#wpbody-content > .wrap {
+		margin: 30px 20px 30px 0;
 	}
-	.wp-picker-container {
-		.wp-color-result, .wp-picker-holder .iris-picker {
-			border-color: $color-01;
-		}
-		&.wp-picker-active {
-			.wp-picker-input-wrap {
-				display: block;
-			}
-		}
-		.wp-color-result {
-			padding-left: 60px;
-		}
-		.wp-picker-input-wrap {
-			position: relative;
-			padding: 0 55px 0 0;
-			label {
-				padding: 0;
-			}
-			.button {
-				position: absolute;
-				right: 0;
-				top: 0;
-				width: 45px;
-				min-height: 30px;
-			}
-		}
-		.wp-picker-holder {
-			&, * {
-				box-sizing: content-box;
-			}
-			.iris-picker {
-				border-radius: 4px;
-			}
-		}
+	#{$ff} #{$ff}-row #{$ff}-column, #{$ff}#{$ff}-text #{$ff}-row #{$ff}-column #{$ff}-label label, #{$ff} .selected-color, #addtag #{$ff}:not(#{$ff}-column) > label, #addtag #{$ff}:not(#{$ff}-column) > #{$ff}-label > label {
+		margin: 0 0 10px 0;
 	}
-	.wp-picker-container .wp-color-result, .wp-picker-container .wp-picker-input-wrap, .wp-picker-container .wp-picker-holder .iris-picker, .form-field-description, .description {
+	#{$ff} #{$wp}-container #{$wp}-input-wrap, #{$ff} #{$wp}-container #{$wp}-holder .iris-picker, #{$ff} p {
 		margin: 10px 0 0 0;
 	}
-}
-
-.#{$prefix}-form-field {
-	.form-field-row {
-		@include flex-flow(row wrap);
-		margin: 0 -10px;
-		.form-field-column {
-			@include flex;
-			padding: 0 10px;
+	#{$ff} input[type='text'], #{$ff} input[type='url'], #{$ff} textarea, #{$ff} select, #{$ff} #{$wp}-container .wp-color-result, #{$ff} p, #edittag {
+		max-width: none;
+	}
+	#{$ff} {
+		&, * {
+			box-sizing: border-box;
 		}
-		.form-field-label label {
+		label {
 			color: $color-00;
 			font-weight: 600;
 		}
+		input[type='text'], input[type='url'], textarea, select, #{$wp}-container .wp-color-result {
+			width: 100%;
+		}
+		textarea {
+			min-height: 300px;
+		}
+		input[type='text']#{$dp}, #{$dp}, #{$wp}-container {
+			width: 200px;
+		}
 	}
-	&.form-field-text .form-field-row {
-		.form-field-column {
+}
+
+/* Form fields - Layout
+============================================== */
+
+body[class*='#{$prefix}'] {
+	.form-table {
+		table-layout: fixed;
+		margin: 0 0 -20px 0;
+		tr {
+			th {
+				padding: 0 5px 20px 0;
+			}
+			td {
+				padding: 0 0 20px 5px;
+			}
+		}
+	}
+	#{$ff} {
+		#{$ff}-row {
+			@include flex-flow(row wrap);
+			margin: 0 -5px -10px -5px;
+			#{$ff}-column {
+				@include flex;
+				padding: 0 5px;
+			}
+		}
+		&#{$ff}-text #{$ff}-row #{$ff}-column {
 			width: 25%;
+			#{$ff}-label label {
+				display: block;
+			}
 		}
-		.form-field-label label {
-			margin: 0 0 4px 0;
-			display: block;
-		}
-	}
-	&.form-field-checkbox .form-field-row {
-		.form-field-column {
-			.form-field-label, .form-field-value {
+		&#{$ff}-checkbox #{$ff}-row #{$ff}-column {
+			#{$ff}-label, #{$ff}-value {
 				@include inline-block(middle);
 			}
-			.form-field-label {
+			#{$ff}-label {
 				margin: 0 10px 0 0;
 			}
+		}
+	}
+}
+
+/* Form fields - Color Picker
+============================================== */
+
+body[class*='#{$prefix}'] #{$ff} #{$wp}-container {
+	@include position($type: relative, $z: 2);
+	&#{$wp}-active {
+		#{$wp}-input-wrap {
+			display: block;
+		}
+		& ~ .description {
+			opacity: 0;
+		}
+	}
+	.wp-color-result, #{$wp}-holder .iris-picker {
+		border-color: $color-01;
+	}
+	#{$wp}-input-wrap, #{$wp}-input-wrap .button, #{$wp}-holder {
+		position: absolute;
+	}
+	#{$wp}-input-wrap, #{$wp}-holder {
+		left: 0;
+	}
+	.wp-color-result {
+		padding-left: 60px;
+		margin: 0;
+	}
+	#{$wp}-input-wrap {
+		top: auto;
+		padding: 0 55px 0 0;
+		.button {
+			@include position($right: 0, $top: 0);
+			width: 45px;
+			min-height: 30px;
+		}
+	}
+	#{$wp}-holder {
+		top: 70px;
+		&, * {
+			box-sizing: content-box;
+		}
+		.iris-picker {
+			border-radius: 4px;
 		}
 	}
 }
@@ -92,33 +134,17 @@ body[class*='#{$prefix}'] .form-field {
 /* Form fields - Posts
 ============================================== */
 
-#poststuff [id*='#{$prefix}-post'] {
-	h2.hndle {
-		margin: 0 0 30px 0;
+body[class*='#{$prefix}'] #poststuff .postbox #{$ff}:not(#{$ff}-column) {
+	@include flex-flow(row nowrap);
+	margin-left: -5px;
+	margin-right: -5px;
+	& > #{$ff}-label, & > #{$ff}-value {
+		padding: 0 5px;
 	}
-	.#{$prefix}-form-field:not(.form-field-column) {
-		@include flex-flow(row nowrap);
-		margin: 20px -10px;
-		& > .form-field-label, & > .form-field-value {
-			padding: 0 10px;
-		}
-		& > .form-field-label {
-			padding-top: 4px;
-			flex: 0 0 200px;
-			label {
-				color: $color-00;
-				font-weight: 600;
-			}
-		}
-		& > .form-field-value {
-			flex: 1 1 0%;
-		}
+	& > #{$ff}-label {
+		flex: 0 0 200px;
 	}
-}
-
-/* Form fields - Edit Categories
-============================================== */
-
-body[class*='taxonomy-#{$prefix}'] #edittag {
-	max-width: none;
+	& > #{$ff}-value {
+		flex: 1 1 0%;
+	}
 }
