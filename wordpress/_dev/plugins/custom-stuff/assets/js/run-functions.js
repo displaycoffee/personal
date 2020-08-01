@@ -1,16 +1,16 @@
 // Run all jquery functions on document ready
 jQuery( document ).ready( function( $ ) {
-	// Add jquery date picker
-	$( '.date-picker' ).datepicker({
-		dateFormat : 'mm/dd/yy'
-	});
+	// Add classes to options page as needed
+	cstmstffAddOptionClasses( '.' + pluginObj['prefix'] + '-options .' + pluginObj['prefix'] + '-form-field' );
+
+	// Add date field functionality
+	cstmstffInitDate( $( '.form-field-date' ) );
 
 	// Add color picker
 	$( '.color-picker' ).wpColorPicker();
 
 	// Add color picker reset
-	var resetColor = $( '.wp-picker-clear' );
-	resetColor.each( function() {
+	$( '.wp-picker-clear' ).each( function() {
 		var resetCurrent = $( this );
 		var resetParents = resetCurrent.parents( pluginObj['fieldValue'] );
 
@@ -22,16 +22,13 @@ jQuery( document ).ready( function( $ ) {
 	// Media picker input
 	var mediaInput = 'input[type="url"]';
 
-	// Add classes to options page as needed
-	addOptionClasses( '.' + pluginObj['prefix'] + '-options .' + pluginObj['prefix'] + '-form-field' );
-
 	// Add media library picker
 	var selectMedia = $( '.media-select' );
 	selectMedia.each( function() {
 		var selectCurrent = $( this );
 		var selectParents = selectCurrent.parents( pluginObj['fieldValue'] );
 
-		cstmstffSelectImage( selectCurrent, selectParents.find( mediaInput ) );
+		cstmstffSelectImage( selectCurrent, selectParents.find( mediaInput ), selectParents.find( '.selected-media img' ) );
 	});
 
 	// Add media library reset

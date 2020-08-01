@@ -54,10 +54,18 @@
 	// Date
 	function cstmstff_sanitize_date( $input ) {
 		// Get each value in the date - month, day, year
-		$date = preg_match( '/(\d{2})\/(\d{2})\/(\d{4})/', $input, $match );
+		$date = preg_match( '/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/', $input, $match );
 
 		if ( $date == '1' && checkdate( $match[1], $match[2], $match[3] ) ) {
-			return $match[1] . '/' . $match[2] . '/' . $match[3];
+			// Format month if lengths are not consistent
+			$month_match = $match[3];
+			if ( strlen( $match[3] ) == 3 ) {
+				$month_match = '2' . $match[3];
+			} elseif ( strlen( $match[3] ) == 2 ) {
+				$month_match = '20' . $match[3];
+			}
+
+			return zeroise( $match[1], 2 ) . '/' . zeroise( $match[2], 2 ) . '/' . $month_match;
 		} else {
 			return null;
 		}

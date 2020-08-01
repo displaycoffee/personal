@@ -39,13 +39,6 @@
 	// Loads necessary javascript and CSS
 	function cstmstff_enqueue_assets( $obj ) {
 		if ( get_current_screen()->post_type == ( $obj['prefix'] . '-post-type' ) ) {
-			// Register and enqueue jquery ui styles
-			wp_register_style( 'jquery-ui', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
-			wp_enqueue_style( 'jquery-ui' );
-
-			// Enqueue date picker
-			wp_enqueue_script( 'jquery-ui-datepicker', array( 'jquery', 'jquery-ui-core', 'jquery-ui-datepicker' ), time(), true );
-
 			// Enqueue color picker
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker' );
