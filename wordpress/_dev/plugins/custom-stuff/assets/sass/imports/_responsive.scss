@@ -1,0 +1,75 @@
+/* 1219 Breakpoint
+============================================== */
+
+@include respond(1219px) {
+	body[class*='#{$prefix}'] {
+		#{$ff} {
+			#{$ff}-row #{$ff}-column, &#{$ff}-text #{$ff}-row #{$ff}-column {
+				width: 50%;
+			}
+		}
+		#{$ff}-date #{$ff}-value #{$ff}-row {
+			#{$ff}-column {
+				width: 33.33%;
+			}
+			.date-field-month, .date-field-day, .date-field-year {
+				width: 100%;
+			}
+		}
+		#poststuff .postbox #{$ff}:not(#{$ff}-column) > #{$ff}-label {
+			flex: 0 0 150px;
+		}
+	}
+}
+
+/* 782 Breakpoint
+============================================== */
+
+@include respond(782px) {
+	body[class*='#{$prefix}'] {
+		#{$ff}-date #{$ff}-value #{$ff}-row #{$ff}-column, #{$ff}-media #{$ff}-value #{$ff}-row #{$ff}-button {
+			width: 50%;
+		}
+		#{$ff} #{$ff}-row #{$ff}-column, #{$ff}#{$ff}-text #{$ff}-row #{$ff}-column, #{$ff}-date #{$ff}-value #{$ff}-row #{$ff}-select, #{$ff} #{$wp}-container, #{$ff}-media #{$ff}-value #{$ff}-row #{$ff}-button .button {
+			width: 100%;
+		}
+		.form-table tr {
+			th {
+				padding: 0 0 10px 0;
+			}
+			td {
+				padding: 0 0 20px 0;
+			}
+		}
+		#{$ff}#{$ff}-checkbox #{$ff}-row #{$ff}-column {
+			#{$ff}-label, #{$ff}-value {
+				min-height: 25px;
+			}
+		}
+		#{$ff} #{$wp}-container {
+			.wp-color-result {
+				padding-left: 33.33%;
+			}
+			#{$wp}-input-wrap .button {
+				line-height: 2.18181818;
+				padding: 0 8px;
+				font-size: 11px;
+			}
+		}
+		#{$ff}-media #{$ff}-value #{$ff}-row {
+			flex-wrap: wrap;
+			#{$ff}-column {
+				min-width: 1px;
+			}
+			#{$ff}-url {
+				flex: 1 1 100%;
+			}
+		}
+		#poststuff .postbox #{$ff}:not(#{$ff}-column) {
+			display: block;
+			& > #{$ff}-label {
+				margin: 0 0 10px 0;
+			}
+		}
+	}
+}

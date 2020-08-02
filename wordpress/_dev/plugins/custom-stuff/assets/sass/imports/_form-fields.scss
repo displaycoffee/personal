@@ -14,13 +14,13 @@ body[class*='#{$prefix}'] {
 	#wpbody-content > .wrap {
 		margin: 30px 20px 30px 0;
 	}
-	#{$ff} #{$ff}-row #{$ff}-column, #{$ff}#{$ff}-text #{$ff}-row #{$ff}-column #{$ff}-label label, #{$ff} .selected-color, #addtag #{$ff}:not(#{$ff}-column) > label, #addtag #{$ff}:not(#{$ff}-column) > #{$ff}-label > label {
+	#{$ff} #{$ff}-row #{$ff}-column, #{$ff}#{$ff}-text #{$ff}-row #{$ff}-column #{$ff}-label label, #{$ff} .selected-color, #{$ff}-media #{$ff}-value .selected-media, #{$ff}-media #{$ff}-value .selected-media strong, #addtag #{$ff}:not(#{$ff}-column) > label, #addtag #{$ff}:not(#{$ff}-column) > #{$ff}-label > label {
 		margin: 0 0 10px 0;
 	}
 	#{$ff} #{$wp}-container #{$wp}-input-wrap, #{$ff} #{$wp}-container #{$wp}-holder .iris-picker, #{$ff} p {
 		margin: 10px 0 0 0;
 	}
-	#{$ff} input[type='text'], #{$ff} input[type='url'], #{$ff} textarea, #{$ff} select, #{$ff} #{$wp}-container .wp-color-result, #{$ff} p, #edittag {
+	#{$ff} input[type='text'], #{$ff} input[type='url'], #{$ff} input[type='number'], #{$ff} textarea, #{$ff} select, #{$ff} #{$wp}-container .wp-color-result, #{$ff} p, #edittag {
 		max-width: none;
 	}
 	#{$ff} {
@@ -30,15 +30,16 @@ body[class*='#{$prefix}'] {
 		label {
 			color: $color-00;
 			font-weight: 600;
+			input {
+				font-weight: 400;
+			}
 		}
-		input[type='text'], input[type='url'], textarea, select, #{$wp}-container .wp-color-result {
+		input[type='text'], input[type='url'], input[type='number'], textarea, select, #{$wp}-container .wp-color-result {
 			width: 100%;
+			margin: 0;
 		}
 		textarea {
 			min-height: 300px;
-		}
-		input[type='text']#{$dp}, #{$dp}, #{$wp}-container {
-			width: 200px;
 		}
 	}
 }
@@ -49,7 +50,7 @@ body[class*='#{$prefix}'] {
 body[class*='#{$prefix}'] {
 	.form-table {
 		table-layout: fixed;
-		margin: 0 0 -20px 0;
+		margin: 0;
 		tr {
 			th {
 				padding: 0 5px 20px 0;
@@ -85,11 +86,33 @@ body[class*='#{$prefix}'] {
 	}
 }
 
+/* Form fields - Date
+============================================== */
+
+body[class*='#{$prefix}'] #{$ff}-date #{$ff}-value {
+	.date-field-text {
+		@include sr-only;
+	}
+	#{$ff}-row {
+		@include position($type: relative, $left: -1px);
+		.date-field-month {
+			width: auto;
+		}
+		.date-field-day {
+			width: 50px;
+		}
+		.date-field-year {
+			width: 100px;
+		}
+	}
+}
+
 /* Form fields - Color Picker
 ============================================== */
 
 body[class*='#{$prefix}'] #{$ff} #{$wp}-container {
 	@include position($type: relative, $z: 2);
+	width: 200px;
 	&#{$wp}-active {
 		#{$wp}-input-wrap {
 			display: block;
@@ -127,6 +150,32 @@ body[class*='#{$prefix}'] #{$ff} #{$wp}-container {
 		}
 		.iris-picker {
 			border-radius: 4px;
+		}
+	}
+}
+
+
+/* Form fields - Media Library
+============================================== */
+
+body[class*='#{$prefix}'] #{$ff}-media #{$ff}-value {
+	.selected-media {
+		strong {
+			display: block;
+		}
+		img {
+			@include sizing(auto, auto);
+			max-width: 100%;
+			max-height: 300px;
+		}
+	}
+	#{$ff}-row {
+		flex-wrap: nowrap;
+		#{$ff}-column {
+			width: auto;
+		}
+		#{$ff}-url {
+			flex: 1 1 0%;
 		}
 	}
 }

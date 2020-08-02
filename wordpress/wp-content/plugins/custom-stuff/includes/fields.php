@@ -11,8 +11,8 @@
 
 		// Column HTML layout
 		$column_type = $obj['main'] . ' ' . $obj['field'] . ' ' . $obj['field'] . '-' . $value['type'];
-		$column_class = $value['parent'] ? ( ' ' . $obj['column'] ) : '';
-		$display = '<' . $column_element . ' class="' . $column_type . $column_class .  '">';
+		$column_class = $value['parent'] ? ( $obj['column'] . ' ' ) : '';
+		$display = '<' . $column_element . ' class="' . $column_class . $column_type .  '">';
 
 		// Label HTML layout
 		$display .= '<' . $label_element . ' class="' . $obj['label'] . '">';
@@ -48,42 +48,6 @@
 		$display .= '</' . $column_element . '>';
 
 		return $display;
-	}
-
-	// Create column layout for date field
-	function cstmstff_get_date_layout( $obj, $key, $value, $type ) {
-		$date_field_type = ( $type == 'month' ) ? 'select' : 'number';
-		$date_field_class = 'class="date-field-' . $type . '"';
-
-		// HTML for month versus day and year
-		if ( $type == 'month' ) {
-			$date_field = '<select id="' . $key . '-month" ' . $date_field_class . ' name="' . $key . '-month" >';
-			for ( $i = 1; $i < 13; $i = $i + 1 ) {
-				// Format month number, text, and selected attributes
-				$month_number = zeroise( $i, 2 );
-				$month_text = date( 'M', mktime( 0, 0, 0, $month_number, 10 ) );
-				$month_selected = ( $value == $month_number ) ? ' selected="selected"' : '';
-
-				// Put together option
-				$date_field .= '<option value="' . $month_number . '"' . $month_selected . '>' . $month_number . '-' . $month_text . '</option>';
-			}
-			$date_field .= '</select>';
-
-		} else {
-			$date_limit = ( $type == 'year' ) ? 4 : 2;
-			$date_field = '<input type="number" id="' . $key . '-' . $type . '" ' . $date_field_class . ' name="' . $key . '-' . $type . '" value="' . $value . '" size="' . $date_limit . '" maxlength="' . $date_limit . '" />';
-		}
-
-		// Setup date field classes
-		$date_field_class = $obj['classes']['main'] . ' ' . $obj['classes']['field'] . ' form-field-' . $date_field_type  . ' ' . $obj['classes']['column'];
-
-		// Create columns for all date fields
-		$column = '<div class="' . $date_field_class . '">';
-		$column .= '<div class="' . $obj['classes']['value'] . '">';
-		$column .= $date_field;
-		$column .= '</div>';
-		$column .= '</div>';
-		return $column;
 	}
 
 	// Loop through basic field types
@@ -132,6 +96,57 @@
 				$display .= '<input type="checkbox" name="' . $value['name'] . '" value="' . $value['validate']( $value['value'] )  . '" id="' . $key . '"' . $selected_option . ' />';
 				break;
 
+			// Date
+			case 'date':
+				// Split date
+				$date_array = $meta_value ? explode( '/' , $meta_value ) : array( '', '', '' );
+
+				// Setup date field classes
+				$date_column_class = $obj['classes']['column'] . ' ' . $obj['classes']['main'] . ' ' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-';
+
+				// First date column
+				$month_select = '<select id="' . $key . '-month" class="date-field-month" name="' . $key . '-month">';
+				$month_select .= '<option value="00">-- ' . __( 'Select Month', $obj['lang'] ) . ' --</option>';
+				for ( $i = 1; $i < 13; $i = $i + 1 ) {
+					// Format month number, text, and selected attributes
+					$month_number = zeroise( $i, 2 );
+					$month_text = date( 'M', mktime( 0, 0, 0, $month_number, 10 ) );
+					$month_selected = ( $date_array[0] == $month_number ) ? ' selected="selected"' : '';
+
+					// Put together option
+					$month_select .= '<option value="' . $month_number . '"' . $month_selected . '>' . $month_number . '-' . __( $month_text, $obj['lang'] ) . '</option>';
+				}
+				$month_select .= '</select>';
+
+				$column_1 = '<div class="' . $date_column_class . 'select">';
+				$column_1 .= '<div class="' . $obj['classes']['value'] . '">';
+				$column_1 .= $month_select;
+				$column_1 .= '</div>';
+				$column_1 .= '</div>';
+
+				// Second date column
+				$column_2 = '<div class="' . $date_column_class . 'number">';
+				$column_2 .= '<div class="' . $obj['classes']['value'] . '">';
+				$column_2 .= '<input type="number" id="' . $key . '-day"  class="date-field-day" name="' . $key . '-day" value="' . $date_array[1] . '" size="2" maxlength="2" />';
+				$column_2 .= '</div>';
+				$column_2 .= '</div>';
+
+				// Third date column
+				$column_3 = '<div class="' . $date_column_class . 'number">';
+				$column_3 .= '<div class="' . $obj['classes']['value'] . '">';
+				$column_3 .= '<input type="number" id="' . $key . '-year"  class="date-field-year" name="' . $key . '-year" value="' . $date_array[2] . '" size="4" maxlength="4" />';
+				$column_3 .= '</div>';
+				$column_3 .= '</div>';
+
+				// Remaining date display put together
+				$display .= '<input type="text" name="' . $value['name'] . '" id="' . $key . '" class="date-field-text" value="' . $value['validate']( $meta_value ) . '" />';
+				$display .= '<div class="' . $obj['classes']['row'] . '">';
+				$display .= $column_1;
+				$display .= $column_2;
+				$display .= $column_3;
+				$display .= '</div>';
+				break;
+
 			// Color
 			case 'color':
 				// Check if selected color is available
@@ -149,24 +164,35 @@
 					$display .= '<div class="selected-media"><strong>' . __( 'Current Image:', $obj['lang'] ) . '</strong><img src="' . $value['validate']( $meta_value ) . '" /></div>';
 				}
 
-				$display .= '<div class="media-picker">';
-				$display .= '<input type="url" name="' . $value['name'] . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
-				$display .= '<button type="button" class="button button-primary media-select" />' . __( 'Choose Image', $obj['lang'] ) . '</button>';
-				$display .= '<button type="button" class="button button-secondary media-reset" />' . __( 'Clear Image', $obj['lang'] ) . '</button>';
-				$display .= '</div>';
-				break;
+				// Setup date field classes
+				$media_column_class = $obj['classes']['column'] . ' ' . $obj['classes']['main'] . ' ' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-';
 
-			// Date
-			case 'date':
-				// Split date
-				$date_array = $meta_value ? explode( '/' , $meta_value ) : array( '01', '01', date( 'Y' ) );
+				// First media column
+				$column_1 = '<div class="' . $media_column_class . 'url">';
+				$column_1 .= '<div class="' . $obj['classes']['value'] . '">';
+				$column_1 .= '<input type="url" name="' . $value['name'] . '" id="' . $key . '" value="' . $value['validate']( $meta_value ) . '" />';
+				$column_1 .= '</div>';
+				$column_1 .= '</div>';
 
-				// Display final date type
-				$display .= '<input type="text" name="' . $value['name'] . '" id="' . $key . '" class="date-field-text" value="' . $value['validate']( $meta_value ) . '" />';
-				$display .= '<div class="' . $obj['classes']['row'] . '">';
-				$display .= cstmstff_get_date_layout( $obj, $key, $date_array[0], 'month' );
-				$display .= cstmstff_get_date_layout( $obj, $key, $date_array[1], 'day' );
-				$display .= cstmstff_get_date_layout( $obj, $key, $date_array[2], 'year' );
+				// Second media column
+				$column_2 = '<div class="' . $media_column_class . 'button">';
+				$column_2 .= '<div class="' . $obj['classes']['value'] . '">';
+				$column_2 .= '<button type="button" class="button button-primary media-select" />' . __( 'Choose Image', $obj['lang'] ) . '</button>';
+				$column_2 .= '</div>';
+				$column_2 .= '</div>';
+
+				// Third media column
+				$column_3 = '<div class="' . $media_column_class . 'button">';
+				$column_3 .= '<div class="' . $obj['classes']['value'] . '">';
+				$column_3 .= '<button type="button" class="button button-secondary media-reset" />' . __( 'Clear Image', $obj['lang'] ) . '</button>';
+				$column_3 .= '</div>';
+				$column_3 .= '</div>';
+
+				// Remaining media display put together
+				$display .= '<div class="media-picker ' . $obj['classes']['row'] . '">';
+				$display .= $column_1;
+				$display .= $column_2;
+				$display .= $column_3;
 				$display .= '</div>';
 				break;
 
