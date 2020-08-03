@@ -81,7 +81,7 @@
 				$field_value['name'] = $this->meta_value['options_group'] . '[' . $field_key . ']';
 
 				// Field class
-				$field_class = $this->obj['classes']['main'] . ' ' . $this->obj['classes']['field'];
+				$field_class = $this->obj['classes']['field'];
 				$field_class_type = ' ' . $this->obj['classes']['field'] . '-' . $field_value['type'];
 
 				// Arguments for adding onto the th / label element

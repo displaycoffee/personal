@@ -18,13 +18,12 @@
 		'lang'    => 'custom-stuff',
 		'prefix'  => $prefix,
 		'classes' => array(
-			'main'   => $prefix . '-form-field',
 			'field'  => 'form-field',
 			'row'    => 'form-field-row',
 			'column' => 'form-field-column',
 			'label'  => 'form-field-label',
 			'value'  => 'form-field-value',
-			'desc'   => 'form-field-description description'
+			'desc'   => 'description'
 		)
 	);
 

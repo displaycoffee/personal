@@ -1,8 +1,6 @@
 // Add classes to table elements on options page
 function cstmstffAddOptionClasses( selector ) {
 	var tableRows = jQuery( selector );
-	var labelClass = pluginObj['fieldLabel'].replace( '.', '' );
-	var valueClass = pluginObj['fieldValue'].replace( '.', '' );
 
 	if ( tableRows && tableRows.length > 0 ) {
 		tableRows.each( function() {
@@ -10,12 +8,30 @@ function cstmstffAddOptionClasses( selector ) {
 			var currentTh = currentRow.find( 'th' );
 			var currentTd = currentRow.find( 'td' );
 
-			if ( !currentTh.hasClass( labelClass ) ) {
-				currentTh.addClass( labelClass );
+			if ( !currentTh.hasClass( obj['classes']['label'] ) ) {
+				currentTh.addClass( obj['classes']['label'] );
 			}
-			if ( !currentTd.hasClass( valueClass ) ) {
-				currentTd.addClass( valueClass );
+			if ( !currentTd.hasClass( obj['classes']['value'] ) ) {
+				currentTd.addClass( obj['classes']['value'] );
 			}
+		});
+	}
+}
+
+// Add wrapper to form-field label
+function cstmstffAddWrappers( selector ) {
+	var label = jQuery( selector );
+
+	if ( label && label.length > 0 ) {
+		label.each( function() {
+			var currentLabel = jQuery( this );
+			var description = currentLabel.siblings( 'p' );
+
+			if ( !description.hasClass( obj['classes']['desc'] ) ) {
+				description.addClass( obj['classes']['desc'] );
+			}
+			currentLabel.siblings().wrapAll( '<div class="' + obj['classes']['value'] + '"></div>' );
+			currentLabel.wrap( '<div class="' + obj['classes']['label'] + '"></div>' );
 		});
 	}
 }

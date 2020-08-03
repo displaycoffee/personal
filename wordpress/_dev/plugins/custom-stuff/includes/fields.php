@@ -10,7 +10,7 @@
 		$value_element  = ( $layout == 'table' ) ? 'td' : 'div';
 
 		// Column HTML layout
-		$column_type = $obj['main'] . ' ' . $obj['field'] . ' ' . $obj['field'] . '-' . $value['type'];
+		$column_type = $obj['field'] . ' ' . $obj['field'] . '-' . $value['type'];
 		$column_class = $value['parent'] ? ( $obj['column'] . ' ' ) : '';
 		$display = '<' . $column_element . ' class="' . $column_class . $column_type .  '">';
 
@@ -102,7 +102,7 @@
 				$date_array = $meta_value ? explode( '/' , $meta_value ) : array( '', '', '' );
 
 				// Setup date field classes
-				$date_column_class = $obj['classes']['column'] . ' ' . $obj['classes']['main'] . ' ' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-';
+				$date_column_class = $obj['classes']['column'] . ' ' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-';
 
 				// First date column
 				$month_select = '<select id="' . $key . '-month" class="date-field-month" name="' . $key . '-month">';
@@ -165,7 +165,7 @@
 				}
 
 				// Setup date field classes
-				$media_column_class = $obj['classes']['column'] . ' ' . $obj['classes']['main'] . ' ' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-';
+				$media_column_class = $obj['classes']['column'] . ' ' . $obj['classes']['field'] . ' ' . $obj['classes']['field'] . '-';
 
 				// First media column
 				$column_1 = '<div class="' . $media_column_class . 'url">';
