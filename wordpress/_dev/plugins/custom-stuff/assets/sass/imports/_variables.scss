@@ -1,11 +1,17 @@
 // Globals
 // ============================================== //
 
-$prefix: 'cstmstff';
-$ff: '.form-field';
-$wp: '.wp-picker';
+$prefix : 'cstmstff';
+$admin  : '.' + $prefix + '-plugin-admin';
+$field  : '.form-field';
+$row    : '.form-field-row';
+$column : '.form-field-column';
+$label  : '.form-field-label';
+$value  : '.form-field-value';
+$desc   : '.description';
+$wp     : '.wp-picker';
 
 // Fonts
 // ============================================== //
 
-$base-font-size: 13px;
+$base-font-size : 13px;

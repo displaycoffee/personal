@@ -1,9 +1,23 @@
-// /* Form fields
-// ============================================== */
-//
+/* Form fields
+============================================== */
+
+#{$admin} {
+	#{$field} {
+		#{$label} label {
+			padding: 0;
+			color: $color-00;
+			font-weight: 600;
+			background: #ff00ff;
+			input {
+				font-weight: 400;
+			}
+		}
+	}
+}
+
 // body[class*='#{$prefix}'] {
 // 	#wpbody-content > .wrap h1, #wpbody-content > .wrap h2, #{$ff} label {
-// 		padding: 0;
+//
 // 	}
 // 	#wpbody-content > .wrap h2, #wpbody-content > .wrap h2 + p, #{$ff} {
 // 		margin: 0 0 20px 0;
@@ -28,11 +42,7 @@
 // 			box-sizing: border-box;
 // 		}
 // 		label {
-// 			color: $color-00;
-// 			font-weight: 600;
-// 			input {
-// 				font-weight: 400;
-// 			}
+
 // 		}
 // 		input[type='text'], input[type='url'], input[type='number'], textarea, select, #{$wp}-container .wp-color-result {
 // 			width: 100%;

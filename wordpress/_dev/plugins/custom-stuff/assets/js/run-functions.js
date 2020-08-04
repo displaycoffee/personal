@@ -1,6 +1,6 @@
 // Run all jquery functions on document ready
 jQuery( document ).ready( function( $ ) {
-	var formFieldSelector = 'body[class*=' + obj['prefix'] + '] .' + obj['classes']['field'];
+	var formFieldSelector = '.' + obj['classes']['admin'] + ' .' + obj['classes']['field'];
 
 	// Add classes and wrappers to form fields as needed
 	cstmstffAddOptionClasses( formFieldSelector );

@@ -18,6 +18,7 @@
 		'lang'    => 'custom-stuff',
 		'prefix'  => $prefix,
 		'classes' => array(
+			'admin'  => $prefix . '-plugin-admin',
 			'field'  => 'form-field',
 			'row'    => 'form-field-row',
 			'column' => 'form-field-column',
@@ -53,6 +54,14 @@
 		}
 	}
 	add_action( 'admin_enqueue_scripts', function() use ( $obj ) { cstmstff_enqueue_assets( $obj ); }, 10, 1 );
+
+	// Add body class for plugin styles
+	function cstmstff_add_body_class( $obj ) {
+		if ( get_current_screen()->post_type == ( $obj['prefix'] . '-post-type' ) ) {
+			return $obj['classes']['admin'];
+		}
+	}
+	add_filter( 'admin_body_class', function() use ( $obj ) { return cstmstff_add_body_class( $obj ); }, 10, 1 );
 
 	// Include multi-use files
 	require_once( CSTMSTFF_DIR . 'includes/fields.php' );
