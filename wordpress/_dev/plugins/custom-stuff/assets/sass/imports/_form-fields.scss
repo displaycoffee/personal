@@ -2,15 +2,39 @@
 ============================================== */
 
 #{$admin} {
+	#{$value} input[type='text'], #{$value} input[type='url'], #{$value} input[type='number'], #{$value} textarea, #{$value} select, #{$value} .description, #{$wpc} .wp-color-result, #edittag {
+		max-width: none;
+		width: 100%;
+		margin: 0;
+	}
+	#{$label} label, #{$row} #{$column}, #{$field}-color .selected-color, #{$field}-media .selected-media, #{$field}-media .selected-media strong {
+		margin: 0 0 10px 0;
+	}
+	#{$value} .description, #{$wpc} #{$wp}-input-wrap, #{$wpc}#{$wp}-active #{$wp}-holder, #{$wpc} #{$wp}-holder .iris-picker {
+		margin: 10px 0 0 0;
+	}
 	#{$field} {
-		#{$label} label {
-			padding: 0;
-			color: $color-00;
-			font-weight: 600;
-			background: #ff00ff;
-			input {
-				font-weight: 400;
+		&, * {
+			box-sizing: border-box;
+		}
+		&:not(#{$column}) {
+			& > #{$label} label {
+				font-size: 14px;
 			}
+		}
+	}
+	#{$label} label {
+		padding: 0;
+		color: $color-00;
+		font-weight: 600;
+		display: block;
+		input {
+			font-weight: 400;
+		}
+	}
+	#{$value} {
+		textarea {
+			min-height: 300px;
 		}
 	}
 }
@@ -28,143 +52,112 @@
 // 	#wpbody-content > .wrap {
 // 		margin: 30px 20px 30px 0;
 // 	}
-// 	#{$ff} #{$ff}-row #{$ff}-column, #{$ff}#{$ff}-text #{$ff}-row #{$ff}-column #{$ff}-label label, #{$ff} .selected-color, #{$ff}-media #{$ff}-value .selected-media, #{$ff}-media #{$ff}-value .selected-media strong, #addtag #{$ff}:not(#{$ff}-column) > label, #addtag #{$ff}:not(#{$ff}-column) > #{$ff}-label > label {
-// 		margin: 0 0 10px 0;
-// 	}
-// 	#{$ff} #{$wp}-container #{$wp}-input-wrap, #{$ff} #{$wp}-container #{$wp}-holder .iris-picker, #{$ff} p {
-// 		margin: 10px 0 0 0;
-// 	}
-// 	#{$ff} input[type='text'], #{$ff} input[type='url'], #{$ff} input[type='number'], #{$ff} textarea, #{$ff} select, #{$ff} #{$wp}-container .wp-color-result, #{$ff} p, #edittag {
-// 		max-width: none;
-// 	}
-// 	#{$ff} {
-// 		&, * {
-// 			box-sizing: border-box;
-// 		}
-// 		label {
 
-// 		}
-// 		input[type='text'], input[type='url'], input[type='number'], textarea, select, #{$wp}-container .wp-color-result {
-// 			width: 100%;
-// 			margin: 0;
-// 		}
-// 		textarea {
-// 			min-height: 300px;
-// 		}
-// 	}
 // }
 //
-// /* Form fields - Layout
-// ============================================== */
-//
-// body[class*='#{$prefix}'] {
-// 	.form-table {
-// 		table-layout: fixed;
-// 		margin: 0;
-// 		tr {
-// 			th {
-// 				padding: 0 5px 20px 0;
-// 			}
-// 			td {
-// 				padding: 0 0 20px 5px;
-// 			}
-// 		}
-// 	}
-// 	#{$ff} {
-// 		#{$ff}-row {
-// 			@include flex-flow(row wrap);
-// 			margin: 0 -5px -10px -5px;
-// 			#{$ff}-column {
-// 				@include flex;
-// 				padding: 0 5px;
-// 			}
-// 		}
-// 		&#{$ff}-text #{$ff}-row #{$ff}-column {
-// 			width: 25%;
-// 			#{$ff}-label label {
-// 				display: block;
-// 			}
-// 		}
-// 		&#{$ff}-checkbox #{$ff}-row #{$ff}-column {
-// 			#{$ff}-label, #{$ff}-value {
-// 				@include inline-block(middle);
-// 			}
-// 			#{$ff}-label {
-// 				margin: 0 10px 0 0;
-// 			}
-// 		}
-// 	}
-// }
-//
-// /* Form fields - Date
-// ============================================== */
-//
-// body[class*='#{$prefix}'] #{$ff}-date #{$ff}-value {
-// 	.date-field-text {
-// 		@include sr-only;
-// 	}
-// 	#{$ff}-row {
-// 		@include position($type: relative, $left: -1px);
-// 		.date-field-month {
-// 			width: auto;
-// 		}
-// 		.date-field-day {
-// 			width: 50px;
-// 		}
-// 		.date-field-year {
-// 			width: 100px;
-// 		}
-// 	}
-// }
-//
-// /* Form fields - Color Picker
-// ============================================== */
-//
-// body[class*='#{$prefix}'] #{$ff} #{$wp}-container {
-// 	@include position($type: relative, $z: 2);
-// 	width: 200px;
-// 	&#{$wp}-active {
-// 		#{$wp}-input-wrap {
-// 			display: block;
-// 		}
-// 		& ~ .description {
-// 			opacity: 0;
-// 		}
-// 	}
-// 	.wp-color-result, #{$wp}-holder .iris-picker {
-// 		border-color: $color-01;
-// 	}
-// 	#{$wp}-input-wrap, #{$wp}-input-wrap .button, #{$wp}-holder {
-// 		position: absolute;
-// 	}
-// 	#{$wp}-input-wrap, #{$wp}-holder {
-// 		left: 0;
-// 	}
-// 	.wp-color-result {
-// 		padding-left: 60px;
-// 		margin: 0;
-// 	}
-// 	#{$wp}-input-wrap {
-// 		top: auto;
-// 		padding: 0 55px 0 0;
-// 		.button {
-// 			@include position($right: 0, $top: 0);
-// 			width: 45px;
-// 			min-height: 30px;
-// 		}
-// 	}
-// 	#{$wp}-holder {
-// 		top: 70px;
-// 		&, * {
-// 			box-sizing: content-box;
-// 		}
-// 		.iris-picker {
-// 			border-radius: 4px;
-// 		}
-// 	}
-// }
-//
-//
+/* Form fields - Layout
+============================================== */
+
+#{$admin} {
+	#{$table} {
+		table-layout: fixed;
+		margin: 0;
+		#{$field}:not(#{$column}) {
+			& > #{$label} {
+				padding: 0 5px 20px 0;
+			}
+			& > #{$value} {
+				padding: 0 0 20px 5px;
+			}
+		}
+	}
+	#{$row} {
+		@include flex-flow(row wrap);
+		margin: 0 -5px -10px -5px;
+		#{$column} {
+			@include flex;
+			padding: 0 5px;
+		}
+	}
+	#{$field}-text #{$row} #{$column} {
+		width: 25%;
+	}
+	#{$field}-checkbox #{$row} #{$column} {
+		#{$label}, #{$value} {
+			@include inline-block(middle);
+		}
+		#{$label} label {
+			margin: 0 10px 0 0;
+		}
+	}
+}
+
+/* Form fields - Date
+============================================== */
+
+#{$admin} {
+	#{$field}-date {
+		.date-field-text {
+			@include sr-only;
+		}
+		#{$row} {
+			@include position($type: relative, $left: -1px);
+			#{$column} {
+				width: 33.33%;
+			}
+		}
+	}
+}
+
+/* Form fields - Color Picker
+============================================== */
+
+#{$admin} {
+	#{$wpc} {
+		@include position($type: relative, $z: 2);
+		width: 200px;
+		&#{$wp}-active {
+			#{$wp}-input-wrap {
+				display: block;
+			}
+			& ~ .description {
+				opacity: 0;
+			}
+		}
+		.wp-color-result, #{$wp}-holder .iris-picker {
+			border-color: $color-01;
+		}
+		#{$wp}-input-wrap, #{$wp}-input-wrap .button, #{$wp}-holder {
+			position: absolute;
+		}
+		#{$wp}-input-wrap, #{$wp}-holder {
+			left: 0;
+		}
+		.wp-color-result {
+			padding-left: 60px;
+			margin: 0;
+		}
+		#{$wp}-input-wrap {
+			top: auto;
+			padding: 0 55px 0 0;
+			.button {
+				@include position($right: 0, $top: 0);
+				width: 45px;
+				min-height: 30px;
+			}
+		}
+		#{$wp}-holder {
+			top: 70px;
+			&, * {
+				box-sizing: content-box;
+			}
+			.iris-picker {
+				border-radius: 4px;
+			}
+		}
+	}
+}
+
 // /* Form fields - Media Library
 // ============================================== */
 //

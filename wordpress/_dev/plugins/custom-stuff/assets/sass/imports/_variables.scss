@@ -8,8 +8,10 @@ $row    : '.form-field-row';
 $column : '.form-field-column';
 $label  : '.form-field-label';
 $value  : '.form-field-value';
+$table  : '.form-table';
 $desc   : '.description';
-$wp     : '.wp-picker';
+$wp     : '.wp-picker'; // color picker
+$wpc    : $wp + '-container'; // color picker
 
 // Fonts
 // ============================================== //
