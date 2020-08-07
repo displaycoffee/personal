@@ -7,11 +7,26 @@
 		width: 100%;
 		margin: 0;
 	}
+	#wpbody-content > .wrap h1, #wpbody-content > .wrap h2 {
+		padding: 0;
+	}
+	#wpbody-content > .wrap h1 {
+		padding-top: 10px;
+	}
+	#wpbody-content > .wrap h1, #poststuff .postbox h2.hndle {
+		margin: 0 0 30px 0;
+	}
+	#wpbody-content > .wrap h2, #wpbody-content > .wrap h2 + p, #{$field} {
+		margin: 0 0 20px 0;
+	}
 	#{$label} label, #{$row} #{$column}, #{$field}-color .selected-color, #{$field}-media .selected-media, #{$field}-media .selected-media strong {
 		margin: 0 0 10px 0;
 	}
-	#{$value} .description, #{$wpc} #{$wp}-input-wrap, #{$wpc}#{$wp}-active #{$wp}-holder, #{$wpc} #{$wp}-holder .iris-picker {
+	#{$value} .description, #{$wpc} #{$wp}-input-wrap, #{$wpc} #{$wp}-holder .iris-picker {
 		margin: 10px 0 0 0;
+	}
+	#{$label} label, #{$field}-media .selected-media strong {
+		display: block;
 	}
 	#{$field} {
 		&, * {
@@ -27,7 +42,6 @@
 		padding: 0;
 		color: $color-00;
 		font-weight: 600;
-		display: block;
 		input {
 			font-weight: 400;
 		}
@@ -39,22 +53,6 @@
 	}
 }
 
-// body[class*='#{$prefix}'] {
-// 	#wpbody-content > .wrap h1, #wpbody-content > .wrap h2, #{$ff} label {
-//
-// 	}
-// 	#wpbody-content > .wrap h2, #wpbody-content > .wrap h2 + p, #{$ff} {
-// 		margin: 0 0 20px 0;
-// 	}
-// 	#wpbody-content > .wrap h1, #poststuff .postbox h2.hndle {
-// 		margin: 0 0 30px 0;
-// 	}
-// 	#wpbody-content > .wrap {
-// 		margin: 30px 20px 30px 0;
-// 	}
-
-// }
-//
 /* Form fields - Layout
 ============================================== */
 
@@ -64,7 +62,7 @@
 		margin: 0;
 		#{$field}:not(#{$column}) {
 			& > #{$label} {
-				padding: 0 5px 20px 0;
+				padding: 5px 5px 20px 0;
 			}
 			& > #{$value} {
 				padding: 0 0 20px 5px;
@@ -140,10 +138,14 @@
 		#{$wp}-input-wrap {
 			top: auto;
 			padding: 0 55px 0 0;
+			label {
+				padding: 0;
+			}
 			.button {
 				@include position($right: 0, $top: 0);
 				width: 45px;
 				min-height: 30px;
+				margin: 0;
 			}
 		}
 		#{$wp}-holder {
@@ -158,45 +160,44 @@
 	}
 }
 
-// /* Form fields - Media Library
-// ============================================== */
-//
-// body[class*='#{$prefix}'] #{$ff}-media #{$ff}-value {
-// 	.selected-media {
-// 		strong {
-// 			display: block;
-// 		}
-// 		img {
-// 			@include sizing(auto, auto);
-// 			max-width: 100%;
-// 			max-height: 300px;
-// 		}
-// 	}
-// 	#{$ff}-row {
-// 		flex-wrap: nowrap;
-// 		#{$ff}-column {
-// 			width: auto;
-// 		}
-// 		#{$ff}-url {
-// 			flex: 1 1 0%;
-// 		}
-// 	}
-// }
-//
-// /* Form fields - Posts
-// ============================================== */
-//
-// body[class*='#{$prefix}'] #poststuff .postbox #{$ff}:not(#{$ff}-column) {
-// 	@include flex-flow(row nowrap);
-// 	margin-left: -5px;
-// 	margin-right: -5px;
-// 	& > #{$ff}-label, & > #{$ff}-value {
-// 		padding: 0 5px;
-// 	}
-// 	& > #{$ff}-label {
-// 		flex: 0 0 200px;
-// 	}
-// 	& > #{$ff}-value {
-// 		flex: 1 1 0%;
-// 	}
-// }
+/* Form fields - Media Library
+============================================== */
+
+#{$admin} {
+	#{$field}-media {
+		.selected-media img {
+			@include sizing(auto, auto);
+			max-width: 100%;
+			max-height: 300px;
+		}
+		#{$row} {
+			flex-wrap: nowrap;
+			#{$column} {
+				width: auto;
+			}
+			#{$field}-url {
+				flex: 1 1 0%;
+			}
+		}
+	}
+}
+
+/* Form fields - Posts
+============================================== */
+
+#{$admin} {
+	#poststuff .postbox #{$field}:not(#{$column}) {
+		@include flex-flow(row nowrap);
+		margin-left: -5px;
+		margin-right: -5px;
+		& > #{$label}, & > #{$value} {
+			padding: 0 5px;
+		}
+		& > #{$label} {
+			flex: 0 0 200px;
+		}
+		& > #{$value} {
+			flex: 1 1 0%;
+		}
+	}
+}
