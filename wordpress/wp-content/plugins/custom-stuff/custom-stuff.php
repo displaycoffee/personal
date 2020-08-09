@@ -82,8 +82,3 @@
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/taxonomy-tag.php' );
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/term-meta-fields.php' );
 	require_once( CSTMSTFF_DIR . 'types/taxonomies/term-meta-boxes.php' );
-	//
-	// // Display
-	// require_once( CSTMSTFF_DIR . 'display/display-cat-public.php' );
-	// require_once( CSTMSTFF_DIR . 'display/display-options.php' );
-	// require_once( CSTMSTFF_DIR . 'display/display-post-type.php' );

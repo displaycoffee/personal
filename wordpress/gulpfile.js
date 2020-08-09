@@ -15,7 +15,7 @@ var styles = 'themes/';
 var ext = 'plugins/';
 var dev = '_dev/';
 var dist = 'wp-content/';
-var wpTheme = 'ambase';
+var wpTheme = 'dcbase';
 var wpPlugin = 'custom-stuff';
 var watchers = [];
 
@@ -25,7 +25,7 @@ var watchers = [];
 var projects = {
 	[wpTheme] : {
 		'dev_css'     : dev + styles + wpTheme + '/assets/sass',
-		'dist_css'    : dist + styles + wpTheme + '/assets/css',
+		'dist_css'    : dist + styles + wpTheme,
 		'dev_js'      : dev + styles + wpTheme + '/assets/js',
 		'dist_js'     : dist + styles + wpTheme + '/assets/js',
 		'dev_static'  : dev + styles + wpTheme,
