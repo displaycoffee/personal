@@ -2,73 +2,10 @@
 ============================================== */
 
 @font-face {
-	font-family: 'Selima';
-	src: url($fonts + 'selima.woff2') format('woff2'),
-		 url($fonts + 'selima.woff') format('woff'),
-		 url($fonts + 'selima.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Fira Sans';
-	src: url($fonts + 'firasans-light.woff2') format('woff2'),
-		 url($fonts + 'firasans-light.woff') format('woff'),
-		 url($fonts + 'firasans-light.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Fira Sans';
-	src: url($fonts + 'firasans-light-italic.woff2') format('woff2'),
-		 url($fonts + 'firasans-light-italic.woff') format('woff'),
-		 url($fonts + 'firasans-light-italic.ttf') format('truetype');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Fira Sans';
-	src: url($fonts + 'firasans-medium.woff2') format('woff2'),
-		 url($fonts + 'firasans-medium.woff') format('woff'),
-		 url($fonts + 'firasans-medium.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Fira Sans';
-	src: url($fonts + 'firasans-medium-italic.woff2') format('woff2'),
-		 url($fonts + 'firasans-medium-italic.woff') format('woff'),
-		 url($fonts + 'firasans-medium-italic.ttf') format('truetype');
-	font-weight: bold;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Spectral';
-	src: url($fonts + 'spectral.woff2') format('woff2'),
-		 url($fonts + 'spectral.woff') format('woff'),
-		 url($fonts + 'spectral.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Spectral';
-	src: url($fonts + 'spectral-italic.woff2') format('woff2'),
-		 url($fonts + 'spectral-italic.woff') format('woff'),
-		 url($fonts + 'spectral-italic.ttf') format('truetype');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Khyeras Icons';
-	src: url($fonts + 'khyeras-icons.woff2') format('woff2'),
-		 url($fonts + 'khyeras-icons.woff') format('woff'),
-		 url($fonts + 'khyeras-icons.ttf') format('truetype');
+	font-family: 'Font Family Name';
+	src: url($fonts + 'font-file.woff2') format('woff2'),
+		 url($fonts + 'font-file.woff') format('woff'),
+		 url($fonts + 'font-file.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -76,75 +13,92 @@
 /* General text elements
 ============================================== */
 
+html, body {
+	font-family: $font-01;
+}
+
 html {
+	text-size-adjust: 100%;
 	font-size: $base-font-size + px;
+	line-height: 1;
 }
 
 body {
-	font-family: $font-01;
 	font-size: rem($global-font-size);
 	line-height: 1.5;
 	font-weight: normal;
-	color: $color-00;
+}
+
+b, strong, optgroup {
+	font-weight: bold;
+}
+
+dfn, em, i {
+	font-style: italic;
+}
+
+a, abbr[title] {
+	text-decoration: none;
 }
 
 a {
-	color: $color-04;
-	text-decoration: none;
-	&:hover {
-		color: $color-03;
+	background-color: transparent;
+	transition: color 0.3s ease-in-out;
+	&:active, &:hover {
+		outline: 0;
 	}
 }
 
-a, a span[class*='username'] {
-	@include transition(color 0.3s ease-in-out);
+mark {
+	background: $color-03;
 }
 
-a[class*='username']:hover, a:hover span[class*='username'] {
-	color: $color-04 !important;
+small {
+	font-size: 80%;
+}
+
+sub, sup {
+	position: relative;
+	vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/* Font Colors
+============================================== */
+
+body, mark, a:hover, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a, select, select option, textarea, #{$input-fields} {
+	color: $color-00;
+}
+
+a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .h1 a:hover, .h2 a:hover, .h3 a:hover, .h4 a:hover, .h5 a:hover, .h6 a:hover {
+	color: $color-02;
 }
 
 /* Headers
 ============================================== */
 
-h1, h2, h3, h4, h5, h6, .khy-text {
-	@include spectral-common;
-	a {
-		color: $color-00;
-		&:hover {
-			color: $color-03;
-		}
-	}
-}
-
-.page-body {
-	h4, .h4, h5, .h5, h6, .h6 {
-		&, & a {
-			color: $color-03;
-		}
-		a:hover {
-			color: $color-00;
-		}
-	}
-}
-
 h1, .h1 {
-	// Forum name
 	font-size: rem(34px);
 }
 
 h2, .h2 {
-	// Forum header titles
 	font-size: rem(30px);
 }
 
 h3, .h3 {
-	// Sub-headers (also used as post headers, but defined later)
 	font-size: rem(26px);
 }
 
 h4, .h4 {
-	// Forum and topic list titles
 	font-size: rem(22px);
 }
 
@@ -152,168 +106,24 @@ h5, h6, .h5, .h6 {
 	font-size: rem(20px);
 }
 
-/* Icon Families & Formatting
+/* Content Blocks
 ============================================== */
 
-.icon  {
-	@include icon-font($fs: false);
-	font-size: rem($global-font-size);
-}
-
-.rpg-icon, .misc-icon {
-	font-family: 'Khyeras Icons';
-}
-
-.icon + span:not(.sr-only), .icon + .sr-only + span:not(.sr-only), span:not(.sr-only) + .icon {
-	margin: 0 0 0 5px;
-}
-
-.icon-wrapper {
-	line-height: 0;
-	margin: 0 -5px;
-	.icon-round {
-		margin: 0 5px;
-	}
-}
-
-/* Icon Sizes & Shapes
-============================================== */
-
-.icon-xxl {
-	font-size: rem(22px);
-}
-
-.icon-xl {
-	font-size: rem(18px);
-}
-
-.icon-lg {
-	font-size: rem(16px);
-}
-
-.icon-md {
-	font-size: rem($global-font-size);
-}
-
-.icon-sm {
-	font-size: rem(12px);
-}
-
-.icon-tiny {
-	font-size: rem(10px);
-}
-
-.icon-round, .icon-round-image {
-	@include sizing($list-icon-size, $list-icon-size);
-	border-radius: 100%;
-	overflow: hidden;
-}
-
-.icon-round {
-	line-height: $list-icon-size;
-	color: $light-03;
-	background: $color-01;
-	font-size: rem(18px);
-	text-align: center;
-}
-
-.icon-round-image {
-	display: inline-block;
-}
-
-.icon-round-lg {
-	@include sizing($list-icon-lg-size, $list-icon-lg-size);
-	line-height: $list-icon-lg-size;
-	font-size: rem(28px);
-}
-
-/* Icon Colors
-============================================== */
-
-.icon-black, a:hover .icon-black {
-	color: $color-00;
-}
-
-.icon-bg-black {
+code, kbd, pre, samp {
 	background: $color-00;
+	padding: $main-spacing;
+	font-family: 'Courier New', monospace;
+	font-size: rem(16px);
+	color: $color-01;
+	white-space: pre-wrap;
 }
 
-.icon-blue, a:hover .icon-blue {
-	color: $color-03;
+pre code {
+	padding: 0;
+	margin: 0;
 }
 
-.icon-bg-blue {
-	background: $color-03;
-}
-
-.icon-bluegray, a:hover .icon-bluegray {
-	color: $color-13;
-}
-
-.icon-bg-bluegray {
-	background: $color-13;
-}
-
-.icon-brown, a:hover .icon-brown {
-	color: $color-22;
-}
-
-.icon-bg-brown {
-	background: $color-22;
-}
-
-.icon-gray, a:hover .icon-gray {
-	color: $color-10;
-}
-
-.icon-bg-gray {
-	background: $color-10;
-}
-
-.icon-green, a:hover .icon-green {
-	color: $color-04;
-}
-
-.icon-bg-green {
-	background: $color-05; // different from font color
-}
-
-.icon-lightgray, a:hover .icon-lightgray {
-	color: $color-11;
-}
-
-.icon-bg-lightgray {
-	background: $color-11;
-}
-
-.icon-orange, a:hover .icon-orange {
-	color: $color-12;
-}
-
-.icon-bg-orange {
-	background: $color-12;
-}
-
-.icon-purple, a:hover .icon-purple {
-	color: $color-15;
-}
-
-.icon-bg-purple {
-	background: $color-15;
-}
-
-.icon-red, a:hover .icon-red {
-	color: $color-08;
-}
-
-.icon-bg-red {
-	background: $color-08;
-}
-
-.icon-yellow, a:hover .icon-yellow {
-	color: $color-14;
-}
-
-.icon-bg-yellow {
-	background: $color-14;
+blockquote {
+	max-width: 90%;
+	margin: 0 auto $main-spacing auto;
 }

@@ -1,37 +1,25 @@
 // Paths
 // ============================================== //
 
-$assets: '../theme';
+$assets: './assets';
 $fonts: $assets + '/fonts/';
 $images: $assets + '/images/';
-$phpbb-images: '../../../images/content/';
 
 // Fonts
 // ============================================== //
 
 $base-font-size: 16;
 $global-font-size: 14px;
-$serif-fb: garamond, times new roman, serif;
-$sans-serif-fb: arial, sans-serif;
-$font-01: 'Fira Sans', $sans-serif-fb;
-$font-02: 'Spectral', $serif-fb;
-$font-03: 'Selima', $sans-serif-fb;
+$serif-fb: Garamond, 'Times New Roman', serif;
+$sans-serif-fb: Arial, sans-serif;
+$font-01: Verdana, $sans-serif-fb;
+$font-02: Georgia, $serif-fb;
 
 // Other
-//
-// ffi = form field indent
-// ffs = form field spacing
 // ============================================== //
 
-$alt-field-width: 50%;
-$ffi-01: 300px;
-$ffi-02: 200px;
-$ffs: 5px;
-$ffs-minus: (20 - $ffs);
-$ffs-half: ($ffs / 2);
-$list-icon-size: 42px;
-$list-icon-lg-size: 62px;
-$responsive-icon-size: $list-icon-size - 10px;
-$responsive-icon-lg-size: $list-icon-lg-size - 10px;
-$main-margin: 30px;
+$main-spacing: 20px;
 $mobile-menu-width: 300px;
+$button-fields: "[type='button'], [type='reset'], [type='submit']";
+$check-fields: "[type='checkbox'], [type='radio']";
+$input-fields: "[type='number'], [type='search'], [type='text'], [type='url']";
