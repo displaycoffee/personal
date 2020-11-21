@@ -1,4 +1,4 @@
-<div id="comments">
+<div class="comments">
 <?php
 if ( have_comments() ) :
 global $comments_by_type;

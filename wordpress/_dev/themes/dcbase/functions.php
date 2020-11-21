@@ -33,6 +33,18 @@
 	}
 	add_action( 'wp_enqueue_scripts', function() use ( $obj ) { dcbase_load_scripts( $obj ); }, 10, 1 );
 
+	// Remove certain classes from post_class
+	function dcbase_remove_post_classes( $classes, $class ) {
+		$new_classes = array();
+		foreach ( $classes as $class ) {
+			if ( strpos( $class, 'category-' ) === false && strpos( $class, 'tag-' ) === false ) {
+				array_push( $new_classes, $class );
+			}
+		}
+		return $new_classes;
+	}
+	add_filter( 'post_class', 'dcbase_remove_post_classes', 10, 3 );
+
 	// Trim default excerpt length
 	function dcbase_excerpt_length( $length ) {
 		return 50;

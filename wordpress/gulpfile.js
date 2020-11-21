@@ -6,7 +6,8 @@ var browserSync = require('browser-sync').create(),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
 	sass = require('gulp-sass'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	log = require('fancy-log');
 
 /* Global Variables
 ------------------------------------------------- */
@@ -138,11 +139,10 @@ function createTask(key) {
 		watchers.push(watcherStatic);
 
 		var staticSources = [
-			devStatic + '/**/*.php',
-			devStatic + '/**/*.html',
-			devStatic + '/**/*.txt',
-			devStatic + '/assets/images/*.*',
-			devStatic + '/assets/fonts/*.*'
+			devStatic + '/**/*.{php,html,txt}',
+			devStatic + '/**/images/*.*',
+			devStatic + '/**/images/favicons/*.*',
+			devStatic + '/**/fonts/*.*'
 		];
 
 		gulp.task(watcherStatic, function() {

@@ -49,21 +49,24 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<header id="header">
-		<div id="branding">
-			<div id="site-title">
-				<?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; } ?>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
-				<?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } ?>
-			</div>
-			<div id="site-description"><?php bloginfo( 'description' ); ?></div>
-		</div>
-		<nav id="menu">
-			<div id="search"><?php get_search_form(); ?></div>
-			<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-		</nav>
-	</header>
-	<main id="container">
+	<header id="header" class="header">
 		<div class="wrapper">
-			<div class="flex-row-nowrap flex-row-20">
-				<section id="content" class="flex-column">
+			<div id="site-details">
+				<div class="site-name">
+					<?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; } ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
+						<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
+					</a>
+					<?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } ?>
+				</div>
+				<div class="site-description"><?php echo get_bloginfo( 'description' ); ?></div>
+			</div>
+			<div id="search">
+				<?php get_search_form(); ?>
+			</div>
+			<nav id="main-navigation" class="navigation navigation-main" role="navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+			</nav>
+		</div>
+	</header>
+	<main id="main" class="main">
