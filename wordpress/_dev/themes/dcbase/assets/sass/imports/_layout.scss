@@ -48,6 +48,10 @@
 	@include flex-flow(row nowrap);
 }
 
+.flex-row-center {
+	align-items: center;
+}
+
 /* Main Layout
 ============================================== */
 
@@ -58,25 +62,6 @@
 		}
 		#sidebar {
 			flex: 0 0 250px;
-		}
-	}
-}
-
-/* Browser Upgrade / Browse Happy
-============================================== */
-
-.browserupgrade {
-	@include position($type: fixed, $top: 0, $left: 0, $z: 100);
-	width: 100%;
-	background: $color-03;
-	border-bottom: 2px solid darken($color-03, 25%);
-	padding: 20px;
-	color: $color-00;
-	text-align: center;
-	a {
-		color: $color-03;
-		&:hover {
-			color: $color-00;
 		}
 	}
 }
@@ -96,5 +81,28 @@
 @include respond(em(769), $type: min-width) {
 	.image-fit.image-fit-responsive {
 		background-position: -9999px -9999px;
+	}
+}
+
+/* Search Form
+============================================== */
+
+.search-form {
+	.flex-row-nowrap {
+		.search-form-label, .search-form-submit {
+			@include flex;
+		}
+		.search-form-label {
+			width: 100px;
+			label {
+				margin: 0;
+			}
+		}
+		.search-form-submit {
+			width: 100px;
+			.button {
+				width: 100%;
+			}
+		}
 	}
 }

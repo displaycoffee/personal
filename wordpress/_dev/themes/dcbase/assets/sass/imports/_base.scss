@@ -79,7 +79,7 @@ img {
 	@include sizing(auto, auto);
 }
 
-code, dl, h1, h2, h3, h4, h5, h6, h2, figure, p, pre, .list-mar-20 > li, select, textarea, #{$input-fields} {
+code, dl, h1, h2, h3, h4, h5, h6, h2, figure, p, pre, .list-mar-20 > li {
 	margin: 0 0 $main-spacing 0;
 }
 
@@ -109,6 +109,13 @@ dl {
 
 hr {
 	border-bottom: 1px solid $color-00;
+}
+
+/* Remove List Style
+============================================== */
+
+.menu, .menu-item {
+	list-style: none;
 }
 
 /* Utilities

@@ -1,0 +1,405 @@
+/* Icon Variables
+============================================== */
+
+$icon-angle-left: \f104;
+$icon-angle-right: \f105;
+$icon-angle-up: \f106;
+$icon-angle-down: \f107;
+$icon-chevron-left: \f053;
+$icon-chevron-right: \f054;
+$icon-chevron-up: \f077;
+$icon-chevron-down: \f078;
+$icon-angle-double-left: \f100;
+$icon-angle-double-right: \f101;
+$icon-angle-double-up: \f102;
+$icon-angle-double-down: \f103;
+$icon-check-thin: \e900;
+$icon-plus-thin: \e901;
+$icon-minus-thin: \e902;
+$icon-close-thin: \e903;
+$icon-check: \f00c;
+$icon-plus: \e904;
+$icon-minus: \e905;
+$icon-close: \f00d;
+$icon-asterisk: \f069;
+$icon-menu: \e906;
+$icon-filter: \e909;
+$icon-heart: \f004;
+$icon-star: \f005;
+$icon-pencil: \f040;
+$icon-quill: \e907;
+$icon-pen: \e908;
+$icon-tv: \e95b;
+$icon-video: \e913;
+$icon-camera: \e914;
+$icon-film: \f008;
+$icon-book: \f02d;
+$icon-books: \e920;
+$icon-search: \f002;
+$icon-home: \f015;
+$icon-tag: \f02b;
+$icon-calendar: \f073;
+$icon-comment: \f075;
+$icon-comments: \f086;
+$icon-inbox: \f01c;
+$icon-folder: \f07c;
+$icon-envelope: \f0e0;
+$icon-paper-plane: \f1d8;
+$icon-monitor: \f26c;
+$icon-pinterest: \f231;
+$icon-digg: \f1a6;
+$icon-reddit: \f281;
+$icon-linkedin: \f0e1;
+$icon-instagram: \f16d;
+$icon-facebook: \f09a;
+$icon-youtube: \f16a;
+$icon-youtube-logo: \f167;
+$icon-twitter: \f099;
+$icon-stumbleupon: \f1a4;
+$icon-librarything: \e90a;
+$icon-tiktok: \e90b;
+$icon-slack: \e90c;
+$icon-medium: \e90d;
+$icon-imdb: \e90e;
+$icon-goodreads: \e90f;
+$icon-discord: \e910;
+$icon-yelp: \e911;
+$icon-wikipedia: \e912;
+$icon-vimeo: \e915;
+$icon-twitch: \e916;
+$icon-tumblr: \e917;
+$icon-steam: \e918;
+$icon-spotify: \e919;
+$icon-skype: \e91a;
+$icon-soundcloud: \e91b;
+$icon-paypal: \e91c;
+$icon-github: \e91d;
+$icon-behance: \e91e;
+$icon-apple: \e91f;
+$icon-amazon: \e921;
+$icon-wordpress: \e922;
+$icon-bandcamp: \e923;
+$icon-etsy: \e924;
+
+/* Icon Classes
+============================================== */
+
+.icon {
+	@include icon-font;
+}
+
+.icon-angle-left:before {
+	content: unicode($icon-angle-left);
+}
+
+.icon-angle-right:before {
+	content: unicode($icon-angle-right);
+}
+
+.icon-angle-up:before {
+	content: unicode($icon-angle-up);
+}
+
+.icon-angle-down:before {
+	content: unicode($icon-angle-down);
+}
+
+.icon-chevron-left:before {
+	content: unicode($icon-chevron-left);
+}
+
+.icon-chevron-right:before {
+	content: unicode($icon-chevron-right);
+}
+
+.icon-chevron-up:before {
+	content: unicode($icon-chevron-up);
+}
+
+.icon-chevron-down:before {
+	content: unicode($icon-chevron-down);
+}
+
+.icon-angle-double-left:before {
+	content: unicode($icon-angle-double-left);
+}
+
+.icon-angle-double-right:before {
+	content: unicode($icon-angle-double-right);
+}
+
+.icon-angle-double-up:before {
+	content: unicode($icon-angle-double-up);
+}
+
+.icon-angle-double-down:before {
+	content: unicode($icon-angle-double-down);
+}
+
+.icon-check-thin:before {
+	content: unicode($icon-check-thin);
+}
+
+.icon-plus-thin:before {
+	content: unicode($icon-plus-thin);
+}
+
+.icon-minus-thin:before {
+	content: unicode($icon-minus-thin);
+}
+
+.icon-close-thin:before {
+	content: unicode($icon-close-thin);
+}
+
+.icon-check:before {
+	content: unicode($icon-check);
+}
+
+.icon-plus:before {
+	content: unicode($icon-plus);
+}
+
+.icon-minus:before {
+	content: unicode($icon-minus);
+}
+
+.icon-close:before {
+	content: unicode($icon-close);
+}
+
+.icon-asterisk:before {
+	content: unicode($icon-asterisk);
+}
+
+.icon-menu:before {
+	content: unicode($icon-menu);
+}
+
+.icon-filter:before {
+	content: unicode($icon-filter);
+}
+
+.icon-heart:before {
+	content: unicode($icon-heart);
+}
+
+.icon-star:before {
+	content: unicode($icon-star);
+}
+
+.icon-pencil:before {
+	content: unicode($icon-pencil);
+}
+
+.icon-quill:before {
+	content: unicode($icon-quill);
+}
+
+.icon-pen:before {
+	content: unicode($icon-pen);
+}
+
+.icon-tv:before {
+	content: unicode($icon-tv);
+}
+
+.icon-video:before {
+	content: unicode($icon-video);
+}
+
+.icon-camera:before {
+	content: unicode($icon-camera);
+}
+
+.icon-film:before {
+	content: unicode($icon-film);
+}
+
+.icon-book:before {
+	content: unicode($icon-book);
+}
+
+.icon-books:before {
+	content: unicode($icon-books);
+}
+
+.icon-search:before {
+	content: unicode($icon-search);
+}
+
+.icon-home:before {
+	content: unicode($icon-home);
+}
+
+.icon-tag:before {
+	content: unicode($icon-tag);
+}
+
+.icon-calendar:before {
+	content: unicode($icon-calendar);
+}
+
+.icon-comment:before {
+	content: unicode($icon-comment);
+}
+
+.icon-comments:before {
+	content: unicode($icon-comments);
+}
+
+.icon-inbox:before {
+	content: unicode($icon-inbox);
+}
+
+.icon-folder:before {
+	content: unicode($icon-folder);
+}
+
+.icon-envelope:before {
+	content: unicode($icon-envelope);
+}
+
+.icon-paper-plane:before {
+	content: unicode($icon-paper-plane);
+}
+
+.icon-monitor:before {
+	content: unicode($icon-monitor);
+}
+
+.icon-pinterest:before {
+	content: unicode($icon-pinterest);
+}
+
+.icon-digg:before {
+	content: unicode($icon-digg);
+}
+
+.icon-reddit:before {
+	content: unicode($icon-reddit);
+}
+
+.icon-linkedin:before {
+	content: unicode($icon-linkedin);
+}
+
+.icon-instagram:before {
+	content: unicode($icon-instagram);
+}
+
+.icon-facebook:before {
+	content: unicode($icon-facebook);
+}
+
+.icon-youtube:before {
+	content: unicode($icon-youtube);
+}
+
+.icon-youtube-logo:before {
+	content: unicode($icon-youtube-logo);
+}
+
+.icon-twitter:before {
+	content: unicode($icon-twitter);
+}
+
+.icon-stumbleupon:before {
+	content: unicode($icon-stumbleupon);
+}
+
+.icon-librarything:before {
+	content: unicode($icon-librarything);
+}
+
+.icon-tiktok:before {
+	content: unicode($icon-tiktok);
+}
+
+.icon-slack:before {
+	content: unicode($icon-slack);
+}
+
+.icon-medium:before {
+	content: unicode($icon-medium);
+}
+
+.icon-imdb:before {
+	content: unicode($icon-imdb);
+}
+
+.icon-goodreads:before {
+	content: unicode($icon-goodreads);
+}
+
+.icon-discord:before {
+	content: unicode($icon-discord);
+}
+
+.icon-yelp:before {
+	content: unicode($icon-yelp);
+}
+
+.icon-wikipedia:before {
+	content: unicode($icon-wikipedia);
+}
+
+.icon-vimeo:before {
+	content: unicode($icon-vimeo);
+}
+
+.icon-twitch:before {
+	content: unicode($icon-twitch);
+}
+
+.icon-tumblr:before {
+	content: unicode($icon-tumblr);
+}
+
+.icon-steam:before {
+	content: unicode($icon-steam);
+}
+
+.icon-spotify:before {
+	content: unicode($icon-spotify);
+}
+
+.icon-skype:before {
+	content: unicode($icon-skype);
+}
+
+.icon-soundcloud:before {
+	content: unicode($icon-soundcloud);
+}
+
+.icon-paypal:before {
+	content: unicode($icon-paypal);
+}
+
+.icon-github:before {
+	content: unicode($icon-github);
+}
+
+.icon-behance:before {
+	content: unicode($icon-behance);
+}
+
+.icon-apple:before {
+	content: unicode($icon-apple);
+}
+
+.icon-amazon:before {
+	content: unicode($icon-amazon);
+}
+
+.icon-wordpress:before {
+	content: unicode($icon-wordpress);
+}
+
+.icon-bandcamp:before {
+	content: unicode($icon-bandcamp);
+}
+
+.icon-etsy:before {
+	content: unicode($icon-etsy);
+}

@@ -69,19 +69,20 @@
 
 // FontAwesome properties
 @mixin icon-font($fs: '', $lh: '') {
-	$family: 'FontAwesome';
 	display: inline-block;
-	font-family: $family;
-	font-weight: normal;
+	speak: never;
+	font-family: 'DCBase Icons';
 	font-style: normal;
+	font-weight: normal;
 	font-variant: normal;
+
 
 	// Font size logic
 	@if ($fs != false) {
 		@if ($fs != '') {
 			font-size: $fs;
 		} @else {
-			font-size: rem($global-font-size);
+			font-size: rem($base-font-size);
 		}
 	}
 
@@ -94,7 +95,8 @@
 		}
 	}
 
-	text-rendering: auto; /* optimizelegibility throws things off #1094 */
+	text-transform: none;
+	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

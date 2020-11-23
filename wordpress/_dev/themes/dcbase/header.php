@@ -1,7 +1,15 @@
 <?php
+	/**
+	* Template for displaying the header
+	*/
+
+	// Exit if accessed directly
+	if ( !defined( 'ABSPATH' ) ) { exit; }
+
 	// Re-usable variables
 	$id = get_queried_object_id();
 	$name = get_bloginfo( 'name' );
+	$home_url = get_home_url( '/' );
 
 	// Image variables
 	$image_path = get_template_directory_uri() . '/assets/images';
@@ -24,6 +32,13 @@
 	// Escape and echo attribute
 	function dcbase_get_meta( $value, $type = 'attr' ) {
 		echo ( $type && $type == 'url' ) ? esc_url( $value ) : esc_attr( $value );
+	}
+
+	// Function to construct header title
+	function dcbase_get_header( $name, $home_url ) {
+		$show_head_element = ( is_front_page() || is_home() || is_front_page() && is_home() ) ? true : false;
+		$link_html = '<a href="' . esc_url( $home_url ) . '" title="' . esc_attr( $name ) . '" rel="home">' . esc_html( $name ) . '</a>';
+		echo $show_head_element ? ( '<h1>' . $link_html . '</h1>' ) : $link_html;
 	}
 ?>
 <!DOCTYPE html>
@@ -49,22 +64,21 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<!--[if lte IE 9]>
+		<p class="browser-upgrade">
+			<?php _e( 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.', 'dcbase' ); ?>
+		</p>
+	<![endif]-->
 	<header id="header" class="header">
 		<div class="wrapper">
-			<div id="site-details">
-				<div class="site-name">
-					<?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; } ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( get_bloginfo( 'name' ) ); ?>" rel="home">
-						<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
-					</a>
-					<?php if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; } ?>
-				</div>
+			<div class="site-details">
+				<div class="site-name"><?php dcbase_get_header( $name, $home_url ); ?></div>
 				<div class="site-description"><?php echo get_bloginfo( 'description' ); ?></div>
 			</div>
-			<div id="search">
+			<div class="search-header">
 				<?php get_search_form(); ?>
 			</div>
-			<nav id="main-navigation" class="navigation navigation-main" role="navigation">
+			<nav class="navigation navigation-main" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 			</nav>
 		</div>

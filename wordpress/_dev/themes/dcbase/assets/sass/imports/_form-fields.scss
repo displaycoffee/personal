@@ -18,13 +18,14 @@
 optgroup, select, textarea, #{$button-fields}, #{$input-fields} {
 	font-family: inherit;
 	font-size: 100%;
+	margin: 0;
 }
 
 select, textarea, #{$input-fields} {
 	appearance: none;
 	border: 1px solid $color-00;
 	width: 100%;
-	min-height: 40px;
+	min-height: $form-field-height;
 	padding: 10px;
 	line-height: 1.35;
 }
@@ -98,14 +99,17 @@ progress {
 ============================================== */
 
 #{$button-fields} {
-	padding: 13px 10px;
-	line-height: 1;
+	padding: 0 10px;
 	-webkit-appearance: button;
 	cursor: pointer;
 	background: $color-00;
+	max-width: 100%;
+	height: $form-field-height;
+	line-height: $form-field-height;
 	color: $color-01;
 	text-align: center;
 	transition: color 0.3s ease-in-out;
+	@include ellipsis;
 	&:hover {
 		background: $dark-01;
 	}
@@ -114,5 +118,9 @@ progress {
 	}
 	&:-moz-focusring {
 		outline: 1px dotted ButtonText;
+	}
+	.button-icon {
+		margin: 0 5px 0 0;
+		@include position($type: relative, $top: 1px);
 	}
 }
