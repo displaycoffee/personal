@@ -69,6 +69,19 @@
 			<?php _e( 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.', 'dcbase' ); ?>
 		</p>
 	<![endif]-->
+
+	<nav class="navigation navigation-mobile">
+		<header class="navigation-mobile-header flex-row-nowrap flex-row-center">
+			<div class="navigation-mobile-title">Menu</div>
+			<button type="button" class="navigation-mobile-close button-link" role="button" data-toggle-mobile>
+				<span class="icon icon-close-thin"></span>
+			</button>
+		</header>
+		<div class="navigation-mobile-content"></div>
+	</nav>
+
+	<div class="overlay" data-toggle-mobile></div>
+
 	<header id="header" class="header">
 		<div class="wrapper">
 			<div class="site-details">
@@ -80,7 +93,11 @@
 			</div>
 			<nav class="navigation navigation-main" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+				<button type="button" class="navigation-mobile-trigger button-link" role="button" data-toggle-mobile>
+					<span class="button-icon icon icon-filter"></span><span class="button-label">Menu</span>
+				</button>
 			</nav>
 		</div>
 	</header>
+
 	<main id="main" class="main">

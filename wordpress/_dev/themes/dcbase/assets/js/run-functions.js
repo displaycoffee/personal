@@ -10,13 +10,12 @@ jQuery( document ).ready( function( $ ) {
 	});
 
 	// Start the mobile menu
-	// initializeMobileMenu({
-	// 	menu          : '#page-header .navbar .wrapper > ul',
-	// 	menuContainer : '#page-header .navbar .wrapper',
-	// 	mobileButton  : '.mobile-menu-button',
-	// 	mobileMenu    : '#mobile-menu',
-	// 	mobileContent : '.mobile-menu-content',
-	// 	mobileOverlay : '#mobile-overlay',
-	// 	width         : 768
-	// });
+	initializeMobileMenu({
+		menu          : '.navigation-main .menu-primary-container > .menu',
+		menuContainer : '.navigation-main .menu-primary-container',
+		mobileToggle  : '[data-toggle-mobile]',
+		mobileMenu    : '.navigation-mobile',
+		mobileContent : '.navigation-mobile-content',
+		width         : 768
+	});
 });

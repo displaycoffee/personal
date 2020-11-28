@@ -1,3 +1,13 @@
+/* Hide WP Admin Bar
+============================================== */
+
+#wpadminbar {
+	display: none !important;
+}
+html[class*='dcbase'] {
+	margin-top: 0 !important;
+}
+
 /* Resets
 ============================================== */
 

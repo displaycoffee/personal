@@ -98,10 +98,25 @@ progress {
 /* Buttons
 ============================================== */
 
-#{$button-fields} {
-	padding: 0 10px;
+#{$button-fields}, .button-link {
 	-webkit-appearance: button;
 	cursor: pointer;
+	&::-moz-focus-inner {
+		border: 0;
+	}
+	.button-icon {
+		&, & ~ .button-label {
+			vertical-align: middle;
+		}
+		& ~ .button-label {
+			display: inline-block;
+			margin: 0 0 0 5px;
+		}
+	}
+}
+
+#{$button-fields} {
+	padding: 0 10px;
 	background: $color-00;
 	max-width: 100%;
 	height: $form-field-height;
@@ -113,14 +128,24 @@ progress {
 	&:hover {
 		background: $dark-01;
 	}
-	&::-moz-focus-inner {
-		border: 0;
-	}
 	&:-moz-focusring {
 		outline: 1px dotted ButtonText;
 	}
-	.button-icon {
-		margin: 0 5px 0 0;
-		@include position($type: relative, $top: 1px);
+}
+
+.button-link {
+	padding: 0;
+	height: auto;
+	line-height: 1.5;
+	color: $color-00;
+	text-align: left;
+	&, &:hover {
+		background: none;
+	}
+	&:hover {
+		color: $color-02;
+	}
+	&:focus {
+		outline: 0;
 	}
 }
