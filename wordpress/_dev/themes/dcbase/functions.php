@@ -86,6 +86,41 @@
 		// }
 	}
 
+	// Determine if on an archive or not
+	function dcbase_is_archive() {
+		if ( is_front_page() || is_home() || ( is_front_page() && is_home() ) || is_archive() || is_search() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Determine if on home or not
+	function dcbase_is_home() {
+		if ( is_front_page() || is_home() || is_front_page() && is_home() ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Create a function to build title html with link text
+	function dcbase_create_title( $args ) {
+		// Conditionals for title
+		$title_class = $args['class'] ? ( ' class="' . esc_attr( $args['class'] ) . '"' ) : '';
+		$title_rel = $args['rel'] ? ( ' rel="' . esc_attr( $args['rel'] ) . '"' ) : '';
+		$title_open = $args['element'] ? ( '<' . $args['element'] . $title_class . '>' ) : '';
+		$title_close = $args['element'] ? ( '</' . $args['element'] . '>' ) : '';
+
+		// Display title html
+		$title_html = $title_open;
+		$title_html .= '<a href="' . esc_url( $args['url'] ) . '" title="' . esc_attr( $args['label'] ) . '"' . $title_rel . '>';
+		$title_html .= esc_html( $args['label'] );
+		$title_html .= '</a>';
+		$title_html .= $title_close;
+		echo $title_html;
+	}
+
 // add_filter( 'the_content_more_link', 'dcbase_read_more_link' );
 // function dcbase_read_more_link() {
 // 	if ( ! is_admin() ) {

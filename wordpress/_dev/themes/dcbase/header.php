@@ -33,13 +33,6 @@
 	function dcbase_get_meta( $value, $type = 'attr' ) {
 		echo ( $type && $type == 'url' ) ? esc_url( $value ) : esc_attr( $value );
 	}
-
-	// Function to construct header title
-	function dcbase_get_header( $name, $home_url ) {
-		$show_head_element = ( is_front_page() || is_home() || is_front_page() && is_home() ) ? true : false;
-		$link_html = '<a href="' . esc_url( $home_url ) . '" title="' . esc_attr( $name ) . '" rel="home">' . esc_html( $name ) . '</a>';
-		echo $show_head_element ? ( '<h1>' . $link_html . '</h1>' ) : $link_html;
-	}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -77,6 +70,7 @@
 				<span class="icon icon-close-thin"></span>
 			</button>
 		</header>
+
 		<div class="navigation-mobile-content"></div>
 	</nav>
 
@@ -85,16 +79,28 @@
 	<header id="header" class="header">
 		<div class="wrapper">
 			<div class="site-details">
-				<div class="site-name"><?php dcbase_get_header( $name, $home_url ); ?></div>
+				<div class="site-name">
+					<?php
+						dcbase_create_title( array(
+							'element' => dcbase_is_home() ? 'h1' : '',
+							'class'   => 'site-title',
+							'url'     => get_home_url( '/' ),
+							'label'   => $name,
+							'rel'     => 'home'
+						) );
+					?>
+				</div>
 				<div class="site-description"><?php echo get_bloginfo( 'description' ); ?></div>
 			</div>
+
 			<div class="search-header">
 				<?php get_search_form(); ?>
 			</div>
+
 			<nav class="navigation navigation-main" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 				<button type="button" class="navigation-mobile-trigger button-link" role="button" data-toggle-mobile>
-					<span class="button-icon icon icon-filter"></span><span class="button-label">Menu</span>
+					<span class="button-icon icon icon-gear"></span><span class="button-label">Menu</span>
 				</button>
 			</nav>
 		</div>

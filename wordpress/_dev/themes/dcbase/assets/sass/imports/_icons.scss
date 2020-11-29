@@ -23,6 +23,8 @@ $icon-minus: \e905;
 $icon-close: \f00d;
 $icon-asterisk: \f069;
 $icon-menu: \e906;
+$icon-gear: \e907;
+$icon-gears: \e908;
 $icon-filter: \e909;
 $icon-heart: \f004;
 $icon-star: \f005;
@@ -174,6 +176,14 @@ $icon-etsy: \e924;
 
 .icon-menu:before {
 	content: unicode($icon-menu);
+}
+
+.icon-gear:before {
+	content: unicode($icon-gear);
+}
+
+.icon-gears:before {	
+	content: unicode($icon-gears);
 }
 
 .icon-filter:before {
