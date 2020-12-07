@@ -29,5 +29,5 @@ wp-content/themes/*
 
 # WP Content - Themes - Custom
 
-!wp-content/themes/ambase/
-!wp-content/themes/ambase/**/
+!wp-content/themes/dcbase/
+!wp-content/themes/dcbase/**/

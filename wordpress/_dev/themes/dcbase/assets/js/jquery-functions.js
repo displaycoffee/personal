@@ -20,6 +20,24 @@ function addBrowserClass() {
 	}
 }
 
+// Add widget-content container
+function addWidgetContainer() {
+	var widgets = jQuery( '.widget' );
+
+	if ( widgets && widgets.length ) {
+		widgets.each( function() {
+			var current = jQuery( this );
+			current.wrapInner( '<div class="widget-content"></div>' );
+
+			// If there is a widget-title, move it above widget-content
+			var widgetTitle = current.find( '.widget-title' );
+			if ( widgetTitle && widgetTitle.length ) {
+				widgetTitle.prependTo( current );
+			}
+		});
+	}
+}
+
 // Create dropdown toggles
 function initializeDropdownMenu( config ) {
 	config = {
