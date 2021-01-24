@@ -8,4 +8,4 @@
 ?>
 <div class="wrapper">
 	<div class="flex-row">
-		<section id="content" class="flex-column">
+		<article id="article" class="flex-column">

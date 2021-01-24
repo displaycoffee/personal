@@ -16,25 +16,50 @@
 
 		// Set up default config
 		$config = (object) [
+			'classes'   => (object) [
+				'multi'  => 'entry-multiple',
+				'single' => 'entry-single'
+			],
 			'home'    => get_home_url( '/' ),
-			'lang'    => $prefix,
-			'name'    => get_bloginfo( 'name' ),
-			'prefix'  => $prefix,
 			'images'  => (object) [
 				'sizes' => array( '180x180', '192x192', '32x32', '16x16' )
 			],
+			'lang'    => $prefix,
+			'name'    => get_bloginfo( 'name' ),
 			'paths'   => (object) [
 				'images' => $theme_assets . '/images',
 				'js'     => $theme_assets . '/js',
 				'lang'   => $theme . '/languages'
 			],
+			'prefix'  => $prefix,
 			'search'  => (object) [
 				'id'      => 'header-search-form-input',
 				'label'   => 'Search for:',
 				'results' => 'Search results for:',
 				'text'    => 'Search'
-			]
+			],
+			'type'    => 'page'
 		];
+
+		// Check what type of page it is and assign page type
+		if ( is_front_page() ) {
+			$config->type = 'home';
+		}
+		if ( is_home() ) {
+			$config->type = 'blog';
+		}
+		if ( is_archive() ) {
+			$config->type = 'archive';
+		}
+		if ( is_search() ) {
+			$config->type = 'search';
+		}
+		if ( is_attachment() ) {
+			$config->type = 'attachment';
+		}
+		if ( is_404() ) {
+			$config->type = 'error404';
+		}
 
 		// Add extra details using default config
 		$config->images->thumbnail = $config->paths->images . '/publisher-logo.png';

@@ -6,45 +6,41 @@
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
-	// Add config object to footer
+	// Add config object
 	$config = dcbase_config();
 
-	// Config for pagination
-	$pagination_show = ( $wp_query->max_num_pages > 1 ) ? true : false;
-	$pagination_config = array(
-		'end_size'  => 1,
-		'mid_size'  => 3,
-		'prev_text' => __( 'Previous', $config->lang ),
-		'next_text' => __( 'Next', $config->lang )
-	);
-
-	// No entries text
-	$no_entries = is_search() ? 'No entries match your search.' : 'No entries found.';
+	// Determine if summary block show or not
+	$show_summary = ( has_post_thumbnail() || get_the_excerpt() || ( is_search() && wp_link_pages() ) ) ? true : false;
 ?>
-<?php if ( have_posts() ) : ?>
-	<div class="entry-multiple">
-		<?php while ( have_posts() ) : the_post(); ?>
-			<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry">
-				<?php
-					get_template_part( 'partials/entry', 'header' );
-					get_template_part( 'partials/entry', 'summary' );
-					comments_template();
-				?>
-			</div>
-		<?php endwhile; ?>
-	</div>
-	<?php if ( $pagination_show ) : ?>
-		<nav class="navigation navigation-pagination">
-			<div class="pagination">
-				<?php echo paginate_links( $pagination_config ) ?>
-			</div>
-		</nav>
+<section class="<?php echo $config->classes->multi ?>-section entry-<?php echo $config->type ?>-section">
+	<?php get_template_part( 'partials/layout', 'open' ); ?>
+	<?php if ( have_posts() ) : ?>
+		<?php echo get_page_template() ?>
+		<div class="<?php echo $config->classes->multi ?>-">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div id="entry-<?php esc_attr( the_ID() ); ?>" class="entry">
+					<?php get_template_part( 'partials/entry', 'header' ); ?>
+					<?php if ( $show_summary ) : ?>
+						<div class="entry-section flex-row">
+							<?php get_template_part( 'partials/entry', 'thumbnail' ); ?>
+							<?php if ( get_the_excerpt() ) : ?>
+								<div class="entry-content flex-column">
+									<?php the_excerpt(); ?>
+								</div>
+							<?php endif; ?>
+							<?php get_template_part( 'partials/entry', 'links' ); ?>
+						</div>
+					<?php endif; ?>
+					<?php comments_template(); ?>
+				</div>
+			<?php endwhile; ?>
+		</div>
+		<?php get_template_part( 'partials/entry', 'navigation' ); ?>
+	<?php wp_reset_postdata(); else : ?>
+		<?php get_template_part( 'partials/entry', 'none' ); ?>
 	<?php endif; ?>
-<?php wp_reset_postdata(); else : ?>
-	<div class="entry-none">
-		<p><?php _e( $no_entries, $config->lang ); ?></p>
-		<p>
-			<?php echo sprintf( __( 'Return to %1$s%2$s%3$s?', $config->lang ), '<a href="', esc_url( $config->home ), '">home</a>' ); ?>
-		</p>
-	</div>
-<?php endif; ?>
+	<?php
+		get_template_part( 'partials/layout', 'close' );
+		get_footer();
+	?>
+</section>
