@@ -1,0 +1,967 @@
+/* FAQ Blocks
+============================================== */
+
+dl.faq {
+	dt {
+		margin: 0 0 20px 0;
+	}
+	dt[id*='f'] strong {
+		@include spectral-common;
+		font-size: rem(20px);
+		color: $color-03;
+		display: block;
+	}
+	& + .top {
+		display: inline-block;
+		@include position($type: relative, $left: -2px);
+		margin: 0 0 20px 0;
+	}
+	dd {
+		.codebox {
+			margin: 20px 0;
+		}
+		.postbody.code-output .content {
+			margin: 0;
+			ul, ol {
+				margin: 0 0 0 20px;
+			}
+			blockquote {
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+#faqlinks, #khyeras-faq, #bbcode-faq {
+	.faq dd {
+		position: relative;
+		padding-left: 15px;
+		&:before {
+			content: '\002022';
+			@include position($type: absolute, $left: 0, $top: 0);
+		}
+	}
+}
+
+/* Search Page
+============================================== */
+
+.section-search form[data-focus='keywords'] fieldset dl dd {
+	#sk, #st, select[name='ch'] {
+		max-width: 50%;
+	}
+	select[name='ch'] {
+		margin-right: $ffs;
+	}
+}
+
+/* Search Results
+============================================== */
+
+.section-search {
+	.searchresults-title ~ .advanced-search-link {
+		.icon {
+			width: auto;
+			margin: 0 5px 0 0;
+		}
+	}
+	.post {
+		.postprofile dt a[class*='username'] {
+			display: inline;
+		}
+		.postbody {
+			.posthilit {
+				background: $color-07;
+				color: $color-06;
+				padding: 2.5px 5px;
+			}
+			h3 .posthilit {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+		ul.searchresults li {
+			direction: rtl;
+			a {
+				span {
+					margin: 0 10px 0 0;
+				}
+				.icon {
+					width: auto;
+				}
+			}
+		}
+	}
+}
+
+/* Memberlist
+============================================== */
+
+#memberlist_search {
+	h2, #search_memberlist {
+		background: map-get($dark-set, dark-00);
+	}
+	h2 {
+		margin: 1px 1px 0 1px;
+		padding: 20px;
+	}
+	#search_memberlist {
+		margin: 0 1px 1px 1px;
+		padding: 0 20px;
+	}
+}
+
+#search_memberlist .dropdown-container .dropdown.live-search {
+	&:not([style*='none']) {
+		@include toggle-content(show);
+		@include position($top: 45px, $left: -1px, $z: 2);
+	}
+	.dropdown-contents.search-results li {
+		cursor: pointer;
+	}
+}
+
+.member-search.panel {
+	border: 0;
+	strong {
+		font-weight: normal;
+	}
+}
+
+/* Memberlist - View Profile
+============================================== */
+
+#viewprofile {
+	.tab-panel {
+		&.show-panel {
+			@include toggle-content(show, $transition: true);
+		}
+		&.hide-panel {
+			@include toggle-content(hide);
+			@include position($type: absolute, $top: -9999px, $left: -9999px, $z: -1);
+		}
+	}
+	.profile-panel {
+		position: relative;
+		.flex-row {
+			.flex-column-left {
+				flex: 0 0 300px;
+				&.has-alt-avatar {
+					flex: 0 0 400px;
+				}
+				.postprofile dt {
+					margin: 0;
+				}
+			}
+			.flex-column-right {
+				@include flex(base);
+				.postprofile .avatar-container {
+					display: none;
+				}
+			}
+			.details {
+				.group-options {
+					position: relative;
+					padding-right: 65px;
+					select {
+						margin-bottom: 0;
+					}
+					.button2 {
+						@include position($type: absolute, $right: 0, $top: 0);
+						width: 60px;
+					}
+				}
+				.zebra a i {
+					color: $color-00;
+					font-size: rem(16px);
+					margin: 0 5px 0 0;
+					@include position($type: relative, $top: 1px);
+				}
+				.profile-permissions .comma:last-child {
+					display: none;
+				}
+			}
+		}
+		.postprofile {
+			dt.has-avatar .alt-avatar-container {
+				margin: 0 0 20px 0;
+				& > .alt-avatar {
+					line-height: 0;
+					border: 5px solid $color-01;
+					img {
+						max-height: 600px;
+					}
+				}
+			}
+			.stats .stat-bar {
+				max-width: 75%;
+			}
+		}
+	}
+	.user-contact .contact-icons a {
+		color: $color-00;
+		&:hover {
+			color: $color-03;
+		}
+		.contact-icon:before {
+			font-size: rem(20px);
+		}
+	}
+	.user-stats dl.details dd strong a {
+		display: inline-block;
+		margin: 0 10px 0 0;
+	}
+	.panel .signature {
+		margin-top: 20px;
+		padding-top: 20px;
+	}
+}
+
+/* Pop Up - Find member, etc...
+============================================== */
+
+.popup-wrap {
+	padding: 30px;
+	.memberlist a[class*='username'] {
+		margin: 0 5px 0 0;
+		& + br {
+			display: none;
+		}
+	}
+	.copyright {
+		text-align: center;
+		font-size: rem(13px);
+	}
+	.page-body {
+		.solo {
+			padding: 0 30px 0 0;
+		}
+		& > a[onclick*='window.close'] {
+			@include position($type: absolute, $top: 35px, $right: 30px);
+			font-size: 0;
+			&:after {
+				@include icon-font($family: 'game');
+				content: unicode($misc-close);
+				font-size: rem(24px);
+				color: $color-00;
+			}
+		}
+	}
+}
+
+/* Who Is Online
+============================================== */
+
+.section-viewonline {
+	.viewonline-title + p, .forumbg + p,
+	.action-bar.bar-top, .action-bar.bar-bottom {
+		float: left;
+		width: 50%;
+	}
+	.viewonline-title + p, .forumbg + p {
+		padding-right: 5px;
+	}
+	.action-bar.bar-top, .action-bar.bar-bottom {
+		padding-left: 5px;
+	}
+	.forumbg, .action-bar.actions-jump {
+		clear: both;
+	}
+	table.table1 td span[style*='float'] {
+		float: none !important;
+		display: block;
+		position: relative;
+		&:before {
+			@include position($type: absolute, $top: 0, $left: 0);
+			content: 'IP:';
+			font-weight: bold;
+		}
+		& + br {
+			display: none;
+		}
+	}
+}
+
+/* Pages - General
+============================================== */
+
+.pages-content hr {
+	display: block;
+}
+
+.page-content-section {
+	border-top: 1px dashed $color-01;
+	padding: 20px 0 0 0;
+}
+
+.pages-content {
+	&  > .page-content-section:first-child, & > .column3 + .column4 .page-content-section, & > .banner-aligned + .page-content-section {
+		border-top: 0;
+		padding-top: 0;
+	}
+}
+
+.content-image {
+	margin: 20px 0;
+	&.content-image-left {
+		float: left;
+		margin: 0 20px 10px 0;
+	}
+	&.content-image-right {
+		float: right;
+		margin: 0 0 10px 20px;
+	}
+	strong {
+		display: block;
+		margin: 0 0 5px 0;
+	}
+	img {
+		padding: 5px;
+		border: 1px solid $color-01;
+	}
+}
+
+.key {
+	list-style: none;
+	margin-left: 0;
+	li {
+		@include flex-flow(row wrap);
+		align-items: center;
+		margin: 0 0 10px 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		.icon, .icon-round-image {
+			margin: 0 10px 0 0;
+		}
+		p {
+			margin: 0;
+			@include flex(base);
+		}
+	}
+	&.key-grid {
+		@include clearfix('&');
+		margin: 0 -10px 10px -10px;
+		li {
+			float: left;
+			width: 20%;
+			padding: 0 10px;
+			&:last-child {
+				margin-bottom: 10px;
+			}
+			&:nth-child(5n+1) {
+				clear: left;
+			}
+		}
+	}
+}
+
+.banner {
+	margin: 0 0 20px 0;
+	border: 5px solid $color-01;
+	position: relative;
+	&.banner-aligned {
+		border: 0;
+		border-bottom: 1px solid $color-01;
+		margin: -20px -20px 20px -20px;
+	}
+	&.banner-vertical {
+		padding-bottom: calc(150% - 10px);
+		overflow: hidden;
+		img {
+			@include position($type: absolute, $top: 0, $bottom: 0, $left: -50%, $right: -50%);
+			margin: auto;
+			max-width: none;
+			height: 100%;
+		}
+	}
+	.banner-content {
+		background: map-get($dark-set, dark-07);
+		padding: 20px;
+		@include position($type: absolute, $bottom: 0, $left: 0, $right: 0);
+		.main-title, .sub-title {
+			@include ellipsis;
+			line-height: 1;
+		}
+		.main-title {
+			margin: 0;
+		}
+		.sub-title {
+			margin: 10px 0 0 0;
+			font-style: italic;
+			font-size: rem(16px);
+		}
+	}
+	& ~ .page-content-section dl.details {
+		dt, dd {
+			&.sub-title {
+				display: none;
+			}
+		}
+	}
+}
+
+.link-banners {
+	margin: 0 -2.5px 15px -2.5px;
+	img {
+		@include inline-block(middle);
+		margin: 0 2.5px 5px 2.5px;
+		cursor: pointer;
+	}
+}
+
+/* Pages - Excerpts
+============================================== */
+
+.excerpt, .excerpt-simple {
+	margin: 0 0 20px 0;
+	.excerpt-details {
+		@include clearfix('&');
+		p:last-child {
+			margin-bottom: 0;
+		}
+		.excerpt-title, .icon-wrapper {
+			@include inline-block(middle);
+		}
+		.excerpt-title {
+			max-width: 75%;
+		}
+		.icon-wrapper {
+			padding: 0 0 0 5px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.excerpt {
+	@include flex-flow(row wrap);
+	align-items: center;
+	.excerpt-image {
+		flex: 0 0 200px;
+		margin: 0 20px 0 0;
+	}
+	.excerpt-details {
+		@include flex(base);
+	}
+	&.excerpt-right .excerpt-image {
+		margin: 0 0 0 20px;
+		order: 1;
+	}
+}
+
+/* Pages - Cards
+============================================== */
+
+.card-grid {
+	@include flex-flow(row wrap);
+	margin: 0 -10px;
+	.card-block {
+		width: 33.33%;
+		@include flex;
+		padding: 0 10px;
+		margin: 0 0 20px 0;
+		@include toggle-content(show, true);
+		&.toggle-hide {
+			@include position($type: absolute, $top: -9999px, $left: -9999px);
+			@include toggle-content(hide, false);
+		}
+		&.card-full {
+			@include flex(base);
+		}
+		&.card-opacity {
+			.card-description .card-description-wrapper, dl.details {
+				opacity: 0.50;
+			}
+		}
+		.icon-wrapper, .user-avatar {
+			float: left;
+			margin: 0 10px 10px 0;
+		}
+		.user-avatar {
+			width: 100px;
+			.image-wrap {
+				border-width: 2px;
+				padding-bottom: calc(100% - 4px);
+			}
+		}
+		.card-completed-text {
+			padding: 0 10px 0 0;
+			color: $color-04;
+			font-style: italic;
+			.icon {
+				margin: 0 5px 0 0;
+			}
+		}
+		.card-description {
+			margin: 0 0 10px 0;
+			.character-currency {
+				margin: 5px 0 0 0;
+			}
+		}
+		.card-clear {
+			clear: both;
+		}
+		.details {
+			margin-bottom: -5px;
+		}
+	}
+}
+
+.card-filters {
+	margin: 0 0 20px 0;
+	.card-filter-row {
+		@include flex-flow(row wrap);
+		align-items: center;
+		margin: 0 -5px -10px -5px;
+		.card-filter-column {
+			padding: 0 5px;
+			margin: 0 0 10px 0;
+		}
+	}
+	.card-filter-label, .card-filter-button {
+		@include flex;
+	}
+	.card-filter-label {
+		font-weight: bold;
+	}
+	.card-filter-menu {
+		@include flex(base);
+		.dropdown-container {
+			.dropdown-trigger {
+				min-width: 150px;
+				padding: 0 50px 0 20px;
+				background: $color-02;
+				border: 1px solid $color-01;
+				line-height: 38px;
+				position: relative;
+				.fa-angle-down {
+					@include sizing(16px, 16px);
+					@include position($type: absolute, $top: 0, $bottom: 0, $right: 20px);
+					margin: auto;
+				}
+			}
+			.dropdown {
+				min-width: 1px;
+				margin-top: 10px !important;
+				@include position($top: auto, $left: 0, $right: 0);
+				.dropdown-contents > li  {
+					.card-filter {
+						cursor: pointer;
+					}
+					.card-filter-active {
+						color: $color-04;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+		.dropdown-visible .dropdown-trigger .fa-angle-down:before {
+			content: unicode($icon-angle-up);
+		}
+	}
+}
+
+/* Pages - Pie Chart
+============================================== */
+
+.pie-chart {
+	margin: 0 0 20px 0;
+	@include flex-flow(row wrap);
+	align-items: center;
+	&.flex-column {
+		@include flex;
+		width: 50%;
+	}
+	.pie-chart-circle .pie-chart-circle-wrapper svg, .pie-chart-circle .pie-chart-circle-wrapper:after, .pie-chart-key ul li .pie-chart-key-color {
+		border-radius: 50%;
+	}
+	.pie-chart-circle .pie-chart-circle-wrapper, .pie-chart-key ul li {
+		position: relative;
+	}
+	.pie-chart-circle .pie-chart-circle-wrapper svg, .pie-chart-circle .pie-chart-circle-wrapper:after, .pie-chart-key ul li .pie-chart-key-color {
+		display: block;
+		position: absolute;
+	}
+	.pie-chart-circle {
+		@include flex;
+		width: 50%;
+		.pie-chart-circle-wrapper {
+			@include sizing(100%, 0);
+			padding-bottom: 100%;
+			line-height: 0;
+			svg, &:after {
+				@include position($top: 0, $left: 0, $bottom: 0, $right: 0);
+				margin: auto;
+			}
+			svg {
+				transform: rotate(-90deg);
+				background: $color-01;
+				border: 5px solid $color-02;
+				.pie-chart-slice {
+					fill: transparent;
+					stroke-width: 32;
+				}
+				.pie-chart-slice-0 {
+					stroke: $color-01;
+				}
+				.pie-chart-slice-1 {
+					stroke: $color-05;
+				}
+				.pie-chart-slice-2 {
+					stroke: $color-08;
+				}
+				.pie-chart-slice-3 {
+					stroke: $color-09;
+				}
+				.pie-chart-slice-4 {
+					stroke: $color-12;
+				}
+				.pie-chart-slice-5 {
+					stroke: $color-13;
+				}
+				.pie-chart-slice-6 {
+					stroke: $color-14;
+				}
+				.pie-chart-slice-7 {
+					stroke: $color-15;
+				}
+				.pie-chart-slice-8 {
+					stroke: $color-22;
+				}
+				.pie-chart-slice-9 {
+					stroke: $color-04;
+				}
+				.pie-chart-slice-10 {
+					stroke: $color-03;
+				}
+				.pie-chart-slice-11 {
+					stroke: $color-07;
+				}
+				.pie-chart-slice-12 {
+					stroke: $color-10;
+				}
+				.pie-chart-slice-13 {
+					stroke: $color-18;
+				}
+				.pie-chart-slice-14 {
+					stroke: $color-21;
+				}
+				.pie-chart-slice-15 {
+					stroke: map-get($color-set-08, light-00);
+				}
+				.pie-chart-slice-16 {
+					stroke: $color-00;
+				}
+			}
+			&:after {
+				content: '';
+				@include sizing(30%, 30%);
+				background: $color-02;
+			}
+		}
+	}
+	.pie-chart-title {
+		@include flex(full);
+		order: -1;
+		min-width: 1px;
+		align-self: flex-start;
+	}
+	.pie-chart-key {
+		@include flex(base);
+		margin: 0 0 0 20px;
+		ul {
+			list-style: none;
+			margin: 0 -5px -5px -5px;
+			padding: 0;
+			li {
+				padding: 0 0 0 26px;
+				margin: 0 5px 5px 5px;
+				.pie-chart-key-color {
+					@include position($top: 1px, $left: 0);
+					@include sizing(16px, 16px);
+					box-shadow: 0 0 0 2px $color-02;
+				}
+				.pie-chart-key-color-0 {
+					background: $color-01;
+				}
+				.pie-chart-key-color-1 {
+					background: $color-05;
+				}
+				.pie-chart-key-color-2 {
+					background: $color-08;
+				}
+				.pie-chart-key-color-3 {
+					background: $color-09;
+				}
+				.pie-chart-key-color-4 {
+					background: $color-12;
+				}
+				.pie-chart-key-color-5 {
+					background: $color-13;
+				}
+				.pie-chart-key-color-6 {
+					background: $color-14;
+				}
+				.pie-chart-key-color-7 {
+					background: $color-15;
+				}
+				.pie-chart-key-color-8 {
+					background: $color-22;
+				}
+				.pie-chart-key-color-9 {
+					background: $color-04;
+				}
+				.pie-chart-key-color-10 {
+					background: $color-03;
+				}
+				.pie-chart-key-color-11 {
+					background: $color-07;
+				}
+				.pie-chart-key-color-12 {
+					background: $color-10;
+				}
+				.pie-chart-key-color-13 {
+					background: $color-18;
+				}
+				.pie-chart-key-color-14 {
+					background: $color-21;
+				}
+				.pie-chart-key-color-15 {
+					background: map-get($color-set-08, light-00);
+				}
+				.pie-chart-key-color-16 {
+					background: $color-00;
+				}
+			}
+		}
+	}
+}
+
+/* Pages - Map
+============================================== */
+
+.map {
+	position: relative;
+	margin: 0 -20px 20px -20px;
+	.tab-panel {
+		@include position($type: absolute, $top: 0, $left: 0, $z: 100);;
+		@include toggle-content(show, $transition: true);
+	}
+	.hide-panel {
+		@include position($top: -9999px, $left: -9999px, $z: -1);
+		@include toggle-content(hide);
+	}
+	.show-panel {
+		&.map-grid-large-panel {
+			z-index: 90;
+		}
+		&.map-grid-small-panel {
+			z-index: 80;
+		}
+		&.map-perimeters-panel {
+			z-index: 70;
+		}
+		&.map-borders-panel {
+			z-index: 60;
+		}
+	}
+}
+
+/* Pages - Setting Layout Headers
+============================================== */
+
+.section-page #layout h5 em {
+	font-size: rem(16px);
+	font-variant: none;
+}
+
+/* Pages - Timeline
+============================================== */
+
+.timeline {
+	margin: 30px 0 0 0;
+	&, .timeline-row, .timeline-row .timeline-detail-header .bracket {
+		position: relative;
+	}
+	&:before, .timeline-row .timeline-header:before, .timeline-row .timeline-header:after {
+		content: '';
+		display: block;
+	}
+	h3, h4, h5 {
+		margin: 0;
+	}
+	.timeline-row, .timeline-row .timeline-detail-header {
+		align-items: center;
+	}
+	&:before {
+		width: 0;
+		overflow: hidden;
+		@include position($type: absolute, $top: 0, $bottom: 0, $left: 0, $right: 0, $z: 1);
+		margin: auto;
+		border-right: 1px dashed $color-01;
+	}
+	.timeline-row {
+		z-index: 2;
+		&, .timeline-header {
+			margin-bottom: $main-margin;
+		}
+		.timeline-header {
+			padding: 0 30px;
+			flex: 1 1 100%;
+			min-width: 1px;
+			text-align: center;
+			&:before, &:after {
+				width: 40%;
+				margin: 0 auto;
+			}
+			&:before {
+				border-top: 2px solid $color-01;
+				margin-bottom: 15px;
+			}
+			&:after {
+				border-bottom: 2px solid $color-01;
+				margin-top: 10px;
+			}
+			h3 {
+				margin: 0 0 5px 0;
+			}
+		}
+		.timeline-detail-header {
+			justify-content: flex-end;
+			@include flex-flow(row nowrap);
+			text-align: right;
+			.timeline-sub-title, .bracket {
+				@include flex;
+			}
+			.timeline-sub-title {
+				margin: 0 20px 0 0;
+			}
+			.bracket {
+				@include sizing(20px, 40px);
+				line-height: 40px;
+				font-size: rem(40px);
+				font-family: $serif-fb;
+				top: -3.5px;
+			}
+			h5 {
+				color: $color-00;
+			}
+			.icon {
+				margin: 5px 0 0 0;
+			}
+		}
+	}
+}
+
+.timeline.timeline-alternating .timeline-section .timeline-row {
+	&:nth-child(odd) {
+		flex-direction: row-reverse;
+		.timeline-detail-header {
+			direction: rtl;
+			.timeline-sub-title {
+				margin: 0 0 0 20px;
+			}
+		}
+		.timeline-detail-description {
+			text-align: right;
+		}
+	}
+	.timeline-detail-header .timeline-sub-title {
+		text-align: center;
+	}
+}
+
+.timeline.timeline-small {
+	&:before {
+		left: 32.50%;
+		left: calc(33.33% - 10px);
+		right: auto;
+	}
+	.timeline-row .timeline-detail-header {
+		@include flex;
+		width: 33.33%;
+	}
+}
+
+/* Thanks List
+============================================== */
+
+div[id*='list_thanks'], .member-thanks-list {
+	.post-buttons {
+		margin: -2px 0 0 0;
+		.button {
+			@include sizing(20px, 20px);
+			border-radius: 100%;
+			padding: 0;
+			.icon {
+				line-height: 20px;
+				font-size: rem(12px);
+			}
+		}
+		& ~ dl, & ~ dt, & ~ dd {
+			margin: 0 0 0 30px;
+		}
+	}
+}
+
+div[id*='list_thanks'] {
+	margin: 20px 0 0 0;
+	.post-buttons > li.responsive-menu {
+		display: none;
+	}
+}
+
+.member-thanks-list {
+	.column1, .column2 {
+		margin: 0 0 20px 0;
+	}
+	ul {
+		list-style: none;
+	}
+	dl {
+		dt, dd {
+			display: inline;
+		}
+		dd:before {
+			content: ' \002022 ';
+		}
+	}
+}
+
+#show_thanks, #show_thanked {
+	@include clearfix('&');
+	margin: 10px -10px 0 -10px;
+	& > span {
+		display: block;
+		margin: 0 0 0 -8px;
+		padding: 0 10px;
+		br:last-child {
+			display: none;
+		}
+	}
+}
+
+.section-search-thanks {
+	h2 + p .arrow-left, .post ul.searchresults li a {
+		&:before {
+			color: $color-00;
+			@include icon-font($fs: rem(12px));
+		}
+	}
+	h2 + p .arrow-left:before {
+		content: unicode($icon-angle-left);
+		margin: 0 10px 0 0;
+	}
+	.post ul.searchresults li a:before {
+		content: unicode($icon-angle-right);
+		margin: 0 0 0 10px;
+	}
+}
+
+.section-page-list-of-thanks table.table1 {
+	th, td {
+		&.info {
+			display: none;
+		}
+	}
+}

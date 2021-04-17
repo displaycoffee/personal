@@ -1,0 +1,160 @@
+/* General layout
+============================================== */
+
+.wrapper {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 0 20px;
+	&.full-wrapper {
+		max-width: none;
+	}
+}
+
+.overlay {
+	display: none;
+	background: $dark-03;
+	@include centered($type: fixed, $z: 9998);
+	cursor: pointer;
+}
+
+.navigation-visible .overlay {
+	display: block;
+}
+
+.flex-row, .flex-row-nowrap {
+	.flex-column {
+		@include flex(base);
+	}
+	&.flex-row-05 {
+		margin: 0 -5px;
+		.flex-column {
+			padding: 0 5px;
+		}
+	}
+	&.flex-row-10 {
+		margin: 0 -10px;
+		.flex-column {
+			padding: 0 10px;
+		}
+	}
+	&.flex-row-20 {
+		margin: 0 -20px;
+		.flex-column {
+			padding: 0 20px;
+		}
+	}
+	&.flex-row-30 {
+		margin: 0 -30px;
+		.flex-column {
+			padding: 0 30px;
+		}
+	}
+}
+
+.flex-row {
+	@include flex-flow(row wrap);
+}
+
+.flex-row-nowrap {
+	@include flex-flow(row nowrap);
+}
+
+.flex-row-center {
+	align-items: center;
+}
+
+/* Main Layout
+============================================== */
+
+#container .wrapper {
+	.flex-row-nowrap {
+		#content {
+			flex: 1 1 0%;
+		}
+		#sidebar {
+			flex: 0 0 250px;
+		}
+	}
+}
+
+/* Positioned Images
+============================================== */
+
+.image-fit {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	&.image-fit-default img {
+		@include sr-only;
+	}
+}
+
+@include respond(em(769), $type: min-width) {
+	.image-fit.image-fit-responsive {
+		background-position: -9999px -9999px;
+	}
+}
+
+/* Search Form
+============================================== */
+
+.search-form {
+	.flex-row-nowrap {
+		.search-form-label, .search-form-submit {
+			@include flex;
+		}
+		.search-form-label {
+			width: 100px;
+			label {
+				margin: 0;
+			}
+		}
+		.search-form-submit {
+			width: 100px;
+			.button {
+				width: 100%;
+			}
+		}
+	}
+}
+
+/* Dropdowns
+============================================== */
+
+.dropdown {
+	&, .dropdown-label .dropdown-trigger {
+		position: relative;
+	}
+	&.dropdown-visible {
+		.dropdown-label .dropdown-trigger {
+			transform: rotate(-180deg);
+		}
+		.dropdown-content {
+			@include toggle-content(show, false);
+			@include position($top: auto, $left: -10px, $z: 50);
+		}
+	}
+	&.dropdown-hidden {}
+	.dropdown-label {
+		a {
+			margin: 0 10px 0 0;
+		}
+		.dropdown-trigger {
+			transition: transform 0.5s ease-in-out;
+			@include sizing($dropdown-icon, $dropdown-icon);
+			text-align: center;
+			cursor: pointer;
+			margin: 0 0 0 auto;
+			.icon {
+				font-size: rem($dropdown-icon);
+				line-height: $dropdown-icon;
+			}
+		}
+	}
+	.dropdown-content {
+		@include toggle-content(hide, true);
+		@include position($type: absolute, $top: -9999px, $left: -9999px, $z: -1);
+		padding: 20px;
+		min-width: 200px;
+	}
+}

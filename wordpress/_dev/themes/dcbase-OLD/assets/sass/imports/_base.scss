@@ -1,0 +1,144 @@
+/* Hide WP Admin Bar
+============================================== */
+
+#wpadminbar {
+	display: none !important;
+}
+html[class*='dcbase'] {
+	margin-top: 0 !important;
+}
+
+/* Resets
+============================================== */
+
+*, &:before, &:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Display Adjusts
+============================================== */
+
+article, aside, code, details, figcaption, figure, footer, header, hgroup, img, label, main, menu,
+nav, pre, section, summary, textarea {
+	display: block;
+}
+
+audio:not([controls]), [hidden], template {
+	display: none;
+}
+
+audio, canvas, progress, video, #{$button-fields} {
+	@include inline-block(baseline);
+}
+
+/* Height Adjusts
+============================================== */
+
+audio:not([controls]), hr {
+	height: 0;
+}
+
+body {
+	height: 100%;
+}
+
+html, body {
+	min-height: 100%;
+}
+
+/* Border Adjusts
+============================================== */
+
+abbr[title], code, fieldset, hr, img, pre, #{$button-fields} {
+	border: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Overflow Adjusts
+============================================== */
+
+code, pre, textarea {
+	overflow: auto;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+button, hr, input {
+	overflow: visible;
+}
+
+/* Base styles
+============================================== */
+
+body {
+	-webkit-print-color-adjust: exact;
+	-webkit-tap-highlight-color: $light-00;
+	backface-visibility: hidden;
+}
+
+img {
+	max-width: 100%;
+	@include sizing(auto, auto);
+}
+
+code, dl, h1, h2, h3, h4, h5, h6, h2, figure, p, pre, .list-mar-20 > li {
+	margin: 0 0 $main-spacing 0;
+}
+
+ol, ul {
+	margin: 0 0 $main-spacing 40px;
+}
+
+.list-mar-20 > li:last-child {
+	margin-bottom: 0;
+}
+
+.lower-alpha {
+	list-style-type: lower-alpha;
+}
+
+dl {
+	dt {
+		margin: 0 0 5px 0;
+	}
+	dd {
+		margin: 0 0 $main-spacing 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+hr {
+	border-bottom: 1px solid $color-00;
+}
+
+/* Remove List Style
+============================================== */
+
+.menu, .menu-item {
+	list-style: none;
+}
+
+/* Utilities
+============================================== */
+
+.clearfix {
+	@include clearfix('&');
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.sr-only {
+	@include sr-only;
+}

@@ -3,10 +3,12 @@ Contributors: displaycoffee
 Theme link: https://github.com/displaycoffee/personal/tree/master/wordpress
 Tags: n/a
 Requires at least: 5.4
-Tested up to: WordPress 5.4
-Version: 5.0
-License: GNU General Public License
+Tested up to: 5.6
+Version: 6.0
+License: GNU General Public License v3 or Later
 License URI: https://www.gnu.org/licenses/gpl.html
+
+A fully responsive starter theme for designers and developers.
 
 == Description ==
 
@@ -21,6 +23,7 @@ In WordPress, do the following:
 3. Activate the theme.
 
 == Credits/Copyright ==
+
 Theme created by displaycoffee.
 
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.

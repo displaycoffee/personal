@@ -1,0 +1,148 @@
+/* Browser Upgrade / Browse Happy
+============================================== */
+
+.browser-upgrade {
+	@include position($type: fixed, $top: 0, $left: 0, $right: 0, $z: 9999);
+	background: $color-03;
+	border-bottom: 2px solid darken($color-03, 25%);
+	padding: 20px;
+	color: $color-00;
+	text-align: center;
+	a {
+		color: $dark-00;
+		&:hover {
+			color: $color-00;
+		}
+	}
+}
+
+/* Header
+============================================== */
+
+#header {}
+
+/* Site Details
+============================================== */
+
+.site-details {
+	.site-name {}
+	.site-description {}
+}
+
+/* Header Search
+============================================== */
+
+.search-header {
+	.search-form {}
+}
+
+/* Menu Resets
+============================================== */
+
+.navigation-main, .navigation-mobile {
+	.menu, .sub-menu {
+		margin: 0;
+	}
+	.menu > .menu-item > .sub-menu .sub-menu {
+		@include sr-only;
+	}
+}
+
+/* Main Navigation
+============================================== */
+
+.navigation-main {
+	.menu {
+		@include flex-flow(row nowrap);
+		align-items: center;
+		justify-content: center;
+		margin: 0 -10px;
+		& > .menu-item {
+			display: block;
+			padding: 0 10px;
+		}
+	}
+}
+
+/* Mobile Button & Navigation
+============================================== */
+
+.navigation-mobile-trigger, .navigation-mobile {
+	display: none;
+}
+
+.navigation-mobile-trigger {}
+
+.navigation-mobile {
+	background: $color-00;
+	@include position($type: fixed, $top: 0, $left: -($mobile-menu-width + 300), $z: 9999);
+	@include sizing($mobile-menu-width, 100%);
+	transition: left 0.3s ease-in-out;
+	&, a, .icon {
+		color: $color-01;
+	}
+	&, ul {
+		font-size: rem(16px);
+	}
+	.navigation-mobile-header .navigation-mobile-close, .dropdown .dropdown-label .dropdown-trigger {
+		@include sizing($mobile-menu-icon, $mobile-menu-icon);
+		.icon {
+			font-size: rem($mobile-menu-icon);
+			line-height: $mobile-menu-icon;
+		}
+	}
+	.navigation-mobile-header, .navigation-mobile-content .dropdown .dropdown-label {
+		position: relative;
+	}
+	.navigation-mobile-header {
+		padding: 0 20px;
+		line-height: 60px;
+		.navigation-mobile-title {
+			margin: 0 20px 0 0;
+		}
+		.navigation-mobile-close {
+			margin: 0 0 0 auto;
+			text-align: center;
+		}
+	}
+	.navigation-mobile-content {
+		padding: 20px;
+		.dropdown {
+			margin: 0 0 10px 0;
+			&:last-child {
+				margin: 0;
+			}
+			&.dropdown-visible {
+				.dropdown-label {
+					font-weight: bold;
+				}
+				.dropdown-content {
+					margin: 10px 0 0 0;
+					@include sizing(auto, auto);
+				}
+			}
+			&.dropdown-hidden {
+				display: none;
+			}
+			.dropdown-label {
+				.dropdown-trigger .icon:before {
+					content: unicode($icon-angle-right);
+				}
+			}
+			.dropdown-content {
+				transition: margin-left 0.5s ease-in-out;
+				margin: 0 0 0 (-$mobile-menu-width);
+				position: static;
+				padding: 0;
+				@include sizing(0, 0);
+				min-width: 0;
+			}
+		}
+	}
+}
+
+.navigation-visible {
+	.navigation-mobile {
+		left: 0;
+	}
+}

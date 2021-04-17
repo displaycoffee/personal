@@ -66,7 +66,9 @@
 							) );
 						?>
 					</div>
-					<div class="site-description"><?php echo get_bloginfo( 'description' ); ?></div>
+					<div class="site-description">
+						<?php echo get_bloginfo( 'description' ); ?>
+					</div>
 				</div>
 				<div class="search-header">
 					<?php get_search_form(); ?>

@@ -1,32 +1,24 @@
-<?php
-	/**
-	* Template for displaying search
-	*/
-
-	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) { exit; }
-
-	// Add config object to footer
-	$config = dcbase_config();
-
-	get_header();
-?>
-<header class="entry-search-header">
-	<div class="wrapper">
-		<?php
-			dcbase_create_title( array(
-				'element' => 'h1',
-				'class'   => 'entry-search-title',
-				'label'   => sprintf( __( $config->search->results . ' %s', $config->lang ), get_search_query() )
-			) );
-		?>
-	</div>
+<?php get_header(); ?>
+<main id="content" role="main">
+<?php if ( have_posts() ) : ?>
+<header class="header">
+<h1 class="entry-title" itemprop="name"><?php printf( esc_html__( 'Search Results for: %s', 'dcbase' ), get_search_query() ); ?></h1>
 </header>
-<div class="entry-search-content">
-	<?php
-		get_template_part( 'partials/layout', 'open' );
-		get_template_part( 'loop', 'index' );
-		get_template_part( 'partials/layout', 'close' );
-		get_footer();
-	?>
+<?php while ( have_posts() ) : the_post(); ?>
+<?php get_template_part( 'entry' ); ?>
+<?php endwhile; ?>
+<?php get_template_part( 'nav', 'below' ); ?>
+<?php else : ?>
+<article id="post-0" class="post no-results not-found">
+<header class="header">
+<h1 class="entry-title" itemprop="name"><?php esc_html_e( 'Nothing Found', 'dcbase' ); ?></h1>
+</header>
+<div class="entry-content" itemprop="mainContentOfPage">
+<p><?php esc_html_e( 'Sorry, nothing matched your search. Please try again.', 'dcbase' ); ?></p>
+<?php get_search_form(); ?>
 </div>
+</article>
+<?php endif; ?>
+</main>
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

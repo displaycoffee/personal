@@ -1,0 +1,220 @@
+/* Profile - View Topic, PM, Memberlist View
+============================================== */
+
+.postprofile {
+	margin: 0;
+	dt, dd {
+		margin: 0 0 5px 0;
+	}
+	dt {
+		& > strong {
+			font-weight: normal;
+		}
+		a, span {
+			&[class*='username'] {
+				display: block;
+				@include spectral-common;
+				font-size: rem(24px);
+			}
+		}
+		&.no-avatar .avatar-container {
+			display: none;
+		}
+		&.has-avatar .avatar-container {
+			margin: 0 0 20px 0;
+		}
+	}
+	.profile-rank, .profile-character-details {
+		margin: 0 0 20px 0;
+		& > div:first-child ~ div {
+			margin-top: 5px;
+		}
+	}
+	.profile-rank {
+		font-family: $font-02;
+		font-style: italic;
+	}
+}
+
+/* Level
+============================================== */
+
+.level {
+	.level-wrap {
+		display: inline-block;
+		.level-name, .level-value {
+			line-height: 1;
+		}
+		.level-name {
+			font-size: rem(18px);
+		}
+		.level-value {
+			font-size: rem(48px);
+			margin: 2.5px 0 -10px 0;
+		}
+	}
+	&.level-small .level-wrap {
+		.level-name {
+			font-size: rem(14px);
+		}
+		.level-value {
+			font-size: rem(40px);
+		}
+	}
+}
+
+/* HP / MP Stat Bars
+============================================== */
+
+.stats {
+	.stat-bar {
+		position: relative;
+		height: 20px;
+		border: 2px solid;
+		box-shadow: inset 0 0 6px 3px map-get($dark-set, dark-04);
+		border-radius: 3px;
+		margin: 0 0 5px 0;
+		.stat-bar-inner {
+			height: 100%;
+		}
+		.stat-bar-label {
+			@include position($type: absolute, $bottom: -8.5px, $left: 0, $right: 0);
+			text-align: center;
+			text-shadow: 1px 1px 0 map-get($dark-set, dark-05), 1px 1px 0 map-get($dark-set, dark-05);
+		}
+		& + .stat-bar {
+			margin-top: 15px;
+		}
+		&.hp-bar {
+			border-color: map-get($color-set-08, dark-00);
+			background: map-get($color-set-08, dark-01);
+			.stat-bar-inner {
+				background: $color-08;
+			}
+		}
+		&.mp-bar {
+			border-color: map-get($color-set-09, dark-00);
+			background: map-get($color-set-09, dark-01);
+			.stat-bar-inner {
+				background: $color-09;
+			}
+		}
+	}
+	&.stats-small .stat-bar {
+		height: 16px;
+	}
+}
+
+/* Character Card
+============================================== */
+
+.character-card {
+	@include flex-flow(row nowrap);
+	align-items: flex-start;
+	.level {
+		@include flex;
+	}
+	.stats {
+		@include flex(base);
+		margin: 0 0 0 10px;
+	}
+}
+
+/* Character Currency
+============================================== */
+
+.character-currency {
+	span {
+		font-weight: bold;
+		font-style: italic;
+		font-size: rem(12px);
+	}
+	.currency-p {
+		color: $color-18;
+	}
+	.currency-g {
+		color: $color-19;
+	}
+	.currency-s {
+		color: $color-20;
+	}
+	.currency-c {
+		color: $color-21;
+	}
+	.icon {
+		color: $color-21;
+		& + span:not(.sr-only) {
+			margin: 0;
+		}
+	}
+}
+
+/* Online Badge - Typically shows near profile
+============================================== */
+
+.online {
+	position: relative;
+	&:before, &:after {
+		color: $light-05;
+		display: block;
+		@include position($type: absolute, $z: 10);
+	}
+	&:before {
+		content: '\f004\0000A0\0000A0 Online';
+		@include sizing(80px, 0);
+		font-family: 'FontAwesome', $font-01;
+		font-size: rem($global-font-size);
+		border-right: 8px inset transparent;
+		border-bottom: 12px solid $color-05;
+		border-top: 12px solid $color-05;
+		line-height: 0;
+		padding: 0 10px;
+		text-align: center;
+	}
+	&:after {
+		content: '';
+		@include sizing(0, 0);
+		border-left: 12px inset transparent;
+		border-top: 8px solid map-get($color-set-05, dark-03);
+	}
+}
+
+.online .postprofile dt.no-avatar {
+	margin-top: 30px;
+}
+
+.section-viewtopic .post.online {
+	&:before, &:after {
+		left: -12px;
+	}
+	&:before {
+		top: 20px;
+	}
+	&:after {
+		top: 44px;
+	}
+}
+
+.pm.post.online {
+	&:before, &:after {
+		left: -12px;
+	}
+	&:before {
+		top: 15px;
+	}
+	&:after {
+		top: 39px;
+	}
+}
+
+#viewprofile .panel.online {
+	&:before, &:after {
+		left: -11px;
+	}
+	&:before {
+		top: 15px;
+	}
+	&:after {
+		top: 39px;
+	}
+}

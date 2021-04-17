@@ -21,5 +21,48 @@
 	<script src="assets/js/bcg.js"></script>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		var columnLimit = 5;
+		var values = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
+		var rows = values.length / columnLimit;
+		var overflow = values.length - rows;
+
+		var groups = [];
+
+		for (var i = 0; i < columnLimit; i++) {
+			groups.push([]);
+		}
+
+		var columnPosition = 0;
+
+		var rowLimit = values.length / columnLimit;
+		rowLimit = (rowLimit == 0) ? 1 : rowLimit;
+
+		for (var i = 0; i < values.length; i++) {
+			var currentValue = values[i];
+			var rowMod = i / rows;
+			var columnMod = i / columnLimit;
+			console.log(currentValue, i % 2)
+			// var currentGroup = groups[columnPosition];
+			//
+			// if (currentGroup && currentGroup.length < rowLimit) {
+			// 	console.log(overflow, rowLimit)
+			// 	currentGroup.push(currentValue);
+			//
+			// 	if (currentGroup.length == rowLimit) {
+			// 		columnPosition++;
+			// 	}
+			// }
+
+			//console.log(i, currentRow)
+			//groups[currentRow].push(currentValue);
+		}
+
+		console.log(groups)
+
+
+
+
+	</script>
 </body>
 </html>

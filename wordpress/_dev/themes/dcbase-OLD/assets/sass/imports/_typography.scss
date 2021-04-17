@@ -1,0 +1,130 @@
+/* Font kits
+============================================== */
+
+@font-face {
+	font-family: 'DCBase Icons';
+	src: url($fonts + 'dcbase-icons.woff2') format('woff2'),
+		 url($fonts + 'dcbase-icons.woff') format('woff'),
+		 url($fonts + 'dcbase-icons.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+/* General text elements
+============================================== */
+
+html, body {
+	font-family: $font-01;
+}
+
+html {
+	text-size-adjust: 100%;
+	font-size: $base-font-size + px;
+	line-height: 1;
+}
+
+body {
+	font-size: rem($global-font-size);
+	line-height: 1.5;
+	font-weight: normal;
+}
+
+b, strong, optgroup {
+	font-weight: bold;
+}
+
+dfn, em, i {
+	font-style: italic;
+}
+
+a, abbr[title] {
+	text-decoration: none;
+}
+
+a {
+	background-color: transparent;
+	transition: color 0.3s ease-in-out;
+	&:active, &:hover {
+		outline: 0;
+	}
+}
+
+mark {
+	background: $color-03;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub, sup {
+	position: relative;
+	vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/* Font Colors
+============================================== */
+
+body, mark, a:hover, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a, select, select option, textarea, #{$input-fields} {
+	color: $color-00;
+}
+
+a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .h1 a:hover, .h2 a:hover, .h3 a:hover, .h4 a:hover, .h5 a:hover, .h6 a:hover {
+	color: $color-02;
+}
+
+/* Headers
+============================================== */
+
+h1, .h1 {
+	font-size: rem(34px);
+}
+
+h2, .h2 {
+	font-size: rem(30px);
+}
+
+h3, .h3 {
+	font-size: rem(26px);
+}
+
+h4, .h4 {
+	font-size: rem(22px);
+}
+
+h5, h6, .h5, .h6 {
+	font-size: rem(20px);
+}
+
+/* Content Blocks
+============================================== */
+
+code, kbd, pre, samp {
+	background: $color-00;
+	padding: $main-spacing;
+	font-family: 'Courier New', monospace;
+	font-size: rem(16px);
+	color: $color-01;
+	white-space: pre-wrap;
+}
+
+pre code {
+	padding: 0;
+	margin: 0;
+}
+
+blockquote {
+	max-width: 90%;
+	margin: 0 auto $main-spacing auto;
+}

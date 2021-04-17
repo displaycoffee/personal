@@ -9,6 +9,11 @@ var obj = {
 	}
 };
 
+// Check if substring is in string
+function inString( value, search ) {
+	return ( value.indexOf(search) !== -1 ) ? true : false;
+}
+
 // Check for mobile
 function isMobile( respond ) {
 	var windowWidth = ( window.innerWidth / obj.variables.fontSize );

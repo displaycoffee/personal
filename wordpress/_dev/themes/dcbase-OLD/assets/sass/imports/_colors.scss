@@ -1,0 +1,25 @@
+// Base Colors
+// ============================================== //
+
+$white: #ffffff;
+$black: #000000;
+
+// Main Colors
+// ============================================== //
+
+$color-00: #333333; // main
+$color-01: #fdfdfd; // light text
+$color-02: #6a5acd; // links
+$color-03: #f1f169; // highlights
+
+// Light Colors
+// ============================================== //
+
+$light-00: rgba(255, 255, 255, 0);
+
+// Dark Colors
+// ============================================== //
+
+$dark-00: lighten($color-00, 25%);
+$dark-01: darken($color-00, 10%);
+$dark-03: rgba(0, 0, 0, 0.5);

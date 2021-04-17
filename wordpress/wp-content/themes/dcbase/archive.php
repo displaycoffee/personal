@@ -1,30 +1,13 @@
-<?php
-	/**
-	* Template for displaying archives
-	*/
-
-	// Exit if accessed directly
-	if ( !defined( 'ABSPATH' ) ) { exit; }
-
-	get_header();
-
-	// Add config object
-	$config = dcbase_config();
-?>
-<header class="<?php echo $config->classes->multi ?>-header entry-<?php echo $config->type ?>-header">
-	<div class="wrapper">
-		<?php
-			dcbase_create_title( array(
-				'element' => 'h1',
-				'class'   => $config->classes->multi . '-title',
-				'label'   => single_term_title( '', false )
-			) );
-		?>
-		<?php if ( get_the_archive_description() ) : ?>
-			<div class="<?php echo $config->classes->multi ?>-description">
-				<?php echo get_the_archive_description(); ?>
-			</div>
-		<?php endif; ?>
-	</div>
+<?php get_header(); ?>
+<main id="content" role="main">
+<header class="header">
+<h1 class="entry-title" itemprop="name"><?php single_term_title(); ?></h1>
+<div class="archive-meta" itemprop="description"><?php if ( '' != the_archive_description() ) { echo esc_html( the_archive_description() ); } ?></div>
 </header>
-<?php get_template_part( 'loop', 'index' ); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php get_template_part( 'entry' ); ?>
+<?php endwhile; endif; ?>
+<?php get_template_part( 'nav', 'below' ); ?>
+</main>
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

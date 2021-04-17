@@ -1,0 +1,151 @@
+/* Form fields
+============================================== */
+
+@include placeholder {
+	transition: color 0.3s ease-in-out;
+	color: $color-00;
+}
+
+:focus{@include placeholder {
+	color: $color-00;
+}}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+optgroup, select, textarea, #{$button-fields}, #{$input-fields} {
+	font-family: inherit;
+	font-size: 100%;
+	margin: 0;
+}
+
+select, textarea, #{$input-fields} {
+	appearance: none;
+	border: 1px solid $color-00;
+	width: 100%;
+	min-height: $form-field-height;
+	padding: 10px;
+	line-height: 1.35;
+}
+
+.ios {
+	select, textarea, #{$input-fields} {
+		font-size: 16px;
+	}
+}
+
+select, #{$button-fields} {
+	text-transform: none;
+}
+
+#{$button-fields}, #{$input-fields} {
+	border-radius: 0;
+}
+
+select {
+	padding-right: 60px;
+	background-image: url($images + 'angle-down.svg');
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: auto 16px;
+	option[disabled] {
+		color: $dark-00;
+	}
+}
+
+#{$check-fields} {
+	@include position($type: relative, $top: 2px);
+}
+
+[type='number'] {
+	&::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+		height: auto;
+	}
+}
+
+[type='search'] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+	&::-webkit-search-decoration, &::-webkit-search-results-button, &::-webkit-search-results-decoration {
+		display: none;
+	}
+	&::-webkit-search-cancel-button, &::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+	&::-webkit-search-cancel-button {
+		cursor: pointer;
+	}
+}
+
+[disabled] {
+	&, &:hover {
+		opacity: 0.5;
+		cursor: not-allowed;
+		background: inherit;
+	}
+}
+
+label {
+	margin: 0 0 5px 0;
+}
+
+progress {
+	vertical-align: baseline;
+}
+
+/* Buttons
+============================================== */
+
+#{$button-fields}, .button-link {
+	-webkit-appearance: button;
+	cursor: pointer;
+	&::-moz-focus-inner {
+		border: 0;
+	}
+	.button-icon {
+		&, & ~ .button-label {
+			vertical-align: middle;
+		}
+		& ~ .button-label {
+			display: inline-block;
+			margin: 0 0 0 5px;
+		}
+	}
+}
+
+#{$button-fields} {
+	padding: 0 10px;
+	background: $color-00;
+	max-width: 100%;
+	height: $form-field-height;
+	line-height: $form-field-height;
+	color: $color-01;
+	text-align: center;
+	transition: color 0.3s ease-in-out;
+	@include ellipsis;
+	&:hover {
+		background: $dark-01;
+	}
+	&:-moz-focusring {
+		outline: 1px dotted ButtonText;
+	}
+}
+
+.button-link {
+	padding: 0;
+	height: auto;
+	line-height: 1.5;
+	color: $color-00;
+	text-align: left;
+	&, &:hover {
+		background: none;
+	}
+	&:hover {
+		color: $color-02;
+	}
+	&:focus {
+		outline: 0;
+	}
+}
