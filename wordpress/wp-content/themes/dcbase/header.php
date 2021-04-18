@@ -1,14 +1,13 @@
 <?php
 	/**
-	* Template for displaying the header
+	* Template for displaying header
 	*/
 
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
-	// Add config object and other variables to header
+	// Add config object
 	$config = dcbase_config();
-	$id = get_queried_object_id();
 
 	// Meta variables for header
 	$meta_description = get_the_excerpt() ? get_the_excerpt() : 'Read the \'' . get_the_title() . '\' page on ' . $config->name . '.';
@@ -21,10 +20,10 @@
 		<meta name="description" content="<?php echo esc_attr( $meta_description ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta property="og:local" content="<?php echo esc_attr( $meta_locale ); ?>">
-		<meta property="og:type" content="<?php echo esc_attr( get_post_type( $id ) ); ?>">
+		<meta property="og:type" content="<?php echo esc_attr( get_post_type( $config->id ) ); ?>">
 		<meta property="og:title" content="<?php echo esc_attr( get_the_title() ); ?>">
 		<meta property="og:description" content="<?php echo esc_attr( $meta_description ); ?>">
-		<meta property="og:url" content="<?php echo esc_url( get_page_link( $id ) ); ?>">
+		<meta property="og:url" content="<?php echo esc_url( get_page_link( $config->id ) ); ?>">
 		<meta property="og:site_name" content="<?php echo esc_attr( $config->name ); ?>">
 		<meta property="og:image" content="<?php echo esc_url( $config->images->thumbnail ); ?>">
 		<meta property="og:image:width" content="<?php echo esc_attr( $config->images->thumbnail_width ); ?>">

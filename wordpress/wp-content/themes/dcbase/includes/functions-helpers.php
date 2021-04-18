@@ -9,13 +9,13 @@
 	// Function for setting up variable object
 	function dcbase_config() {
 		// Variables for config object
-		$id = get_queried_object_id() ? get_queried_object_id() : false;
 		$prefix = 'dcbase';
 		$theme = get_template_directory_uri();
 		$theme_assets = $theme . '/assets';
 
 		// Set up default config
 		$config = (object) [
+			'id'        => get_queried_object_id() ? get_queried_object_id() : false,
 			'classes'   => (object) [
 				'multi'  => 'entry-multiple',
 				'single' => 'entry-single'
@@ -68,7 +68,7 @@
 		$config->paths->favicons = $config->paths->images . '/favicons';
 
 		// Update image thumbnail
-		if ( $id && get_the_post_thumbnail_url( $id ) ) {
+		if ( $config->id && get_the_post_thumbnail_url( $config->id ) ) {
 			$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
 			$config->images->thumbnail = $thumbnail[0];
 			$config->images->thumbnail_width = $thumbnail[1];

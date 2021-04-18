@@ -1,12 +1,12 @@
 <?php
 	/**
-	* Template for displaying the header
+	* Template for displaying header
 	*/
 
 	// Exit if accessed directly
 	if ( !defined( 'ABSPATH' ) ) { exit; }
 
-	// Add config object to footer
+	// Add config object
 	$config = dcbase_config();
 ?>
 		</main>
