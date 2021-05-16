@@ -8,7 +8,7 @@
 
 	get_header();
 ?>
-<div class="entry-index-content">
+<div class="main-content main-index-content">
 	<?php
 		get_template_part( 'partials/layout', 'open' );
 		get_template_part( 'entry' );

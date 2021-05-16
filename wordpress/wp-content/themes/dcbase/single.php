@@ -8,7 +8,7 @@
 
 	get_header();
 ?>
-<header class="entry-single-header">
+<header class="main-header main-single-header">
 	<div class="wrapper">
 		<div class="flex-row">
 			<?php
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 </header>
-<div class="entry-single-content">
+<div class="main-content main-single-content">
 	<?php
 		get_template_part( 'partials/layout', 'open' );
 		get_template_part( 'entry' );

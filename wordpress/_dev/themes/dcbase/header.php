@@ -38,7 +38,7 @@
 	<body <?php body_class(); ?>>
 		<!--[if lte IE 9]>
 			<p class="browser-upgrade">
-				<?php _e( 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.', $config->lang ); ?>
+				<?php _e( 'You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com" target="_blank">upgrade your browser</a> to improve your experience.', $config->lang ); ?>
 			</p>
 		<![endif]-->
 		<nav class="navigation navigation-mobile">
@@ -70,7 +70,11 @@
 					</div>
 				</div>
 				<div class="search-header">
-					<?php get_search_form(); ?>
+					<?php
+						get_search_form( array(
+							'id' => 'header'
+						) );
+					?>
 				</div>
 				<nav class="navigation navigation-main" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>

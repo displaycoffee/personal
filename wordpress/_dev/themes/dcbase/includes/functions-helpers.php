@@ -16,10 +16,6 @@
 		// Set up default config
 		$config = (object) [
 			'id'        => get_queried_object_id() ? get_queried_object_id() : false,
-			'classes'   => (object) [
-				'multi'  => 'entry-multiple',
-				'single' => 'entry-single'
-			],
 			'home'    => get_home_url( '/' ),
 			'images'  => (object) [
 				'sizes' => array( '180x180', '192x192', '32x32', '16x16' )
@@ -33,7 +29,6 @@
 			],
 			'prefix'  => $prefix,
 			'search'  => (object) [
-				'id'      => 'header-search-form-input',
 				'label'   => 'Search for:',
 				'results' => 'Search results for:',
 				'text'    => 'Search'
